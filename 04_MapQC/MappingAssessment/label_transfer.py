@@ -19,7 +19,7 @@ def weighted_knn_trainer(train_adata, train_adata_emb, label_key, n_neighbors=50
     train_adata_emb: str
         Name of the obsm layer to be used for calculation of neighbors. If set to "X", anndata.X will be
         used
-    label_key: str
+    label_key: str # FIXME: NOT USED
         Name of the column to be used as target variable (e.g. cell_type) in ``train_adata`` and ``query_adata``.
     n_neighbors: int
         Number of nearest neighbors in KNN classifier.
@@ -62,7 +62,7 @@ def weighted_knn_transfer(
     Parameters
     ----------
     query_adata: :class:`~anndata.AnnData`
-        Annotated dataset to be used to queryate KNN classifier. Embedding to be used
+        Annotated dataset to be used to queryate KNN classifier. (Integrated?) Embedding to be used
     query_adata_emb: str
         Name of the obsm layer to be used for label transfer. If set to "X",
         query_adata.X will be used
@@ -162,14 +162,14 @@ if __name__=='__main__':
     ref = full_emb[full_emb.obs.core_or_extension == "core", :].copy()
     cts_ordered = pd.read_csv(
         "../supporting_files/celltype_structure_and_colors/manual_anns_and_leveled_anns_ordered.csv", index_col=0
-    )    
+    ) # WIT?
     query = full_emb[full_emb.obs.dataset == query_dataset, :].copy()
     
     # run k-neighbors transformer
     k_neighbors_transformer = weighted_knn_trainer(
         train_adata=ref,
         train_adata_emb="X",
-        label_key="ann_level",
+        label_key="ann_level", # this argument is not used in this function
         n_neighbors=50,
     )
     
@@ -180,7 +180,7 @@ if __name__=='__main__':
         query_adata_emb="X",
         label_keys="Level",
         knn_model=k_neighbors_transformer,
-        ref_adata_obs = ref.obs.join(cts_ordered, on='manual_ann')
+        ref_adata_obs = ref.obs.join(cts_ordered, on='manual_ann') # WIT?
     )
     labels.to_csv(outpath+'/'+query_dataset+'_labels.csv')
     uncert.to_csv(outpath+'/'+query_dataset+'_uncert.csv')

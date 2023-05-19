@@ -18,7 +18,20 @@ class MapPlot:
         sc.set_figure_params(figsize=(9, 9))
 
 
-    def plot_baseline_comparison(self,adata, color_query, title_stub, sample_filter=None, violin=False, disease=False,save = False,transform=None):
+    def plot_baseline_comparison(
+            self,
+            adata, 
+            color_query, 
+            title_stub, 
+            sample_filter=None, 
+            violin=False, 
+            disease=False,
+            save = False,
+            transform=None
+        ):
+        '''
+        # FIXME: Missing docstrings
+        '''
         #adata = adata.copy()
         group = adata.obs.groupby(["cell_label", "sample"]).agg(
             {"score": "mean", "query_or_reference": "first", "disease_or_healthy": "first","dataset":"count"}
@@ -66,7 +79,7 @@ class MapPlot:
 
         if sample_filter is None:
             if disease:
-                print("No failed filtering")
+                print("No failed filtering") # FIXME: once is enough. Semantically better is "No filtering needed"
                 sns.stripplot(
                     x="cell_label",
                     y="score",
@@ -92,6 +105,7 @@ class MapPlot:
             data["cell_label"] = data["cell_label"].astype("category")
             categories = data["cell_label"].cat.categories.tolist()
             categories.sort()
+            # FIXME: something is happening twice above here for no apparent reason
             data["cell_label"].cat.reorder_categories(categories, inplace=True)
             if disease:
                 sns.stripplot(
@@ -104,7 +118,12 @@ class MapPlot:
                         "disease accepted",
                         "disease rejected",
                     ],
-                    palette={"healthy accepted":"dodgerblue","healthy rejected": "orangered", "disease accepted":"midnightblue","disease rejected": "maroon"},
+                    palette={
+                        "healthy accepted":"dodgerblue",
+                        "healthy rejected": "orangered", 
+                        "disease accepted":"midnightblue",
+                        "disease rejected": "maroon"
+                    },
                     data=data,
                     size=7,
                 )
@@ -113,7 +132,6 @@ class MapPlot:
                     bbox_to_anchor=(1.05, 1),
                 )
             else:
-
                 sns.stripplot(
                     x="cell_label",
                     y="score",
@@ -127,11 +145,13 @@ class MapPlot:
                         "query accepted",
                         "query rejected",
                     ],
-                    palette={"query accepted":"dodgerblue", "query rejected":"orangered"},
+                    palette={
+                        "query accepted":"dodgerblue", 
+                        "query rejected":"orangered"
+                    },
                     data=data,
                     size=7,
                 )
-
 
         sns.despine(offset=10, trim=True)   
 
@@ -151,6 +171,7 @@ class MapPlot:
                 f"{title_stub} sample mean scores rejection", fontsize=20
             )
 
+        # FIXME: these condition could be merged with the ones immediately above without opening other clause bifurcations
         if save:
             if sample_filter is  None:
                 plt.savefig(f"{self.workspace}/{title_stub} sample mean scores vs baseline sample means",dpi=100,bbox_inches ="tight")
@@ -159,10 +180,27 @@ class MapPlot:
 
         plt.show()
 
-    def plot_baseline_comparison_variance(self,adata, color_query, title_stub, sample_filter=None, violin=False, disease=False,save = False,transform=None):
+    # FIXME: redundant function with `plot_baseline_comparison` - flag "score" aggregation
+    def plot_baseline_comparison_variance(
+            self,
+            adata, 
+            color_query, 
+            title_stub, 
+            sample_filter=None, 
+            violin=False, 
+            disease=False,
+            save = False,
+            # score_aggregation_metric: Literal["mean", "var"], - needs import from `typing`
+            transform=None
+        ):
         #adata = adata.copy()
         group = adata.obs.groupby(["cell_label", "sample"]).agg(
-            {"score": "var", "query_or_reference": "first", "disease_or_healthy": "first","dataset":"count"}
+            {
+                "score": "var", # score_aggregation_metric
+                "query_or_reference": "first", 
+                "disease_or_healthy": "first",
+                "dataset":"count"
+            }
         ).rename(columns={"dataset":"count"})
 
         concat = group.reset_index(drop=False)
@@ -299,9 +337,16 @@ class MapPlot:
 
         plt.show()
     
-    def plot_subject_scores(self,adata, color, title_stub,sort =False,save = False,):
+    def plot_subject_scores(
+            self,
+            adata, 
+            color, 
+            title_stub,
+            sort =False,
+            save = False
+        ):
         #adata = adata.copy()
-        cleaned = adata.obs.dropna(subset=["score"]).copy()
+        cleaned = adata.obs.dropna(subset=["score"]).copy() # FIXME: change to sensible variable name
         cleaned["cell_label"] = cleaned["cell_label"].cat.remove_unused_categories()
         clean_q = cleaned[cleaned.query_or_reference == "query"].copy()
         clean_q["cell_label"] = clean_q["cell_label"].cat.remove_unused_categories()
@@ -314,7 +359,7 @@ class MapPlot:
             
 
         sns.set_theme(style="ticks", palette="pastel")
-        fig = plt.subplots(figsize=(20, 8))
+        fig = plt.subplots(figsize=(20, 8)) # FIXME: not used
 
         sns.boxplot(x="subject_ID", y="score", data=clean_q, color=color)
         sns.despine(offset=10, trim=True) 
@@ -332,8 +377,16 @@ class MapPlot:
 
         plt.show()
 
-
-    def plot_sample_scores(self, adata, color, title_stub,sort = False, save=False):
+    # FIXME: redundant function with `plot_subject_scores` - flag usage of `aggregation_level` and summarize under `plot scores`
+    def plot_sample_scores(
+            self, 
+            adata, 
+            color, 
+            title_stub,
+            #aggregation_level = Literal["sample", "subject_ID"],
+            sort = False, 
+            save=False
+        ):
         #adata = adata.copy()
         cleaned = adata.obs.dropna(subset=["score"]).copy()
         cleaned["cell_label"] = cleaned["cell_label"].cat.remove_unused_categories()
@@ -367,11 +420,13 @@ class MapPlot:
         plt.show()
 
 
+    # FIXME: in general, this function is a sliced verison of `plot_baseline_comparison(_variance)`
+    # Hence, a single function is enough here.
     def plot_baseline_distribution(self, adata,violin=True,save = False):
         #adata = adata.copy()
         group = adata.obs.groupby(["cell_label", "sample"]).agg(
             {"score": "mean", "query_or_reference": "first"}
-        )
+        ) # FIXME: Is the reference or the query considered here? 
         concat = group.reset_index(drop=False)
 
         concat.dropna(inplace=True)
@@ -408,7 +463,14 @@ class MapPlot:
         plt.show()
 
 
-    def umap_query_datasets(self,adata,title_stub, palette = "tab20" ,restrict_to = None,save = False):
+    def umap_query_datasets(
+            self,
+            adata,
+            title_stub, 
+            palette = "tab20", # FIXME: It would be advisable to use "colorblind" here
+            restrict_to = None,
+            save = False
+        ):
         adata = adata.copy()
         datasets_query = adata[adata.obs.query_or_reference == "query"].obs.dataset.cat.categories.tolist()
         adata.obs.loc[
@@ -429,23 +491,35 @@ class MapPlot:
             size=0.5,
             save = save
         )
-    def umap_query_reference(self,adata,title_stub, color_query="green" ,restrict_to = None,save = False):
+
+    # FIXME: redundant function with `umap_query_datasets`
+    def umap_query_reference(
+            self,
+            adata,
+            title_stub, 
+            #palette,
+            color_query="green", # FIXME: can be flagged
+            restrict_to = None,
+            save = False
+        ):
         #adata = adata.copy()
         if restrict_to is not None:
             adata = adata[adata.obs.cell_label.isin(restrict_to)].copy()
 
         if save:
-            save = f" {title_stub} query refernce.png"
+            save = f" {title_stub} query reference.png"
 
         sc.pl.umap( 
             adata,
             color="query_or_reference",
             palette={"reference": "0.7", "query": color_query},
-            title=f"{title_stub} umap query refernce",
+            title=f"{title_stub} umap query reference", # FIXME: can be flagged
             na_in_legend=False,
             size=0.5,
             save = save
         )
+
+    # FIXME: same as above
     def umap_mixing_score_query(self,adata,title_stub, palette = "gist_heat" ,restrict_to = None,save = False):
         adata = adata.copy()
         adata.obs.loc[adata.obs.query_or_reference == "reference", "score"] = np.nan
@@ -467,7 +541,7 @@ class MapPlot:
             save = save
         )
 
-    
+    # FIXME: same as above
     def umap_cell_labels(self,adata,title_stub,palette ="tab20", on_data= False, excluded_data = None, restrict_to=None,save = False):
         adata = adata.copy()
         if excluded_data is not None:
@@ -506,6 +580,7 @@ class MapPlot:
             save = save
         )
 
+    # FIXME: same as above
     def umap_rejection_status(self,adata,title_stub,excluded_data, threshold_cell, threshold_sample, palette ={"rejected":"darkorange","accepted":"turquoise"}, restrict_to=None,save = False):
         #adata = adata.copy()
         if f"rejection_status_{threshold_cell}_{threshold_sample}" not in adata.obs:
@@ -526,6 +601,7 @@ class MapPlot:
             size=0.5,
             save = save
         )
+
 
     def __transform(self,group,transform_path):
         transform = pd.read_csv(transform_path,index_col="cell_label")
