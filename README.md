@@ -34,3 +34,19 @@ Run differential abundance testing with Milo. Calculate differential embedding s
 - Milopy_IPF_Plots_DE: analyse output of Milo, create relevant plots for thesis, perform Differential Expression analysis for disease extension
 - Milopy_Nucleus_Plots_DE: analyse output of Milo, create relevant plots for thesis, perform Differential Expression analysis for nucleus extension
 - Get_plots_for_thesis: create plots of the atlases showing cell type annotations
+
+#### 04_Analysis
+Notebooks to test out preliminary changes to the main code:
+ - 01_Celltype_selection: Notebook to test out the cell type level selection approach with merging PAGA-graph connected cell types to their higher levels 
+ - 02_Table_rejection: Notebook that tests out sample rejection based on cell types present in the sample. First a prelimiary lookup table is calculated that can be saved.
+ - 03_Overintegration_analysis: Some prelimiary analysis of overintegration of healthy samples 
+
+#### 05_MapQC
+- MappingAssessment: Main package for the pipeline
+- Template_dataset_analysis: Template for analyisis for reference + query adata
+
+#### 06_Results
+- MapAnalyzer_Results: very first results of the pipeline on selected datasets. No correction for sample size implemented. Global rejection threshold of samples based on 5th percentile of reference samples translated to a cell type count rejection threshold.
+- MapAnalyzer_Results_2.0: New pipeline but old cell type selection
+- MapAnalyzer_Results_3.0: New pipeline + new cell types -> preliminary results
+- Dataset overview: Overview of query datasets and their rejection rates in healthy samples
