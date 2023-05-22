@@ -1,0 +1,99 @@
+,cell_label,sample,mean,health_status,dataset,excluded,label
+0,AT2,1A1DFBng,-0.11526256521928135,healthy,Eils_2020,False,healthy accepted
+1,DC2,1A1DFBng,-0.286149503156243,healthy,Eils_2020,True,healthy rejected
+2,EC arterial,1A1DFBng,-0.036741102675585724,healthy,Eils_2020,False,healthy accepted
+3,Macrophages,1A1DFBng,-0.3396561511838857,healthy,Eils_2020,True,healthy rejected
+4,Multiciliated,1A1DFBng,-0.41566176085983497,healthy,Eils_2020,True,healthy rejected
+5,Secretory,1A1DFBng,-0.4185515725387532,healthy,Eils_2020,True,healthy rejected
+6,AT2,9JQK55ng,-0.15657578267685884,healthy,Eils_2020,False,healthy accepted
+7,Basal,9JQK55ng,-0.2236432383189878,healthy,Eils_2020,False,healthy accepted
+8,DC2,9JQK55ng,-0.034685444785091835,healthy,Eils_2020,False,healthy accepted
+9,EC arterial,9JQK55ng,-0.1210212528123078,healthy,Eils_2020,False,healthy accepted
+10,EC venous,9JQK55ng,-0.22816013431135207,healthy,Eils_2020,False,healthy accepted
+11,Fibroblast lineage,9JQK55ng,-0.20508847707259203,healthy,Eils_2020,False,healthy accepted
+12,Macrophages,9JQK55ng,-0.2890054309412499,healthy,Eils_2020,True,healthy rejected
+13,Multiciliated,9JQK55ng,-0.3031254903777928,healthy,Eils_2020,True,healthy rejected
+14,Secretory,9JQK55ng,-0.09390597873987272,healthy,Eils_2020,False,healthy accepted
+15,AT2,16E0F2ng,-0.22746658893485344,healthy,Eils_2020,False,healthy accepted
+16,Basal,16E0F2ng,-0.4769363976777021,healthy,Eils_2020,True,healthy rejected
+17,CD8 T cells,16E0F2ng,-0.17362597499257726,healthy,Eils_2020,False,healthy accepted
+18,EC arterial,16E0F2ng,-0.2564172426210169,healthy,Eils_2020,True,healthy rejected
+19,EC venous,16E0F2ng,-0.40564171128281423,healthy,Eils_2020,True,healthy rejected
+20,Fibroblast lineage,16E0F2ng,-0.060564180243854904,healthy,Eils_2020,False,healthy accepted
+21,Macrophages,16E0F2ng,-0.4085164391267916,healthy,Eils_2020,True,healthy rejected
+22,Multiciliated,16E0F2ng,-0.14854978999771284,healthy,Eils_2020,False,healthy accepted
+23,Secretory,16E0F2ng,-0.2882127886099265,healthy,Eils_2020,True,healthy rejected
+24,AT2,101CV0ng,-0.11764507796935586,healthy,Eils_2020,False,healthy accepted
+25,Basal,101CV0ng,-0.5191504590893944,healthy,Eils_2020,True,healthy rejected
+26,CD4 T cells,101CV0ng,-0.21940550361442113,healthy,Eils_2020,False,healthy accepted
+27,CD8 T cells,101CV0ng,-0.09938430006945453,healthy,Eils_2020,False,healthy accepted
+28,DC2,101CV0ng,-0.017395968969222686,healthy,Eils_2020,False,healthy accepted
+29,EC arterial,101CV0ng,-0.0009268111444602489,healthy,Eils_2020,False,healthy accepted
+30,Fibroblast lineage,101CV0ng,-0.305596370028359,healthy,Eils_2020,False,healthy accepted
+31,Macrophages,101CV0ng,-0.30319489726819615,healthy,Eils_2020,True,healthy rejected
+32,Secretory,101CV0ng,-0.21886895354154745,healthy,Eils_2020,False,healthy accepted
+33,AT2,A9LCTZng,-0.0015703783794470683,healthy,Eils_2020,False,healthy accepted
+34,Basal,A9LCTZng,-0.41215209535131436,healthy,Eils_2020,True,healthy rejected
+35,CD4 T cells,A9LCTZng,-0.16118652221539187,healthy,Eils_2020,False,healthy accepted
+36,CD8 T cells,A9LCTZng,-0.18895787967294542,healthy,Eils_2020,False,healthy accepted
+37,DC2,A9LCTZng,-0.2168581127050816,healthy,Eils_2020,False,healthy accepted
+38,EC arterial,A9LCTZng,-0.08238272321336176,healthy,Eils_2020,False,healthy accepted
+39,EC venous,A9LCTZng,-0.2473726336977738,healthy,Eils_2020,False,healthy accepted
+40,Fibroblast lineage,A9LCTZng,-0.24974548779657346,healthy,Eils_2020,False,healthy accepted
+41,Macrophages,A9LCTZng,-0.26990885457624075,healthy,Eils_2020,True,healthy rejected
+42,Multiciliated,A9LCTZng,-0.18440729190420402,healthy,Eils_2020,False,healthy accepted
+43,Secretory,A9LCTZng,-0.0860893886118349,healthy,Eils_2020,False,healthy accepted
+44,AT2,JVV9L8ng,-0.2121271554444238,healthy,Eils_2020,False,healthy accepted
+45,Basal,JVV9L8ng,-0.3613972644419956,healthy,Eils_2020,True,healthy rejected
+46,CD4 T cells,JVV9L8ng,-0.4058536094995796,healthy,Eils_2020,True,healthy rejected
+47,CD8 T cells,JVV9L8ng,-0.3508096551293069,healthy,Eils_2020,True,healthy rejected
+48,Classical monocytes,JVV9L8ng,-0.3402260216186892,healthy,Eils_2020,True,healthy rejected
+49,DC2,JVV9L8ng,-0.34069874248878,healthy,Eils_2020,True,healthy rejected
+50,EC arterial,JVV9L8ng,-0.17888257677970126,healthy,Eils_2020,False,healthy accepted
+51,EC venous,JVV9L8ng,-0.1618710308464909,healthy,Eils_2020,False,healthy accepted
+52,Fibroblast lineage,JVV9L8ng,-0.3266768943653673,healthy,Eils_2020,False,healthy accepted
+53,Macrophages,JVV9L8ng,-0.39397749662866716,healthy,Eils_2020,True,healthy rejected
+54,NK cells,JVV9L8ng,-0.21279582846992573,healthy,Eils_2020,False,healthy accepted
+55,Non-classical monocytes,JVV9L8ng,-0.5107141292279918,healthy,Eils_2020,True,healthy rejected
+56,Secretory,JVV9L8ng,-0.5686325697504688,healthy,Eils_2020,True,healthy rejected
+57,AT2,KJYDM1ng,-0.24688205193688575,healthy,Eils_2020,False,healthy accepted
+58,Macrophages,KJYDM1ng,-0.631686248547659,healthy,Eils_2020,True,healthy rejected
+59,AT2,ODGS1Mng,-0.23609743272125885,healthy,Eils_2020,False,healthy accepted
+60,Macrophages,ODGS1Mng,-0.48906304035225123,healthy,Eils_2020,True,healthy rejected
+61,Multiciliated,ODGS1Mng,-0.2989978455428282,healthy,Eils_2020,True,healthy rejected
+62,Secretory,ODGS1Mng,-0.19375952390828183,healthy,Eils_2020,False,healthy accepted
+63,AT2,QZY9VQng,-0.20752526358906292,healthy,Eils_2020,False,healthy accepted
+64,Basal,QZY9VQng,-0.5128716590707704,healthy,Eils_2020,True,healthy rejected
+65,CD4 T cells,QZY9VQng,-0.2919593135133043,healthy,Eils_2020,True,healthy rejected
+66,CD8 T cells,QZY9VQng,-0.34177112554983663,healthy,Eils_2020,False,healthy accepted
+67,Classical monocytes,QZY9VQng,-0.1611494746208324,healthy,Eils_2020,False,healthy accepted
+68,DC2,QZY9VQng,-0.1415103114703946,healthy,Eils_2020,False,healthy accepted
+69,EC arterial,QZY9VQng,-0.5481635275377955,healthy,Eils_2020,True,healthy rejected
+70,EC venous,QZY9VQng,-0.4809358088876205,healthy,Eils_2020,True,healthy rejected
+71,Fibroblast lineage,QZY9VQng,-0.46115316504848314,healthy,Eils_2020,True,healthy rejected
+72,Macrophages,QZY9VQng,-0.3623569305491279,healthy,Eils_2020,True,healthy rejected
+73,Secretory,QZY9VQng,-0.5910183365061976,healthy,Eils_2020,True,healthy rejected
+74,AT2,S4ECX8ng,-0.24825249194583238,healthy,Eils_2020,False,healthy accepted
+75,Basal,S4ECX8ng,-0.5739983164407318,healthy,Eils_2020,True,healthy rejected
+76,CD4 T cells,S4ECX8ng,-0.38188282603390566,healthy,Eils_2020,True,healthy rejected
+77,CD8 T cells,S4ECX8ng,-0.4552579235194342,healthy,Eils_2020,True,healthy rejected
+78,DC2,S4ECX8ng,-0.3265582042179386,healthy,Eils_2020,True,healthy rejected
+79,EC arterial,S4ECX8ng,-0.4223763681546848,healthy,Eils_2020,True,healthy rejected
+80,Fibroblast lineage,S4ECX8ng,-0.4787671418330025,healthy,Eils_2020,True,healthy rejected
+81,Macrophages,S4ECX8ng,-0.4669591245935613,healthy,Eils_2020,True,healthy rejected
+82,Multiciliated,S4ECX8ng,-0.3715088734895927,healthy,Eils_2020,True,healthy rejected
+83,NK cells,S4ECX8ng,-0.2574576962224525,healthy,Eils_2020,False,healthy accepted
+84,Non-classical monocytes,S4ECX8ng,-0.5615381923022511,healthy,Eils_2020,True,healthy rejected
+85,Secretory,S4ECX8ng,-0.3106504782530958,healthy,Eils_2020,True,healthy rejected
+86,AT2,SHMI57ng,-0.22417078371688262,healthy,Eils_2020,False,healthy accepted
+87,CD8 T cells,SHMI57ng,-0.3777623718236578,healthy,Eils_2020,True,healthy rejected
+88,DC2,SHMI57ng,-0.2095640330298879,healthy,Eils_2020,False,healthy accepted
+89,Macrophages,SHMI57ng,-0.46734989813470257,healthy,Eils_2020,True,healthy rejected
+90,Multiciliated,SHMI57ng,-0.49253997666817334,healthy,Eils_2020,True,healthy rejected
+91,Secretory,SHMI57ng,-0.307273375520293,healthy,Eils_2020,True,healthy rejected
+92,AT2,ZM3KACng,-0.1631615890762352,healthy,Eils_2020,False,healthy accepted
+93,EC arterial,ZM3KACng,-0.11321844227622185,healthy,Eils_2020,False,healthy accepted
+94,Fibroblast lineage,ZM3KACng,-0.1798207797693131,healthy,Eils_2020,False,healthy accepted
+95,Macrophages,ZM3KACng,-0.259587061666348,healthy,Eils_2020,True,healthy rejected
+96,Multiciliated,ZM3KACng,-0.2739653939601866,healthy,Eils_2020,True,healthy rejected
+97,Secretory,ZM3KACng,0.026072584511706243,healthy,Eils_2020,False,healthy accepted

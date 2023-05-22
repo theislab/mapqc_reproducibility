@@ -1,0 +1,206 @@
+2023-03-02 15:44:14.614493	Standarizing columns...
+2023-03-02 15:44:17.965926	Finished
+2023-03-02 15:44:23.811699	Checking columns...
+2023-03-02 15:44:24.056462	Analyzing Hematopoietic stem cells
+2023-03-02 15:44:24.093717	skipping Hematopoietic stem cells with 1 subjects
+2023-03-02 15:44:24.093774	Analyzing Mesothelium
+2023-03-02 15:44:24.132208	skipping Mesothelium with 5 subjects
+2023-03-02 15:44:24.134461	Analyzing AT1
+2023-03-02 15:44:24.222092	skipping AT1 with 35 subjects
+2023-03-02 15:44:24.222175	Analyzing AT2
+2023-03-02 15:44:24.644678			Analysing NML1_All
+2023-03-02 15:44:31.010703			Analysing NML1_Lin
+2023-03-02 15:44:37.110581			Analysing NML2_All
+2023-03-02 15:44:43.333067			Analysing NML2_Lin
+2023-03-02 15:44:49.544962			Analysing NML3_All
+2023-03-02 15:44:55.770559			Analysing NML3_Lin
+2023-03-02 15:45:01.957132			skipping SCD1_All with 6 cells
+2023-03-02 15:45:01.971187			skipping SCD1_Lin with 2 cells
+2023-03-02 15:45:01.984838			Analysing SCD2_All
+2023-03-02 15:45:08.158430			Analysing SCD2_Lin
+2023-03-02 15:45:14.274236	Analyzing EC arterial
+2023-03-02 15:45:14.382793			Analysing NML1_All
+2023-03-02 15:45:15.777284			skipping NML1_Lin with 0 cells
+2023-03-02 15:45:15.794515			Analysing NML2_All
+2023-03-02 15:45:17.103995			skipping NML2_Lin with 0 cells
+2023-03-02 15:45:17.118288			Analysing NML3_All
+2023-03-02 15:45:18.474513			skipping NML3_Lin with 0 cells
+2023-03-02 15:45:18.488644			skipping SCD1_All with 9 cells
+2023-03-02 15:45:18.501300			skipping SCD1_Lin with 0 cells
+2023-03-02 15:45:18.514700			skipping SCD2_All with 13 cells
+2023-03-02 15:45:18.528304			skipping SCD2_Lin with 2 cells
+2023-03-02 15:45:18.528364	Analyzing Lymphatic EC differentiating
+2023-03-02 15:45:18.569859	skipping Lymphatic EC differentiating with 3 subjects
+2023-03-02 15:45:18.569944	Analyzing Lymphatic EC mature
+2023-03-02 15:45:18.629234	skipping Lymphatic EC mature with 32 subjects
+2023-03-02 15:45:18.629320	Analyzing Lymphatic EC proliferating
+2023-03-02 15:45:18.663591	skipping Lymphatic EC proliferating with 0 subjects
+2023-03-02 15:45:18.663647	Analyzing Mast cells
+2023-03-02 15:45:18.757573			Analysing NML1_All
+2023-03-02 15:45:19.876621			Analysing NML1_Lin
+2023-03-02 15:45:21.005668			Analysing NML2_All
+2023-03-02 15:45:22.184314			skipping NML2_Lin with 0 cells
+2023-03-02 15:45:22.198064			skipping NML3_All with 7 cells
+2023-03-02 15:45:22.210485			skipping NML3_Lin with 0 cells
+2023-03-02 15:45:22.223968			Analysing SCD1_All
+2023-03-02 15:45:23.371409			skipping SCD1_Lin with 1 cells
+2023-03-02 15:45:23.385167			skipping SCD2_All with 7 cells
+2023-03-02 15:45:23.398386			skipping SCD2_Lin with 5 cells
+2023-03-02 15:45:23.398429	Analyzing AT2 proliferating
+2023-03-02 15:45:23.442484	skipping AT2 proliferating with 14 subjects
+2023-03-02 15:45:23.442536	Analyzing B cells
+2023-03-02 15:45:23.506497	skipping B cells with 36 subjects
+2023-03-02 15:45:23.506576	Analyzing CD4 T cells
+2023-03-02 15:45:23.678967			skipping NML1_All with 3 cells
+2023-03-02 15:45:23.691778			skipping NML1_Lin with 0 cells
+2023-03-02 15:45:23.705452			Analysing NML2_All
+2023-03-02 15:45:25.884368			skipping NML2_Lin with 0 cells
+2023-03-02 15:45:25.898890			Analysing NML3_All
+2023-03-02 15:45:28.041016			skipping NML3_Lin with 1 cells
+2023-03-02 15:45:28.056068			Analysing SCD1_All
+2023-03-02 15:45:30.199367			Analysing SCD1_Lin
+2023-03-02 15:45:32.336909			Analysing SCD2_All
+2023-03-02 15:45:34.493567			skipping SCD2_Lin with 2 cells
+2023-03-02 15:45:34.493956	Analyzing CD8 T cells
+2023-03-02 15:45:34.716789			skipping NML1_All with 1 cells
+2023-03-02 15:45:34.729731			skipping NML1_Lin with 0 cells
+2023-03-02 15:45:34.743576			Analysing NML2_All
+2023-03-02 15:45:37.770774			skipping NML2_Lin with 1 cells
+2023-03-02 15:45:37.785639			Analysing NML3_All
+2023-03-02 15:45:40.801950			skipping NML3_Lin with 0 cells
+2023-03-02 15:45:40.816399			skipping SCD1_All with 7 cells
+2023-03-02 15:45:40.829983			skipping SCD1_Lin with 2 cells
+2023-03-02 15:45:40.843862			Analysing SCD2_All
+2023-03-02 15:45:43.848582			skipping SCD2_Lin with 3 cells
+2023-03-02 15:45:43.848931	Analyzing Classical monocytes
+2023-03-02 15:45:44.006642			Analysing NML1_All
+2023-03-02 15:45:45.828041			skipping NML1_Lin with 1 cells
+2023-03-02 15:45:45.845097			Analysing NML2_All
+2023-03-02 15:45:47.700377			skipping NML2_Lin with 1 cells
+2023-03-02 15:45:47.716101			Analysing NML3_All
+2023-03-02 15:45:49.577152			skipping NML3_Lin with 6 cells
+2023-03-02 15:45:49.592122			Analysing SCD1_All
+2023-03-02 15:45:51.397280			skipping SCD1_Lin with 0 cells
+2023-03-02 15:45:51.414556			Analysing SCD2_All
+2023-03-02 15:45:53.249844			skipping SCD2_Lin with 1 cells
+2023-03-02 15:45:53.250227	Analyzing DC1
+2023-03-02 15:45:53.288878	skipping DC1 with 5 subjects
+2023-03-02 15:45:53.288957	Analyzing Deuterosomal
+2023-03-02 15:45:53.333155	skipping Deuterosomal with 23 subjects
+2023-03-02 15:45:53.333231	Analyzing EC aerocyte capillary
+2023-03-02 15:45:53.414201	skipping EC aerocyte capillary with 25 subjects
+2023-03-02 15:45:53.414304	Analyzing EC general capillary
+2023-03-02 15:45:53.547306	skipping EC general capillary with 35 subjects
+2023-03-02 15:45:53.547679	Analyzing Migratory DCs
+2023-03-02 15:45:53.587437	skipping Migratory DCs with 6 subjects
+2023-03-02 15:45:53.587521	Analyzing NK cells
+2023-03-02 15:45:53.739157			skipping NML1_All with 4 cells
+2023-03-02 15:45:53.752902			skipping NML1_Lin with 0 cells
+2023-03-02 15:45:53.768121			Analysing NML2_All
+2023-03-02 15:45:55.534520			skipping NML2_Lin with 1 cells
+2023-03-02 15:45:55.549645			Analysing NML3_All
+2023-03-02 15:45:57.342938			skipping NML3_Lin with 0 cells
+2023-03-02 15:45:57.356835			skipping SCD1_All with 1 cells
+2023-03-02 15:45:57.370563			skipping SCD1_Lin with 3 cells
+2023-03-02 15:45:57.384259			skipping SCD2_All with 8 cells
+2023-03-02 15:45:57.397677			skipping SCD2_Lin with 1 cells
+2023-03-02 15:45:57.397720	Analyzing Non-classical monocytes
+2023-03-02 15:45:57.504690			Analysing NML1_All
+2023-03-02 15:45:58.415995			skipping NML1_Lin with 0 cells
+2023-03-02 15:45:58.430575			Analysing NML2_All
+2023-03-02 15:45:59.356296			skipping NML2_Lin with 0 cells
+2023-03-02 15:45:59.370920			Analysing NML3_All
+2023-03-02 15:46:00.280716			skipping NML3_Lin with 2 cells
+2023-03-02 15:46:00.296196			skipping SCD1_All with 2 cells
+2023-03-02 15:46:00.308952			skipping SCD1_Lin with 0 cells
+2023-03-02 15:46:00.322740			Analysing SCD2_All
+2023-03-02 15:46:01.230362			skipping SCD2_Lin with 0 cells
+2023-03-02 15:46:01.230743	Analyzing Plasma cells
+2023-03-02 15:46:01.285889	skipping Plasma cells with 24 subjects
+2023-03-02 15:46:01.285973	Analyzing Plasmacytoid DCs
+2023-03-02 15:46:01.324992	skipping Plasmacytoid DCs with 6 subjects
+2023-03-02 15:46:01.325067	Analyzing T cells proliferating
+2023-03-02 15:46:01.363401	skipping T cells proliferating with 4 subjects
+2023-03-02 15:46:01.363468	Analyzing Basal
+2023-03-02 15:46:01.943375			skipping NML1_All with 6 cells
+2023-03-02 15:46:01.957158			skipping NML1_Lin with 1 cells
+2023-03-02 15:46:01.970842			skipping NML2_All with 2 cells
+2023-03-02 15:46:01.984246			skipping NML2_Lin with 5 cells
+2023-03-02 15:46:01.997627			skipping NML3_All with 7 cells
+2023-03-02 15:46:02.011157			Analysing NML3_Lin
+2023-03-02 15:46:10.630601			skipping SCD1_All with 12 cells
+2023-03-02 15:46:10.645070			skipping SCD1_Lin with 1 cells
+2023-03-02 15:46:10.658585			skipping SCD2_All with 8 cells
+2023-03-02 15:46:10.671936			skipping SCD2_Lin with 6 cells
+2023-03-02 15:46:10.671981	Analyzing DC2
+2023-03-02 15:46:10.781367			Analysing NML1_All
+2023-03-02 15:46:11.724950			skipping NML1_Lin with 0 cells
+2023-03-02 15:46:11.741719			Analysing NML2_All
+2023-03-02 15:46:12.690435			skipping NML2_Lin with 0 cells
+2023-03-02 15:46:12.704852			Analysing NML3_All
+2023-03-02 15:46:13.637016			skipping NML3_Lin with 0 cells
+2023-03-02 15:46:13.651093			Analysing SCD1_All
+2023-03-02 15:46:14.597631			skipping SCD1_Lin with 3 cells
+2023-03-02 15:46:14.614614			Analysing SCD2_All
+2023-03-02 15:46:15.594848			skipping SCD2_Lin with 0 cells
+2023-03-02 15:46:15.595076	Analyzing EC venous
+2023-03-02 15:46:15.727995			Analysing NML1_All
+2023-03-02 15:46:17.053272			skipping NML1_Lin with 1 cells
+2023-03-02 15:46:17.067176			Analysing NML2_All
+2023-03-02 15:46:18.378925			skipping NML2_Lin with 0 cells
+2023-03-02 15:46:18.393311			Analysing NML3_All
+2023-03-02 15:46:19.724366			skipping NML3_Lin with 0 cells
+2023-03-02 15:46:19.738782			Analysing SCD1_All
+2023-03-02 15:46:21.120825			skipping SCD1_Lin with 9 cells
+2023-03-02 15:46:21.135187			Analysing SCD2_All
+2023-03-02 15:46:22.503890			skipping SCD2_Lin with 1 cells
+2023-03-02 15:46:22.503959	Analyzing Fibroblast lineage
+2023-03-02 15:46:22.756649			Analysing NML1_All
+2023-03-02 15:46:24.897463			Analysing NML1_Lin
+2023-03-02 15:46:27.764346			Analysing NML2_All
+2023-03-02 15:46:29.890601			Analysing NML2_Lin
+2023-03-02 15:46:32.315859			Analysing NML3_All
+2023-03-02 15:46:34.404049			Analysing NML3_Lin
+2023-03-02 15:46:36.585138			Analysing SCD1_All
+2023-03-02 15:46:38.683541			Analysing SCD1_Lin
+2023-03-02 15:46:41.222996			Analysing SCD2_All
+2023-03-02 15:46:43.320624			Analysing SCD2_Lin
+2023-03-02 15:46:45.525860	Analyzing Macrophages
+2023-03-02 15:46:46.264659			Analysing NML1_All
+2023-03-02 15:46:57.835216			Analysing NML1_Lin
+2023-03-02 15:47:09.155459			Analysing NML2_All
+2023-03-02 15:47:20.418996			skipping NML2_Lin with 9 cells
+2023-03-02 15:47:20.435591			Analysing NML3_All
+2023-03-02 15:47:31.933770			Analysing NML3_Lin
+2023-03-02 15:47:43.264951			Analysing SCD1_All
+2023-03-02 15:47:54.676624			skipping SCD1_Lin with 11 cells
+2023-03-02 15:47:54.696640			Analysing SCD2_All
+2023-03-02 15:48:06.997269			Analysing SCD2_Lin
+2023-03-02 15:48:18.355737	Analyzing Multiciliated
+2023-03-02 15:48:18.679625			skipping NML1_All with 8 cells
+2023-03-02 15:48:18.695136			skipping NML1_Lin with 0 cells
+2023-03-02 15:48:18.708875			skipping NML2_All with 13 cells
+2023-03-02 15:48:18.723647			skipping NML2_Lin with 1 cells
+2023-03-02 15:48:18.737489			skipping NML3_All with 5 cells
+2023-03-02 15:48:18.750983			skipping NML3_Lin with 1 cells
+2023-03-02 15:48:18.764446			Analysing SCD1_All
+2023-03-02 15:48:22.850303			skipping SCD1_Lin with 1 cells
+2023-03-02 15:48:22.864783			Analysing SCD2_All
+2023-03-02 15:48:26.969401			skipping SCD2_Lin with 4 cells
+2023-03-02 15:48:26.969808	Analyzing Rare
+2023-03-02 15:48:27.014888	skipping Rare with 24 subjects
+2023-03-02 15:48:27.014982	Analyzing Secretory
+2023-03-02 15:48:27.577565			Analysing NML1_All
+2023-03-02 15:48:35.727019			Analysing NML1_Lin
+2023-03-02 15:48:43.828185			Analysing NML2_All
+2023-03-02 15:48:52.120370			Analysing NML2_Lin
+2023-03-02 15:49:00.229474			Analysing NML3_All
+2023-03-02 15:49:08.370794			Analysing NML3_Lin
+2023-03-02 15:49:16.497576			Analysing SCD1_All
+2023-03-02 15:49:24.660884			skipping SCD1_Lin with 6 cells
+2023-03-02 15:49:24.675395			Analysing SCD2_All
+2023-03-02 15:49:32.815563			Analysing SCD2_Lin
+2023-03-02 15:49:40.888815	Analyzing Smooth muscle
+2023-03-02 15:49:40.995452	skipping Smooth muscle with 36 subjects
+2023-03-02 15:49:40.995509	Analyzing Submucosal Secretory
+2023-03-02 15:49:41.062291	skipping Submucosal Secretory with 30 subjects

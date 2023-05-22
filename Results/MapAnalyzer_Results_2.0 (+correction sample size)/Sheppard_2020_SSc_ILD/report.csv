@@ -1,0 +1,75 @@
+,cell_label,sample,mean,health_status,dataset,excluded,label
+0,AT2,NML1_All,-0.07731412193065779,healthy,Sheppard_2020,False,healthy accepted
+1,Classical monocytes,NML1_All,0.010265571564614828,healthy,Sheppard_2020,False,healthy accepted
+2,DC2,NML1_All,-0.21414484121395738,healthy,Sheppard_2020,False,healthy accepted
+3,EC arterial,NML1_All,0.17653067675249456,healthy,Sheppard_2020,False,healthy accepted
+4,EC venous,NML1_All,0.09367209678821076,healthy,Sheppard_2020,False,healthy accepted
+5,Fibroblast lineage,NML1_All,-0.15149859437597313,healthy,Sheppard_2020,False,healthy accepted
+6,Macrophages,NML1_All,0.14516126631024978,healthy,Sheppard_2020,False,healthy accepted
+7,Mast cells,NML1_All,-0.25937962542305204,healthy,Sheppard_2020,True,healthy rejected
+8,Non-classical monocytes,NML1_All,0.1701484891157704,healthy,Sheppard_2020,False,healthy accepted
+9,Secretory,NML1_All,0.10112089506084843,healthy,Sheppard_2020,False,healthy accepted
+10,AT2,NML1_Lin,-0.022967757807306866,healthy,Sheppard_2020,False,healthy accepted
+11,Fibroblast lineage,NML1_Lin,-0.04452687060143427,healthy,Sheppard_2020,False,healthy accepted
+12,Macrophages,NML1_Lin,0.025507607251800124,healthy,Sheppard_2020,False,healthy accepted
+13,Mast cells,NML1_Lin,-0.43164470471159283,healthy,Sheppard_2020,True,healthy rejected
+14,Secretory,NML1_Lin,-0.2853063363797071,healthy,Sheppard_2020,True,healthy rejected
+15,AT2,NML2_All,0.026404976289516602,healthy,Sheppard_2020,False,healthy accepted
+16,CD4 T cells,NML2_All,-0.2766068847238335,healthy,Sheppard_2020,True,healthy rejected
+17,CD8 T cells,NML2_All,-0.3107678042672509,healthy,Sheppard_2020,False,healthy accepted
+18,Classical monocytes,NML2_All,-0.017636224344929063,healthy,Sheppard_2020,False,healthy accepted
+19,DC2,NML2_All,0.00950718198516709,healthy,Sheppard_2020,False,healthy accepted
+20,EC arterial,NML2_All,-0.06677531585752172,healthy,Sheppard_2020,False,healthy accepted
+21,EC venous,NML2_All,0.08255461466404312,healthy,Sheppard_2020,False,healthy accepted
+22,Fibroblast lineage,NML2_All,-0.09538127189951212,healthy,Sheppard_2020,False,healthy accepted
+23,Macrophages,NML2_All,0.06968527946297398,healthy,Sheppard_2020,False,healthy accepted
+24,Mast cells,NML2_All,-0.18796015559308654,healthy,Sheppard_2020,False,healthy accepted
+25,NK cells,NML2_All,-0.30287689168250753,healthy,Sheppard_2020,False,healthy accepted
+26,Non-classical monocytes,NML2_All,0.048097949363959114,healthy,Sheppard_2020,False,healthy accepted
+27,Secretory,NML2_All,0.10221078951832185,healthy,Sheppard_2020,False,healthy accepted
+28,AT2,NML2_Lin,0.0671412545607607,healthy,Sheppard_2020,False,healthy accepted
+29,Fibroblast lineage,NML2_Lin,-0.09750308190659411,healthy,Sheppard_2020,False,healthy accepted
+30,Secretory,NML2_Lin,0.014377168274918084,healthy,Sheppard_2020,False,healthy accepted
+31,AT2,NML3_All,0.18230821586605794,healthy,Sheppard_2020,False,healthy accepted
+32,CD4 T cells,NML3_All,-0.2572986133838921,healthy,Sheppard_2020,False,healthy accepted
+33,CD8 T cells,NML3_All,-0.14879794110827355,healthy,Sheppard_2020,False,healthy accepted
+34,Classical monocytes,NML3_All,0.06202864879757797,healthy,Sheppard_2020,False,healthy accepted
+35,DC2,NML3_All,0.05617418522888651,healthy,Sheppard_2020,False,healthy accepted
+36,EC arterial,NML3_All,0.2104183079769657,healthy,Sheppard_2020,False,healthy accepted
+37,EC venous,NML3_All,0.09366034031507264,healthy,Sheppard_2020,False,healthy accepted
+38,Fibroblast lineage,NML3_All,0.19875018963177382,healthy,Sheppard_2020,False,healthy accepted
+39,Macrophages,NML3_All,0.1906606554915763,healthy,Sheppard_2020,False,healthy accepted
+40,NK cells,NML3_All,-0.20397191288125532,healthy,Sheppard_2020,False,healthy accepted
+41,Non-classical monocytes,NML3_All,0.13879493829257616,healthy,Sheppard_2020,False,healthy accepted
+42,Secretory,NML3_All,0.175865571118205,healthy,Sheppard_2020,False,healthy accepted
+43,AT2,NML3_Lin,0.24570067863380285,healthy,Sheppard_2020,False,healthy accepted
+44,Basal,NML3_Lin,0.060483840108758735,healthy,Sheppard_2020,False,healthy accepted
+45,Fibroblast lineage,NML3_Lin,0.0006784429611715881,healthy,Sheppard_2020,False,healthy accepted
+46,Macrophages,NML3_Lin,0.1250503289690188,healthy,Sheppard_2020,False,healthy accepted
+47,Secretory,NML3_Lin,0.13489945334432796,healthy,Sheppard_2020,False,healthy accepted
+48,CD4 T cells,SCD1_All,-0.3522560235661781,disease,Sheppard_2020,True,disease rejected
+49,Classical monocytes,SCD1_All,-0.29336541051955983,disease,Sheppard_2020,True,disease rejected
+50,DC2,SCD1_All,-0.3750095828005955,disease,Sheppard_2020,True,disease rejected
+51,EC venous,SCD1_All,-0.36989705960927904,disease,Sheppard_2020,True,disease rejected
+52,Fibroblast lineage,SCD1_All,-0.35408670189231833,disease,Sheppard_2020,True,disease rejected
+53,Macrophages,SCD1_All,-0.444292036761295,disease,Sheppard_2020,True,disease rejected
+54,Mast cells,SCD1_All,-0.1311695700321761,disease,Sheppard_2020,False,disease accepted
+55,Multiciliated,SCD1_All,-0.3955084448789289,disease,Sheppard_2020,True,disease rejected
+56,Secretory,SCD1_All,-0.18091835388248045,disease,Sheppard_2020,False,disease accepted
+57,CD4 T cells,SCD1_Lin,-0.06816212145781275,disease,Sheppard_2020,False,disease accepted
+58,Fibroblast lineage,SCD1_Lin,-0.07899775739544519,disease,Sheppard_2020,False,disease accepted
+59,AT2,SCD2_All,-0.3870879071615862,disease,Sheppard_2020,True,disease rejected
+60,CD4 T cells,SCD2_All,0.010856410764453428,disease,Sheppard_2020,False,disease accepted
+61,CD8 T cells,SCD2_All,-0.050918271585298935,disease,Sheppard_2020,False,disease accepted
+62,Classical monocytes,SCD2_All,0.06758295919266655,disease,Sheppard_2020,False,disease accepted
+63,DC2,SCD2_All,-0.16918946509233296,disease,Sheppard_2020,False,disease accepted
+64,EC venous,SCD2_All,-0.24178618576722227,disease,Sheppard_2020,False,disease accepted
+65,Fibroblast lineage,SCD2_All,-0.2000735612755863,disease,Sheppard_2020,False,disease accepted
+66,Macrophages,SCD2_All,-0.13174290230423108,disease,Sheppard_2020,False,disease accepted
+67,Multiciliated,SCD2_All,-0.29043425615213914,disease,Sheppard_2020,True,disease rejected
+68,Non-classical monocytes,SCD2_All,-0.06826626622647569,disease,Sheppard_2020,False,disease accepted
+69,Secretory,SCD2_All,-0.3150789426013444,disease,Sheppard_2020,True,disease rejected
+70,AT2,SCD2_Lin,-0.4371208452463411,disease,Sheppard_2020,True,disease rejected
+71,Fibroblast lineage,SCD2_Lin,-0.14672407256386688,disease,Sheppard_2020,False,disease accepted
+72,Macrophages,SCD2_Lin,-0.2562392200954502,disease,Sheppard_2020,True,disease rejected
+73,Secretory,SCD2_Lin,-0.22962415853296392,disease,Sheppard_2020,False,disease accepted

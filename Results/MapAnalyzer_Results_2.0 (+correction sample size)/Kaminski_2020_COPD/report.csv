@@ -1,0 +1,553 @@
+,cell_label,sample,mean,health_status,dataset,excluded,label
+0,AT2,001C,-0.36263201416574165,healthy,Kaminski_2020,True,healthy rejected
+1,Basal,001C,-0.055185342846554075,healthy,Kaminski_2020,False,healthy accepted
+2,CD4 T cells,001C,-0.12087156559967727,healthy,Kaminski_2020,False,healthy accepted
+3,CD8 T cells,001C,-0.34815341870211863,healthy,Kaminski_2020,True,healthy rejected
+4,Classical monocytes,001C,-0.12364471085424819,healthy,Kaminski_2020,False,healthy accepted
+5,DC2,001C,0.012991837218464086,healthy,Kaminski_2020,False,healthy accepted
+6,Fibroblast lineage,001C,0.05088333216467156,healthy,Kaminski_2020,False,healthy accepted
+7,Macrophages,001C,0.0017076757756134264,healthy,Kaminski_2020,False,healthy accepted
+8,NK cells,001C,-0.4307904407844132,healthy,Kaminski_2020,True,healthy rejected
+9,Non-classical monocytes,001C,-0.05829222563595832,healthy,Kaminski_2020,False,healthy accepted
+10,CD4 T cells,002C,-0.10261107917418189,healthy,Kaminski_2020,False,healthy accepted
+11,Classical monocytes,002C,-0.07750931752676238,healthy,Kaminski_2020,False,healthy accepted
+12,DC2,002C,-0.14742783022861095,healthy,Kaminski_2020,False,healthy accepted
+13,Macrophages,002C,-0.09816449350226686,healthy,Kaminski_2020,False,healthy accepted
+14,Multiciliated,002C,-0.05668814647745202,healthy,Kaminski_2020,False,healthy accepted
+15,Non-classical monocytes,002C,-0.06347054931105578,healthy,Kaminski_2020,False,healthy accepted
+16,AT2,003C,0.0787861060347177,healthy,Kaminski_2020,False,healthy accepted
+17,CD4 T cells,003C,-0.2315973480661629,healthy,Kaminski_2020,False,healthy accepted
+18,CD8 T cells,003C,-0.3662263654321485,healthy,Kaminski_2020,True,healthy rejected
+19,Classical monocytes,003C,-0.18296600425714696,healthy,Kaminski_2020,False,healthy accepted
+20,DC2,003C,-0.12373341073294347,healthy,Kaminski_2020,False,healthy accepted
+21,Fibroblast lineage,003C,0.09509799807604169,healthy,Kaminski_2020,False,healthy accepted
+22,Macrophages,003C,-0.09422157991958058,healthy,Kaminski_2020,False,healthy accepted
+23,Multiciliated,003C,-0.09329661699641423,healthy,Kaminski_2020,False,healthy accepted
+24,NK cells,003C,-0.45292492938825846,healthy,Kaminski_2020,True,healthy rejected
+25,Non-classical monocytes,003C,-0.07965909455041509,healthy,Kaminski_2020,False,healthy accepted
+26,Secretory,003C,0.05331477179579314,healthy,Kaminski_2020,False,healthy accepted
+27,AT2,8CO,-0.15236483000823176,disease,Kaminski_2020,False,disease accepted
+28,CD4 T cells,8CO,-0.5385237556910458,disease,Kaminski_2020,True,disease rejected
+29,CD8 T cells,8CO,-0.2758409656097779,disease,Kaminski_2020,False,disease accepted
+30,Classical monocytes,8CO,-0.3631646901885933,disease,Kaminski_2020,True,disease rejected
+31,Fibroblast lineage,8CO,0.14603115863138838,disease,Kaminski_2020,False,disease accepted
+32,Macrophages,8CO,-0.08867543691521251,disease,Kaminski_2020,False,disease accepted
+33,AT2,022C-a,-0.06041951965687309,healthy,Kaminski_2020,False,healthy accepted
+34,CD4 T cells,022C-a,-0.41675470775711454,healthy,Kaminski_2020,True,healthy rejected
+35,CD8 T cells,022C-a,-0.41218696987985404,healthy,Kaminski_2020,True,healthy rejected
+36,Classical monocytes,022C-a,-0.05445328180060838,healthy,Kaminski_2020,False,healthy accepted
+37,DC2,022C-a,-0.22125638651666701,healthy,Kaminski_2020,False,healthy accepted
+38,Fibroblast lineage,022C-a,0.18208906986662488,healthy,Kaminski_2020,False,healthy accepted
+39,Macrophages,022C-a,-0.08227660086974356,healthy,Kaminski_2020,False,healthy accepted
+40,Mast cells,022C-a,-0.05491938012989961,healthy,Kaminski_2020,False,healthy accepted
+41,Multiciliated,022C-a,-0.13456542161035545,healthy,Kaminski_2020,False,healthy accepted
+42,NK cells,022C-a,-0.5531946602276483,healthy,Kaminski_2020,True,healthy rejected
+43,Non-classical monocytes,022C-a,0.07217401977388882,healthy,Kaminski_2020,False,healthy accepted
+44,Secretory,022C-a,0.13094615220479544,healthy,Kaminski_2020,False,healthy accepted
+45,AT2,022C-b,0.040193263012544,healthy,Kaminski_2020,False,healthy accepted
+46,CD4 T cells,022C-b,-0.4221394490644199,healthy,Kaminski_2020,True,healthy rejected
+47,CD8 T cells,022C-b,-0.4435577343105175,healthy,Kaminski_2020,True,healthy rejected
+48,Classical monocytes,022C-b,-0.057922329086435076,healthy,Kaminski_2020,False,healthy accepted
+49,DC2,022C-b,-0.13406073859235312,healthy,Kaminski_2020,False,healthy accepted
+50,Fibroblast lineage,022C-b,0.08607429824425195,healthy,Kaminski_2020,False,healthy accepted
+51,Macrophages,022C-b,-0.08576474977284934,healthy,Kaminski_2020,False,healthy accepted
+52,Multiciliated,022C-b,0.01479637914520937,healthy,Kaminski_2020,False,healthy accepted
+53,NK cells,022C-b,-0.5587972561249193,healthy,Kaminski_2020,True,healthy rejected
+54,Non-classical monocytes,022C-b,0.006525261803219884,healthy,Kaminski_2020,False,healthy accepted
+55,CD4 T cells,23CO,-0.515475399249245,disease,Kaminski_2020,True,disease rejected
+56,CD8 T cells,23CO,-0.44603322167983245,disease,Kaminski_2020,True,disease rejected
+57,Classical monocytes,23CO,-0.33249280479069904,disease,Kaminski_2020,True,disease rejected
+58,DC2,23CO,-0.3963409436404032,disease,Kaminski_2020,True,disease rejected
+59,Fibroblast lineage,23CO,0.1619902628790013,disease,Kaminski_2020,False,disease accepted
+60,Macrophages,23CO,-0.16238459194058064,disease,Kaminski_2020,False,disease accepted
+61,NK cells,23CO,-0.5946651563303296,disease,Kaminski_2020,True,disease rejected
+62,Non-classical monocytes,23CO,-0.4342215332568771,disease,Kaminski_2020,True,disease rejected
+63,CD4 T cells,034C,-0.043078745944972296,healthy,Kaminski_2020,False,healthy accepted
+64,Classical monocytes,034C,-0.34432397315331015,healthy,Kaminski_2020,True,healthy rejected
+65,Macrophages,034C,-0.17190137814717799,healthy,Kaminski_2020,False,healthy accepted
+66,Non-classical monocytes,034C,-0.5162530554316116,healthy,Kaminski_2020,True,healthy rejected
+67,AT2,052CO-a,0.09646172812706011,disease,Kaminski_2020,False,disease accepted
+68,CD4 T cells,052CO-a,-0.4394292686879893,disease,Kaminski_2020,True,disease rejected
+69,CD8 T cells,052CO-a,-0.43605534706260507,disease,Kaminski_2020,True,disease rejected
+70,Classical monocytes,052CO-a,-0.2632575023092739,disease,Kaminski_2020,True,disease rejected
+71,DC2,052CO-a,-0.28132172388950033,disease,Kaminski_2020,True,disease rejected
+72,Fibroblast lineage,052CO-a,0.1332832257799772,disease,Kaminski_2020,False,disease accepted
+73,Macrophages,052CO-a,-0.15058307041594288,disease,Kaminski_2020,False,disease accepted
+74,Mast cells,052CO-a,-0.35102564132934877,disease,Kaminski_2020,True,disease rejected
+75,NK cells,052CO-a,-0.54112759596066,disease,Kaminski_2020,True,disease rejected
+76,Non-classical monocytes,052CO-a,-0.19826208865872794,disease,Kaminski_2020,True,disease rejected
+77,AT2,056CO,-0.22585616129525882,disease,Kaminski_2020,False,disease accepted
+78,CD4 T cells,056CO,-0.48006059914219285,disease,Kaminski_2020,True,disease rejected
+79,CD8 T cells,056CO,-0.5309072699564797,disease,Kaminski_2020,True,disease rejected
+80,Classical monocytes,056CO,-0.23844974160801552,disease,Kaminski_2020,True,disease rejected
+81,DC2,056CO,-0.3364816370339433,disease,Kaminski_2020,True,disease rejected
+82,Fibroblast lineage,056CO,0.10993286930344603,disease,Kaminski_2020,False,disease accepted
+83,Macrophages,056CO,-0.20401453753144172,disease,Kaminski_2020,False,disease accepted
+84,Mast cells,056CO,-0.2924347914597571,disease,Kaminski_2020,True,disease rejected
+85,Multiciliated,056CO,-0.4925645817806355,disease,Kaminski_2020,True,disease rejected
+86,NK cells,056CO,-0.5891897246393182,disease,Kaminski_2020,True,disease rejected
+87,Non-classical monocytes,056CO,-0.12289731147922844,disease,Kaminski_2020,False,disease accepted
+88,CD4 T cells,065C,-0.43871629645505417,healthy,Kaminski_2020,True,healthy rejected
+89,CD8 T cells,065C,-0.42919537879938224,healthy,Kaminski_2020,True,healthy rejected
+90,Classical monocytes,065C,-0.20894061924454585,healthy,Kaminski_2020,False,healthy accepted
+91,DC2,065C,-0.39100078164738244,healthy,Kaminski_2020,True,healthy rejected
+92,Macrophages,065C,-0.19502567239404192,healthy,Kaminski_2020,False,healthy accepted
+93,Multiciliated,065C,-0.11346291431588806,healthy,Kaminski_2020,False,healthy accepted
+94,Non-classical monocytes,065C,-0.26992896908278396,healthy,Kaminski_2020,True,healthy rejected
+95,Classical monocytes,081C,-0.2935259198452914,healthy,Kaminski_2020,True,healthy rejected
+96,DC2,081C,-0.28372875419441373,healthy,Kaminski_2020,True,healthy rejected
+97,Macrophages,081C,-0.2578750987417674,healthy,Kaminski_2020,True,healthy rejected
+98,Non-classical monocytes,081C,-0.33052918871631093,healthy,Kaminski_2020,True,healthy rejected
+99,CD4 T cells,084C,-0.37339019730058853,healthy,Kaminski_2020,True,healthy rejected
+100,Classical monocytes,084C,-0.01809453206737932,healthy,Kaminski_2020,False,healthy accepted
+101,DC2,084C,-0.2624846429006742,healthy,Kaminski_2020,True,healthy rejected
+102,Macrophages,084C,-0.34348422827944736,healthy,Kaminski_2020,True,healthy rejected
+103,Non-classical monocytes,084C,-0.2932642265187971,healthy,Kaminski_2020,True,healthy rejected
+104,Classical monocytes,092C,-0.13970403499894257,healthy,Kaminski_2020,False,healthy accepted
+105,DC2,092C,-0.46052077885370074,healthy,Kaminski_2020,True,healthy rejected
+106,Macrophages,092C,-0.12725448839226877,healthy,Kaminski_2020,False,healthy accepted
+107,NK cells,092C,-0.4750253221659302,healthy,Kaminski_2020,True,healthy rejected
+108,Non-classical monocytes,092C,-0.17625376613008392,healthy,Kaminski_2020,False,healthy accepted
+109,Classical monocytes,92C,-0.4675294615064498,healthy,Kaminski_2020,True,healthy rejected
+110,Fibroblast lineage,92C,-0.03907589290335922,healthy,Kaminski_2020,False,healthy accepted
+111,Macrophages,92C,-0.37319002121709527,healthy,Kaminski_2020,True,healthy rejected
+112,NK cells,92C,-0.6250462453800029,healthy,Kaminski_2020,True,healthy rejected
+113,AT2,098C-a,-0.1001039666595549,healthy,Kaminski_2020,False,healthy accepted
+114,Basal,098C-a,-0.01633464837144538,healthy,Kaminski_2020,False,healthy accepted
+115,CD4 T cells,098C-a,-0.45910486986360977,healthy,Kaminski_2020,True,healthy rejected
+116,CD8 T cells,098C-a,-0.4424668170077457,healthy,Kaminski_2020,True,healthy rejected
+117,Classical monocytes,098C-a,-0.09513355002681245,healthy,Kaminski_2020,False,healthy accepted
+118,DC2,098C-a,-0.21398351339026161,healthy,Kaminski_2020,False,healthy accepted
+119,EC arterial,098C-a,0.10445940042856772,healthy,Kaminski_2020,False,healthy accepted
+120,Fibroblast lineage,098C-a,0.02839122218086776,healthy,Kaminski_2020,False,healthy accepted
+121,Macrophages,098C-a,-0.12489424005486319,healthy,Kaminski_2020,False,healthy accepted
+122,Multiciliated,098C-a,-0.2587189973739097,healthy,Kaminski_2020,False,healthy accepted
+123,NK cells,098C-a,-0.5238639152994777,healthy,Kaminski_2020,True,healthy rejected
+124,Non-classical monocytes,098C-a,0.008395501291364349,healthy,Kaminski_2020,False,healthy accepted
+125,Secretory,098C-a,0.08210154958775351,healthy,Kaminski_2020,False,healthy accepted
+126,AT2,098C-b,0.022103574410649807,healthy,Kaminski_2020,False,healthy accepted
+127,CD4 T cells,098C-b,-0.3454417021924748,healthy,Kaminski_2020,True,healthy rejected
+128,CD8 T cells,098C-b,-0.4594802109557278,healthy,Kaminski_2020,True,healthy rejected
+129,Classical monocytes,098C-b,-0.11557362805212806,healthy,Kaminski_2020,False,healthy accepted
+130,DC2,098C-b,-0.19269275953842968,healthy,Kaminski_2020,False,healthy accepted
+131,EC venous,098C-b,0.08993388280892844,healthy,Kaminski_2020,False,healthy accepted
+132,Fibroblast lineage,098C-b,0.04485088138356441,healthy,Kaminski_2020,False,healthy accepted
+133,Macrophages,098C-b,-0.1352438047356499,healthy,Kaminski_2020,False,healthy accepted
+134,Multiciliated,098C-b,-0.21041546091986668,healthy,Kaminski_2020,False,healthy accepted
+135,NK cells,098C-b,-0.5286495649518407,healthy,Kaminski_2020,True,healthy rejected
+136,Non-classical monocytes,098C-b,-0.017167179341208483,healthy,Kaminski_2020,False,healthy accepted
+137,Secretory,098C-b,0.0806632044856983,healthy,Kaminski_2020,False,healthy accepted
+138,AT2,133C-a,-0.08123044778327118,healthy,Kaminski_2020,False,healthy accepted
+139,CD4 T cells,133C-a,-0.33903381768666907,healthy,Kaminski_2020,True,healthy rejected
+140,CD8 T cells,133C-a,-0.44519640814918965,healthy,Kaminski_2020,True,healthy rejected
+141,Classical monocytes,133C-a,-0.17665459628669777,healthy,Kaminski_2020,False,healthy accepted
+142,DC2,133C-a,-0.23747360311796425,healthy,Kaminski_2020,True,healthy rejected
+143,EC arterial,133C-a,-0.08299816409858085,healthy,Kaminski_2020,False,healthy accepted
+144,EC venous,133C-a,-0.014962064817341414,healthy,Kaminski_2020,False,healthy accepted
+145,Macrophages,133C-a,-0.11807519115500321,healthy,Kaminski_2020,False,healthy accepted
+146,Multiciliated,133C-a,-0.10320780251533601,healthy,Kaminski_2020,False,healthy accepted
+147,NK cells,133C-a,-0.5003244234934405,healthy,Kaminski_2020,True,healthy rejected
+148,Non-classical monocytes,133C-a,-0.014042722596489976,healthy,Kaminski_2020,False,healthy accepted
+149,Secretory,133C-a,0.1754148860929392,healthy,Kaminski_2020,False,healthy accepted
+150,CD4 T cells,137C,-0.2004906669787473,healthy,Kaminski_2020,False,healthy accepted
+151,CD8 T cells,137C,-0.4033135702071765,healthy,Kaminski_2020,True,healthy rejected
+152,Classical monocytes,137C,-0.3371303613404832,healthy,Kaminski_2020,True,healthy rejected
+153,DC2,137C,-0.37375683836268486,healthy,Kaminski_2020,True,healthy rejected
+154,Macrophages,137C,-0.14769578785997578,healthy,Kaminski_2020,False,healthy accepted
+155,NK cells,137C,-0.5522867711604713,healthy,Kaminski_2020,True,healthy rejected
+156,Non-classical monocytes,137C,-0.35587922345669964,healthy,Kaminski_2020,True,healthy rejected
+157,AT2,137C-a,0.05087298017693487,healthy,Kaminski_2020,False,healthy accepted
+158,CD4 T cells,137C-a,-0.11716635891721516,healthy,Kaminski_2020,False,healthy accepted
+159,CD8 T cells,137C-a,-0.35533404716471617,healthy,Kaminski_2020,True,healthy rejected
+160,Classical monocytes,137C-a,-0.11305108301461037,healthy,Kaminski_2020,False,healthy accepted
+161,DC2,137C-a,-0.3594062457042059,healthy,Kaminski_2020,True,healthy rejected
+162,EC venous,137C-a,-0.1790720651856953,healthy,Kaminski_2020,False,healthy accepted
+163,Fibroblast lineage,137C-a,0.05179859490143246,healthy,Kaminski_2020,False,healthy accepted
+164,Macrophages,137C-a,-0.04495044872039172,healthy,Kaminski_2020,False,healthy accepted
+165,Multiciliated,137C-a,-0.1984724837086813,healthy,Kaminski_2020,False,healthy accepted
+166,NK cells,137C-a,-0.35319138050905874,healthy,Kaminski_2020,False,healthy accepted
+167,Non-classical monocytes,137C-a,-0.01739271292166711,healthy,Kaminski_2020,False,healthy accepted
+168,Secretory,137C-a,-0.1389720261222419,healthy,Kaminski_2020,False,healthy accepted
+169,AT2,137C-b,0.07560025655049762,healthy,Kaminski_2020,False,healthy accepted
+170,Basal,137C-b,0.023182469499733127,healthy,Kaminski_2020,False,healthy accepted
+171,CD4 T cells,137C-b,-0.21167322571564273,healthy,Kaminski_2020,False,healthy accepted
+172,CD8 T cells,137C-b,-0.4221218336324068,healthy,Kaminski_2020,True,healthy rejected
+173,Classical monocytes,137C-b,-0.13765307152671036,healthy,Kaminski_2020,False,healthy accepted
+174,DC2,137C-b,-0.3549053478164912,healthy,Kaminski_2020,True,healthy rejected
+175,EC arterial,137C-b,-0.014700103077612381,healthy,Kaminski_2020,False,healthy accepted
+176,EC venous,137C-b,-0.10653908344947716,healthy,Kaminski_2020,False,healthy accepted
+177,Fibroblast lineage,137C-b,-0.013969537359037276,healthy,Kaminski_2020,False,healthy accepted
+178,Macrophages,137C-b,-0.04356424655841734,healthy,Kaminski_2020,False,healthy accepted
+179,Multiciliated,137C-b,-0.0325094697414291,healthy,Kaminski_2020,False,healthy accepted
+180,NK cells,137C-b,-0.42127822468848,healthy,Kaminski_2020,True,healthy rejected
+181,Non-classical monocytes,137C-b,-0.1422193524950615,healthy,Kaminski_2020,False,healthy accepted
+182,Macrophages,152CO,-0.33642004164759465,disease,Kaminski_2020,True,disease rejected
+183,AT2,152CO-a,0.050939016280548755,disease,Kaminski_2020,False,disease accepted
+184,CD4 T cells,152CO-a,-0.41723450472003587,disease,Kaminski_2020,True,disease rejected
+185,CD8 T cells,152CO-a,-0.4826021729795406,disease,Kaminski_2020,True,disease rejected
+186,Classical monocytes,152CO-a,-0.1453162849559136,disease,Kaminski_2020,False,disease accepted
+187,DC2,152CO-a,-0.24014627591806023,disease,Kaminski_2020,True,disease rejected
+188,EC arterial,152CO-a,0.023735280333116004,disease,Kaminski_2020,False,disease accepted
+189,EC venous,152CO-a,0.013890015709982051,disease,Kaminski_2020,False,disease accepted
+190,Fibroblast lineage,152CO-a,-0.017594857625668592,disease,Kaminski_2020,False,disease accepted
+191,Macrophages,152CO-a,-0.0737679062565062,disease,Kaminski_2020,False,disease accepted
+192,Mast cells,152CO-a,-0.25603951452741336,disease,Kaminski_2020,True,disease rejected
+193,NK cells,152CO-a,-0.5212838556422427,disease,Kaminski_2020,True,disease rejected
+194,Non-classical monocytes,152CO-a,-0.20121867031313106,disease,Kaminski_2020,True,disease rejected
+195,Secretory,152CO-a,0.057065395915998685,disease,Kaminski_2020,False,disease accepted
+196,CD4 T cells,153CO-a,-0.2764591447124355,disease,Kaminski_2020,True,disease rejected
+197,CD8 T cells,153CO-a,-0.11215435888494463,disease,Kaminski_2020,False,disease accepted
+198,Classical monocytes,153CO-a,-0.3209962744111054,disease,Kaminski_2020,True,disease rejected
+199,DC2,153CO-a,-0.24979579832411913,disease,Kaminski_2020,True,disease rejected
+200,Fibroblast lineage,153CO-a,0.14523209217818878,disease,Kaminski_2020,False,disease accepted
+201,Macrophages,153CO-a,-0.17864189771077496,disease,Kaminski_2020,False,disease accepted
+202,Multiciliated,153CO-a,-0.036324606406897275,disease,Kaminski_2020,False,disease accepted
+203,NK cells,153CO-a,-0.5346722383902752,disease,Kaminski_2020,True,disease rejected
+204,Non-classical monocytes,153CO-a,-0.34130604546949433,disease,Kaminski_2020,True,disease rejected
+205,CD4 T cells,153CO-b,-0.2994756868380746,disease,Kaminski_2020,True,disease rejected
+206,CD8 T cells,153CO-b,-0.22019214303436063,disease,Kaminski_2020,False,disease accepted
+207,Classical monocytes,153CO-b,-0.31952111826140195,disease,Kaminski_2020,True,disease rejected
+208,DC2,153CO-b,-0.20467877318301686,disease,Kaminski_2020,False,disease accepted
+209,Fibroblast lineage,153CO-b,0.1456973318792758,disease,Kaminski_2020,False,disease accepted
+210,Macrophages,153CO-b,-0.18893121112373598,disease,Kaminski_2020,False,disease accepted
+211,Multiciliated,153CO-b,0.006244791980567599,disease,Kaminski_2020,False,disease accepted
+212,NK cells,153CO-b,-0.48946928618081514,disease,Kaminski_2020,True,disease rejected
+213,Non-classical monocytes,153CO-b,-0.3931721270716737,disease,Kaminski_2020,True,disease rejected
+214,Secretory,153CO-b,0.018209584349914154,disease,Kaminski_2020,False,disease accepted
+215,AT2,160C,-0.21462908549582915,healthy,Kaminski_2020,False,healthy accepted
+216,CD4 T cells,160C,-0.07276940091327266,healthy,Kaminski_2020,False,healthy accepted
+217,CD8 T cells,160C,-0.24156604189877467,healthy,Kaminski_2020,False,healthy accepted
+218,Classical monocytes,160C,-0.17505112148719637,healthy,Kaminski_2020,False,healthy accepted
+219,DC2,160C,-0.2026289364706116,healthy,Kaminski_2020,False,healthy accepted
+220,Fibroblast lineage,160C,0.1922288358422074,healthy,Kaminski_2020,False,healthy accepted
+221,Macrophages,160C,-0.06384216154532843,healthy,Kaminski_2020,False,healthy accepted
+222,Multiciliated,160C,-0.30637957298721835,healthy,Kaminski_2020,True,healthy rejected
+223,NK cells,160C,-0.36506406615739184,healthy,Kaminski_2020,False,healthy accepted
+224,Non-classical monocytes,160C,-0.21319202633533652,healthy,Kaminski_2020,True,healthy rejected
+225,AT2,178CO,0.02108100243267841,disease,Kaminski_2020,False,disease accepted
+226,Basal,178CO,0.07276314030154563,disease,Kaminski_2020,False,disease accepted
+227,CD4 T cells,178CO,-0.4910123915231325,disease,Kaminski_2020,True,disease rejected
+228,CD8 T cells,178CO,-0.4725113346631293,disease,Kaminski_2020,True,disease rejected
+229,Classical monocytes,178CO,-0.12775122927346882,disease,Kaminski_2020,False,disease accepted
+230,DC2,178CO,-0.27556029269316257,disease,Kaminski_2020,True,disease rejected
+231,Macrophages,178CO,-0.1139920260246184,disease,Kaminski_2020,False,disease accepted
+232,Mast cells,178CO,-0.24432943614674685,disease,Kaminski_2020,False,disease accepted
+233,Multiciliated,178CO,-0.16362720452930735,disease,Kaminski_2020,False,disease accepted
+234,NK cells,178CO,-0.5711524342462428,disease,Kaminski_2020,True,disease rejected
+235,Non-classical monocytes,178CO,-0.13506439320596975,disease,Kaminski_2020,False,disease accepted
+236,Secretory,178CO,-0.13573593175630783,disease,Kaminski_2020,False,disease accepted
+237,AT2,184CO-a,0.08157173680395102,disease,Kaminski_2020,False,disease accepted
+238,CD4 T cells,184CO-a,-0.4422730304610978,disease,Kaminski_2020,True,disease rejected
+239,CD8 T cells,184CO-a,-0.4666444355308604,disease,Kaminski_2020,True,disease rejected
+240,Classical monocytes,184CO-a,-0.18800362948302698,disease,Kaminski_2020,False,disease accepted
+241,DC2,184CO-a,-0.2944153976230508,disease,Kaminski_2020,True,disease rejected
+242,Fibroblast lineage,184CO-a,0.10019432186819077,disease,Kaminski_2020,False,disease accepted
+243,Macrophages,184CO-a,-0.17110055492154674,disease,Kaminski_2020,False,disease accepted
+244,Mast cells,184CO-a,-0.2715810498325038,disease,Kaminski_2020,True,disease rejected
+245,Multiciliated,184CO-a,-0.12538911635919991,disease,Kaminski_2020,False,disease accepted
+246,NK cells,184CO-a,-0.5551126772806801,disease,Kaminski_2020,True,disease rejected
+247,Non-classical monocytes,184CO-a,-0.1468867696119145,disease,Kaminski_2020,False,disease accepted
+248,Secretory,184CO-a,0.16312676102236878,disease,Kaminski_2020,False,disease accepted
+249,AT2,184CO-b,0.025912228098811885,disease,Kaminski_2020,False,disease accepted
+250,CD4 T cells,184CO-b,-0.4556815042698825,disease,Kaminski_2020,True,disease rejected
+251,CD8 T cells,184CO-b,-0.48988839413076324,disease,Kaminski_2020,True,disease rejected
+252,Classical monocytes,184CO-b,-0.17504479114988536,disease,Kaminski_2020,False,disease accepted
+253,DC2,184CO-b,-0.27382484505707383,disease,Kaminski_2020,True,disease rejected
+254,EC arterial,184CO-b,0.15968914720028604,disease,Kaminski_2020,False,disease accepted
+255,Fibroblast lineage,184CO-b,0.16357361689152483,disease,Kaminski_2020,False,disease accepted
+256,Macrophages,184CO-b,-0.21257617840410623,disease,Kaminski_2020,False,disease accepted
+257,Mast cells,184CO-b,-0.18378126396531236,disease,Kaminski_2020,False,disease accepted
+258,Multiciliated,184CO-b,-0.002580595824016263,disease,Kaminski_2020,False,disease accepted
+259,NK cells,184CO-b,-0.5525823985295588,disease,Kaminski_2020,True,disease rejected
+260,Non-classical monocytes,184CO-b,-0.11851444491243193,disease,Kaminski_2020,False,disease accepted
+261,Secretory,184CO-b,0.10509550938865675,disease,Kaminski_2020,False,disease accepted
+262,CD4 T cells,186CO-b,-0.4414068980593627,disease,Kaminski_2020,True,disease rejected
+263,CD8 T cells,186CO-b,-0.455224785716901,disease,Kaminski_2020,True,disease rejected
+264,Classical monocytes,186CO-b,-0.24176463042990387,disease,Kaminski_2020,True,disease rejected
+265,DC2,186CO-b,-0.3073366090267257,disease,Kaminski_2020,True,disease rejected
+266,Fibroblast lineage,186CO-b,0.1228095385149981,disease,Kaminski_2020,False,disease accepted
+267,Macrophages,186CO-b,-0.17091284390938583,disease,Kaminski_2020,False,disease accepted
+268,Multiciliated,186CO-b,-0.08411330150426422,disease,Kaminski_2020,False,disease accepted
+269,NK cells,186CO-b,-0.5586956769802001,disease,Kaminski_2020,True,disease rejected
+270,Non-classical monocytes,186CO-b,-0.26165945172441507,disease,Kaminski_2020,True,disease rejected
+271,AT2,192C-a,-0.24371650884444473,healthy,Kaminski_2020,False,healthy accepted
+272,CD4 T cells,192C-a,-0.4681194178765655,healthy,Kaminski_2020,True,healthy rejected
+273,CD8 T cells,192C-a,-0.45345905312507656,healthy,Kaminski_2020,True,healthy rejected
+274,Classical monocytes,192C-a,-0.32171767155826086,healthy,Kaminski_2020,True,healthy rejected
+275,DC2,192C-a,-0.442657027118313,healthy,Kaminski_2020,True,healthy rejected
+276,Fibroblast lineage,192C-a,-0.25156777102597805,healthy,Kaminski_2020,False,healthy accepted
+277,Macrophages,192C-a,-0.21880422310202238,healthy,Kaminski_2020,False,healthy accepted
+278,Mast cells,192C-a,-0.3264098654609511,healthy,Kaminski_2020,True,healthy rejected
+279,Multiciliated,192C-a,0.0030546842668035534,healthy,Kaminski_2020,False,healthy accepted
+280,NK cells,192C-a,-0.6446689355513593,healthy,Kaminski_2020,True,healthy rejected
+281,Non-classical monocytes,192C-a,-0.5012754684714326,healthy,Kaminski_2020,True,healthy rejected
+282,CD4 T cells,192CO,-0.47576742460343313,disease,Kaminski_2020,True,disease rejected
+283,CD8 T cells,192CO,-0.4439115302737528,disease,Kaminski_2020,True,disease rejected
+284,Classical monocytes,192CO,-0.25582470825376197,disease,Kaminski_2020,True,disease rejected
+285,DC2,192CO,-0.39231220274630635,disease,Kaminski_2020,True,disease rejected
+286,Macrophages,192CO,-0.2644679556993962,disease,Kaminski_2020,True,disease rejected
+287,NK cells,192CO,-0.6178871189985486,disease,Kaminski_2020,True,disease rejected
+288,Non-classical monocytes,192CO,-0.32940630260666887,disease,Kaminski_2020,True,disease rejected
+289,CD4 T cells,192CO-a,-0.45211702554936917,disease,Kaminski_2020,True,disease rejected
+290,CD8 T cells,192CO-a,-0.4699427541442332,disease,Kaminski_2020,True,disease rejected
+291,Classical monocytes,192CO-a,-0.1924080023341379,disease,Kaminski_2020,False,disease accepted
+292,DC2,192CO-a,-0.28998373810820127,disease,Kaminski_2020,True,disease rejected
+293,Macrophages,192CO-a,-0.21991973574790566,disease,Kaminski_2020,False,disease accepted
+294,Multiciliated,192CO-a,-0.02432962048998555,disease,Kaminski_2020,False,disease accepted
+295,NK cells,192CO-a,-0.5020301880007344,disease,Kaminski_2020,True,disease rejected
+296,Non-classical monocytes,192CO-a,-0.16931308935400646,disease,Kaminski_2020,False,disease accepted
+297,CD4 T cells,192CO-b,-0.4594582317530638,disease,Kaminski_2020,True,disease rejected
+298,CD8 T cells,192CO-b,-0.4502152789454964,disease,Kaminski_2020,True,disease rejected
+299,Classical monocytes,192CO-b,-0.1507983931836383,disease,Kaminski_2020,False,disease accepted
+300,DC2,192CO-b,-0.27544247563912744,disease,Kaminski_2020,True,disease rejected
+301,Macrophages,192CO-b,-0.21697759848085296,disease,Kaminski_2020,False,disease accepted
+302,Multiciliated,192CO-b,-0.11347192474877521,disease,Kaminski_2020,False,disease accepted
+303,NK cells,192CO-b,-0.5158939354263342,disease,Kaminski_2020,True,disease rejected
+304,Non-classical monocytes,192CO-b,-0.11311133263792683,disease,Kaminski_2020,False,disease accepted
+305,Secretory,192CO-b,0.10601423710040625,disease,Kaminski_2020,False,disease accepted
+306,AT2,193CO-a,0.060273518332756404,disease,Kaminski_2020,False,disease accepted
+307,CD4 T cells,193CO-a,-0.3076525075074885,disease,Kaminski_2020,True,disease rejected
+308,CD8 T cells,193CO-a,-0.31099601761700457,disease,Kaminski_2020,False,disease accepted
+309,Classical monocytes,193CO-a,-0.08932080329421727,disease,Kaminski_2020,False,disease accepted
+310,DC2,193CO-a,-0.0459932753351634,disease,Kaminski_2020,False,disease accepted
+311,Macrophages,193CO-a,-0.12070728438960149,disease,Kaminski_2020,False,disease accepted
+312,Mast cells,193CO-a,-0.009471099566347174,disease,Kaminski_2020,False,disease accepted
+313,Multiciliated,193CO-a,-0.164303594996266,disease,Kaminski_2020,False,disease accepted
+314,NK cells,193CO-a,-0.48178032460656317,disease,Kaminski_2020,True,disease rejected
+315,Non-classical monocytes,193CO-a,-0.050212582674951906,disease,Kaminski_2020,False,disease accepted
+316,Secretory,193CO-a,0.018977574051875168,disease,Kaminski_2020,False,disease accepted
+317,AT2,193CO-b,0.02139414527600325,disease,Kaminski_2020,False,disease accepted
+318,CD4 T cells,193CO-b,-0.32888214585334613,disease,Kaminski_2020,True,disease rejected
+319,CD8 T cells,193CO-b,-0.34928431638578455,disease,Kaminski_2020,True,disease rejected
+320,Classical monocytes,193CO-b,-0.09243629749499538,disease,Kaminski_2020,False,disease accepted
+321,DC2,193CO-b,-0.1165330343705418,disease,Kaminski_2020,False,disease accepted
+322,Macrophages,193CO-b,-0.1310702689541281,disease,Kaminski_2020,False,disease accepted
+323,Mast cells,193CO-b,-0.17524975627466444,disease,Kaminski_2020,False,disease accepted
+324,Multiciliated,193CO-b,-0.061905491581890626,disease,Kaminski_2020,False,disease accepted
+325,NK cells,193CO-b,-0.504599915167924,disease,Kaminski_2020,True,disease rejected
+326,Non-classical monocytes,193CO-b,-0.06430907795024354,disease,Kaminski_2020,False,disease accepted
+327,Secretory,193CO-b,0.03624994817720795,disease,Kaminski_2020,False,disease accepted
+328,CD4 T cells,194CO-a,-0.42172409940845806,disease,Kaminski_2020,True,disease rejected
+329,CD8 T cells,194CO-a,-0.35492589516875883,disease,Kaminski_2020,True,disease rejected
+330,Classical monocytes,194CO-a,-0.22850465190111674,disease,Kaminski_2020,False,disease accepted
+331,DC2,194CO-a,-0.21195606259209665,disease,Kaminski_2020,False,disease accepted
+332,Macrophages,194CO-a,-0.08134867061520745,disease,Kaminski_2020,False,disease accepted
+333,Multiciliated,194CO-a,-0.3904343796454419,disease,Kaminski_2020,True,disease rejected
+334,NK cells,194CO-a,-0.532863540070891,disease,Kaminski_2020,True,disease rejected
+335,Non-classical monocytes,194CO-a,-0.1896407010147453,disease,Kaminski_2020,True,disease rejected
+336,AT2,207CO,-0.20997343006449598,disease,Kaminski_2020,False,disease accepted
+337,Basal,207CO,-0.1564624930602725,disease,Kaminski_2020,False,disease accepted
+338,CD4 T cells,207CO,-0.503173532065651,disease,Kaminski_2020,True,disease rejected
+339,CD8 T cells,207CO,-0.5262073054049091,disease,Kaminski_2020,True,disease rejected
+340,Classical monocytes,207CO,-0.1967635370076141,disease,Kaminski_2020,False,disease accepted
+341,DC2,207CO,-0.26368510720360594,disease,Kaminski_2020,True,disease rejected
+342,EC venous,207CO,-0.24516573507675488,disease,Kaminski_2020,False,disease accepted
+343,Fibroblast lineage,207CO,-0.07894272534747115,disease,Kaminski_2020,False,disease accepted
+344,Macrophages,207CO,-0.20852054921494115,disease,Kaminski_2020,False,disease accepted
+345,Multiciliated,207CO,-0.18287405625706865,disease,Kaminski_2020,False,disease accepted
+346,NK cells,207CO,-0.5891974974707141,disease,Kaminski_2020,True,disease rejected
+347,Non-classical monocytes,207CO,-0.2367907294559509,disease,Kaminski_2020,True,disease rejected
+348,Secretory,207CO,-0.12332941474612447,disease,Kaminski_2020,False,disease accepted
+349,CD4 T cells,208C,-0.12138867437529122,healthy,Kaminski_2020,False,healthy accepted
+350,Classical monocytes,208C,-0.10231946973548744,healthy,Kaminski_2020,False,healthy accepted
+351,DC2,208C,-0.41905725029687146,healthy,Kaminski_2020,True,healthy rejected
+352,Macrophages,208C,-0.14049361434013383,healthy,Kaminski_2020,False,healthy accepted
+353,Multiciliated,208C,-0.23666326688952977,healthy,Kaminski_2020,False,healthy accepted
+354,Non-classical monocytes,208C,-0.011913298578498988,healthy,Kaminski_2020,False,healthy accepted
+355,AT2,217CO-a,0.08843020831225745,disease,Kaminski_2020,False,disease accepted
+356,Basal,217CO-a,0.10628567174627135,disease,Kaminski_2020,False,disease accepted
+357,CD4 T cells,217CO-a,-0.4139770154081752,disease,Kaminski_2020,True,disease rejected
+358,CD8 T cells,217CO-a,-0.399007251027363,disease,Kaminski_2020,True,disease rejected
+359,Classical monocytes,217CO-a,-0.1848003440031129,disease,Kaminski_2020,False,disease accepted
+360,DC2,217CO-a,-0.1364467109523212,disease,Kaminski_2020,False,disease accepted
+361,Macrophages,217CO-a,-0.1581512706228158,disease,Kaminski_2020,False,disease accepted
+362,Multiciliated,217CO-a,-0.12778695780401716,disease,Kaminski_2020,False,disease accepted
+363,NK cells,217CO-a,-0.4400524215314857,disease,Kaminski_2020,True,disease rejected
+364,Non-classical monocytes,217CO-a,-0.0657042459349908,disease,Kaminski_2020,False,disease accepted
+365,Secretory,217CO-a,0.0074800538176013065,disease,Kaminski_2020,False,disease accepted
+366,AT2,218C-a,-0.1113693169044433,healthy,Kaminski_2020,False,healthy accepted
+367,CD4 T cells,218C-a,-0.03412992451051111,healthy,Kaminski_2020,False,healthy accepted
+368,CD8 T cells,218C-a,-0.16374406672939745,healthy,Kaminski_2020,False,healthy accepted
+369,Classical monocytes,218C-a,0.07032246390348662,healthy,Kaminski_2020,False,healthy accepted
+370,DC2,218C-a,-0.15256758062473663,healthy,Kaminski_2020,False,healthy accepted
+371,Fibroblast lineage,218C-a,-0.2195399143829082,healthy,Kaminski_2020,False,healthy accepted
+372,Macrophages,218C-a,-0.036250559460433485,healthy,Kaminski_2020,False,healthy accepted
+373,Multiciliated,218C-a,0.07633512032679846,healthy,Kaminski_2020,False,healthy accepted
+374,NK cells,218C-a,-0.34961576539128597,healthy,Kaminski_2020,False,healthy accepted
+375,Non-classical monocytes,218C-a,0.03024776708922461,healthy,Kaminski_2020,False,healthy accepted
+376,AT2,218C-b,-0.048586242793552725,healthy,Kaminski_2020,False,healthy accepted
+377,CD4 T cells,218C-b,0.009720181397390282,healthy,Kaminski_2020,False,healthy accepted
+378,CD8 T cells,218C-b,0.03135961844936408,healthy,Kaminski_2020,False,healthy accepted
+379,Classical monocytes,218C-b,0.021660536313575618,healthy,Kaminski_2020,False,healthy accepted
+380,DC2,218C-b,-0.26300192247427034,healthy,Kaminski_2020,True,healthy rejected
+381,Fibroblast lineage,218C-b,-0.13515400144920342,healthy,Kaminski_2020,False,healthy accepted
+382,Macrophages,218C-b,-0.09283491620021533,healthy,Kaminski_2020,False,healthy accepted
+383,Multiciliated,218C-b,-0.006651204418169798,healthy,Kaminski_2020,False,healthy accepted
+384,NK cells,218C-b,-0.31749993241182267,healthy,Kaminski_2020,False,healthy accepted
+385,Non-classical monocytes,218C-b,0.025543086545393723,healthy,Kaminski_2020,False,healthy accepted
+386,Secretory,218C-b,-0.16571504959860406,healthy,Kaminski_2020,False,healthy accepted
+387,CD4 T cells,219C-a,-0.2970107281528407,healthy,Kaminski_2020,True,healthy rejected
+388,CD8 T cells,219C-a,-0.14765985696435402,healthy,Kaminski_2020,False,healthy accepted
+389,Classical monocytes,219C-a,-0.010991381030138747,healthy,Kaminski_2020,False,healthy accepted
+390,DC2,219C-a,-0.37105726387216564,healthy,Kaminski_2020,True,healthy rejected
+391,Macrophages,219C-a,-0.06792015647521848,healthy,Kaminski_2020,False,healthy accepted
+392,Multiciliated,219C-a,-0.01680951356600613,healthy,Kaminski_2020,False,healthy accepted
+393,NK cells,219C-a,-0.47124342489233495,healthy,Kaminski_2020,True,healthy rejected
+394,Non-classical monocytes,219C-a,-0.02976074797796069,healthy,Kaminski_2020,False,healthy accepted
+395,CD4 T cells,219C-b,-0.17601350927026427,healthy,Kaminski_2020,False,healthy accepted
+396,CD8 T cells,219C-b,-0.19353440805744448,healthy,Kaminski_2020,False,healthy accepted
+397,Classical monocytes,219C-b,-0.05969988195576437,healthy,Kaminski_2020,False,healthy accepted
+398,DC2,219C-b,-0.14610977849971507,healthy,Kaminski_2020,False,healthy accepted
+399,Macrophages,219C-b,-0.13498545893490754,healthy,Kaminski_2020,False,healthy accepted
+400,Multiciliated,219C-b,-0.014757318701468125,healthy,Kaminski_2020,False,healthy accepted
+401,NK cells,219C-b,-0.5049327457201316,healthy,Kaminski_2020,True,healthy rejected
+402,Non-classical monocytes,219C-b,-0.006830367029122986,healthy,Kaminski_2020,False,healthy accepted
+403,CD4 T cells,222C,-0.3252154052830444,healthy,Kaminski_2020,True,healthy rejected
+404,CD8 T cells,222C,-0.2875101685877322,healthy,Kaminski_2020,False,healthy accepted
+405,Classical monocytes,222C,-0.050086388523140235,healthy,Kaminski_2020,False,healthy accepted
+406,DC2,222C,-0.1269392623573642,healthy,Kaminski_2020,False,healthy accepted
+407,Fibroblast lineage,222C,0.14515265733925753,healthy,Kaminski_2020,False,healthy accepted
+408,Macrophages,222C,-0.05074358811400814,healthy,Kaminski_2020,False,healthy accepted
+409,NK cells,222C,-0.5266308982983339,healthy,Kaminski_2020,True,healthy rejected
+410,Non-classical monocytes,222C,0.02572147876484754,healthy,Kaminski_2020,False,healthy accepted
+411,AT2,226C-a,-0.14972633242232114,healthy,Kaminski_2020,False,healthy accepted
+412,CD4 T cells,226C-a,-0.3482847279928393,healthy,Kaminski_2020,True,healthy rejected
+413,CD8 T cells,226C-a,-0.3217328241351646,healthy,Kaminski_2020,False,healthy accepted
+414,Classical monocytes,226C-a,-0.09781918140428139,healthy,Kaminski_2020,False,healthy accepted
+415,DC2,226C-a,-0.3154386436112092,healthy,Kaminski_2020,True,healthy rejected
+416,Macrophages,226C-a,-0.17727655206681164,healthy,Kaminski_2020,False,healthy accepted
+417,Multiciliated,226C-a,-0.0556310662234758,healthy,Kaminski_2020,False,healthy accepted
+418,NK cells,226C-a,-0.5088542984828835,healthy,Kaminski_2020,True,healthy rejected
+419,Non-classical monocytes,226C-a,-0.14284423805392632,healthy,Kaminski_2020,False,healthy accepted
+420,AT2,226C-b,-0.17179140829697148,healthy,Kaminski_2020,False,healthy accepted
+421,CD4 T cells,226C-b,-0.3456173933808869,healthy,Kaminski_2020,True,healthy rejected
+422,CD8 T cells,226C-b,-0.3379826085749608,healthy,Kaminski_2020,False,healthy accepted
+423,Classical monocytes,226C-b,-0.09656537539228637,healthy,Kaminski_2020,False,healthy accepted
+424,DC2,226C-b,-0.3106828884841601,healthy,Kaminski_2020,True,healthy rejected
+425,Fibroblast lineage,226C-b,-0.2484244984414482,healthy,Kaminski_2020,False,healthy accepted
+426,Macrophages,226C-b,-0.17248776821651696,healthy,Kaminski_2020,False,healthy accepted
+427,Multiciliated,226C-b,-0.04305995825197273,healthy,Kaminski_2020,False,healthy accepted
+428,NK cells,226C-b,-0.4428419239099597,healthy,Kaminski_2020,True,healthy rejected
+429,Non-classical monocytes,226C-b,-0.1605338558258229,healthy,Kaminski_2020,False,healthy accepted
+430,AT2,235CO,-0.266248406749857,disease,Kaminski_2020,False,disease accepted
+431,Basal,235CO,-0.033552493788708615,disease,Kaminski_2020,False,disease accepted
+432,CD4 T cells,235CO,-0.29847273471292823,disease,Kaminski_2020,True,disease rejected
+433,CD8 T cells,235CO,-0.37452065230129444,disease,Kaminski_2020,True,disease rejected
+434,Classical monocytes,235CO,-0.2745639145901364,disease,Kaminski_2020,True,disease rejected
+435,DC2,235CO,-0.3056101038303878,disease,Kaminski_2020,True,disease rejected
+436,EC venous,235CO,-0.2509340838575792,disease,Kaminski_2020,False,disease accepted
+437,Fibroblast lineage,235CO,-0.051023624603322215,disease,Kaminski_2020,False,disease accepted
+438,Macrophages,235CO,-0.19170802392866154,disease,Kaminski_2020,False,disease accepted
+439,Mast cells,235CO,-0.4158806964395998,disease,Kaminski_2020,True,disease rejected
+440,Multiciliated,235CO,-0.05595824744417055,disease,Kaminski_2020,False,disease accepted
+441,NK cells,235CO,-0.5375994120858396,disease,Kaminski_2020,True,disease rejected
+442,Non-classical monocytes,235CO,-0.19994197616284715,disease,Kaminski_2020,True,disease rejected
+443,Secretory,235CO,0.034654543412174,disease,Kaminski_2020,False,disease accepted
+444,AT2,237CO,-0.401421064708354,disease,Kaminski_2020,True,disease rejected
+445,Basal,237CO,-0.2805621686822292,disease,Kaminski_2020,False,disease accepted
+446,CD4 T cells,237CO,-0.5463678834356618,disease,Kaminski_2020,True,disease rejected
+447,CD8 T cells,237CO,-0.4856079675866766,disease,Kaminski_2020,True,disease rejected
+448,Classical monocytes,237CO,-0.28963472457098305,disease,Kaminski_2020,True,disease rejected
+449,DC2,237CO,-0.32484284106295125,disease,Kaminski_2020,True,disease rejected
+450,EC venous,237CO,-0.35654419786315333,disease,Kaminski_2020,True,disease rejected
+451,Fibroblast lineage,237CO,0.1428146927480497,disease,Kaminski_2020,False,disease accepted
+452,Macrophages,237CO,-0.2655929383538631,disease,Kaminski_2020,True,disease rejected
+453,Mast cells,237CO,-0.37706789053458784,disease,Kaminski_2020,True,disease rejected
+454,Multiciliated,237CO,-0.33831510548596,disease,Kaminski_2020,True,disease rejected
+455,NK cells,237CO,-0.5188014713266487,disease,Kaminski_2020,True,disease rejected
+456,Non-classical monocytes,237CO,-0.16090727946925787,disease,Kaminski_2020,False,disease accepted
+457,AT2,238CO,-0.09150172517576916,disease,Kaminski_2020,False,disease accepted
+458,CD4 T cells,238CO,-0.4109979917870089,disease,Kaminski_2020,True,disease rejected
+459,CD8 T cells,238CO,-0.38028126238377535,disease,Kaminski_2020,True,disease rejected
+460,Classical monocytes,238CO,-0.3524733374868897,disease,Kaminski_2020,True,disease rejected
+461,DC2,238CO,-0.24897973517209723,disease,Kaminski_2020,True,disease rejected
+462,Fibroblast lineage,238CO,0.17241488882850753,disease,Kaminski_2020,False,disease accepted
+463,Macrophages,238CO,-0.20214038430106723,disease,Kaminski_2020,False,disease accepted
+464,Mast cells,238CO,-0.25680532942545836,disease,Kaminski_2020,True,disease rejected
+465,Multiciliated,238CO,-0.052925833747298534,disease,Kaminski_2020,False,disease accepted
+466,NK cells,238CO,-0.48004480534881666,disease,Kaminski_2020,True,disease rejected
+467,Non-classical monocytes,238CO,-0.30833020328363114,disease,Kaminski_2020,True,disease rejected
+468,Multiciliated,244C,-0.24296724003021863,healthy,Kaminski_2020,False,healthy accepted
+469,CD8 T cells,253C,-0.12757838034385693,healthy,Kaminski_2020,False,healthy accepted
+470,Classical monocytes,253C,-0.024659644273679338,healthy,Kaminski_2020,False,healthy accepted
+471,DC2,253C,-0.1582058512429575,healthy,Kaminski_2020,False,healthy accepted
+472,Fibroblast lineage,253C,0.143911435168108,healthy,Kaminski_2020,False,healthy accepted
+473,Macrophages,253C,0.1266098403841296,healthy,Kaminski_2020,False,healthy accepted
+474,NK cells,253C,-0.13329431844344064,healthy,Kaminski_2020,False,healthy accepted
+475,Non-classical monocytes,253C,-0.09845974266896129,healthy,Kaminski_2020,False,healthy accepted
+476,AT2,296C,-0.5554348666188046,healthy,Kaminski_2020,True,healthy rejected
+477,CD4 T cells,296C,-0.529658356317511,healthy,Kaminski_2020,True,healthy rejected
+478,CD8 T cells,296C,-0.49108903252813485,healthy,Kaminski_2020,True,healthy rejected
+479,Classical monocytes,296C,-0.08537039623193218,healthy,Kaminski_2020,False,healthy accepted
+480,DC2,296C,-0.31132173954881054,healthy,Kaminski_2020,True,healthy rejected
+481,EC venous,296C,-0.1691537865821282,healthy,Kaminski_2020,False,healthy accepted
+482,Fibroblast lineage,296C,0.19165088510238182,healthy,Kaminski_2020,False,healthy accepted
+483,Macrophages,296C,-0.1955847302129198,healthy,Kaminski_2020,False,healthy accepted
+484,Multiciliated,296C,-0.20232276657929915,healthy,Kaminski_2020,False,healthy accepted
+485,NK cells,296C,-0.6431601206754448,healthy,Kaminski_2020,True,healthy rejected
+486,Non-classical monocytes,296C,-0.18351154755345367,healthy,Kaminski_2020,True,healthy rejected
+487,CD4 T cells,388C,-0.4106669109597417,healthy,Kaminski_2020,True,healthy rejected
+488,CD8 T cells,388C,-0.3864355657547224,healthy,Kaminski_2020,True,healthy rejected
+489,Classical monocytes,388C,-0.30299059806508016,healthy,Kaminski_2020,True,healthy rejected
+490,DC2,388C,-0.4898291858350483,healthy,Kaminski_2020,True,healthy rejected
+491,EC venous,388C,-0.4260585872141957,healthy,Kaminski_2020,True,healthy rejected
+492,Fibroblast lineage,388C,-0.13935486159155852,healthy,Kaminski_2020,False,healthy accepted
+493,Macrophages,388C,-0.21870003434503094,healthy,Kaminski_2020,False,healthy accepted
+494,Multiciliated,388C,-0.2206328216187533,healthy,Kaminski_2020,False,healthy accepted
+495,NK cells,388C,-0.6722616036275568,healthy,Kaminski_2020,True,healthy rejected
+496,Non-classical monocytes,388C,-0.5145550405483155,healthy,Kaminski_2020,True,healthy rejected
+497,AT2,396C,-0.43342758902371853,healthy,Kaminski_2020,True,healthy rejected
+498,Classical monocytes,396C,-0.2401204408235158,healthy,Kaminski_2020,True,healthy rejected
+499,DC2,396C,-0.24964059253041337,healthy,Kaminski_2020,True,healthy rejected
+500,Macrophages,396C,-0.19134238348949348,healthy,Kaminski_2020,False,healthy accepted
+501,Multiciliated,396C,-0.20003363558445475,healthy,Kaminski_2020,False,healthy accepted
+502,Non-classical monocytes,396C,-0.28447020808171103,healthy,Kaminski_2020,True,healthy rejected
+503,CD4 T cells,439C,-0.5309316478642458,healthy,Kaminski_2020,True,healthy rejected
+504,CD8 T cells,439C,-0.6019160652635607,healthy,Kaminski_2020,True,healthy rejected
+505,Classical monocytes,439C,-0.3490067978181006,healthy,Kaminski_2020,True,healthy rejected
+506,DC2,439C,-0.59793376806606,healthy,Kaminski_2020,True,healthy rejected
+507,Macrophages,439C,-0.33490438762266805,healthy,Kaminski_2020,True,healthy rejected
+508,NK cells,439C,-0.6767586702323019,healthy,Kaminski_2020,True,healthy rejected
+509,Non-classical monocytes,439C,-0.2610455215533806,healthy,Kaminski_2020,True,healthy rejected
+510,AT2,439C-b,-0.2896657343750597,healthy,Kaminski_2020,True,healthy rejected
+511,CD4 T cells,439C-b,-0.3879979483951778,healthy,Kaminski_2020,True,healthy rejected
+512,CD8 T cells,439C-b,-0.43808591499953053,healthy,Kaminski_2020,True,healthy rejected
+513,Classical monocytes,439C-b,-0.23133771438483233,healthy,Kaminski_2020,False,healthy accepted
+514,DC2,439C-b,-0.3676510741160641,healthy,Kaminski_2020,True,healthy rejected
+515,Fibroblast lineage,439C-b,0.19243962481560473,healthy,Kaminski_2020,False,healthy accepted
+516,Macrophages,439C-b,-0.22134503302140723,healthy,Kaminski_2020,False,healthy accepted
+517,Multiciliated,439C-b,0.032904979893302544,healthy,Kaminski_2020,False,healthy accepted
+518,NK cells,439C-b,-0.5307909477154795,healthy,Kaminski_2020,True,healthy rejected
+519,Non-classical monocytes,439C-b,-0.2605232671625143,healthy,Kaminski_2020,True,healthy rejected
+520,AT2,454C,-0.34807244698849965,healthy,Kaminski_2020,True,healthy rejected
+521,CD4 T cells,454C,-0.16617302319888683,healthy,Kaminski_2020,False,healthy accepted
+522,CD8 T cells,454C,-0.326424721860234,healthy,Kaminski_2020,False,healthy accepted
+523,Classical monocytes,454C,-0.3065058652538486,healthy,Kaminski_2020,True,healthy rejected
+524,DC2,454C,-0.2964377848028364,healthy,Kaminski_2020,True,healthy rejected
+525,Macrophages,454C,-0.2111250740274861,healthy,Kaminski_2020,False,healthy accepted
+526,NK cells,454C,-0.27864817756747606,healthy,Kaminski_2020,False,healthy accepted
+527,Non-classical monocytes,454C,-0.3731103128755068,healthy,Kaminski_2020,True,healthy rejected
+528,AT2,465C,-0.2194916019823968,healthy,Kaminski_2020,False,healthy accepted
+529,CD4 T cells,465C,-0.43576304450540354,healthy,Kaminski_2020,True,healthy rejected
+530,CD8 T cells,465C,-0.41999459759714897,healthy,Kaminski_2020,True,healthy rejected
+531,Classical monocytes,465C,0.10414429394023195,healthy,Kaminski_2020,False,healthy accepted
+532,DC2,465C,-0.06341461046890007,healthy,Kaminski_2020,False,healthy accepted
+533,Fibroblast lineage,465C,0.04108469735954445,healthy,Kaminski_2020,False,healthy accepted
+534,Macrophages,465C,-0.2826335760107288,healthy,Kaminski_2020,True,healthy rejected
+535,NK cells,465C,-0.5573110223304132,healthy,Kaminski_2020,True,healthy rejected
+536,Non-classical monocytes,465C,0.026046893939698723,healthy,Kaminski_2020,False,healthy accepted
+537,AT2,483C,-0.04697467640511155,healthy,Kaminski_2020,False,healthy accepted
+538,CD4 T cells,483C,-0.1841829636896235,healthy,Kaminski_2020,False,healthy accepted
+539,CD8 T cells,483C,-0.08996836634947858,healthy,Kaminski_2020,False,healthy accepted
+540,Classical monocytes,483C,-0.01369223719780066,healthy,Kaminski_2020,False,healthy accepted
+541,DC2,483C,-0.19078105607510143,healthy,Kaminski_2020,False,healthy accepted
+542,Macrophages,483C,-0.17167805689381102,healthy,Kaminski_2020,False,healthy accepted
+543,Multiciliated,483C,-0.25207798549086957,healthy,Kaminski_2020,False,healthy accepted
+544,Non-classical monocytes,483C,0.030409068827333408,healthy,Kaminski_2020,False,healthy accepted
+545,CD4 T cells,484C,-0.31925917077189664,healthy,Kaminski_2020,True,healthy rejected
+546,CD8 T cells,484C,-0.529268376717641,healthy,Kaminski_2020,True,healthy rejected
+547,Classical monocytes,484C,-0.15656177155647566,healthy,Kaminski_2020,False,healthy accepted
+548,DC2,484C,-0.38359305643427244,healthy,Kaminski_2020,True,healthy rejected
+549,Macrophages,484C,-0.19157588771090656,healthy,Kaminski_2020,False,healthy accepted
+550,NK cells,484C,-0.5965496409278009,healthy,Kaminski_2020,True,healthy rejected
+551,Non-classical monocytes,484C,0.06638845010427463,healthy,Kaminski_2020,False,healthy accepted

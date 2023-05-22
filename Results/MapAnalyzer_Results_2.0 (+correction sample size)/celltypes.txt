@@ -1,0 +1,15 @@
+AT2
+Basal
+CD4 T cells
+CD8 T cells
+Classical monocytes
+DC2
+EC arterial
+EC venous
+Fibroblast lineage
+Macrophages
+Mast cells
+Multiciliated
+NK cells
+Non-classical monocytes
+Secretory

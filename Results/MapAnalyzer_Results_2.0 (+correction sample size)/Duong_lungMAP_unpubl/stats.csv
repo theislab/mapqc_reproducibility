@@ -1,0 +1,132 @@
+,cell_label,sample,query_count,reference_count,probablity,expected_value,variance
+0,AT2,Duong_lungMAP_unpubl_sample_0,2083,61429,0.03,0.492,0.0156
+1,AT2,Duong_lungMAP_unpubl_sample_1,2060,61429,0.03,0.4867,0.0153
+2,AT2,Duong_lungMAP_unpubl_sample_2,610,61429,0.01,0.1475,0.0014
+3,AT2,Duong_lungMAP_unpubl_sample_3,781,61429,0.01,0.1883,0.0023
+4,AT2,Duong_lungMAP_unpubl_sample_4,849,61429,0.01,0.2045,0.0027
+5,AT2,Duong_lungMAP_unpubl_sample_5,1367,61429,0.02,0.3265,0.007
+6,AT2,Duong_lungMAP_unpubl_sample_6,1675,61429,0.03,0.3982,0.0103
+7,AT2,Duong_lungMAP_unpubl_sample_7,1199,61429,0.02,0.2872,0.0054
+8,AT2,Duong_lungMAP_unpubl_sample_8,1618,61429,0.03,0.385,0.0096
+9,EC arterial,Duong_lungMAP_unpubl_sample_0,15,7391,0.0,0.0304,0.0001
+10,EC arterial,Duong_lungMAP_unpubl_sample_1,194,7391,0.03,0.3837,0.0096
+11,EC arterial,Duong_lungMAP_unpubl_sample_2,48,7391,0.01,0.0968,0.0006
+12,EC arterial,Duong_lungMAP_unpubl_sample_3,63,7391,0.01,0.1268,0.0011
+13,EC arterial,Duong_lungMAP_unpubl_sample_4,84,7391,0.01,0.1686,0.0019
+14,EC arterial,Duong_lungMAP_unpubl_sample_5,110,7391,0.01,0.22,0.0032
+15,EC arterial,Duong_lungMAP_unpubl_sample_6,135,7391,0.02,0.2691,0.0047
+16,EC arterial,Duong_lungMAP_unpubl_sample_7,135,7391,0.02,0.2691,0.0047
+17,EC arterial,Duong_lungMAP_unpubl_sample_8,139,7391,0.02,0.2769,0.005
+18,Mast cells,Duong_lungMAP_unpubl_sample_0,17,6623,0.0,0.0384,0.0001
+19,Mast cells,Duong_lungMAP_unpubl_sample_1,54,6623,0.01,0.1213,0.001
+20,Mast cells,Duong_lungMAP_unpubl_sample_2,28,6623,0.0,0.0631,0.0003
+21,Mast cells,Duong_lungMAP_unpubl_sample_3,28,6623,0.0,0.0631,0.0003
+22,Mast cells,Duong_lungMAP_unpubl_sample_4,37,6623,0.01,0.0833,0.0005
+23,Mast cells,Duong_lungMAP_unpubl_sample_5,50,6623,0.01,0.1124,0.0008
+24,Mast cells,Duong_lungMAP_unpubl_sample_6,85,6623,0.01,0.1901,0.0024
+25,Mast cells,Duong_lungMAP_unpubl_sample_7,72,6623,0.01,0.1613,0.0017
+26,Mast cells,Duong_lungMAP_unpubl_sample_8,65,6623,0.01,0.1458,0.0014
+27,CD4 T cells,Duong_lungMAP_unpubl_sample_0,35,21285,0.0,0.0246,0.0
+28,CD4 T cells,Duong_lungMAP_unpubl_sample_1,228,21285,0.01,0.159,0.0017
+29,CD4 T cells,Duong_lungMAP_unpubl_sample_2,56,21285,0.0,0.0394,0.0001
+30,CD4 T cells,Duong_lungMAP_unpubl_sample_3,51,21285,0.0,0.0359,0.0001
+31,CD4 T cells,Duong_lungMAP_unpubl_sample_4,95,21285,0.0,0.0667,0.0003
+32,CD4 T cells,Duong_lungMAP_unpubl_sample_5,69,21285,0.0,0.0485,0.0002
+33,CD4 T cells,Duong_lungMAP_unpubl_sample_6,168,21285,0.01,0.1175,0.0009
+34,CD4 T cells,Duong_lungMAP_unpubl_sample_7,149,21285,0.01,0.1043,0.0007
+35,CD4 T cells,Duong_lungMAP_unpubl_sample_8,86,21285,0.0,0.0604,0.0002
+36,CD8 T cells,Duong_lungMAP_unpubl_sample_0,276,29074,0.01,0.1411,0.0013
+37,CD8 T cells,Duong_lungMAP_unpubl_sample_1,196,29074,0.01,0.1004,0.0007
+38,CD8 T cells,Duong_lungMAP_unpubl_sample_2,119,29074,0.0,0.0611,0.0002
+39,CD8 T cells,Duong_lungMAP_unpubl_sample_3,134,29074,0.0,0.0688,0.0003
+40,CD8 T cells,Duong_lungMAP_unpubl_sample_4,197,29074,0.01,0.101,0.0007
+41,CD8 T cells,Duong_lungMAP_unpubl_sample_5,266,29074,0.01,0.136,0.0012
+42,CD8 T cells,Duong_lungMAP_unpubl_sample_6,249,29074,0.01,0.1274,0.0011
+43,CD8 T cells,Duong_lungMAP_unpubl_sample_7,178,29074,0.01,0.0913,0.0006
+44,CD8 T cells,Duong_lungMAP_unpubl_sample_8,181,29074,0.01,0.0928,0.0006
+45,Classical monocytes,Duong_lungMAP_unpubl_sample_0,52,17695,0.0,0.044,0.0001
+46,Classical monocytes,Duong_lungMAP_unpubl_sample_1,465,17695,0.03,0.3841,0.0096
+47,Classical monocytes,Duong_lungMAP_unpubl_sample_2,547,17695,0.03,0.4498,0.0131
+48,Classical monocytes,Duong_lungMAP_unpubl_sample_3,211,17695,0.01,0.1768,0.0021
+49,Classical monocytes,Duong_lungMAP_unpubl_sample_4,244,17695,0.01,0.204,0.0027
+50,Classical monocytes,Duong_lungMAP_unpubl_sample_5,355,17695,0.02,0.295,0.0057
+51,Classical monocytes,Duong_lungMAP_unpubl_sample_6,211,17695,0.01,0.1768,0.0021
+52,Classical monocytes,Duong_lungMAP_unpubl_sample_7,357,17695,0.02,0.2966,0.0058
+53,Classical monocytes,Duong_lungMAP_unpubl_sample_8,433,17695,0.02,0.3583,0.0084
+54,NK cells,Duong_lungMAP_unpubl_sample_0,50,16978,0.0,0.044,0.0001
+55,NK cells,Duong_lungMAP_unpubl_sample_1,151,16978,0.01,0.1322,0.0012
+56,NK cells,Duong_lungMAP_unpubl_sample_2,61,16978,0.0,0.0537,0.0002
+57,NK cells,Duong_lungMAP_unpubl_sample_3,85,16978,0.0,0.0747,0.0004
+58,NK cells,Duong_lungMAP_unpubl_sample_4,107,16978,0.01,0.0939,0.0006
+59,NK cells,Duong_lungMAP_unpubl_sample_5,132,16978,0.01,0.1157,0.0009
+60,NK cells,Duong_lungMAP_unpubl_sample_6,72,16978,0.0,0.0633,0.0003
+61,NK cells,Duong_lungMAP_unpubl_sample_7,121,16978,0.01,0.1061,0.0007
+62,NK cells,Duong_lungMAP_unpubl_sample_8,138,16978,0.01,0.1209,0.001
+63,Non-classical monocytes,Duong_lungMAP_unpubl_sample_1,19,8834,0.0,0.0322,0.0001
+64,Non-classical monocytes,Duong_lungMAP_unpubl_sample_4,16,8834,0.0,0.0271,0.0
+65,Non-classical monocytes,Duong_lungMAP_unpubl_sample_5,36,8834,0.0,0.0609,0.0002
+66,Non-classical monocytes,Duong_lungMAP_unpubl_sample_6,21,8834,0.0,0.0356,0.0001
+67,Non-classical monocytes,Duong_lungMAP_unpubl_sample_7,19,8834,0.0,0.0322,0.0001
+68,Basal,Duong_lungMAP_unpubl_sample_0,84,84713,0.0,0.0149,0.0
+69,Basal,Duong_lungMAP_unpubl_sample_1,34,84713,0.0,0.006,0.0
+70,Basal,Duong_lungMAP_unpubl_sample_2,24,84713,0.0,0.0042,0.0
+71,Basal,Duong_lungMAP_unpubl_sample_3,36,84713,0.0,0.0064,0.0
+72,Basal,Duong_lungMAP_unpubl_sample_4,197,84713,0.0,0.0348,0.0001
+73,Basal,Duong_lungMAP_unpubl_sample_5,61,84713,0.0,0.0108,0.0
+74,Basal,Duong_lungMAP_unpubl_sample_6,41,84713,0.0,0.0073,0.0
+75,Basal,Duong_lungMAP_unpubl_sample_7,35,84713,0.0,0.0062,0.0
+76,Basal,Duong_lungMAP_unpubl_sample_8,32,84713,0.0,0.0057,0.0
+77,DC2,Duong_lungMAP_unpubl_sample_0,42,9133,0.0,0.0687,0.0003
+78,DC2,Duong_lungMAP_unpubl_sample_1,49,9133,0.01,0.08,0.0004
+79,DC2,Duong_lungMAP_unpubl_sample_2,22,9133,0.0,0.036,0.0001
+80,DC2,Duong_lungMAP_unpubl_sample_3,16,9133,0.0,0.0262,0.0
+81,DC2,Duong_lungMAP_unpubl_sample_4,37,9133,0.0,0.0605,0.0002
+82,DC2,Duong_lungMAP_unpubl_sample_5,29,9133,0.0,0.0475,0.0001
+83,DC2,Duong_lungMAP_unpubl_sample_6,51,9133,0.01,0.0833,0.0005
+84,DC2,Duong_lungMAP_unpubl_sample_7,30,9133,0.0,0.0491,0.0002
+85,DC2,Duong_lungMAP_unpubl_sample_8,47,9133,0.01,0.0768,0.0004
+86,EC venous,Duong_lungMAP_unpubl_sample_0,27,12975,0.0,0.0311,0.0001
+87,EC venous,Duong_lungMAP_unpubl_sample_1,118,12975,0.01,0.1352,0.0012
+88,EC venous,Duong_lungMAP_unpubl_sample_2,44,12975,0.0,0.0507,0.0002
+89,EC venous,Duong_lungMAP_unpubl_sample_3,43,12975,0.0,0.0495,0.0002
+90,EC venous,Duong_lungMAP_unpubl_sample_4,104,12975,0.01,0.1193,0.0009
+91,EC venous,Duong_lungMAP_unpubl_sample_5,86,12975,0.01,0.0988,0.0006
+92,EC venous,Duong_lungMAP_unpubl_sample_6,170,12975,0.01,0.194,0.0025
+93,EC venous,Duong_lungMAP_unpubl_sample_7,107,12975,0.01,0.1227,0.001
+94,EC venous,Duong_lungMAP_unpubl_sample_8,117,12975,0.01,0.1341,0.0012
+95,Fibroblast lineage,Duong_lungMAP_unpubl_sample_0,392,21100,0.02,0.2736,0.0049
+96,Fibroblast lineage,Duong_lungMAP_unpubl_sample_1,1139,21100,0.05,0.7682,0.0373
+97,Fibroblast lineage,Duong_lungMAP_unpubl_sample_2,357,21100,0.02,0.2496,0.0041
+98,Fibroblast lineage,Duong_lungMAP_unpubl_sample_3,472,21100,0.02,0.3282,0.007
+99,Fibroblast lineage,Duong_lungMAP_unpubl_sample_4,628,21100,0.03,0.4335,0.0122
+100,Fibroblast lineage,Duong_lungMAP_unpubl_sample_5,968,21100,0.04,0.658,0.0276
+101,Fibroblast lineage,Duong_lungMAP_unpubl_sample_6,962,21100,0.04,0.6541,0.0273
+102,Fibroblast lineage,Duong_lungMAP_unpubl_sample_7,843,21100,0.04,0.5763,0.0213
+103,Fibroblast lineage,Duong_lungMAP_unpubl_sample_8,754,21100,0.03,0.5175,0.0172
+104,Macrophages,Duong_lungMAP_unpubl_sample_0,849,111844,0.01,0.113,0.0008
+105,Macrophages,Duong_lungMAP_unpubl_sample_1,606,111844,0.01,0.0808,0.0004
+106,Macrophages,Duong_lungMAP_unpubl_sample_2,550,111844,0.0,0.0734,0.0004
+107,Macrophages,Duong_lungMAP_unpubl_sample_3,275,111844,0.0,0.0368,0.0001
+108,Macrophages,Duong_lungMAP_unpubl_sample_4,298,111844,0.0,0.0399,0.0001
+109,Macrophages,Duong_lungMAP_unpubl_sample_5,406,111844,0.0,0.0543,0.0002
+110,Macrophages,Duong_lungMAP_unpubl_sample_6,341,111844,0.0,0.0456,0.0001
+111,Macrophages,Duong_lungMAP_unpubl_sample_7,373,111844,0.0,0.0499,0.0002
+112,Macrophages,Duong_lungMAP_unpubl_sample_8,493,111844,0.0,0.0658,0.0003
+113,Multiciliated,Duong_lungMAP_unpubl_sample_0,353,40094,0.01,0.1309,0.0011
+114,Multiciliated,Duong_lungMAP_unpubl_sample_1,233,40094,0.01,0.0867,0.0005
+115,Multiciliated,Duong_lungMAP_unpubl_sample_2,60,40094,0.0,0.0224,0.0
+116,Multiciliated,Duong_lungMAP_unpubl_sample_3,53,40094,0.0,0.0198,0.0
+117,Multiciliated,Duong_lungMAP_unpubl_sample_4,273,40094,0.01,0.1014,0.0007
+118,Multiciliated,Duong_lungMAP_unpubl_sample_5,133,40094,0.0,0.0496,0.0002
+119,Multiciliated,Duong_lungMAP_unpubl_sample_6,64,40094,0.0,0.0239,0.0
+120,Multiciliated,Duong_lungMAP_unpubl_sample_7,61,40094,0.0,0.0228,0.0
+121,Multiciliated,Duong_lungMAP_unpubl_sample_8,118,40094,0.0,0.044,0.0001
+122,Secretory,Duong_lungMAP_unpubl_sample_0,307,80327,0.0,0.0571,0.0002
+123,Secretory,Duong_lungMAP_unpubl_sample_1,313,80327,0.0,0.0582,0.0002
+124,Secretory,Duong_lungMAP_unpubl_sample_2,67,80327,0.0,0.0125,0.0
+125,Secretory,Duong_lungMAP_unpubl_sample_3,83,80327,0.0,0.0155,0.0
+126,Secretory,Duong_lungMAP_unpubl_sample_4,202,80327,0.0,0.0376,0.0001
+127,Secretory,Duong_lungMAP_unpubl_sample_5,144,80327,0.0,0.0268,0.0
+128,Secretory,Duong_lungMAP_unpubl_sample_6,84,80327,0.0,0.0157,0.0
+129,Secretory,Duong_lungMAP_unpubl_sample_7,86,80327,0.0,0.016,0.0
+130,Secretory,Duong_lungMAP_unpubl_sample_8,112,80327,0.0,0.0209,0.0

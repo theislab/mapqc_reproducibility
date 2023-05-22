@@ -1,0 +1,44 @@
+,cell_label,sample,mean,health_status,excluded,label
+0,Alveolar macrophages,PX1,0.09253077694081263,healthy,True,healthy rejected
+1,Dendritic cells,PX1,0.5729767355051908,healthy,False,healthy accepted
+2,Interstitial macrophages,PX1,0.4032798013317109,healthy,False,healthy accepted
+3,Mast cells,PX1,0.18710467405617232,healthy,False,healthy accepted
+4,T cell lineage,PX1,0.09276153777911189,healthy,True,healthy rejected
+5,Alveolar macrophages,PX10,0.05422287716840435,healthy,True,healthy rejected
+6,Dendritic cells,PX10,0.24009324018136138,healthy,True,healthy rejected
+7,Interstitial macrophages,PX10,0.0970038805489821,healthy,True,healthy rejected
+8,T cell lineage,PX10,0.031084243584786266,healthy,True,healthy rejected
+9,Alveolar macrophages,PX2,0.060923556750048534,healthy,True,healthy rejected
+10,Dendritic cells,PX2,0.6077906752626101,healthy,False,healthy accepted
+11,Interstitial macrophages,PX2,0.2717616383327106,healthy,False,healthy accepted
+12,Multiciliated (non-nasal),PX2,0.3921122327446937,healthy,False,healthy accepted
+13,T cell lineage,PX2,0.0957633415209515,healthy,True,healthy rejected
+14,Alveolar macrophages,PX3,0.08961055849835137,healthy,True,healthy rejected
+15,Dendritic cells,PX3,0.477410694864923,healthy,False,healthy accepted
+16,Interstitial macrophages,PX3,0.2596656008272098,healthy,False,healthy accepted
+17,T cell lineage,PX3,0.09816321341474198,healthy,True,healthy rejected
+18,Alveolar macrophages,PX4,0.045991696023268476,healthy,True,healthy rejected
+19,Dendritic cells,PX4,0.506384264677763,healthy,False,healthy accepted
+20,Interstitial macrophages,PX4,0.4884022605119516,healthy,False,healthy accepted
+21,T cell lineage,PX4,0.028665522602507824,healthy,True,healthy rejected
+22,Alveolar macrophages,PX5,0.07910088045810076,healthy,True,healthy rejected
+23,Dendritic cells,PX5,0.7552023344569736,healthy,False,healthy accepted
+24,Interstitial macrophages,PX5,0.6561960204559214,healthy,False,healthy accepted
+25,T cell lineage,PX5,0.09197597365224887,healthy,True,healthy rejected
+26,Alveolar macrophages,PX6,0.06924834528598114,healthy,True,healthy rejected
+27,Dendritic cells,PX6,0.48621210649920005,healthy,False,healthy accepted
+28,Interstitial macrophages,PX6,0.5286672383081168,healthy,False,healthy accepted
+29,Mast cells,PX6,0.06375150345265862,healthy,True,healthy rejected
+30,T cell lineage,PX6,0.02186756883581648,healthy,True,healthy rejected
+31,Alveolar macrophages,PX7,0.09368845074756701,healthy,True,healthy rejected
+32,Dendritic cells,PX7,0.49545582541479516,healthy,False,healthy accepted
+33,Interstitial macrophages,PX7,0.4556988733960037,healthy,False,healthy accepted
+34,T cell lineage,PX7,0.11087844205337061,healthy,True,healthy rejected
+35,Alveolar macrophages,PX8,0.09911331862830454,healthy,True,healthy rejected
+36,Dendritic cells,PX8,0.46341169323725034,healthy,False,healthy accepted
+37,Interstitial macrophages,PX8,0.6535688792740492,healthy,False,healthy accepted
+38,T cell lineage,PX8,0.05435114759936767,healthy,True,healthy rejected
+39,Alveolar macrophages,PX9,0.02690388596709615,healthy,True,healthy rejected
+40,Dendritic cells,PX9,0.22167341115281858,healthy,True,healthy rejected
+41,Interstitial macrophages,PX9,0.3601650043301994,healthy,False,healthy accepted
+42,T cell lineage,PX9,0.09243727707496237,healthy,True,healthy rejected

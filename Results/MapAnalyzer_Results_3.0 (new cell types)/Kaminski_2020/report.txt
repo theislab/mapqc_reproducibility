@@ -1,0 +1,215 @@
+Parameters:
+Rejection of cell_type per sample:	0.05
+12 of healthy(38) samples rejected (p = 0.0):
+ please remap with different parameters,a different method or reintegrate
+092C:
+health_status  first     healthy
+excluded       sum             2
+               count           6
+fraction                0.333333
+accepted                   False
+Name: 092C, dtype: object
+
+133C-a:
+health_status  first     healthy
+excluded       sum             5
+               count          11
+fraction                0.454545
+accepted                   False
+Name: 133C-a, dtype: object
+
+192C-a:
+health_status  first    healthy
+excluded       sum            4
+               count         10
+fraction                    0.4
+accepted                  False
+Name: 192C-a, dtype: object
+
+226C-a:
+health_status  first    healthy
+excluded       sum            4
+               count          8
+fraction                    0.5
+accepted                  False
+Name: 226C-a, dtype: object
+
+226C-b:
+health_status  first     healthy
+excluded       sum             5
+               count           9
+fraction                0.555556
+accepted                   False
+Name: 226C-b, dtype: object
+
+296C:
+health_status  first    healthy
+excluded       sum            4
+               count         10
+fraction                    0.4
+accepted                  False
+Name: 296C, dtype: object
+
+388C:
+health_status  first     healthy
+excluded       sum             5
+               count           9
+fraction                0.555556
+accepted                   False
+Name: 388C, dtype: object
+
+439C:
+health_status  first    healthy
+excluded       sum            6
+               count          6
+fraction                    1.0
+accepted                  False
+Name: 439C, dtype: object
+
+439C-b:
+health_status  first     healthy
+excluded       sum             5
+               count           9
+fraction                0.555556
+accepted                   False
+Name: 439C-b, dtype: object
+
+465C:
+health_status  first    healthy
+excluded       sum            3
+               count          8
+fraction                  0.375
+accepted                  False
+Name: 465C, dtype: object
+
+484C:
+health_status  first    healthy
+excluded       sum            3
+               count          6
+fraction                    0.5
+accepted                  False
+Name: 484C, dtype: object
+
+92C:
+health_status  first     healthy
+excluded       sum             2
+               count           6
+fraction                0.333333
+accepted                   False
+Name: 92C, dtype: object
+
+12 of healthy(38) samples rejected (p = 0.0):
+dataset is good to go
+092C:
+health_status  first     healthy
+excluded       sum             2
+               count           6
+fraction                0.333333
+accepted                   False
+Name: 092C, dtype: object
+133C-a:
+health_status  first     healthy
+excluded       sum             5
+               count          11
+fraction                0.454545
+accepted                   False
+Name: 133C-a, dtype: object
+192C-a:
+health_status  first    healthy
+excluded       sum            4
+               count         10
+fraction                    0.4
+accepted                  False
+Name: 192C-a, dtype: object
+226C-a:
+health_status  first    healthy
+excluded       sum            4
+               count          8
+fraction                    0.5
+accepted                  False
+Name: 226C-a, dtype: object
+226C-b:
+health_status  first     healthy
+excluded       sum             5
+               count           9
+fraction                0.555556
+accepted                   False
+Name: 226C-b, dtype: object
+296C:
+health_status  first    healthy
+excluded       sum            4
+               count         10
+fraction                    0.4
+accepted                  False
+Name: 296C, dtype: object
+388C:
+health_status  first     healthy
+excluded       sum             5
+               count           9
+fraction                0.555556
+accepted                   False
+Name: 388C, dtype: object
+439C:
+health_status  first    healthy
+excluded       sum            6
+               count          6
+fraction                    1.0
+accepted                  False
+Name: 439C, dtype: object
+439C-b:
+health_status  first     healthy
+excluded       sum             5
+               count           9
+fraction                0.555556
+accepted                   False
+Name: 439C-b, dtype: object
+465C:
+health_status  first    healthy
+excluded       sum            3
+               count          8
+fraction                  0.375
+accepted                  False
+Name: 465C, dtype: object
+484C:
+health_status  first    healthy
+excluded       sum            3
+               count          6
+fraction                    0.5
+accepted                  False
+Name: 484C, dtype: object
+92C:
+health_status  first     healthy
+excluded       sum             2
+               count           6
+fraction                0.333333
+accepted                   False
+Name: 92C, dtype: object
+
+
+
+After exclusion of rejected samples cell_types
+that show signs of batch effect are filtered at p = 0.05
+Following cell_types show signs of strong batch effect in healthy samples
+Excluding from disease effect candidate cell_types:
+
+
+Cell_type	bh - corrected p-value
+NK cells	 < 0.001
+Dendritic cells	 < 0.001
+T cell lineage	 < 0.001
+Interstitial macrophages	 < 0.001
+Multiciliated (non-nasal)	 < 0.001
+Alveolar macrophages	 < 0.001
+Monocytes	0.01
+
+
+
+After exclusion of rejected samples and batch-effect affected cell_types
+disease effect is assumed at at p = 0.05
+Following cell_types show signs possible disease effect:
+
+
+Cell_type	bh - corrected p-value
+EC venous	 < 0.001
+Mast cells	0.007
+AT2	0.011

@@ -1,0 +1,44 @@
+,cell_label,sample,mean,health_status,dataset,excluded,label
+0,CD4 T cells,PX1,-0.5219042647158689,healthy,Janssen_2020,True,healthy rejected
+1,CD8 T cells,PX1,-0.5574583056089799,healthy,Janssen_2020,True,healthy rejected
+2,DC2,PX1,-0.15135109392245438,healthy,Janssen_2020,False,healthy accepted
+3,Macrophages,PX1,-0.08502870438063974,healthy,Janssen_2020,False,healthy accepted
+4,Mast cells,PX1,-0.6031518933596817,healthy,Janssen_2020,True,healthy rejected
+5,CD4 T cells,PX2,-0.5838212604826657,healthy,Janssen_2020,True,healthy rejected
+6,CD8 T cells,PX2,-0.586310413520771,healthy,Janssen_2020,True,healthy rejected
+7,DC2,PX2,-0.18042834955419784,healthy,Janssen_2020,False,healthy accepted
+8,Macrophages,PX2,-0.11397087992191396,healthy,Janssen_2020,False,healthy accepted
+9,Multiciliated,PX2,-0.454427287555908,healthy,Janssen_2020,True,healthy rejected
+10,CD4 T cells,PX3,-0.5741050934239623,healthy,Janssen_2020,True,healthy rejected
+11,CD8 T cells,PX3,-0.5794208343464403,healthy,Janssen_2020,True,healthy rejected
+12,DC2,PX3,-0.16704606823443147,healthy,Janssen_2020,False,healthy accepted
+13,Macrophages,PX3,-0.12173916269977068,healthy,Janssen_2020,False,healthy accepted
+14,CD4 T cells,PX4,-0.5747898452535503,healthy,Janssen_2020,True,healthy rejected
+15,CD8 T cells,PX4,-0.6078546722288797,healthy,Janssen_2020,True,healthy rejected
+16,DC2,PX4,-0.21578394532123002,healthy,Janssen_2020,False,healthy accepted
+17,Macrophages,PX4,-0.16500958177915648,healthy,Janssen_2020,False,healthy accepted
+18,CD4 T cells,PX5,-0.6449349494850429,healthy,Janssen_2020,True,healthy rejected
+19,CD8 T cells,PX5,-0.6163843320239419,healthy,Janssen_2020,True,healthy rejected
+20,DC2,PX5,-0.02236426468676933,healthy,Janssen_2020,False,healthy accepted
+21,Macrophages,PX5,-0.10616724254111709,healthy,Janssen_2020,False,healthy accepted
+22,CD4 T cells,PX6,-0.5651965092546739,healthy,Janssen_2020,True,healthy rejected
+23,CD8 T cells,PX6,-0.5310564791099651,healthy,Janssen_2020,True,healthy rejected
+24,DC2,PX6,-0.2495440060920363,healthy,Janssen_2020,True,healthy rejected
+25,Macrophages,PX6,-0.14209084773871386,healthy,Janssen_2020,False,healthy accepted
+26,Mast cells,PX6,-0.7265050571490186,healthy,Janssen_2020,True,healthy rejected
+27,CD4 T cells,PX7,-0.5251616860397785,healthy,Janssen_2020,True,healthy rejected
+28,CD8 T cells,PX7,-0.5454282031666753,healthy,Janssen_2020,True,healthy rejected
+29,DC2,PX7,-0.2239870197930639,healthy,Janssen_2020,False,healthy accepted
+30,Macrophages,PX7,-0.09775094320140199,healthy,Janssen_2020,False,healthy accepted
+31,CD4 T cells,PX8,-0.5298688565749587,healthy,Janssen_2020,True,healthy rejected
+32,CD8 T cells,PX8,-0.5591430159740189,healthy,Janssen_2020,True,healthy rejected
+33,DC2,PX8,-0.1838572109850244,healthy,Janssen_2020,False,healthy accepted
+34,Macrophages,PX8,-0.07442283977864174,healthy,Janssen_2020,False,healthy accepted
+35,CD4 T cells,PX9,-0.7475140831657237,healthy,Janssen_2020,True,healthy rejected
+36,CD8 T cells,PX9,-0.7001236924378638,healthy,Janssen_2020,True,healthy rejected
+37,DC2,PX9,-0.5669083398472974,healthy,Janssen_2020,True,healthy rejected
+38,Macrophages,PX9,-0.2512578064559801,healthy,Janssen_2020,True,healthy rejected
+39,CD4 T cells,PX10,-0.6382524172396647,healthy,Janssen_2020,True,healthy rejected
+40,CD8 T cells,PX10,-0.6419398701855551,healthy,Janssen_2020,True,healthy rejected
+41,DC2,PX10,-0.482198886131935,healthy,Janssen_2020,True,healthy rejected
+42,Macrophages,PX10,-0.18297431598317945,healthy,Janssen_2020,False,healthy accepted

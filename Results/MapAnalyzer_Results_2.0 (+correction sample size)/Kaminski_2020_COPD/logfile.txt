@@ -1,0 +1,986 @@
+2023-03-02 13:56:47.398471	Standarizing columns...
+2023-03-02 13:56:51.441107	Finished
+2023-03-02 13:56:59.747956	Checking columns...
+2023-03-02 13:57:00.223041	Analyzing Hematopoietic stem cells
+2023-03-02 13:57:00.273410	skipping Hematopoietic stem cells with 1 subjects
+2023-03-02 13:57:00.273477	Analyzing Mesothelium
+2023-03-02 13:57:00.311130	skipping Mesothelium with 5 subjects
+2023-03-02 13:57:00.311202	Analyzing AT1
+2023-03-02 13:57:00.392581	skipping AT1 with 35 subjects
+2023-03-02 13:57:00.392667	Analyzing AT2
+2023-03-02 13:57:00.798371			Analysing 001C
+2023-03-02 13:59:17.799019			skipping 002C with 4 cells
+2023-03-02 13:59:17.813926			Analysing 003C
+2023-03-02 13:59:24.107026			Analysing 8CO
+2023-03-02 13:59:30.290744			Analysing 022C-a
+2023-03-02 13:59:36.442702			Analysing 022C-b
+2023-03-02 13:59:42.566538			skipping 23CO with 4 cells
+2023-03-02 13:59:42.580308			skipping 034C with 3 cells
+2023-03-02 13:59:42.592983			Analysing 052CO-a
+2023-03-02 13:59:48.818622			Analysing 056CO
+2023-03-02 13:59:54.975423			skipping 065C with 4 cells
+2023-03-02 13:59:54.992773			skipping 081C with 3 cells
+2023-03-02 13:59:55.005289			skipping 084C with 4 cells
+2023-03-02 13:59:55.016981			skipping 092C with 0 cells
+2023-03-02 13:59:55.028590			skipping 92C with 0 cells
+2023-03-02 13:59:55.041368			Analysing 098C-a
+2023-03-02 14:00:01.092003			Analysing 098C-b
+2023-03-02 14:00:07.183838			Analysing 133C-a
+2023-03-02 14:00:13.534553			skipping 137C with 4 cells
+2023-03-02 14:00:13.548520			Analysing 137C-a
+2023-03-02 14:00:19.821538			Analysing 137C-b
+2023-03-02 14:00:25.963474			skipping 137CO with 2 cells
+2023-03-02 14:00:25.975629			skipping 152CO with 0 cells
+2023-03-02 14:00:25.988364			Analysing 152CO-a
+2023-03-02 14:00:32.016363			skipping 153CO-a with 11 cells
+2023-03-02 14:00:32.029802			skipping 153CO-b with 7 cells
+2023-03-02 14:00:32.042608			Analysing 160C
+2023-03-02 14:00:38.360443			Analysing 178CO
+2023-03-02 14:00:44.485588			Analysing 184CO-a
+2023-03-02 14:00:50.530753			Analysing 184CO-b
+2023-03-02 14:00:56.567096			skipping 186CO-b with 1 cells
+2023-03-02 14:00:56.581209			Analysing 192C-a
+2023-03-02 14:01:02.805890			skipping 192CO with 10 cells
+2023-03-02 14:01:02.820466			skipping 192CO-a with 11 cells
+2023-03-02 14:01:02.833992			skipping 192CO-b with 12 cells
+2023-03-02 14:01:02.850694			Analysing 193CO-a
+2023-03-02 14:01:08.851383			Analysing 193CO-b
+2023-03-02 14:01:14.899455			skipping 194CO-a with 4 cells
+2023-03-02 14:01:14.912771			Analysing 207CO
+2023-03-02 14:01:21.100453			skipping 208C with 2 cells
+2023-03-02 14:01:21.117175			Analysing 217CO-a
+2023-03-02 14:01:27.244418			Analysing 218C-a
+2023-03-02 14:01:33.501901			Analysing 218C-b
+2023-03-02 14:01:39.591044			skipping 219C-a with 10 cells
+2023-03-02 14:01:39.604126			skipping 219C-b with 11 cells
+2023-03-02 14:01:39.616511			skipping 222C with 12 cells
+2023-03-02 14:01:39.633271			Analysing 226C-a
+2023-03-02 14:01:46.372979			Analysing 226C-b
+2023-03-02 14:01:52.627493			Analysing 235CO
+2023-03-02 14:01:58.809901			Analysing 237CO
+2023-03-02 14:02:05.149852			Analysing 238CO
+2023-03-02 14:02:11.318138			skipping 244C with 0 cells
+2023-03-02 14:02:11.333417			skipping 253C with 3 cells
+2023-03-02 14:02:11.347091			Analysing 296C
+2023-03-02 14:02:17.586772			skipping 388C with 10 cells
+2023-03-02 14:02:17.600994			Analysing 396C
+2023-03-02 14:02:23.759420			skipping 439C with 6 cells
+2023-03-02 14:02:23.773586			Analysing 439C-b
+2023-03-02 14:02:29.929790			Analysing 454C
+2023-03-02 14:02:36.070825			Analysing 465C
+2023-03-02 14:02:42.166168			Analysing 483C
+2023-03-02 14:02:48.410496			skipping 484C with 1 cells
+2023-03-02 14:02:48.410734	Analyzing EC arterial
+2023-03-02 14:02:48.516985			skipping 001C with 2 cells
+2023-03-02 14:02:48.529461			skipping 002C with 0 cells
+2023-03-02 14:02:48.543027			skipping 003C with 5 cells
+2023-03-02 14:02:48.555530			skipping 8CO with 0 cells
+2023-03-02 14:02:48.571087			skipping 022C-a with 10 cells
+2023-03-02 14:02:48.584555			skipping 022C-b with 13 cells
+2023-03-02 14:02:48.598214			skipping 23CO with 2 cells
+2023-03-02 14:02:48.611573			skipping 034C with 2 cells
+2023-03-02 14:02:48.628489			skipping 052CO-a with 11 cells
+2023-03-02 14:02:48.642331			skipping 056CO with 10 cells
+2023-03-02 14:02:48.655635			skipping 065C with 1 cells
+2023-03-02 14:02:48.668968			skipping 081C with 1 cells
+2023-03-02 14:02:48.682246			skipping 084C with 1 cells
+2023-03-02 14:02:48.694528			skipping 092C with 0 cells
+2023-03-02 14:02:48.708078			skipping 92C with 3 cells
+2023-03-02 14:02:48.721297			Analysing 098C-a
+2023-03-02 14:02:52.355847			skipping 098C-b with 12 cells
+2023-03-02 14:02:52.369697			Analysing 133C-a
+2023-03-02 14:02:53.754416			skipping 137C with 0 cells
+2023-03-02 14:02:53.767592			skipping 137C-a with 11 cells
+2023-03-02 14:02:53.781881			Analysing 137C-b
+2023-03-02 14:02:55.080744			skipping 137CO with 1 cells
+2023-03-02 14:02:55.093093			skipping 152CO with 0 cells
+2023-03-02 14:02:55.106254			Analysing 152CO-a
+2023-03-02 14:02:56.445155			skipping 153CO-a with 5 cells
+2023-03-02 14:02:56.458473			skipping 153CO-b with 4 cells
+2023-03-02 14:02:56.471316			skipping 160C with 9 cells
+2023-03-02 14:02:56.484124			skipping 178CO with 6 cells
+2023-03-02 14:02:56.496890			skipping 184CO-a with 9 cells
+2023-03-02 14:02:56.509567			Analysing 184CO-b
+2023-03-02 14:02:57.863188			skipping 186CO-b with 7 cells
+2023-03-02 14:02:57.876326			skipping 192C-a with 7 cells
+2023-03-02 14:02:57.887822			skipping 192CO with 0 cells
+2023-03-02 14:02:57.899308			skipping 192CO-a with 0 cells
+2023-03-02 14:02:57.910834			skipping 192CO-b with 0 cells
+2023-03-02 14:02:57.922383			skipping 193CO-a with 0 cells
+2023-03-02 14:02:57.934929			skipping 193CO-b with 1 cells
+2023-03-02 14:02:57.946636			skipping 194CO-a with 0 cells
+2023-03-02 14:02:57.958487			skipping 207CO with 0 cells
+2023-03-02 14:02:57.971181			skipping 208C with 0 cells
+2023-03-02 14:02:57.984461			skipping 217CO-a with 3 cells
+2023-03-02 14:02:57.996628			skipping 218C-a with 0 cells
+2023-03-02 14:02:58.008674			skipping 218C-b with 0 cells
+2023-03-02 14:02:58.022216			skipping 219C-a with 0 cells
+2023-03-02 14:02:58.034509			skipping 219C-b with 0 cells
+2023-03-02 14:02:58.047797			skipping 222C with 2 cells
+2023-03-02 14:02:58.060934			skipping 226C-a with 1 cells
+2023-03-02 14:02:58.075594			skipping 226C-b with 1 cells
+2023-03-02 14:02:58.090449			skipping 235CO with 4 cells
+2023-03-02 14:02:58.103629			skipping 237CO with 7 cells
+2023-03-02 14:02:58.116590			skipping 238CO with 1 cells
+2023-03-02 14:02:58.128677			skipping 244C with 0 cells
+2023-03-02 14:02:58.141847			skipping 253C with 12 cells
+2023-03-02 14:02:58.154995			skipping 296C with 5 cells
+2023-03-02 14:02:58.168091			skipping 388C with 3 cells
+2023-03-02 14:02:58.181148			skipping 396C with 1 cells
+2023-03-02 14:02:58.194297			skipping 439C with 4 cells
+2023-03-02 14:02:58.208787			skipping 439C-b with 2 cells
+2023-03-02 14:02:58.221921			skipping 454C with 5 cells
+2023-03-02 14:02:58.234987			skipping 465C with 4 cells
+2023-03-02 14:02:58.247936			skipping 483C with 1 cells
+2023-03-02 14:02:58.259886			skipping 484C with 0 cells
+2023-03-02 14:02:58.259924	Analyzing Lymphatic EC differentiating
+2023-03-02 14:02:58.300243	skipping Lymphatic EC differentiating with 3 subjects
+2023-03-02 14:02:58.300459	Analyzing Lymphatic EC mature
+2023-03-02 14:02:58.364914	skipping Lymphatic EC mature with 32 subjects
+2023-03-02 14:02:58.364959	Analyzing Lymphatic EC proliferating
+2023-03-02 14:02:58.397856	skipping Lymphatic EC proliferating with 0 subjects
+2023-03-02 14:02:58.397901	Analyzing Mast cells
+2023-03-02 14:02:58.488788			skipping 001C with 0 cells
+2023-03-02 14:02:58.502248			skipping 002C with 3 cells
+2023-03-02 14:02:58.518166			skipping 003C with 10 cells
+2023-03-02 14:02:58.531441			skipping 8CO with 6 cells
+2023-03-02 14:02:58.544773			Analysing 022C-a
+2023-03-02 14:02:59.727212			skipping 022C-b with 11 cells
+2023-03-02 14:02:59.740383			skipping 23CO with 7 cells
+2023-03-02 14:02:59.752954			skipping 034C with 1 cells
+2023-03-02 14:02:59.765634			Analysing 052CO-a
+2023-03-02 14:03:00.883992			Analysing 056CO
+2023-03-02 14:03:01.939140			skipping 065C with 1 cells
+2023-03-02 14:03:01.952355			skipping 081C with 1 cells
+2023-03-02 14:03:01.964917			skipping 084C with 1 cells
+2023-03-02 14:03:01.977107			skipping 092C with 0 cells
+2023-03-02 14:03:01.990426			skipping 92C with 2 cells
+2023-03-02 14:03:02.003725			skipping 098C-a with 4 cells
+2023-03-02 14:03:02.016933			skipping 098C-b with 2 cells
+2023-03-02 14:03:02.030416			skipping 133C-a with 10 cells
+2023-03-02 14:03:02.042701			skipping 137C with 0 cells
+2023-03-02 14:03:02.054785			skipping 137C-a with 0 cells
+2023-03-02 14:03:02.067769			skipping 137C-b with 1 cells
+2023-03-02 14:03:02.079842			skipping 137CO with 0 cells
+2023-03-02 14:03:02.092018			skipping 152CO with 0 cells
+2023-03-02 14:03:02.106783			Analysing 152CO-a
+2023-03-02 14:03:03.210255			skipping 153CO-a with 2 cells
+2023-03-02 14:03:03.223250			skipping 153CO-b with 8 cells
+2023-03-02 14:03:03.235963			skipping 160C with 14 cells
+2023-03-02 14:03:03.248767			Analysing 178CO
+2023-03-02 14:03:04.392537			Analysing 184CO-a
+2023-03-02 14:03:05.477430			Analysing 184CO-b
+2023-03-02 14:03:06.602801			skipping 186CO-b with 13 cells
+2023-03-02 14:03:06.616870			Analysing 192C-a
+2023-03-02 14:03:07.802770			skipping 192CO with 2 cells
+2023-03-02 14:03:07.816786			skipping 192CO-a with 5 cells
+2023-03-02 14:03:07.830551			skipping 192CO-b with 9 cells
+2023-03-02 14:03:07.844320			Analysing 193CO-a
+2023-03-02 14:03:08.973393			Analysing 193CO-b
+2023-03-02 14:03:10.116255			skipping 194CO-a with 4 cells
+2023-03-02 14:03:10.132452			skipping 207CO with 10 cells
+2023-03-02 14:03:10.145959			skipping 208C with 2 cells
+2023-03-02 14:03:10.159625			skipping 217CO-a with 8 cells
+2023-03-02 14:03:10.173217			skipping 218C-a with 2 cells
+2023-03-02 14:03:10.186565			skipping 218C-b with 1 cells
+2023-03-02 14:03:10.200291			skipping 219C-a with 2 cells
+2023-03-02 14:03:10.213742			skipping 219C-b with 3 cells
+2023-03-02 14:03:10.227341			skipping 222C with 9 cells
+2023-03-02 14:03:10.240940			skipping 226C-a with 3 cells
+2023-03-02 14:03:10.254268			skipping 226C-b with 1 cells
+2023-03-02 14:03:10.268133			Analysing 235CO
+2023-03-02 14:03:11.465345			Analysing 237CO
+2023-03-02 14:03:12.601568			Analysing 238CO
+2023-03-02 14:03:13.687844			skipping 244C with 0 cells
+2023-03-02 14:03:13.701691			skipping 253C with 3 cells
+2023-03-02 14:03:13.715094			skipping 296C with 6 cells
+2023-03-02 14:03:13.728497			skipping 388C with 4 cells
+2023-03-02 14:03:13.741628			skipping 396C with 1 cells
+2023-03-02 14:03:13.754762			skipping 439C with 1 cells
+2023-03-02 14:03:13.768029			skipping 439C-b with 4 cells
+2023-03-02 14:03:13.780178			skipping 454C with 0 cells
+2023-03-02 14:03:13.793455			skipping 465C with 7 cells
+2023-03-02 14:03:13.806519			skipping 483C with 1 cells
+2023-03-02 14:03:13.820312			skipping 484C with 0 cells
+2023-03-02 14:03:13.820358	Analyzing AT2 proliferating
+2023-03-02 14:03:13.869757	skipping AT2 proliferating with 14 subjects
+2023-03-02 14:03:13.869802	Analyzing B cells
+2023-03-02 14:03:13.948012	skipping B cells with 36 subjects
+2023-03-02 14:03:13.948070	Analyzing CD4 T cells
+2023-03-02 14:03:14.151371			Analysing 001C
+2023-03-02 14:03:16.316267			Analysing 002C
+2023-03-02 14:03:18.407351			Analysing 003C
+2023-03-02 14:03:20.542999			Analysing 8CO
+2023-03-02 14:03:22.644836			Analysing 022C-a
+2023-03-02 14:03:24.836180			Analysing 022C-b
+2023-03-02 14:03:26.981513			Analysing 23CO
+2023-03-02 14:03:29.115481			Analysing 034C
+2023-03-02 14:03:31.240820			Analysing 052CO-a
+2023-03-02 14:03:33.448065			Analysing 056CO
+2023-03-02 14:03:35.666844			Analysing 065C
+2023-03-02 14:03:37.805613			skipping 081C with 4 cells
+2023-03-02 14:03:37.819490			Analysing 084C
+2023-03-02 14:03:39.954137			skipping 092C with 6 cells
+2023-03-02 14:03:39.967696			skipping 92C with 9 cells
+2023-03-02 14:03:39.980840			Analysing 098C-a
+2023-03-02 14:03:42.151577			Analysing 098C-b
+2023-03-02 14:03:44.281072			Analysing 133C-a
+2023-03-02 14:03:46.464757			Analysing 137C
+2023-03-02 14:03:48.540667			Analysing 137C-a
+2023-03-02 14:03:50.612342			Analysing 137C-b
+2023-03-02 14:03:52.671074			skipping 137CO with 0 cells
+2023-03-02 14:03:52.684449			skipping 152CO with 9 cells
+2023-03-02 14:03:52.697876			Analysing 152CO-a
+2023-03-02 14:03:54.878836			Analysing 153CO-a
+2023-03-02 14:03:57.000509			Analysing 153CO-b
+2023-03-02 14:03:59.162810			Analysing 160C
+2023-03-02 14:04:01.328458			Analysing 178CO
+2023-03-02 14:04:03.477190			Analysing 184CO-a
+2023-03-02 14:04:05.679205			Analysing 184CO-b
+2023-03-02 14:04:07.879916			Analysing 186CO-b
+2023-03-02 14:04:10.048967			Analysing 192C-a
+2023-03-02 14:04:12.149354			Analysing 192CO
+2023-03-02 14:04:14.313507			Analysing 192CO-a
+2023-03-02 14:04:16.498980			Analysing 192CO-b
+2023-03-02 14:04:18.699760			Analysing 193CO-a
+2023-03-02 14:04:20.877624			Analysing 193CO-b
+2023-03-02 14:04:23.070574			Analysing 194CO-a
+2023-03-02 14:04:25.270338			Analysing 207CO
+2023-03-02 14:04:27.485492			Analysing 208C
+2023-03-02 14:04:29.569019			Analysing 217CO-a
+2023-03-02 14:04:31.726666			Analysing 218C-a
+2023-03-02 14:04:33.858589			Analysing 218C-b
+2023-03-02 14:04:36.016577			Analysing 219C-a
+2023-03-02 14:04:38.136380			Analysing 219C-b
+2023-03-02 14:04:40.268055			Analysing 222C
+2023-03-02 14:04:42.423923			Analysing 226C-a
+2023-03-02 14:04:44.573264			Analysing 226C-b
+2023-03-02 14:04:46.722960			Analysing 235CO
+2023-03-02 14:04:48.906640			Analysing 237CO
+2023-03-02 14:04:51.088765			Analysing 238CO
+2023-03-02 14:04:53.276895			skipping 244C with 8 cells
+2023-03-02 14:04:53.290872			skipping 253C with 11 cells
+2023-03-02 14:04:53.304521			Analysing 296C
+2023-03-02 14:04:55.481857			Analysing 388C
+2023-03-02 14:04:57.621309			skipping 396C with 5 cells
+2023-03-02 14:04:57.638957			Analysing 439C
+2023-03-02 14:04:59.845443			Analysing 439C-b
+2023-03-02 14:05:02.065215			Analysing 454C
+2023-03-02 14:05:04.213377			Analysing 465C
+2023-03-02 14:05:06.441288			Analysing 483C
+2023-03-02 14:05:08.551917			Analysing 484C
+2023-03-02 14:05:10.681082	Analyzing CD8 T cells
+2023-03-02 14:05:10.953963			Analysing 001C
+2023-03-02 14:05:13.926258			skipping 002C with 8 cells
+2023-03-02 14:05:13.941036			Analysing 003C
+2023-03-02 14:05:16.927940			Analysing 8CO
+2023-03-02 14:05:19.899833			Analysing 022C-a
+2023-03-02 14:05:22.887068			Analysing 022C-b
+2023-03-02 14:05:25.847905			Analysing 23CO
+2023-03-02 14:05:28.819154			skipping 034C with 7 cells
+2023-03-02 14:05:28.835151			Analysing 052CO-a
+2023-03-02 14:05:31.887967			Analysing 056CO
+2023-03-02 14:05:34.914493			Analysing 065C
+2023-03-02 14:05:37.871948			skipping 081C with 0 cells
+2023-03-02 14:05:37.885952			skipping 084C with 6 cells
+2023-03-02 14:05:37.899743			skipping 092C with 14 cells
+2023-03-02 14:05:37.913360			skipping 92C with 7 cells
+2023-03-02 14:05:37.927968			Analysing 098C-a
+2023-03-02 14:05:40.962373			Analysing 098C-b
+2023-03-02 14:05:43.996225			Analysing 133C-a
+2023-03-02 14:05:46.998218			Analysing 137C
+2023-03-02 14:05:49.958133			Analysing 137C-a
+2023-03-02 14:05:53.051641			Analysing 137C-b
+2023-03-02 14:05:55.998844			skipping 137CO with 0 cells
+2023-03-02 14:05:56.012710			skipping 152CO with 5 cells
+2023-03-02 14:05:56.027097			Analysing 152CO-a
+2023-03-02 14:05:59.012855			Analysing 153CO-a
+2023-03-02 14:06:01.959547			Analysing 153CO-b
+2023-03-02 14:06:04.967004			Analysing 160C
+2023-03-02 14:06:07.933630			Analysing 178CO
+2023-03-02 14:06:10.968127			Analysing 184CO-a
+2023-03-02 14:06:13.967040			Analysing 184CO-b
+2023-03-02 14:06:16.963141			Analysing 186CO-b
+2023-03-02 14:06:19.949037			Analysing 192C-a
+2023-03-02 14:06:22.920371			Analysing 192CO
+2023-03-02 14:06:25.917128			Analysing 192CO-a
+2023-03-02 14:06:28.930350			Analysing 192CO-b
+2023-03-02 14:06:32.001762			Analysing 193CO-a
+2023-03-02 14:06:35.035966			Analysing 193CO-b
+2023-03-02 14:06:37.968604			Analysing 194CO-a
+2023-03-02 14:06:40.971836			Analysing 207CO
+2023-03-02 14:06:44.008345			skipping 208C with 14 cells
+2023-03-02 14:06:44.023189			Analysing 217CO-a
+2023-03-02 14:06:47.059376			Analysing 218C-a
+2023-03-02 14:06:50.013826			Analysing 218C-b
+2023-03-02 14:06:52.977110			Analysing 219C-a
+2023-03-02 14:06:55.944722			Analysing 219C-b
+2023-03-02 14:06:58.937065			Analysing 222C
+2023-03-02 14:07:01.892634			Analysing 226C-a
+2023-03-02 14:07:04.855805			Analysing 226C-b
+2023-03-02 14:07:07.828632			Analysing 235CO
+2023-03-02 14:07:10.792476			Analysing 237CO
+2023-03-02 14:07:13.793706			Analysing 238CO
+2023-03-02 14:07:16.793344			skipping 244C with 11 cells
+2023-03-02 14:07:16.807437			Analysing 253C
+2023-03-02 14:07:19.789981			Analysing 296C
+2023-03-02 14:07:22.839165			Analysing 388C
+2023-03-02 14:07:25.785911			skipping 396C with 3 cells
+2023-03-02 14:07:25.802490			Analysing 439C
+2023-03-02 14:07:28.802590			Analysing 439C-b
+2023-03-02 14:07:31.801376			Analysing 454C
+2023-03-02 14:07:34.812261			Analysing 465C
+2023-03-02 14:07:37.779013			Analysing 483C
+2023-03-02 14:07:40.727710			Analysing 484C
+2023-03-02 14:07:43.710646	Analyzing Classical monocytes
+2023-03-02 14:07:43.951881			Analysing 001C
+2023-03-02 14:07:45.804837			Analysing 002C
+2023-03-02 14:07:47.617379			Analysing 003C
+2023-03-02 14:07:49.423365			Analysing 8CO
+2023-03-02 14:07:51.185130			Analysing 022C-a
+2023-03-02 14:07:53.017324			Analysing 022C-b
+2023-03-02 14:07:54.831168			Analysing 23CO
+2023-03-02 14:07:56.715818			Analysing 034C
+2023-03-02 14:07:58.552231			Analysing 052CO-a
+2023-03-02 14:08:00.343277			Analysing 056CO
+2023-03-02 14:08:02.166856			Analysing 065C
+2023-03-02 14:08:04.023151			Analysing 081C
+2023-03-02 14:08:05.858344			Analysing 084C
+2023-03-02 14:08:07.614380			Analysing 092C
+2023-03-02 14:08:09.390558			Analysing 92C
+2023-03-02 14:08:11.134966			Analysing 098C-a
+2023-03-02 14:08:12.947671			Analysing 098C-b
+2023-03-02 14:08:14.721167			Analysing 133C-a
+2023-03-02 14:08:16.562334			Analysing 137C
+2023-03-02 14:08:18.361927			Analysing 137C-a
+2023-03-02 14:08:20.202729			Analysing 137C-b
+2023-03-02 14:08:22.033345			skipping 137CO with 7 cells
+2023-03-02 14:08:22.046864			skipping 152CO with 1 cells
+2023-03-02 14:08:22.060439			Analysing 152CO-a
+2023-03-02 14:08:23.911944			Analysing 153CO-a
+2023-03-02 14:08:25.705225			Analysing 153CO-b
+2023-03-02 14:08:27.454970			Analysing 160C
+2023-03-02 14:08:29.223638			Analysing 178CO
+2023-03-02 14:08:31.035424			Analysing 184CO-a
+2023-03-02 14:08:32.856297			Analysing 184CO-b
+2023-03-02 14:08:34.720334			Analysing 186CO-b
+2023-03-02 14:08:36.535591			Analysing 192C-a
+2023-03-02 14:08:38.357414			Analysing 192CO
+2023-03-02 14:08:40.177113			Analysing 192CO-a
+2023-03-02 14:08:41.998241			Analysing 192CO-b
+2023-03-02 14:08:43.791343			Analysing 193CO-a
+2023-03-02 14:08:45.627165			Analysing 193CO-b
+2023-03-02 14:08:47.386946			Analysing 194CO-a
+2023-03-02 14:08:49.161305			Analysing 207CO
+2023-03-02 14:08:51.003182			Analysing 208C
+2023-03-02 14:08:52.820137			Analysing 217CO-a
+2023-03-02 14:08:54.674224			Analysing 218C-a
+2023-03-02 14:08:56.904326			Analysing 218C-b
+2023-03-02 14:08:58.762962			Analysing 219C-a
+2023-03-02 14:09:00.613710			Analysing 219C-b
+2023-03-02 14:09:02.468775			Analysing 222C
+2023-03-02 14:09:04.349187			Analysing 226C-a
+2023-03-02 14:09:06.273687			Analysing 226C-b
+2023-03-02 14:09:08.242220			Analysing 235CO
+2023-03-02 14:09:10.028387			Analysing 237CO
+2023-03-02 14:09:11.889462			Analysing 238CO
+2023-03-02 14:09:13.672052			skipping 244C with 3 cells
+2023-03-02 14:09:13.685903			Analysing 253C
+2023-03-02 14:09:15.480732			Analysing 296C
+2023-03-02 14:09:17.337824			Analysing 388C
+2023-03-02 14:09:19.173000			Analysing 396C
+2023-03-02 14:09:20.976370			Analysing 439C
+2023-03-02 14:09:22.828160			Analysing 439C-b
+2023-03-02 14:09:24.697935			Analysing 454C
+2023-03-02 14:09:26.567868			Analysing 465C
+2023-03-02 14:09:28.350356			Analysing 483C
+2023-03-02 14:09:30.171729			Analysing 484C
+2023-03-02 14:09:31.973841	Analyzing DC1
+2023-03-02 14:09:32.025590	skipping DC1 with 5 subjects
+2023-03-02 14:09:32.025649	Analyzing Deuterosomal
+2023-03-02 14:09:32.068343	skipping Deuterosomal with 23 subjects
+2023-03-02 14:09:32.068396	Analyzing EC aerocyte capillary
+2023-03-02 14:09:32.148844	skipping EC aerocyte capillary with 25 subjects
+2023-03-02 14:09:32.148926	Analyzing EC general capillary
+2023-03-02 14:09:32.281501	skipping EC general capillary with 35 subjects
+2023-03-02 14:09:32.281762	Analyzing Migratory DCs
+2023-03-02 14:09:32.320670	skipping Migratory DCs with 6 subjects
+2023-03-02 14:09:32.320728	Analyzing NK cells
+2023-03-02 14:09:32.496754			Analysing 001C
+2023-03-02 14:09:34.245343			skipping 002C with 9 cells
+2023-03-02 14:09:34.259419			Analysing 003C
+2023-03-02 14:09:36.017292			skipping 8CO with 14 cells
+2023-03-02 14:09:36.033747			Analysing 022C-a
+2023-03-02 14:09:37.810650			Analysing 022C-b
+2023-03-02 14:09:39.591349			Analysing 23CO
+2023-03-02 14:09:41.295175			skipping 034C with 6 cells
+2023-03-02 14:09:41.308777			Analysing 052CO-a
+2023-03-02 14:09:43.100862			Analysing 056CO
+2023-03-02 14:09:44.864556			skipping 065C with 13 cells
+2023-03-02 14:09:44.877819			skipping 081C with 4 cells
+2023-03-02 14:09:44.890455			skipping 084C with 5 cells
+2023-03-02 14:09:44.903123			Analysing 092C
+2023-03-02 14:09:46.672238			Analysing 92C
+2023-03-02 14:09:48.446370			Analysing 098C-a
+2023-03-02 14:09:50.222549			Analysing 098C-b
+2023-03-02 14:09:51.985918			Analysing 133C-a
+2023-03-02 14:09:53.760084			Analysing 137C
+2023-03-02 14:09:55.539312			Analysing 137C-a
+2023-03-02 14:09:57.239034			Analysing 137C-b
+2023-03-02 14:09:58.980504			skipping 137CO with 0 cells
+2023-03-02 14:09:58.994568			skipping 152CO with 11 cells
+2023-03-02 14:09:59.008547			Analysing 152CO-a
+2023-03-02 14:10:00.787847			Analysing 153CO-a
+2023-03-02 14:10:02.554835			Analysing 153CO-b
+2023-03-02 14:10:04.300062			Analysing 160C
+2023-03-02 14:10:06.063831			Analysing 178CO
+2023-03-02 14:10:07.834834			Analysing 184CO-a
+2023-03-02 14:10:09.607758			Analysing 184CO-b
+2023-03-02 14:10:11.325687			Analysing 186CO-b
+2023-03-02 14:10:13.061346			Analysing 192C-a
+2023-03-02 14:10:14.824102			Analysing 192CO
+2023-03-02 14:10:16.587663			Analysing 192CO-a
+2023-03-02 14:10:18.344526			Analysing 192CO-b
+2023-03-02 14:10:20.128469			Analysing 193CO-a
+2023-03-02 14:10:21.956370			Analysing 193CO-b
+2023-03-02 14:10:23.771543			Analysing 194CO-a
+2023-03-02 14:10:25.516899			Analysing 207CO
+2023-03-02 14:10:27.265269			skipping 208C with 14 cells
+2023-03-02 14:10:27.279681			Analysing 217CO-a
+2023-03-02 14:10:29.063022			Analysing 218C-a
+2023-03-02 14:10:30.816567			Analysing 218C-b
+2023-03-02 14:10:32.570263			Analysing 219C-a
+2023-03-02 14:10:34.309135			Analysing 219C-b
+2023-03-02 14:10:36.048525			Analysing 222C
+2023-03-02 14:10:37.809674			Analysing 226C-a
+2023-03-02 14:10:39.567002			Analysing 226C-b
+2023-03-02 14:10:41.306259			Analysing 235CO
+2023-03-02 14:10:43.084380			Analysing 237CO
+2023-03-02 14:10:44.863862			Analysing 238CO
+2023-03-02 14:10:46.626845			skipping 244C with 6 cells
+2023-03-02 14:10:46.641027			Analysing 253C
+2023-03-02 14:10:48.395927			Analysing 296C
+2023-03-02 14:10:50.154411			Analysing 388C
+2023-03-02 14:10:51.917218			skipping 396C with 2 cells
+2023-03-02 14:10:51.931527			Analysing 439C
+2023-03-02 14:10:53.704423			Analysing 439C-b
+2023-03-02 14:10:55.482207			Analysing 454C
+2023-03-02 14:10:57.210409			Analysing 465C
+2023-03-02 14:10:58.970424			skipping 483C with 4 cells
+2023-03-02 14:10:58.984577			Analysing 484C
+2023-03-02 14:11:00.716582	Analyzing Non-classical monocytes
+2023-03-02 14:11:00.853444			Analysing 001C
+2023-03-02 14:11:01.768178			Analysing 002C
+2023-03-02 14:11:02.663730			Analysing 003C
+2023-03-02 14:11:03.579101			skipping 8CO with 9 cells
+2023-03-02 14:11:03.593328			Analysing 022C-a
+2023-03-02 14:11:04.510233			Analysing 022C-b
+2023-03-02 14:11:05.416814			Analysing 23CO
+2023-03-02 14:11:06.314865			Analysing 034C
+2023-03-02 14:11:07.219657			Analysing 052CO-a
+2023-03-02 14:11:08.130636			Analysing 056CO
+2023-03-02 14:11:09.044651			Analysing 065C
+2023-03-02 14:11:09.936931			Analysing 081C
+2023-03-02 14:11:10.844810			Analysing 084C
+2023-03-02 14:11:11.743468			Analysing 092C
+2023-03-02 14:11:12.640612			skipping 92C with 4 cells
+2023-03-02 14:11:12.654831			Analysing 098C-a
+2023-03-02 14:11:13.556007			Analysing 098C-b
+2023-03-02 14:11:14.466162			Analysing 133C-a
+2023-03-02 14:11:15.377608			Analysing 137C
+2023-03-02 14:11:16.309496			Analysing 137C-a
+2023-03-02 14:11:17.228419			Analysing 137C-b
+2023-03-02 14:11:18.146082			skipping 137CO with 1 cells
+2023-03-02 14:11:18.160244			skipping 152CO with 2 cells
+2023-03-02 14:11:18.174481			Analysing 152CO-a
+2023-03-02 14:11:19.095375			Analysing 153CO-a
+2023-03-02 14:11:19.990398			Analysing 153CO-b
+2023-03-02 14:11:20.894404			Analysing 160C
+2023-03-02 14:11:21.797312			Analysing 178CO
+2023-03-02 14:11:22.705548			Analysing 184CO-a
+2023-03-02 14:11:23.627637			Analysing 184CO-b
+2023-03-02 14:11:24.562905			Analysing 186CO-b
+2023-03-02 14:11:25.476273			Analysing 192C-a
+2023-03-02 14:11:26.371711			Analysing 192CO
+2023-03-02 14:11:27.268720			Analysing 192CO-a
+2023-03-02 14:11:28.173725			Analysing 192CO-b
+2023-03-02 14:11:29.076490			Analysing 193CO-a
+2023-03-02 14:11:30.012179			Analysing 193CO-b
+2023-03-02 14:11:30.944568			Analysing 194CO-a
+2023-03-02 14:11:31.864968			Analysing 207CO
+2023-03-02 14:11:32.777015			Analysing 208C
+2023-03-02 14:11:33.670719			Analysing 217CO-a
+2023-03-02 14:11:34.585965			Analysing 218C-a
+2023-03-02 14:11:35.487433			Analysing 218C-b
+2023-03-02 14:11:36.392800			Analysing 219C-a
+2023-03-02 14:11:37.304242			Analysing 219C-b
+2023-03-02 14:11:38.203880			Analysing 222C
+2023-03-02 14:11:39.103857			Analysing 226C-a
+2023-03-02 14:11:40.006385			Analysing 226C-b
+2023-03-02 14:11:40.903329			Analysing 235CO
+2023-03-02 14:11:41.798564			Analysing 237CO
+2023-03-02 14:11:42.722356			Analysing 238CO
+2023-03-02 14:11:43.619660			skipping 244C with 6 cells
+2023-03-02 14:11:43.633911			Analysing 253C
+2023-03-02 14:11:44.562879			Analysing 296C
+2023-03-02 14:11:45.471295			Analysing 388C
+2023-03-02 14:11:46.384010			Analysing 396C
+2023-03-02 14:11:47.284753			Analysing 439C
+2023-03-02 14:11:48.205256			Analysing 439C-b
+2023-03-02 14:11:49.116776			Analysing 454C
+2023-03-02 14:11:50.026867			Analysing 465C
+2023-03-02 14:11:50.919974			Analysing 483C
+2023-03-02 14:11:51.822082			Analysing 484C
+2023-03-02 14:11:52.716697	Analyzing Plasma cells
+2023-03-02 14:11:52.780462	skipping Plasma cells with 24 subjects
+2023-03-02 14:11:52.780515	Analyzing Plasmacytoid DCs
+2023-03-02 14:11:52.819550	skipping Plasmacytoid DCs with 6 subjects
+2023-03-02 14:11:52.819606	Analyzing T cells proliferating
+2023-03-02 14:11:52.858468	skipping T cells proliferating with 4 subjects
+2023-03-02 14:11:52.858517	Analyzing Basal
+2023-03-02 14:11:53.432536			Analysing 001C
+2023-03-02 14:12:02.134493			skipping 002C with 0 cells
+2023-03-02 14:12:02.150729			skipping 003C with 1 cells
+2023-03-02 14:12:02.162760			skipping 8CO with 0 cells
+2023-03-02 14:12:02.175998			skipping 022C-a with 2 cells
+2023-03-02 14:12:02.188133			skipping 022C-b with 0 cells
+2023-03-02 14:12:02.201323			skipping 23CO with 1 cells
+2023-03-02 14:12:02.213692			skipping 034C with 0 cells
+2023-03-02 14:12:02.227028			skipping 052CO-a with 2 cells
+2023-03-02 14:12:02.240217			skipping 056CO with 6 cells
+2023-03-02 14:12:02.253333			skipping 065C with 3 cells
+2023-03-02 14:12:02.266347			skipping 081C with 1 cells
+2023-03-02 14:12:02.278407			skipping 084C with 0 cells
+2023-03-02 14:12:02.290544			skipping 092C with 0 cells
+2023-03-02 14:12:02.302752			skipping 92C with 0 cells
+2023-03-02 14:12:02.316037			Analysing 098C-a
+2023-03-02 14:12:10.816399			skipping 098C-b with 13 cells
+2023-03-02 14:12:10.829513			skipping 133C-a with 3 cells
+2023-03-02 14:12:10.841020			skipping 137C with 0 cells
+2023-03-02 14:12:10.853606			skipping 137C-a with 14 cells
+2023-03-02 14:12:10.866256			Analysing 137C-b
+2023-03-02 14:12:19.443550			skipping 137CO with 2 cells
+2023-03-02 14:12:19.457536			skipping 152CO with 1 cells
+2023-03-02 14:12:19.471338			skipping 152CO-a with 6 cells
+2023-03-02 14:12:19.485013			skipping 153CO-a with 5 cells
+2023-03-02 14:12:19.501210			skipping 153CO-b with 4 cells
+2023-03-02 14:12:19.514883			skipping 160C with 2 cells
+2023-03-02 14:12:19.528621			Analysing 178CO
+2023-03-02 14:12:28.080702			skipping 184CO-a with 7 cells
+2023-03-02 14:12:28.095520			skipping 184CO-b with 7 cells
+2023-03-02 14:12:28.109082			skipping 186CO-b with 2 cells
+2023-03-02 14:12:28.122716			skipping 192C-a with 6 cells
+2023-03-02 14:12:28.136158			skipping 192CO with 1 cells
+2023-03-02 14:12:28.149700			skipping 192CO-a with 3 cells
+2023-03-02 14:12:28.163278			skipping 192CO-b with 4 cells
+2023-03-02 14:12:28.177055			skipping 193CO-a with 5 cells
+2023-03-02 14:12:28.192913			skipping 193CO-b with 2 cells
+2023-03-02 14:12:28.206043			skipping 194CO-a with 1 cells
+2023-03-02 14:12:28.219581			Analysing 207CO
+2023-03-02 14:12:36.673631			skipping 208C with 0 cells
+2023-03-02 14:12:36.687104			Analysing 217CO-a
+2023-03-02 14:12:45.241789			skipping 218C-a with 6 cells
+2023-03-02 14:12:45.258306			skipping 218C-b with 5 cells
+2023-03-02 14:12:45.270472			skipping 219C-a with 0 cells
+2023-03-02 14:12:45.283803			skipping 219C-b with 3 cells
+2023-03-02 14:12:45.297207			skipping 222C with 5 cells
+2023-03-02 14:12:45.310248			skipping 226C-a with 1 cells
+2023-03-02 14:12:45.323672			skipping 226C-b with 5 cells
+2023-03-02 14:12:45.336994			Analysing 235CO
+2023-03-02 14:12:53.852504			Analysing 237CO
+2023-03-02 14:13:02.327773			skipping 238CO with 1 cells
+2023-03-02 14:13:02.339986			skipping 244C with 0 cells
+2023-03-02 14:13:02.351657			skipping 253C with 0 cells
+2023-03-02 14:13:02.364384			skipping 296C with 4 cells
+2023-03-02 14:13:02.377076			skipping 388C with 6 cells
+2023-03-02 14:13:02.389766			skipping 396C with 10 cells
+2023-03-02 14:13:02.402486			skipping 439C with 2 cells
+2023-03-02 14:13:02.414920			skipping 439C-b with 1 cells
+2023-03-02 14:13:02.427439			skipping 454C with 11 cells
+2023-03-02 14:13:02.439954			skipping 465C with 5 cells
+2023-03-02 14:13:02.452496			skipping 483C with 6 cells
+2023-03-02 14:13:02.464789			skipping 484C with 1 cells
+2023-03-02 14:13:02.464834	Analyzing DC2
+2023-03-02 14:13:02.597733			Analysing 001C
+2023-03-02 14:13:03.543073			Analysing 002C
+2023-03-02 14:13:04.485062			Analysing 003C
+2023-03-02 14:13:05.450686			skipping 8CO with 6 cells
+2023-03-02 14:13:05.464745			Analysing 022C-a
+2023-03-02 14:13:06.407714			Analysing 022C-b
+2023-03-02 14:13:07.360126			Analysing 23CO
+2023-03-02 14:13:08.298309			skipping 034C with 10 cells
+2023-03-02 14:13:08.314563			Analysing 052CO-a
+2023-03-02 14:13:09.270039			Analysing 056CO
+2023-03-02 14:13:10.238775			Analysing 065C
+2023-03-02 14:13:11.186873			Analysing 081C
+2023-03-02 14:13:12.138012			Analysing 084C
+2023-03-02 14:13:13.082401			Analysing 092C
+2023-03-02 14:13:14.020816			skipping 92C with 9 cells
+2023-03-02 14:13:14.035037			Analysing 098C-a
+2023-03-02 14:13:15.040212			Analysing 098C-b
+2023-03-02 14:13:16.000166			Analysing 133C-a
+2023-03-02 14:13:16.986829			Analysing 137C
+2023-03-02 14:13:17.921307			Analysing 137C-a
+2023-03-02 14:13:18.880564			Analysing 137C-b
+2023-03-02 14:13:19.828140			skipping 137CO with 1 cells
+2023-03-02 14:13:19.841736			skipping 152CO with 1 cells
+2023-03-02 14:13:19.855565			Analysing 152CO-a
+2023-03-02 14:13:20.819070			Analysing 153CO-a
+2023-03-02 14:13:21.761981			Analysing 153CO-b
+2023-03-02 14:13:22.703891			Analysing 160C
+2023-03-02 14:13:23.656968			Analysing 178CO
+2023-03-02 14:13:24.615889			Analysing 184CO-a
+2023-03-02 14:13:25.581905			Analysing 184CO-b
+2023-03-02 14:13:26.553656			Analysing 186CO-b
+2023-03-02 14:13:27.504950			Analysing 192C-a
+2023-03-02 14:13:28.448049			Analysing 192CO
+2023-03-02 14:13:29.382200			Analysing 192CO-a
+2023-03-02 14:13:30.324946			Analysing 192CO-b
+2023-03-02 14:13:31.277837			Analysing 193CO-a
+2023-03-02 14:13:32.235118			Analysing 193CO-b
+2023-03-02 14:13:33.186665			Analysing 194CO-a
+2023-03-02 14:13:34.158095			Analysing 207CO
+2023-03-02 14:13:35.114537			Analysing 208C
+2023-03-02 14:13:36.060328			Analysing 217CO-a
+2023-03-02 14:13:37.009075			Analysing 218C-a
+2023-03-02 14:13:37.952495			Analysing 218C-b
+2023-03-02 14:13:38.909408			Analysing 219C-a
+2023-03-02 14:13:39.856087			Analysing 219C-b
+2023-03-02 14:13:40.799730			Analysing 222C
+2023-03-02 14:13:41.747495			Analysing 226C-a
+2023-03-02 14:13:42.735117			Analysing 226C-b
+2023-03-02 14:13:43.723166			Analysing 235CO
+2023-03-02 14:13:44.688697			Analysing 237CO
+2023-03-02 14:13:45.662888			Analysing 238CO
+2023-03-02 14:13:46.631663			skipping 244C with 9 cells
+2023-03-02 14:13:46.645894			Analysing 253C
+2023-03-02 14:13:47.595006			Analysing 296C
+2023-03-02 14:13:48.534271			Analysing 388C
+2023-03-02 14:13:49.480074			Analysing 396C
+2023-03-02 14:13:50.420632			Analysing 439C
+2023-03-02 14:13:51.356482			Analysing 439C-b
+2023-03-02 14:13:52.308439			Analysing 454C
+2023-03-02 14:13:53.258190			Analysing 465C
+2023-03-02 14:13:54.206112			Analysing 483C
+2023-03-02 14:13:55.149442			Analysing 484C
+2023-03-02 14:13:56.090762	Analyzing EC venous
+2023-03-02 14:13:56.232875			skipping 001C with 6 cells
+2023-03-02 14:13:56.245232			skipping 002C with 0 cells
+2023-03-02 14:13:56.258735			skipping 003C with 3 cells
+2023-03-02 14:13:56.272218			skipping 8CO with 4 cells
+2023-03-02 14:13:56.285755			skipping 022C-a with 11 cells
+2023-03-02 14:13:56.300645			skipping 022C-b with 13 cells
+2023-03-02 14:13:56.314053			skipping 23CO with 12 cells
+2023-03-02 14:13:56.327066			skipping 034C with 2 cells
+2023-03-02 14:13:56.340152			skipping 052CO-a with 6 cells
+2023-03-02 14:13:56.353325			skipping 056CO with 6 cells
+2023-03-02 14:13:56.366446			skipping 065C with 5 cells
+2023-03-02 14:13:56.380514			skipping 081C with 1 cells
+2023-03-02 14:13:56.393625			skipping 084C with 2 cells
+2023-03-02 14:13:56.405804			skipping 092C with 0 cells
+2023-03-02 14:13:56.418926			skipping 92C with 3 cells
+2023-03-02 14:13:56.431964			skipping 098C-a with 14 cells
+2023-03-02 14:13:56.445230			Analysing 098C-b
+2023-03-02 14:13:57.768783			Analysing 133C-a
+2023-03-02 14:13:59.099635			skipping 137C with 0 cells
+2023-03-02 14:13:59.115616			Analysing 137C-a
+2023-03-02 14:14:00.455244			Analysing 137C-b
+2023-03-02 14:14:01.808940			skipping 137CO with 1 cells
+2023-03-02 14:14:01.822769			skipping 152CO with 1 cells
+2023-03-02 14:14:01.836271			Analysing 152CO-a
+2023-03-02 14:14:03.172672			skipping 153CO-a with 9 cells
+2023-03-02 14:14:03.188603			skipping 153CO-b with 4 cells
+2023-03-02 14:14:03.201996			skipping 160C with 5 cells
+2023-03-02 14:14:03.215400			skipping 178CO with 3 cells
+2023-03-02 14:14:03.228821			skipping 184CO-a with 8 cells
+2023-03-02 14:14:03.242301			skipping 184CO-b with 8 cells
+2023-03-02 14:14:03.290557			skipping 186CO-b with 7 cells
+2023-03-02 14:14:03.308712			skipping 192C-a with 12 cells
+2023-03-02 14:14:03.321039			skipping 192CO with 0 cells
+2023-03-02 14:14:03.334687			skipping 192CO-a with 1 cells
+2023-03-02 14:14:03.348050			skipping 192CO-b with 1 cells
+2023-03-02 14:14:03.361324			skipping 193CO-a with 1 cells
+2023-03-02 14:14:03.374940			skipping 193CO-b with 2 cells
+2023-03-02 14:14:03.389847			skipping 194CO-a with 1 cells
+2023-03-02 14:14:03.403774			Analysing 207CO
+2023-03-02 14:14:04.752611			skipping 208C with 5 cells
+2023-03-02 14:14:04.765832			skipping 217CO-a with 4 cells
+2023-03-02 14:14:04.778519			skipping 218C-a with 3 cells
+2023-03-02 14:14:04.790985			skipping 218C-b with 1 cells
+2023-03-02 14:14:04.803799			skipping 219C-a with 3 cells
+2023-03-02 14:14:04.815643			skipping 219C-b with 0 cells
+2023-03-02 14:14:04.828323			skipping 222C with 12 cells
+2023-03-02 14:14:04.840661			skipping 226C-a with 1 cells
+2023-03-02 14:14:04.853195			skipping 226C-b with 6 cells
+2023-03-02 14:14:04.865776			Analysing 235CO
+2023-03-02 14:14:06.194578			Analysing 237CO
+2023-03-02 14:14:07.527499			skipping 238CO with 2 cells
+2023-03-02 14:14:07.540151			skipping 244C with 0 cells
+2023-03-02 14:14:07.553376			skipping 253C with 8 cells
+2023-03-02 14:14:07.567128			Analysing 296C
+2023-03-02 14:14:08.889903			Analysing 388C
+2023-03-02 14:14:10.228206			skipping 396C with 6 cells
+2023-03-02 14:14:10.242117			skipping 439C with 6 cells
+2023-03-02 14:14:10.255714			skipping 439C-b with 7 cells
+2023-03-02 14:14:10.269304			skipping 454C with 8 cells
+2023-03-02 14:14:10.282848			skipping 465C with 13 cells
+2023-03-02 14:14:10.295297			skipping 483C with 0 cells
+2023-03-02 14:14:10.308708			skipping 484C with 1 cells
+2023-03-02 14:14:10.308750	Analyzing Fibroblast lineage
+2023-03-02 14:14:10.494404			Analysing 001C
+2023-03-02 14:14:12.612521			skipping 002C with 0 cells
+2023-03-02 14:14:12.626995			Analysing 003C
+2023-03-02 14:14:14.778243			Analysing 8CO
+2023-03-02 14:14:16.896392			Analysing 022C-a
+2023-03-02 14:14:19.009267			Analysing 022C-b
+2023-03-02 14:14:21.107172			Analysing 23CO
+2023-03-02 14:14:23.215464			skipping 034C with 5 cells
+2023-03-02 14:14:23.229527			Analysing 052CO-a
+2023-03-02 14:14:25.359271			Analysing 056CO
+2023-03-02 14:14:27.470869			skipping 065C with 11 cells
+2023-03-02 14:14:27.484858			skipping 081C with 1 cells
+2023-03-02 14:14:27.498594			skipping 084C with 6 cells
+2023-03-02 14:14:27.511303			skipping 092C with 0 cells
+2023-03-02 14:14:27.525026			Analysing 92C
+2023-03-02 14:14:29.625528			Analysing 098C-a
+2023-03-02 14:14:31.729437			Analysing 098C-b
+2023-03-02 14:14:33.856951			skipping 133C-a with 2 cells
+2023-03-02 14:14:33.870882			skipping 137C with 14 cells
+2023-03-02 14:14:33.884529			Analysing 137C-a
+2023-03-02 14:14:35.980253			Analysing 137C-b
+2023-03-02 14:14:38.109350			skipping 137CO with 8 cells
+2023-03-02 14:14:38.123491			skipping 152CO with 0 cells
+2023-03-02 14:14:38.137288			Analysing 152CO-a
+2023-03-02 14:14:40.261486			Analysing 153CO-a
+2023-03-02 14:14:42.344874			Analysing 153CO-b
+2023-03-02 14:14:44.437256			Analysing 160C
+2023-03-02 14:14:46.534415			skipping 178CO with 12 cells
+2023-03-02 14:14:46.550832			Analysing 184CO-a
+2023-03-02 14:14:48.661719			Analysing 184CO-b
+2023-03-02 14:14:50.772018			Analysing 186CO-b
+2023-03-02 14:14:52.864925			Analysing 192C-a
+2023-03-02 14:14:54.979560			skipping 192CO with 3 cells
+2023-03-02 14:14:54.993308			skipping 192CO-a with 2 cells
+2023-03-02 14:14:55.006877			skipping 192CO-b with 4 cells
+2023-03-02 14:14:55.020373			skipping 193CO-a with 4 cells
+2023-03-02 14:14:55.033845			skipping 193CO-b with 3 cells
+2023-03-02 14:14:55.047382			skipping 194CO-a with 2 cells
+2023-03-02 14:14:55.061044			Analysing 207CO
+2023-03-02 14:14:57.150556			skipping 208C with 7 cells
+2023-03-02 14:14:57.164349			skipping 217CO-a with 11 cells
+2023-03-02 14:14:57.177724			Analysing 218C-a
+2023-03-02 14:14:59.271199			Analysing 218C-b
+2023-03-02 14:15:01.344263			skipping 219C-a with 8 cells
+2023-03-02 14:15:01.357744			skipping 219C-b with 4 cells
+2023-03-02 14:15:01.370480			Analysing 222C
+2023-03-02 14:15:03.464894			skipping 226C-a with 14 cells
+2023-03-02 14:15:03.478852			Analysing 226C-b
+2023-03-02 14:15:05.965488			Analysing 235CO
+2023-03-02 14:15:08.103672			Analysing 237CO
+2023-03-02 14:15:10.238638			Analysing 238CO
+2023-03-02 14:15:12.336533			skipping 244C with 9 cells
+2023-03-02 14:15:12.350839			Analysing 253C
+2023-03-02 14:15:14.471502			Analysing 296C
+2023-03-02 14:15:16.596424			Analysing 388C
+2023-03-02 14:15:18.708559			skipping 396C with 4 cells
+2023-03-02 14:15:18.722497			skipping 439C with 10 cells
+2023-03-02 14:15:18.735987			Analysing 439C-b
+2023-03-02 14:15:20.876106			skipping 454C with 6 cells
+2023-03-02 14:15:20.890004			Analysing 465C
+2023-03-02 14:15:23.030582			skipping 483C with 5 cells
+2023-03-02 14:15:23.044427			skipping 484C with 2 cells
+2023-03-02 14:15:23.044479	Analyzing Macrophages
+2023-03-02 14:15:24.023986			Analysing 001C
+2023-03-02 14:15:35.582481			Analysing 002C
+2023-03-02 14:15:47.012150			Analysing 003C
+2023-03-02 14:15:58.708537			Analysing 8CO
+2023-03-02 14:16:10.037084			Analysing 022C-a
+2023-03-02 14:16:21.718662			Analysing 022C-b
+2023-03-02 14:16:33.483989			Analysing 23CO
+2023-03-02 14:16:44.909402			Analysing 034C
+2023-03-02 14:16:56.367342			Analysing 052CO-a
+2023-03-02 14:17:07.787070			Analysing 056CO
+2023-03-02 14:17:19.134959			Analysing 065C
+2023-03-02 14:17:30.736690			Analysing 081C
+2023-03-02 14:17:42.289822			Analysing 084C
+2023-03-02 14:17:53.778617			Analysing 092C
+2023-03-02 14:18:05.606879			Analysing 92C
+2023-03-02 14:18:17.010603			Analysing 098C-a
+2023-03-02 14:18:28.682619			Analysing 098C-b
+2023-03-02 14:18:40.715586			Analysing 133C-a
+2023-03-02 14:18:52.666378			Analysing 137C
+2023-03-02 14:19:04.325359			Analysing 137C-a
+2023-03-02 14:19:15.844865			Analysing 137C-b
+2023-03-02 14:19:27.482484			skipping 137CO with 7 cells
+2023-03-02 14:19:27.496930			Analysing 152CO
+2023-03-02 14:19:38.972926			Analysing 152CO-a
+2023-03-02 14:19:50.445290			Analysing 153CO-a
+2023-03-02 14:20:01.893068			Analysing 153CO-b
+2023-03-02 14:20:13.537172			Analysing 160C
+2023-03-02 14:20:25.353727			Analysing 178CO
+2023-03-02 14:20:37.278258			Analysing 184CO-a
+2023-03-02 14:20:48.636768			Analysing 184CO-b
+2023-03-02 14:21:00.113202			Analysing 186CO-b
+2023-03-02 14:21:11.868618			Analysing 192C-a
+2023-03-02 14:21:23.741331			Analysing 192CO
+2023-03-02 14:21:35.419481			Analysing 192CO-a
+2023-03-02 14:21:47.036199			Analysing 192CO-b
+2023-03-02 14:21:58.593360			Analysing 193CO-a
+2023-03-02 14:22:10.007397			Analysing 193CO-b
+2023-03-02 14:22:21.509661			Analysing 194CO-a
+2023-03-02 14:22:33.113028			Analysing 207CO
+2023-03-02 14:22:44.443225			Analysing 208C
+2023-03-02 14:22:56.335465			Analysing 217CO-a
+2023-03-02 14:23:07.918364			Analysing 218C-a
+2023-03-02 14:23:19.476204			Analysing 218C-b
+2023-03-02 14:23:30.916049			Analysing 219C-a
+2023-03-02 14:23:42.534637			Analysing 219C-b
+2023-03-02 14:23:54.262483			Analysing 222C
+2023-03-02 14:24:06.039858			Analysing 226C-a
+2023-03-02 14:24:17.814284			Analysing 226C-b
+2023-03-02 14:24:29.775120			Analysing 235CO
+2023-03-02 14:24:41.377272			Analysing 237CO
+2023-03-02 14:24:52.863592			Analysing 238CO
+2023-03-02 14:25:04.232322			skipping 244C with 11 cells
+2023-03-02 14:25:04.247987			Analysing 253C
+2023-03-02 14:25:15.718114			Analysing 296C
+2023-03-02 14:25:27.333912			Analysing 388C
+2023-03-02 14:25:38.765696			Analysing 396C
+2023-03-02 14:25:50.076579			Analysing 439C
+2023-03-02 14:26:01.514758			Analysing 439C-b
+2023-03-02 14:26:13.336569			Analysing 454C
+2023-03-02 14:26:24.862790			Analysing 465C
+2023-03-02 14:26:36.334976			Analysing 483C
+2023-03-02 14:26:48.071144			Analysing 484C
+2023-03-02 14:26:59.800117	Analyzing Multiciliated
+2023-03-02 14:27:00.139347			skipping 001C with 14 cells
+2023-03-02 14:27:00.153203			Analysing 002C
+2023-03-02 14:27:04.307004			Analysing 003C
+2023-03-02 14:27:08.352573			skipping 8CO with 0 cells
+2023-03-02 14:27:08.366841			Analysing 022C-a
+2023-03-02 14:27:12.425637			Analysing 022C-b
+2023-03-02 14:27:16.497862			skipping 23CO with 7 cells
+2023-03-02 14:27:16.511758			skipping 034C with 9 cells
+2023-03-02 14:27:16.525772			skipping 052CO-a with 14 cells
+2023-03-02 14:27:16.540048			Analysing 056CO
+2023-03-02 14:27:20.568772			Analysing 065C
+2023-03-02 14:27:24.676491			skipping 081C with 2 cells
+2023-03-02 14:27:24.690474			skipping 084C with 2 cells
+2023-03-02 14:27:24.703266			skipping 092C with 0 cells
+2023-03-02 14:27:24.717036			skipping 92C with 5 cells
+2023-03-02 14:27:24.731018			Analysing 098C-a
+2023-03-02 14:27:28.797484			Analysing 098C-b
+2023-03-02 14:27:32.842913			Analysing 133C-a
+2023-03-02 14:27:36.895593			skipping 137C with 6 cells
+2023-03-02 14:27:36.909265			Analysing 137C-a
+2023-03-02 14:27:40.960145			Analysing 137C-b
+2023-03-02 14:27:45.025879			skipping 137CO with 0 cells
+2023-03-02 14:27:45.037855			skipping 152CO with 0 cells
+2023-03-02 14:27:45.050526			skipping 152CO-a with 10 cells
+2023-03-02 14:27:45.063157			Analysing 153CO-a
+2023-03-02 14:27:49.155895			Analysing 153CO-b
+2023-03-02 14:27:53.282404			Analysing 160C
+2023-03-02 14:27:57.380785			Analysing 178CO
+2023-03-02 14:28:01.342451			Analysing 184CO-a
+2023-03-02 14:28:05.298936			Analysing 184CO-b
+2023-03-02 14:28:09.266763			Analysing 186CO-b
+2023-03-02 14:28:13.318638			Analysing 192C-a
+2023-03-02 14:28:17.298272			skipping 192CO with 13 cells
+2023-03-02 14:28:17.312079			Analysing 192CO-a
+2023-03-02 14:28:21.267748			Analysing 192CO-b
+2023-03-02 14:28:25.217205			Analysing 193CO-a
+2023-03-02 14:28:29.179239			Analysing 193CO-b
+2023-03-02 14:28:33.132176			Analysing 194CO-a
+2023-03-02 14:28:37.119826			Analysing 207CO
+2023-03-02 14:28:41.171181			Analysing 208C
+2023-03-02 14:28:45.140071			Analysing 217CO-a
+2023-03-02 14:28:49.125276			Analysing 218C-a
+2023-03-02 14:28:53.069290			Analysing 218C-b
+2023-03-02 14:28:56.972861			Analysing 219C-a
+2023-03-02 14:29:00.906459			Analysing 219C-b
+2023-03-02 14:29:04.946984			skipping 222C with 12 cells
+2023-03-02 14:29:04.964114			Analysing 226C-a
+2023-03-02 14:29:09.007946			Analysing 226C-b
+2023-03-02 14:29:13.001169			Analysing 235CO
+2023-03-02 14:29:16.979313			Analysing 237CO
+2023-03-02 14:29:20.950125			Analysing 238CO
+2023-03-02 14:29:24.936682			Analysing 244C
+2023-03-02 14:29:29.206482			skipping 253C with 4 cells
+2023-03-02 14:29:29.220478			Analysing 296C
+2023-03-02 14:29:33.238444			Analysing 388C
+2023-03-02 14:29:37.223997			Analysing 396C
+2023-03-02 14:29:41.153923			skipping 439C with 11 cells
+2023-03-02 14:29:41.167172			Analysing 439C-b
+2023-03-02 14:29:45.122460			skipping 454C with 2 cells
+2023-03-02 14:29:45.135519			skipping 465C with 11 cells
+2023-03-02 14:29:45.147940			Analysing 483C
+2023-03-02 14:29:49.093416			skipping 484C with 1 cells
+2023-03-02 14:29:49.093591	Analyzing Rare
+2023-03-02 14:29:49.137703	skipping Rare with 24 subjects
+2023-03-02 14:29:49.137748	Analyzing Secretory
+2023-03-02 14:29:49.635012			skipping 001C with 11 cells
+2023-03-02 14:29:49.646679			skipping 002C with 0 cells
+2023-03-02 14:29:49.659223			Analysing 003C
+2023-03-02 14:29:57.639965			skipping 8CO with 0 cells
+2023-03-02 14:29:57.653722			Analysing 022C-a
+2023-03-02 14:30:05.527623			skipping 022C-b with 10 cells
+2023-03-02 14:30:05.540607			skipping 23CO with 5 cells
+2023-03-02 14:30:05.551817			skipping 034C with 0 cells
+2023-03-02 14:30:05.566826			skipping 052CO-a with 11 cells
+2023-03-02 14:30:05.579193			skipping 056CO with 14 cells
+2023-03-02 14:30:05.591762			skipping 065C with 8 cells
+2023-03-02 14:30:05.603326			skipping 081C with 0 cells
+2023-03-02 14:30:05.615645			skipping 084C with 1 cells
+2023-03-02 14:30:05.627222			skipping 092C with 0 cells
+2023-03-02 14:30:05.639445			skipping 92C with 1 cells
+2023-03-02 14:30:05.652069			Analysing 098C-a
+2023-03-02 14:30:13.451652			Analysing 098C-b
+2023-03-02 14:30:21.586078			Analysing 133C-a
+2023-03-02 14:30:29.482633			skipping 137C with 0 cells
+2023-03-02 14:30:29.496057			Analysing 137C-a
+2023-03-02 14:30:37.338031			skipping 137C-b with 13 cells
+2023-03-02 14:30:37.351036			skipping 137CO with 3 cells
+2023-03-02 14:30:37.363233			skipping 152CO with 1 cells
+2023-03-02 14:30:37.378318			Analysing 152CO-a
+2023-03-02 14:30:45.198328			skipping 153CO-a with 12 cells
+2023-03-02 14:30:45.211593			Analysing 153CO-b
+2023-03-02 14:30:53.016792			skipping 160C with 8 cells
+2023-03-02 14:30:53.029836			Analysing 178CO
+2023-03-02 14:31:00.737777			Analysing 184CO-a
+2023-03-02 14:31:08.666629			Analysing 184CO-b
+2023-03-02 14:31:16.538967			skipping 186CO-b with 4 cells
+2023-03-02 14:31:16.556024			skipping 192C-a with 10 cells
+2023-03-02 14:31:16.569147			skipping 192CO with 6 cells
+2023-03-02 14:31:16.582322			skipping 192CO-a with 11 cells
+2023-03-02 14:31:16.595457			Analysing 192CO-b
+2023-03-02 14:31:24.360260			Analysing 193CO-a
+2023-03-02 14:31:32.141337			Analysing 193CO-b
+2023-03-02 14:31:40.062963			skipping 194CO-a with 13 cells
+2023-03-02 14:31:40.076118			Analysing 207CO
+2023-03-02 14:31:47.975088			skipping 208C with 1 cells
+2023-03-02 14:31:47.988182			Analysing 217CO-a
+2023-03-02 14:31:55.791359			skipping 218C-a with 12 cells
+2023-03-02 14:31:55.804333			Analysing 218C-b
+2023-03-02 14:32:03.817686			skipping 219C-a with 4 cells
+2023-03-02 14:32:03.841612			skipping 219C-b with 3 cells
+2023-03-02 14:32:03.854945			skipping 222C with 1 cells
+2023-03-02 14:32:03.868498			skipping 226C-a with 3 cells
+2023-03-02 14:32:03.881943			skipping 226C-b with 2 cells
+2023-03-02 14:32:03.895491			Analysing 235CO
+2023-03-02 14:32:11.867628			skipping 237CO with 10 cells
+2023-03-02 14:32:11.881953			skipping 238CO with 5 cells
+2023-03-02 14:32:11.894224			skipping 244C with 0 cells
+2023-03-02 14:32:11.907426			skipping 253C with 2 cells
+2023-03-02 14:32:11.920541			skipping 296C with 7 cells
+2023-03-02 14:32:11.933988			skipping 388C with 11 cells
+2023-03-02 14:32:11.947265			skipping 396C with 2 cells
+2023-03-02 14:32:11.960543			skipping 439C with 5 cells
+2023-03-02 14:32:11.973752			skipping 439C-b with 9 cells
+2023-03-02 14:32:11.986762			skipping 454C with 8 cells
+2023-03-02 14:32:11.999540			skipping 465C with 1 cells
+2023-03-02 14:32:12.012432			skipping 483C with 5 cells
+2023-03-02 14:32:12.024329			skipping 484C with 0 cells
+2023-03-02 14:32:12.024370	Analyzing Smooth muscle
+2023-03-02 14:32:12.093767	skipping Smooth muscle with 36 subjects
+2023-03-02 14:32:12.093806	Analyzing Submucosal Secretory
+2023-03-02 14:32:12.155802	skipping Submucosal Secretory with 30 subjects

@@ -1,0 +1,13 @@
+Parameters:
+Rejection of celltype per sample:	0.05
+Rejection of dataset at sample rejection rate of:	0.05
+Based on the baseline rejection rate samples are rejected when mapping fails in 33.33% of celltypes 
+14.29% of healthy(7) samples rejected:
+ please remap with different parameters,a different method or reintegrate
+MUC24280:
+health_status  first          healthy
+dataset        first    Schiller_2021
+excluded       sum                  6
+               count               12
+fraction                          0.5
+Name: MUC24280, dtype: object

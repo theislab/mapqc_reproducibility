@@ -1,0 +1,77 @@
+,cell_label,sample,mean,health_status,dataset,excluded,label
+0,AT2,MUC24276,-0.18444176196580686,healthy,Schiller_2021,False,healthy accepted
+1,Arterial EC,MUC24276,-0.15499528727125103,healthy,Schiller_2021,False,healthy accepted
+2,Basal,MUC24276,-0.1451694900212649,healthy,Schiller_2021,False,healthy accepted
+3,Ciliated,MUC24276,-0.11643512308145798,healthy,Schiller_2021,False,healthy accepted
+4,Dendritic cells,MUC24276,-0.3028882993065406,healthy,Schiller_2021,False,healthy accepted
+5,Fibroblast lineage,MUC24276,-0.13507776837649854,healthy,Schiller_2021,False,healthy accepted
+6,Macrophages,MUC24276,-0.026667061876328946,healthy,Schiller_2021,False,healthy accepted
+7,Mast cells,MUC24276,-0.2889831657266018,healthy,Schiller_2021,False,healthy accepted
+8,Monocytes,MUC24276,-0.06190916565196275,healthy,Schiller_2021,False,healthy accepted
+9,Secretory,MUC24276,-0.2165309293413369,healthy,Schiller_2021,False,healthy accepted
+10,T cell lineage,MUC24276,-0.24059288894174702,healthy,Schiller_2021,False,healthy accepted
+11,Venous,MUC24276,-0.21970390267018636,healthy,Schiller_2021,False,healthy accepted
+12,AT2,MUC24280,-0.4149410970313828,healthy,Schiller_2021,True,healthy rejected
+13,Basal,MUC24280,-0.37562003624719603,healthy,Schiller_2021,False,healthy accepted
+14,Ciliated,MUC24280,-0.08987367633457755,healthy,Schiller_2021,False,healthy accepted
+15,Dendritic cells,MUC24280,-0.6265252869573286,healthy,Schiller_2021,True,healthy rejected
+16,Fibroblast lineage,MUC24280,-0.04598357664807051,healthy,Schiller_2021,False,healthy accepted
+17,Macrophages,MUC24280,-0.1928932435339913,healthy,Schiller_2021,False,healthy accepted
+18,Mast cells,MUC24280,-0.31713918403591085,healthy,Schiller_2021,False,healthy accepted
+19,Monocytes,MUC24280,-0.10962598832376486,healthy,Schiller_2021,False,healthy accepted
+20,Secretory,MUC24280,-0.2593762941627481,healthy,Schiller_2021,False,healthy accepted
+21,T cell lineage,MUC24280,-0.44111916044059307,healthy,Schiller_2021,True,healthy rejected
+22,AT2,MUC28287,-0.18208301413936534,healthy,Schiller_2021,False,healthy accepted
+23,Arterial EC,MUC28287,-0.2224295226520156,healthy,Schiller_2021,False,healthy accepted
+24,Basal,MUC28287,-0.2542204627367305,healthy,Schiller_2021,False,healthy accepted
+25,Ciliated,MUC28287,-0.027790392274480213,healthy,Schiller_2021,False,healthy accepted
+26,Dendritic cells,MUC28287,-0.3614083005518584,healthy,Schiller_2021,True,healthy rejected
+27,Fibroblast lineage,MUC28287,-0.18958975894924368,healthy,Schiller_2021,False,healthy accepted
+28,Macrophages,MUC28287,-0.2513811362735922,healthy,Schiller_2021,True,healthy rejected
+29,Mast cells,MUC28287,-0.31597058944006595,healthy,Schiller_2021,False,healthy accepted
+30,Monocytes,MUC28287,-0.1416162200634118,healthy,Schiller_2021,False,healthy accepted
+31,T cell lineage,MUC28287,-0.31435815329929484,healthy,Schiller_2021,True,healthy rejected
+32,Venous,MUC28287,-0.14472733946884597,healthy,Schiller_2021,False,healthy accepted
+33,AT2,MUC28289,-0.07935884983690389,healthy,Schiller_2021,False,healthy accepted
+34,Arterial EC,MUC28289,0.08974922899866777,healthy,Schiller_2021,False,healthy accepted
+35,Basal,MUC28289,0.060604015471144135,healthy,Schiller_2021,False,healthy accepted
+36,Ciliated,MUC28289,0.05692606807948375,healthy,Schiller_2021,False,healthy accepted
+37,Dendritic cells,MUC28289,-0.29493730514005395,healthy,Schiller_2021,False,healthy accepted
+38,Fibroblast lineage,MUC28289,-0.09127198387137425,healthy,Schiller_2021,False,healthy accepted
+39,Macrophages,MUC28289,-0.08040357235443496,healthy,Schiller_2021,False,healthy accepted
+40,Mast cells,MUC28289,-0.26398338870141347,healthy,Schiller_2021,False,healthy accepted
+41,Monocytes,MUC28289,-0.13744691861061936,healthy,Schiller_2021,False,healthy accepted
+42,Secretory,MUC28289,-0.17243431619989658,healthy,Schiller_2021,False,healthy accepted
+43,T cell lineage,MUC28289,-0.11338535397356314,healthy,Schiller_2021,False,healthy accepted
+44,Venous,MUC28289,-0.2733880138638902,healthy,Schiller_2021,False,healthy accepted
+45,AT2,MUC28291,-0.17921679872032215,healthy,Schiller_2021,False,healthy accepted
+46,Arterial EC,MUC28291,-0.5583096881096856,healthy,Schiller_2021,True,healthy rejected
+47,Basal,MUC28291,-0.003691514300045995,healthy,Schiller_2021,False,healthy accepted
+48,Ciliated,MUC28291,0.027790909009040465,healthy,Schiller_2021,False,healthy accepted
+49,Dendritic cells,MUC28291,-0.41648712474050925,healthy,Schiller_2021,True,healthy rejected
+50,Fibroblast lineage,MUC28291,-0.19658519235930338,healthy,Schiller_2021,False,healthy accepted
+51,Macrophages,MUC28291,-0.3170109112713788,healthy,Schiller_2021,True,healthy rejected
+52,Mast cells,MUC28291,-0.3421095719296547,healthy,Schiller_2021,False,healthy accepted
+53,Monocytes,MUC28291,-0.12287754735274042,healthy,Schiller_2021,False,healthy accepted
+54,Secretory,MUC28291,-0.31612416558447864,healthy,Schiller_2021,True,healthy rejected
+55,T cell lineage,MUC28291,-0.2093734668126927,healthy,Schiller_2021,False,healthy accepted
+56,Venous,MUC28291,-0.19689137229137543,healthy,Schiller_2021,False,healthy accepted
+57,AT2,MUC28292,-0.13537846258519126,healthy,Schiller_2021,False,healthy accepted
+58,Arterial EC,MUC28292,0.35078413545773124,healthy,Schiller_2021,False,healthy accepted
+59,Basal,MUC28292,-0.13975776465694434,healthy,Schiller_2021,False,healthy accepted
+60,Ciliated,MUC28292,0.018695957512307904,healthy,Schiller_2021,False,healthy accepted
+61,Dendritic cells,MUC28292,-0.49616230700254066,healthy,Schiller_2021,True,healthy rejected
+62,Fibroblast lineage,MUC28292,-0.002187581508642955,healthy,Schiller_2021,False,healthy accepted
+63,Macrophages,MUC28292,-0.10740069210327496,healthy,Schiller_2021,False,healthy accepted
+64,Mast cells,MUC28292,-0.2247833747556835,healthy,Schiller_2021,False,healthy accepted
+65,Monocytes,MUC28292,-0.14058772072619546,healthy,Schiller_2021,False,healthy accepted
+66,T cell lineage,MUC28292,-0.16863654742038958,healthy,Schiller_2021,False,healthy accepted
+67,Venous,MUC28292,-0.047427489404892165,healthy,Schiller_2021,False,healthy accepted
+68,AT2,MUC28294,-0.2256522725690997,healthy,Schiller_2021,False,healthy accepted
+69,Basal,MUC28294,0.15662802575071333,healthy,Schiller_2021,False,healthy accepted
+70,Ciliated,MUC28294,0.0417817014990558,healthy,Schiller_2021,False,healthy accepted
+71,Dendritic cells,MUC28294,-0.49403749722394885,healthy,Schiller_2021,True,healthy rejected
+72,Macrophages,MUC28294,-0.07315574136457614,healthy,Schiller_2021,False,healthy accepted
+73,Mast cells,MUC28294,-0.31604959057913107,healthy,Schiller_2021,False,healthy accepted
+74,Monocytes,MUC28294,-0.15752592868937476,healthy,Schiller_2021,False,healthy accepted
+75,T cell lineage,MUC28294,0.016050826916509053,healthy,Schiller_2021,False,healthy accepted

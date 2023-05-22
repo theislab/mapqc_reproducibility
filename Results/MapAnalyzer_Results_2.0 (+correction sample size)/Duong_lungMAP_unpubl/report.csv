@@ -1,0 +1,132 @@
+,cell_label,sample,mean,health_status,dataset,excluded,label
+0,AT2,Duong_lungMAP_unpubl_sample_0,-0.18905094823374416,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+1,Basal,Duong_lungMAP_unpubl_sample_0,-0.36792293506676255,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+2,CD4 T cells,Duong_lungMAP_unpubl_sample_0,-0.34233166964185174,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+3,CD8 T cells,Duong_lungMAP_unpubl_sample_0,-0.4225508961118946,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+4,Classical monocytes,Duong_lungMAP_unpubl_sample_0,-0.4614623005327145,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+5,DC2,Duong_lungMAP_unpubl_sample_0,-0.3776212228102975,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+6,EC arterial,Duong_lungMAP_unpubl_sample_0,-0.048499835604330466,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+7,EC venous,Duong_lungMAP_unpubl_sample_0,-0.08118377545948963,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+8,Fibroblast lineage,Duong_lungMAP_unpubl_sample_0,-0.2445225794936152,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+9,Macrophages,Duong_lungMAP_unpubl_sample_0,-0.30686279229417046,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+10,Mast cells,Duong_lungMAP_unpubl_sample_0,-0.6341675354251097,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+11,Multiciliated,Duong_lungMAP_unpubl_sample_0,-0.4240025542935616,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+12,NK cells,Duong_lungMAP_unpubl_sample_0,-0.559152236030863,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+13,Secretory,Duong_lungMAP_unpubl_sample_0,-0.3210715639582945,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+14,AT2,Duong_lungMAP_unpubl_sample_1,-0.16756933476911406,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+15,Basal,Duong_lungMAP_unpubl_sample_1,-0.3298638300842783,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+16,CD4 T cells,Duong_lungMAP_unpubl_sample_1,-0.5264112334562727,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+17,CD8 T cells,Duong_lungMAP_unpubl_sample_1,-0.42313681104244283,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+18,Classical monocytes,Duong_lungMAP_unpubl_sample_1,-0.33867611638745876,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+19,DC2,Duong_lungMAP_unpubl_sample_1,-0.4108893750375579,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+20,EC arterial,Duong_lungMAP_unpubl_sample_1,-0.18512642211432143,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+21,EC venous,Duong_lungMAP_unpubl_sample_1,-0.2715269867016818,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+22,Fibroblast lineage,Duong_lungMAP_unpubl_sample_1,-0.22454728871144003,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+23,Macrophages,Duong_lungMAP_unpubl_sample_1,-0.35022924546342893,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+24,Mast cells,Duong_lungMAP_unpubl_sample_1,-0.590293517255552,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+25,Multiciliated,Duong_lungMAP_unpubl_sample_1,-0.5004114232022224,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+26,NK cells,Duong_lungMAP_unpubl_sample_1,-0.5980722689665735,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+27,Non-classical monocytes,Duong_lungMAP_unpubl_sample_1,-0.38394323429374916,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+28,Secretory,Duong_lungMAP_unpubl_sample_1,-0.30863740645433985,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+29,AT2,Duong_lungMAP_unpubl_sample_2,-0.28907865411514094,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+30,Basal,Duong_lungMAP_unpubl_sample_2,-0.3941559314205237,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+31,CD4 T cells,Duong_lungMAP_unpubl_sample_2,-0.3657514030266394,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+32,CD8 T cells,Duong_lungMAP_unpubl_sample_2,-0.38813871653371845,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+33,Classical monocytes,Duong_lungMAP_unpubl_sample_2,-0.3141340318543419,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+34,DC2,Duong_lungMAP_unpubl_sample_2,-0.35429579805038536,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+35,EC arterial,Duong_lungMAP_unpubl_sample_2,-0.1762889920493128,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+36,EC venous,Duong_lungMAP_unpubl_sample_2,-0.2593736904403317,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+37,Fibroblast lineage,Duong_lungMAP_unpubl_sample_2,-0.298576618801906,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+38,Macrophages,Duong_lungMAP_unpubl_sample_2,-0.37150534357691967,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+39,Mast cells,Duong_lungMAP_unpubl_sample_2,-0.498103751780163,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+40,Multiciliated,Duong_lungMAP_unpubl_sample_2,-0.521025778843976,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+41,NK cells,Duong_lungMAP_unpubl_sample_2,-0.555290616507395,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+42,Secretory,Duong_lungMAP_unpubl_sample_2,-0.19765382617644084,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+43,AT2,Duong_lungMAP_unpubl_sample_3,-0.2389729147383582,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+44,Basal,Duong_lungMAP_unpubl_sample_3,-0.2645635096992614,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+45,CD4 T cells,Duong_lungMAP_unpubl_sample_3,-0.5213648004251284,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+46,CD8 T cells,Duong_lungMAP_unpubl_sample_3,-0.4034330352588444,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+47,Classical monocytes,Duong_lungMAP_unpubl_sample_3,-0.4074414552442021,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+48,DC2,Duong_lungMAP_unpubl_sample_3,-0.2699399747569666,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+49,EC arterial,Duong_lungMAP_unpubl_sample_3,-0.26276247375717715,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+50,EC venous,Duong_lungMAP_unpubl_sample_3,-0.18927483302087644,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+51,Fibroblast lineage,Duong_lungMAP_unpubl_sample_3,-0.23835481460758676,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+52,Macrophages,Duong_lungMAP_unpubl_sample_3,-0.3482580464525024,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+53,Mast cells,Duong_lungMAP_unpubl_sample_3,-0.49415190818503074,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+54,Multiciliated,Duong_lungMAP_unpubl_sample_3,-0.6094472677994053,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+55,NK cells,Duong_lungMAP_unpubl_sample_3,-0.6024439973772379,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+56,Secretory,Duong_lungMAP_unpubl_sample_3,-0.09482471146063787,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+57,AT2,Duong_lungMAP_unpubl_sample_4,-0.24692342838210046,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+58,Basal,Duong_lungMAP_unpubl_sample_4,-0.30014916567880157,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+59,CD4 T cells,Duong_lungMAP_unpubl_sample_4,-0.5206694429413383,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+60,CD8 T cells,Duong_lungMAP_unpubl_sample_4,-0.4268094112678833,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+61,Classical monocytes,Duong_lungMAP_unpubl_sample_4,-0.41202618634523785,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+62,DC2,Duong_lungMAP_unpubl_sample_4,-0.471313594377586,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+63,EC arterial,Duong_lungMAP_unpubl_sample_4,-0.21969047371256362,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+64,EC venous,Duong_lungMAP_unpubl_sample_4,-0.2664070372101742,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+65,Fibroblast lineage,Duong_lungMAP_unpubl_sample_4,-0.23194660476445206,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+66,Macrophages,Duong_lungMAP_unpubl_sample_4,-0.38220016937793977,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+67,Mast cells,Duong_lungMAP_unpubl_sample_4,-0.5349160707059404,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+68,Multiciliated,Duong_lungMAP_unpubl_sample_4,-0.4572368370939764,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+69,NK cells,Duong_lungMAP_unpubl_sample_4,-0.555929298831924,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+70,Non-classical monocytes,Duong_lungMAP_unpubl_sample_4,-0.3381683931611994,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+71,Secretory,Duong_lungMAP_unpubl_sample_4,-0.2160775817284732,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+72,AT2,Duong_lungMAP_unpubl_sample_5,-0.21231589754476993,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+73,Basal,Duong_lungMAP_unpubl_sample_5,-0.391729687779791,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+74,CD4 T cells,Duong_lungMAP_unpubl_sample_5,-0.4925134541360682,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+75,CD8 T cells,Duong_lungMAP_unpubl_sample_5,-0.4363647136569453,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+76,Classical monocytes,Duong_lungMAP_unpubl_sample_5,-0.3707245875934545,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+77,DC2,Duong_lungMAP_unpubl_sample_5,-0.44530543950347357,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+78,EC arterial,Duong_lungMAP_unpubl_sample_5,-0.2095627709681372,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+79,EC venous,Duong_lungMAP_unpubl_sample_5,-0.287266065284398,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+80,Fibroblast lineage,Duong_lungMAP_unpubl_sample_5,-0.24787568253529008,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+81,Macrophages,Duong_lungMAP_unpubl_sample_5,-0.3742378152397918,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+82,Mast cells,Duong_lungMAP_unpubl_sample_5,-0.5781404890209395,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+83,Multiciliated,Duong_lungMAP_unpubl_sample_5,-0.5542132282062686,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+84,NK cells,Duong_lungMAP_unpubl_sample_5,-0.5705318500444896,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+85,Non-classical monocytes,Duong_lungMAP_unpubl_sample_5,-0.49664563383077254,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+86,Secretory,Duong_lungMAP_unpubl_sample_5,-0.2503962335199681,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+87,AT2,Duong_lungMAP_unpubl_sample_6,-0.22911665894349204,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+88,Basal,Duong_lungMAP_unpubl_sample_6,-0.30327686020699973,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+89,CD4 T cells,Duong_lungMAP_unpubl_sample_6,-0.5296966014460603,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+90,CD8 T cells,Duong_lungMAP_unpubl_sample_6,-0.5075832278101741,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+91,Classical monocytes,Duong_lungMAP_unpubl_sample_6,-0.44123893530884883,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+92,DC2,Duong_lungMAP_unpubl_sample_6,-0.5514883273524962,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+93,EC arterial,Duong_lungMAP_unpubl_sample_6,-0.22098127277077992,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+94,EC venous,Duong_lungMAP_unpubl_sample_6,-0.34921345080344235,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+95,Fibroblast lineage,Duong_lungMAP_unpubl_sample_6,-0.2584051120043557,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+96,Macrophages,Duong_lungMAP_unpubl_sample_6,-0.43025186453807374,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+97,Mast cells,Duong_lungMAP_unpubl_sample_6,-0.5487564877491647,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+98,Multiciliated,Duong_lungMAP_unpubl_sample_6,-0.5573870848421567,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+99,NK cells,Duong_lungMAP_unpubl_sample_6,-0.6353208240683922,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+100,Non-classical monocytes,Duong_lungMAP_unpubl_sample_6,-0.4091465594556412,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+101,Secretory,Duong_lungMAP_unpubl_sample_6,-0.11362043542417855,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+102,AT2,Duong_lungMAP_unpubl_sample_7,-0.2544388618009428,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+103,Basal,Duong_lungMAP_unpubl_sample_7,-0.26247472361578134,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+104,CD4 T cells,Duong_lungMAP_unpubl_sample_7,-0.49842061975326524,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+105,CD8 T cells,Duong_lungMAP_unpubl_sample_7,-0.49277123158386177,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+106,Classical monocytes,Duong_lungMAP_unpubl_sample_7,-0.3668366152907012,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+107,DC2,Duong_lungMAP_unpubl_sample_7,-0.388351772020583,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+108,EC arterial,Duong_lungMAP_unpubl_sample_7,-0.21372038858142256,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+109,EC venous,Duong_lungMAP_unpubl_sample_7,-0.2977340471339152,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+110,Fibroblast lineage,Duong_lungMAP_unpubl_sample_7,-0.25602938172047707,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+111,Macrophages,Duong_lungMAP_unpubl_sample_7,-0.38852407991085364,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+112,Mast cells,Duong_lungMAP_unpubl_sample_7,-0.49878972523357934,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+113,Multiciliated,Duong_lungMAP_unpubl_sample_7,-0.578387688692122,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+114,NK cells,Duong_lungMAP_unpubl_sample_7,-0.6583979559290823,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+115,Non-classical monocytes,Duong_lungMAP_unpubl_sample_7,-0.42679193936276405,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+116,Secretory,Duong_lungMAP_unpubl_sample_7,-0.28414562491090006,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+117,AT2,Duong_lungMAP_unpubl_sample_8,-0.11808155342771659,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+118,Basal,Duong_lungMAP_unpubl_sample_8,-0.16577831344360971,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+119,CD4 T cells,Duong_lungMAP_unpubl_sample_8,-0.42666901577590893,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+120,CD8 T cells,Duong_lungMAP_unpubl_sample_8,-0.32665345675044277,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+121,Classical monocytes,Duong_lungMAP_unpubl_sample_8,-0.3531396849498785,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+122,DC2,Duong_lungMAP_unpubl_sample_8,-0.3522702408819182,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+123,EC arterial,Duong_lungMAP_unpubl_sample_8,-0.12483775845174078,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+124,EC venous,Duong_lungMAP_unpubl_sample_8,-0.21104742786878233,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+125,Fibroblast lineage,Duong_lungMAP_unpubl_sample_8,-0.22761433856048585,healthy,Duong_lungMAP_unpubl,False,healthy accepted
+126,Macrophages,Duong_lungMAP_unpubl_sample_8,-0.36387154220330165,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+127,Mast cells,Duong_lungMAP_unpubl_sample_8,-0.5327448593645606,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+128,Multiciliated,Duong_lungMAP_unpubl_sample_8,-0.4102864010686993,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+129,NK cells,Duong_lungMAP_unpubl_sample_8,-0.49090597363516664,healthy,Duong_lungMAP_unpubl,True,healthy rejected
+130,Secretory,Duong_lungMAP_unpubl_sample_8,-0.21442693818162029,healthy,Duong_lungMAP_unpubl,False,healthy accepted

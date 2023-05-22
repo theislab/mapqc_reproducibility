@@ -1,0 +1,239 @@
+2023-03-02 14:46:45.151023	Standarizing columns...
+2023-03-02 14:46:48.239713	Finished
+2023-03-02 14:46:54.060146	Checking columns...
+2023-03-02 14:46:54.291012	Analyzing Hematopoietic stem cells
+2023-03-02 14:46:54.326826	skipping Hematopoietic stem cells with 1 subjects
+2023-03-02 14:46:54.326875	Analyzing Mesothelium
+2023-03-02 14:46:54.363539	skipping Mesothelium with 5 subjects
+2023-03-02 14:46:54.363584	Analyzing AT1
+2023-03-02 14:46:54.445005	skipping AT1 with 35 subjects
+2023-03-02 14:46:54.445061	Analyzing AT2
+2023-03-02 14:46:54.843335			skipping HC1 with 0 cells
+2023-03-02 14:46:54.855841			skipping HC2 with 0 cells
+2023-03-02 14:46:54.867842			skipping HC3 with 0 cells
+2023-03-02 14:46:54.879945			skipping M1 with 0 cells
+2023-03-02 14:46:54.892028			skipping M2 with 0 cells
+2023-03-02 14:46:54.904102			skipping M3 with 0 cells
+2023-03-02 14:46:54.917392			skipping S1 with 13 cells
+2023-03-02 14:46:54.930667			Analysing S2
+2023-03-02 14:47:01.121707			skipping S3 with 0 cells
+2023-03-02 14:47:01.135606			skipping S4 with 4 cells
+2023-03-02 14:47:01.149090			skipping S5 with 3 cells
+2023-03-02 14:47:01.164337			skipping S6 with 1 cells
+2023-03-02 14:47:01.164375	Analyzing EC arterial
+2023-03-02 14:47:01.257768			skipping HC1 with 0 cells
+2023-03-02 14:47:01.270139			skipping HC2 with 0 cells
+2023-03-02 14:47:01.282647			skipping HC3 with 0 cells
+2023-03-02 14:47:01.295190			skipping M1 with 0 cells
+2023-03-02 14:47:01.307593			skipping M2 with 0 cells
+2023-03-02 14:47:01.319886			skipping M3 with 0 cells
+2023-03-02 14:47:01.333999			skipping S1 with 0 cells
+2023-03-02 14:47:01.347504			skipping S2 with 0 cells
+2023-03-02 14:47:01.359889			skipping S3 with 0 cells
+2023-03-02 14:47:01.372296			skipping S4 with 0 cells
+2023-03-02 14:47:01.384658			skipping S5 with 0 cells
+2023-03-02 14:47:01.396904			skipping S6 with 0 cells
+2023-03-02 14:47:01.396942	Analyzing Lymphatic EC differentiating
+2023-03-02 14:47:01.434676	skipping Lymphatic EC differentiating with 3 subjects
+2023-03-02 14:47:01.434717	Analyzing Lymphatic EC mature
+2023-03-02 14:47:01.494160	skipping Lymphatic EC mature with 32 subjects
+2023-03-02 14:47:01.494211	Analyzing Lymphatic EC proliferating
+2023-03-02 14:47:01.527187	skipping Lymphatic EC proliferating with 0 subjects
+2023-03-02 14:47:01.527232	Analyzing Mast cells
+2023-03-02 14:47:01.616007			skipping HC1 with 0 cells
+2023-03-02 14:47:01.628846			skipping HC2 with 0 cells
+2023-03-02 14:47:01.642431			skipping HC3 with 8 cells
+2023-03-02 14:47:01.655940			skipping M1 with 3 cells
+2023-03-02 14:47:01.669490			skipping M2 with 2 cells
+2023-03-02 14:47:01.682702			skipping M3 with 1 cells
+2023-03-02 14:47:01.695926			skipping S1 with 2 cells
+2023-03-02 14:47:01.709340			skipping S2 with 11 cells
+2023-03-02 14:47:01.721619			skipping S3 with 0 cells
+2023-03-02 14:47:01.735015			skipping S4 with 6 cells
+2023-03-02 14:47:01.748448			skipping S5 with 7 cells
+2023-03-02 14:47:01.761690			skipping S6 with 1 cells
+2023-03-02 14:47:01.761727	Analyzing AT2 proliferating
+2023-03-02 14:47:01.803562	skipping AT2 proliferating with 14 subjects
+2023-03-02 14:47:01.803609	Analyzing B cells
+2023-03-02 14:47:01.866884	skipping B cells with 36 subjects
+2023-03-02 14:47:01.867095	Analyzing CD4 T cells
+2023-03-02 14:47:02.044044			Analysing HC1
+2023-03-02 14:47:04.242461			skipping HC2 with 0 cells
+2023-03-02 14:47:04.256894			Analysing HC3
+2023-03-02 14:47:06.421934			Analysing M1
+2023-03-02 14:47:08.610173			Analysing M2
+2023-03-02 14:47:10.801383			Analysing M3
+2023-03-02 14:47:12.970017			Analysing S1
+2023-03-02 14:47:15.158782			Analysing S2
+2023-03-02 14:47:17.449493			Analysing S3
+2023-03-02 14:47:19.952994			Analysing S4
+2023-03-02 14:47:22.139032			Analysing S5
+2023-03-02 14:47:24.375555			Analysing S6
+2023-03-02 14:47:26.557407	Analyzing CD8 T cells
+2023-03-02 14:47:26.792541			Analysing HC1
+2023-03-02 14:47:29.797002			skipping HC2 with 2 cells
+2023-03-02 14:47:29.812173			Analysing HC3
+2023-03-02 14:47:32.819144			Analysing M1
+2023-03-02 14:47:35.873217			Analysing M2
+2023-03-02 14:47:38.945622			Analysing M3
+2023-03-02 14:47:41.988281			Analysing S1
+2023-03-02 14:47:45.011713			Analysing S2
+2023-03-02 14:47:48.126169			Analysing S3
+2023-03-02 14:47:51.157670			Analysing S4
+2023-03-02 14:47:54.216025			Analysing S5
+2023-03-02 14:47:57.261998			Analysing S6
+2023-03-02 14:48:00.334201	Analyzing Classical monocytes
+2023-03-02 14:48:00.523688			skipping HC1 with 0 cells
+2023-03-02 14:48:00.536949			skipping HC2 with 0 cells
+2023-03-02 14:48:00.551490			skipping HC3 with 2 cells
+2023-03-02 14:48:00.565302			Analysing M1
+2023-03-02 14:48:02.383779			skipping M2 with 13 cells
+2023-03-02 14:48:02.397761			skipping M3 with 4 cells
+2023-03-02 14:48:02.414626			Analysing S1
+2023-03-02 14:48:04.415431			Analysing S2
+2023-03-02 14:48:06.879479			Analysing S3
+2023-03-02 14:48:08.726686			Analysing S4
+2023-03-02 14:48:10.589230			Analysing S5
+2023-03-02 14:48:12.410543			Analysing S6
+2023-03-02 14:48:14.225667	Analyzing DC1
+2023-03-02 14:48:14.266206	skipping DC1 with 5 subjects
+2023-03-02 14:48:14.266271	Analyzing Deuterosomal
+2023-03-02 14:48:14.308220	skipping Deuterosomal with 23 subjects
+2023-03-02 14:48:14.308274	Analyzing EC aerocyte capillary
+2023-03-02 14:48:14.387511	skipping EC aerocyte capillary with 25 subjects
+2023-03-02 14:48:14.387581	Analyzing EC general capillary
+2023-03-02 14:48:14.517302	skipping EC general capillary with 35 subjects
+2023-03-02 14:48:14.517517	Analyzing Migratory DCs
+2023-03-02 14:48:14.554361	skipping Migratory DCs with 6 subjects
+2023-03-02 14:48:14.554419	Analyzing NK cells
+2023-03-02 14:48:14.699417			skipping HC1 with 0 cells
+2023-03-02 14:48:14.711488			skipping HC2 with 0 cells
+2023-03-02 14:48:14.726380			skipping HC3 with 6 cells
+2023-03-02 14:48:14.740998			Analysing M1
+2023-03-02 14:48:16.506154			Analysing M2
+2023-03-02 14:48:18.273366			skipping M3 with 3 cells
+2023-03-02 14:48:18.290189			Analysing S1
+2023-03-02 14:48:20.077984			Analysing S2
+2023-03-02 14:48:21.881927			skipping S3 with 9 cells
+2023-03-02 14:48:21.896822			skipping S4 with 9 cells
+2023-03-02 14:48:21.910851			skipping S5 with 11 cells
+2023-03-02 14:48:21.924632			Analysing S6
+2023-03-02 14:48:23.656557	Analyzing Non-classical monocytes
+2023-03-02 14:48:23.770736			skipping HC1 with 1 cells
+2023-03-02 14:48:23.784049			skipping HC2 with 2 cells
+2023-03-02 14:48:23.797238			skipping HC3 with 1 cells
+2023-03-02 14:48:23.810966			Analysing M1
+2023-03-02 14:48:24.730529			Analysing M2
+2023-03-02 14:48:25.641639			Analysing M3
+2023-03-02 14:48:26.549344			Analysing S1
+2023-03-02 14:48:27.608062			Analysing S2
+2023-03-02 14:48:28.601343			Analysing S3
+2023-03-02 14:48:29.512939			Analysing S4
+2023-03-02 14:48:30.455890			Analysing S5
+2023-03-02 14:48:31.361030			Analysing S6
+2023-03-02 14:48:32.246468	Analyzing Plasma cells
+2023-03-02 14:48:32.299245	skipping Plasma cells with 24 subjects
+2023-03-02 14:48:32.299319	Analyzing Plasmacytoid DCs
+2023-03-02 14:48:32.337644	skipping Plasmacytoid DCs with 6 subjects
+2023-03-02 14:48:32.337697	Analyzing T cells proliferating
+2023-03-02 14:48:32.379065	skipping T cells proliferating with 4 subjects
+2023-03-02 14:48:32.379117	Analyzing Basal
+2023-03-02 14:48:32.912320			skipping HC1 with 0 cells
+2023-03-02 14:48:32.924931			skipping HC2 with 0 cells
+2023-03-02 14:48:32.937197			skipping HC3 with 0 cells
+2023-03-02 14:48:32.949526			skipping M1 with 0 cells
+2023-03-02 14:48:32.962636			skipping M2 with 1 cells
+2023-03-02 14:48:32.974896			skipping M3 with 0 cells
+2023-03-02 14:48:32.988124			skipping S1 with 3 cells
+2023-03-02 14:48:33.001253			Analysing S2
+2023-03-02 14:48:41.555556			skipping S3 with 2 cells
+2023-03-02 14:48:41.569788			Analysing S4
+2023-03-02 14:48:50.320753			Analysing S5
+2023-03-02 14:48:58.958705			skipping S6 with 13 cells
+2023-03-02 14:48:58.959092	Analyzing DC2
+2023-03-02 14:48:59.072081			Analysing HC1
+2023-03-02 14:49:00.035202			skipping HC2 with 6 cells
+2023-03-02 14:49:00.049464			Analysing HC3
+2023-03-02 14:49:01.013949			Analysing M1
+2023-03-02 14:49:01.957733			Analysing M2
+2023-03-02 14:49:02.912970			Analysing M3
+2023-03-02 14:49:03.863789			Analysing S1
+2023-03-02 14:49:04.844355			Analysing S2
+2023-03-02 14:49:05.862434			Analysing S3
+2023-03-02 14:49:06.815530			Analysing S4
+2023-03-02 14:49:07.771269			skipping S5 with 14 cells
+2023-03-02 14:49:07.785187			skipping S6 with 14 cells
+2023-03-02 14:49:07.785235	Analyzing EC venous
+2023-03-02 14:49:07.916410			skipping HC1 with 0 cells
+2023-03-02 14:49:07.928852			skipping HC2 with 0 cells
+2023-03-02 14:49:07.941453			skipping HC3 with 0 cells
+2023-03-02 14:49:07.953850			skipping M1 with 0 cells
+2023-03-02 14:49:07.966187			skipping M2 with 0 cells
+2023-03-02 14:49:07.979999			skipping M3 with 0 cells
+2023-03-02 14:49:07.993422			skipping S1 with 0 cells
+2023-03-02 14:49:08.005722			skipping S2 with 0 cells
+2023-03-02 14:49:08.018034			skipping S3 with 0 cells
+2023-03-02 14:49:08.031480			skipping S4 with 0 cells
+2023-03-02 14:49:08.045149			skipping S5 with 0 cells
+2023-03-02 14:49:08.057392			skipping S6 with 0 cells
+2023-03-02 14:49:08.057430	Analyzing Fibroblast lineage
+2023-03-02 14:49:08.230357			skipping HC1 with 0 cells
+2023-03-02 14:49:08.243176			skipping HC2 with 0 cells
+2023-03-02 14:49:08.255513			skipping HC3 with 0 cells
+2023-03-02 14:49:08.267802			skipping M1 with 0 cells
+2023-03-02 14:49:08.280291			skipping M2 with 0 cells
+2023-03-02 14:49:08.293884			skipping M3 with 0 cells
+2023-03-02 14:49:08.306280			skipping S1 with 0 cells
+2023-03-02 14:49:08.318655			skipping S2 with 0 cells
+2023-03-02 14:49:08.331167			skipping S3 with 0 cells
+2023-03-02 14:49:08.343554			skipping S4 with 0 cells
+2023-03-02 14:49:08.356044			skipping S5 with 0 cells
+2023-03-02 14:49:08.368444			skipping S6 with 0 cells
+2023-03-02 14:49:08.368481	Analyzing Macrophages
+2023-03-02 14:49:09.157247			Analysing HC1
+2023-03-02 14:49:21.486520			Analysing HC2
+2023-03-02 14:49:33.797143			Analysing HC3
+2023-03-02 14:49:45.335986			Analysing M1
+2023-03-02 14:49:57.004560			Analysing M2
+2023-03-02 14:50:08.796479			Analysing M3
+2023-03-02 14:50:20.328256			Analysing S1
+2023-03-02 14:50:32.646003			Analysing S2
+2023-03-02 14:50:44.732624			Analysing S3
+2023-03-02 14:50:56.184908			Analysing S4
+2023-03-02 14:51:07.617348			Analysing S5
+2023-03-02 14:51:19.125451			Analysing S6
+2023-03-02 14:51:30.577486	Analyzing Multiciliated
+2023-03-02 14:51:30.881968			skipping HC1 with 12 cells
+2023-03-02 14:51:30.895446			Analysing HC2
+2023-03-02 14:51:34.940857			skipping HC3 with 1 cells
+2023-03-02 14:51:34.954613			Analysing M1
+2023-03-02 14:51:39.036147			Analysing M2
+2023-03-02 14:51:43.112524			skipping M3 with 8 cells
+2023-03-02 14:51:43.126872			Analysing S1
+2023-03-02 14:51:47.262588			Analysing S2
+2023-03-02 14:51:51.361733			Analysing S3
+2023-03-02 14:51:55.433593			Analysing S4
+2023-03-02 14:51:59.508118			Analysing S5
+2023-03-02 14:52:03.617780			Analysing S6
+2023-03-02 14:52:07.754902	Analyzing Rare
+2023-03-02 14:52:07.803528	skipping Rare with 24 subjects
+2023-03-02 14:52:07.803579	Analyzing Secretory
+2023-03-02 14:52:08.331468			skipping HC1 with 1 cells
+2023-03-02 14:52:08.345300			skipping HC2 with 7 cells
+2023-03-02 14:52:08.358525			skipping HC3 with 1 cells
+2023-03-02 14:52:08.372040			Analysing M1
+2023-03-02 14:52:16.335724			Analysing M2
+2023-03-02 14:52:24.381424			Analysing M3
+2023-03-02 14:52:32.595279			Analysing S1
+2023-03-02 14:52:40.573933			Analysing S2
+2023-03-02 14:52:48.644266			Analysing S3
+2023-03-02 14:52:56.972446			Analysing S4
+2023-03-02 14:53:05.130480			Analysing S5
+2023-03-02 14:53:13.087838			Analysing S6
+2023-03-02 14:53:21.292236	Analyzing Smooth muscle
+2023-03-02 14:53:21.360328	skipping Smooth muscle with 36 subjects
+2023-03-02 14:53:21.360382	Analyzing Submucosal Secretory
+2023-03-02 14:53:21.425718	skipping Submucosal Secretory with 30 subjects
+2023-03-02 14:56:06.960193	Standarizing columns...
+2023-03-02 14:56:10.056425	Finished
+2023-03-02 14:56:15.372245	Checking columns...

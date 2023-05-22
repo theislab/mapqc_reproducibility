@@ -1,0 +1,4 @@
+Time Meyer_2021 extension: 2182.5574010331184
+Time Meyer_2021 extension: 2172.9682781910524
+Time Meyer_2021 extension (redone): 2671.0823425077833
+Time Nucleus extension: 1671.3867138065398

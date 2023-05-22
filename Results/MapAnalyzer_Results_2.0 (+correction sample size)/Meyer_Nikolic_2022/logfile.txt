@@ -1,0 +1,851 @@
+2023-03-02 15:31:52.888325	Standarizing columns...
+2023-03-02 15:31:57.099859	Finished
+2023-03-02 15:32:03.631400	Checking columns...
+2023-03-02 15:32:04.003716	Analyzing Hematopoietic stem cells
+2023-03-02 15:32:04.040351	skipping Hematopoietic stem cells with 1 subjects
+2023-03-02 15:32:04.040397	Analyzing Mesothelium
+2023-03-02 15:32:04.080152	skipping Mesothelium with 5 subjects
+2023-03-02 15:32:04.080208	Analyzing AT1
+2023-03-02 15:32:04.167656	skipping AT1 with 35 subjects
+2023-03-02 15:32:04.167708	Analyzing AT2
+2023-03-02 15:32:04.589875			skipping AN5-NB with 8 cells
+2023-03-02 15:32:04.604427			skipping AN6-NB with 1 cells
+2023-03-02 15:32:04.617423			skipping AN9-NB with 0 cells
+2023-03-02 15:32:04.631457			skipping AN11-NB with 7 cells
+2023-03-02 15:32:04.645473			skipping AN12-NB with 1 cells
+2023-03-02 15:32:04.658431			skipping AN13-NB with 0 cells
+2023-03-02 15:32:04.671446			skipping AN14-NB with 0 cells
+2023-03-02 15:32:04.684364			skipping NP10-NB with 0 cells
+2023-03-02 15:32:04.697404			skipping NP11-NB with 0 cells
+2023-03-02 15:32:04.710333			skipping NP12-NB with 0 cells
+2023-03-02 15:32:04.723109			skipping NP13-BB with 0 cells
+2023-03-02 15:32:04.736809			skipping NP13-NB with 1 cells
+2023-03-02 15:32:04.750874			skipping NP14-NB with 3 cells
+2023-03-02 15:32:04.765201			skipping NP14-TB with 0 cells
+2023-03-02 15:32:04.779192			skipping NP15-NB with 2 cells
+2023-03-02 15:32:04.793181			skipping NP16-NB with 1 cells
+2023-03-02 15:32:04.809837			skipping NP17-NB with 1 cells
+2023-03-02 15:32:04.823559			skipping NP18-NB with 1 cells
+2023-03-02 15:32:04.836394			skipping NP18-TB with 0 cells
+2023-03-02 15:32:04.850347			skipping NP19-NB with 2 cells
+2023-03-02 15:32:04.864303			skipping NP20-NB with 8 cells
+2023-03-02 15:32:04.877102			skipping NP20-TB with 0 cells
+2023-03-02 15:32:04.891080			skipping NP21-NB with 3 cells
+2023-03-02 15:32:04.904857			skipping NP21-TB with 1 cells
+2023-03-02 15:32:04.917633			skipping NP22-NB with 0 cells
+2023-03-02 15:32:04.930533			skipping NP22-TB with 0 cells
+2023-03-02 15:32:04.943349			skipping NP23-NB with 0 cells
+2023-03-02 15:32:04.957850			skipping NP23-TB with 0 cells
+2023-03-02 15:32:04.972024			skipping NP24-NB with 5 cells
+2023-03-02 15:32:04.986177			skipping NP26-NB with 6 cells
+2023-03-02 15:32:04.999285			skipping NP26-TB with 0 cells
+2023-03-02 15:32:05.014055			skipping NP27-NB with 3 cells
+2023-03-02 15:32:05.027302			skipping NP27-TB with 0 cells
+2023-03-02 15:32:05.041325			Analysing NP30-NB
+2023-03-02 15:32:11.118062			skipping NP31-NB with 11 cells
+2023-03-02 15:32:11.131959			skipping NP31-TB with 0 cells
+2023-03-02 15:32:11.146013			skipping NP32-NB with 4 cells
+2023-03-02 15:32:11.162268			skipping NP35-NB with 7 cells
+2023-03-02 15:32:11.175022			skipping NP35-TB with 0 cells
+2023-03-02 15:32:11.190279			skipping NP36-NB with 3 cells
+2023-03-02 15:32:11.203064			skipping NP36-TB with 0 cells
+2023-03-02 15:32:11.216968			skipping NP37-NB with 1 cells
+2023-03-02 15:32:11.229741			skipping NP37-TB with 0 cells
+2023-03-02 15:32:11.243871			skipping NP38-NB with 2 cells
+2023-03-02 15:32:11.256608			skipping NP38-TB with 0 cells
+2023-03-02 15:32:11.270635			skipping NP39-NB with 9 cells
+2023-03-02 15:32:11.284359			skipping NP39-TB with 1 cells
+2023-03-02 15:32:11.298459			skipping NP41-NB with 2 cells
+2023-03-02 15:32:11.312928			skipping NP43-NB with 2 cells
+2023-03-02 15:32:11.328119			skipping NP44-NB_v1.0 with 1 cells
+2023-03-02 15:32:11.347554			skipping NP44-NB_v1.1 with 2 cells
+2023-03-02 15:32:11.361031			skipping NP44-TB with 0 cells
+2023-03-02 15:32:11.375464			skipping NP47-NB with 10 cells
+2023-03-02 15:32:11.375519	Analyzing EC arterial
+2023-03-02 15:32:11.474577			skipping AN5-NB with 0 cells
+2023-03-02 15:32:11.487802			skipping AN6-NB with 0 cells
+2023-03-02 15:32:11.500839			skipping AN9-NB with 0 cells
+2023-03-02 15:32:11.513835			skipping AN11-NB with 0 cells
+2023-03-02 15:32:11.526611			skipping AN12-NB with 0 cells
+2023-03-02 15:32:11.539454			skipping AN13-NB with 0 cells
+2023-03-02 15:32:11.554527			skipping AN14-NB with 0 cells
+2023-03-02 15:32:11.569944			skipping NP10-NB with 0 cells
+2023-03-02 15:32:11.583385			skipping NP11-NB with 0 cells
+2023-03-02 15:32:11.596383			skipping NP12-NB with 0 cells
+2023-03-02 15:32:11.609390			skipping NP13-BB with 0 cells
+2023-03-02 15:32:11.622248			skipping NP13-NB with 0 cells
+2023-03-02 15:32:11.635178			skipping NP14-NB with 0 cells
+2023-03-02 15:32:11.648193			skipping NP14-TB with 0 cells
+2023-03-02 15:32:11.661078			skipping NP15-NB with 0 cells
+2023-03-02 15:32:11.673913			skipping NP16-NB with 0 cells
+2023-03-02 15:32:11.686981			skipping NP17-NB with 0 cells
+2023-03-02 15:32:11.699811			skipping NP18-NB with 0 cells
+2023-03-02 15:32:11.712672			skipping NP18-TB with 0 cells
+2023-03-02 15:32:11.725490			skipping NP19-NB with 0 cells
+2023-03-02 15:32:11.739876			skipping NP20-NB with 0 cells
+2023-03-02 15:32:11.752994			skipping NP20-TB with 0 cells
+2023-03-02 15:32:11.765832			skipping NP21-NB with 0 cells
+2023-03-02 15:32:11.780645			skipping NP21-TB with 0 cells
+2023-03-02 15:32:11.794961			skipping NP22-NB with 0 cells
+2023-03-02 15:32:11.807750			skipping NP22-TB with 0 cells
+2023-03-02 15:32:11.820662			skipping NP23-NB with 0 cells
+2023-03-02 15:32:11.833618			skipping NP23-TB with 0 cells
+2023-03-02 15:32:11.846646			skipping NP24-NB with 0 cells
+2023-03-02 15:32:11.859547			skipping NP26-NB with 0 cells
+2023-03-02 15:32:11.872463			skipping NP26-TB with 0 cells
+2023-03-02 15:32:11.885569			skipping NP27-NB with 0 cells
+2023-03-02 15:32:11.898408			skipping NP27-TB with 0 cells
+2023-03-02 15:32:11.911316			skipping NP30-NB with 0 cells
+2023-03-02 15:32:11.925990			skipping NP31-NB with 0 cells
+2023-03-02 15:32:11.939175			skipping NP31-TB with 0 cells
+2023-03-02 15:32:11.952284			skipping NP32-NB with 0 cells
+2023-03-02 15:32:11.965307			skipping NP35-NB with 0 cells
+2023-03-02 15:32:11.978276			skipping NP35-TB with 0 cells
+2023-03-02 15:32:11.991549			skipping NP36-NB with 0 cells
+2023-03-02 15:32:12.006989			skipping NP36-TB with 0 cells
+2023-03-02 15:32:12.020525			skipping NP37-NB with 0 cells
+2023-03-02 15:32:12.033660			skipping NP37-TB with 0 cells
+2023-03-02 15:32:12.046653			skipping NP38-NB with 0 cells
+2023-03-02 15:32:12.059684			skipping NP38-TB with 0 cells
+2023-03-02 15:32:12.072672			skipping NP39-NB with 0 cells
+2023-03-02 15:32:12.085732			skipping NP39-TB with 0 cells
+2023-03-02 15:32:12.098753			skipping NP41-NB with 0 cells
+2023-03-02 15:32:12.113476			skipping NP43-NB with 0 cells
+2023-03-02 15:32:12.126615			skipping NP44-NB_v1.0 with 0 cells
+2023-03-02 15:32:12.139503			skipping NP44-NB_v1.1 with 0 cells
+2023-03-02 15:32:12.152381			skipping NP44-TB with 0 cells
+2023-03-02 15:32:12.165198			skipping NP47-NB with 0 cells
+2023-03-02 15:32:12.165248	Analyzing Lymphatic EC differentiating
+2023-03-02 15:32:12.205565	skipping Lymphatic EC differentiating with 3 subjects
+2023-03-02 15:32:12.205626	Analyzing Lymphatic EC mature
+2023-03-02 15:32:12.270105	skipping Lymphatic EC mature with 32 subjects
+2023-03-02 15:32:12.270343	Analyzing Lymphatic EC proliferating
+2023-03-02 15:32:12.305912	skipping Lymphatic EC proliferating with 0 subjects
+2023-03-02 15:32:12.305970	Analyzing Mast cells
+2023-03-02 15:32:12.399786			skipping AN5-NB with 0 cells
+2023-03-02 15:32:12.412564			skipping AN6-NB with 0 cells
+2023-03-02 15:32:12.426462			skipping AN9-NB with 4 cells
+2023-03-02 15:32:12.440416			skipping AN11-NB with 13 cells
+2023-03-02 15:32:12.454127			skipping AN12-NB with 1 cells
+2023-03-02 15:32:12.466926			skipping AN13-NB with 0 cells
+2023-03-02 15:32:12.481207			skipping AN14-NB with 0 cells
+2023-03-02 15:32:12.497192			skipping NP10-NB with 6 cells
+2023-03-02 15:32:12.512785			skipping NP11-NB with 1 cells
+2023-03-02 15:32:12.527646			skipping NP12-NB with 0 cells
+2023-03-02 15:32:12.541717			Analysing NP13-BB
+2023-03-02 15:32:13.837943			skipping NP13-NB with 0 cells
+2023-03-02 15:32:13.854292			skipping NP14-NB with 2 cells
+2023-03-02 15:32:13.867264			skipping NP14-TB with 0 cells
+2023-03-02 15:32:13.880064			skipping NP15-NB with 0 cells
+2023-03-02 15:32:13.892828			skipping NP16-NB with 0 cells
+2023-03-02 15:32:13.905637			skipping NP17-NB with 0 cells
+2023-03-02 15:32:13.919720			skipping NP18-NB with 4 cells
+2023-03-02 15:32:13.933770			skipping NP18-TB with 4 cells
+2023-03-02 15:32:13.946851			skipping NP19-NB with 0 cells
+2023-03-02 15:32:13.959763			skipping NP20-NB with 0 cells
+2023-03-02 15:32:13.972754			skipping NP20-TB with 0 cells
+2023-03-02 15:32:13.985871			skipping NP21-NB with 0 cells
+2023-03-02 15:32:13.998729			skipping NP21-TB with 0 cells
+2023-03-02 15:32:14.013009			skipping NP22-NB with 13 cells
+2023-03-02 15:32:14.025933			skipping NP22-TB with 0 cells
+2023-03-02 15:32:14.041213			skipping NP23-NB with 0 cells
+2023-03-02 15:32:14.054550			skipping NP23-TB with 0 cells
+2023-03-02 15:32:14.068631			skipping NP24-NB with 1 cells
+2023-03-02 15:32:14.082514			skipping NP26-NB with 1 cells
+2023-03-02 15:32:14.095489			skipping NP26-TB with 0 cells
+2023-03-02 15:32:14.108383			skipping NP27-NB with 0 cells
+2023-03-02 15:32:14.121521			skipping NP27-TB with 0 cells
+2023-03-02 15:32:14.134701			skipping NP30-NB with 0 cells
+2023-03-02 15:32:14.148961			skipping NP31-NB with 6 cells
+2023-03-02 15:32:14.162002			skipping NP31-TB with 0 cells
+2023-03-02 15:32:14.176226			skipping NP32-NB with 5 cells
+2023-03-02 15:32:14.190275			skipping NP35-NB with 4 cells
+2023-03-02 15:32:14.204384			skipping NP35-TB with 0 cells
+2023-03-02 15:32:14.218402			skipping NP36-NB with 1 cells
+2023-03-02 15:32:14.232892			skipping NP36-TB with 0 cells
+2023-03-02 15:32:14.246412			skipping NP37-NB with 0 cells
+2023-03-02 15:32:14.261825			skipping NP37-TB with 0 cells
+2023-03-02 15:32:14.276159			Analysing NP38-NB
+2023-03-02 15:32:15.479130			skipping NP38-TB with 0 cells
+2023-03-02 15:32:15.493600			Analysing NP39-NB
+2023-03-02 15:32:16.653401			Analysing NP39-TB
+2023-03-02 15:32:17.905513			skipping NP41-NB with 0 cells
+2023-03-02 15:32:17.920453			skipping NP43-NB with 0 cells
+2023-03-02 15:32:17.937604			skipping NP44-NB_v1.0 with 14 cells
+2023-03-02 15:32:17.952189			skipping NP44-NB_v1.1 with 14 cells
+2023-03-02 15:32:17.966484			skipping NP44-TB with 1 cells
+2023-03-02 15:32:17.980817			skipping NP47-NB with 1 cells
+2023-03-02 15:32:17.980891	Analyzing AT2 proliferating
+2023-03-02 15:32:18.025220	skipping AT2 proliferating with 14 subjects
+2023-03-02 15:32:18.025301	Analyzing B cells
+2023-03-02 15:32:18.122066	skipping B cells with 36 subjects
+2023-03-02 15:32:18.122591	Analyzing CD4 T cells
+2023-03-02 15:32:18.306440			skipping AN5-NB with 0 cells
+2023-03-02 15:32:18.319633			skipping AN6-NB with 0 cells
+2023-03-02 15:32:18.336103			Analysing AN9-NB
+2023-03-02 15:32:20.499441			skipping AN11-NB with 1 cells
+2023-03-02 15:32:20.516129			skipping AN12-NB with 0 cells
+2023-03-02 15:32:20.530473			skipping AN13-NB with 1 cells
+2023-03-02 15:32:20.543866			skipping AN14-NB with 0 cells
+2023-03-02 15:32:20.558812			Analysing NP10-NB
+2023-03-02 15:32:22.733294			skipping NP11-NB with 11 cells
+2023-03-02 15:32:22.748438			Analysing NP12-NB
+2023-03-02 15:32:24.893319			Analysing NP13-BB
+2023-03-02 15:32:27.091799			Analysing NP13-NB
+2023-03-02 15:32:29.277100			skipping NP14-NB with 0 cells
+2023-03-02 15:32:29.291931			skipping NP14-TB with 4 cells
+2023-03-02 15:32:29.306490			skipping NP15-NB with 3 cells
+2023-03-02 15:32:29.321259			Analysing NP16-NB
+2023-03-02 15:32:31.467349			Analysing NP17-NB
+2023-03-02 15:32:33.637851			skipping NP18-NB with 6 cells
+2023-03-02 15:32:33.652552			Analysing NP18-TB
+2023-03-02 15:32:35.790316			Analysing NP19-NB
+2023-03-02 15:32:37.944728			skipping NP20-NB with 7 cells
+2023-03-02 15:32:37.959538			skipping NP20-TB with 0 cells
+2023-03-02 15:32:37.973919			skipping NP21-NB with 1 cells
+2023-03-02 15:32:37.986929			skipping NP21-TB with 0 cells
+2023-03-02 15:32:38.000039			skipping NP22-NB with 0 cells
+2023-03-02 15:32:38.013085			skipping NP22-TB with 0 cells
+2023-03-02 15:32:38.028532			skipping NP23-NB with 0 cells
+2023-03-02 15:32:38.041569			skipping NP23-TB with 0 cells
+2023-03-02 15:32:38.055580			skipping NP24-NB with 1 cells
+2023-03-02 15:32:38.068618			skipping NP26-NB with 0 cells
+2023-03-02 15:32:38.081764			skipping NP26-TB with 0 cells
+2023-03-02 15:32:38.095916			skipping NP27-NB with 1 cells
+2023-03-02 15:32:38.109190			skipping NP27-TB with 0 cells
+2023-03-02 15:32:38.123538			skipping NP30-NB with 1 cells
+2023-03-02 15:32:38.137697			skipping NP31-NB with 1 cells
+2023-03-02 15:32:38.152079			Analysing NP31-TB
+2023-03-02 15:32:40.303367			skipping NP32-NB with 6 cells
+2023-03-02 15:32:40.320196			Analysing NP35-NB
+2023-03-02 15:32:42.451291			Analysing NP35-TB
+2023-03-02 15:32:44.592969			skipping NP36-NB with 4 cells
+2023-03-02 15:32:44.607658			skipping NP36-TB with 0 cells
+2023-03-02 15:32:44.621115			skipping NP37-NB with 0 cells
+2023-03-02 15:32:44.634129			skipping NP37-TB with 0 cells
+2023-03-02 15:32:44.648303			skipping NP38-NB with 2 cells
+2023-03-02 15:32:44.661175			skipping NP38-TB with 0 cells
+2023-03-02 15:32:44.675175			skipping NP39-NB with 9 cells
+2023-03-02 15:32:44.692079			Analysing NP39-TB
+2023-03-02 15:32:46.850675			skipping NP41-NB with 0 cells
+2023-03-02 15:32:46.864459			skipping NP43-NB with 0 cells
+2023-03-02 15:32:46.878772			Analysing NP44-NB_v1.0
+2023-03-02 15:32:48.988305			Analysing NP44-NB_v1.1
+2023-03-02 15:32:51.118299			Analysing NP44-TB
+2023-03-02 15:32:53.244371			skipping NP47-NB with 2 cells
+2023-03-02 15:32:53.244434	Analyzing CD8 T cells
+2023-03-02 15:32:53.480897			skipping AN5-NB with 0 cells
+2023-03-02 15:32:53.495737			skipping AN6-NB with 0 cells
+2023-03-02 15:32:53.510390			Analysing AN9-NB
+2023-03-02 15:32:56.457802			skipping AN11-NB with 6 cells
+2023-03-02 15:32:56.471244			skipping AN12-NB with 0 cells
+2023-03-02 15:32:56.485414			skipping AN13-NB with 4 cells
+2023-03-02 15:32:56.499676			skipping AN14-NB with 0 cells
+2023-03-02 15:32:56.514539			Analysing NP10-NB
+2023-03-02 15:32:59.468915			skipping NP11-NB with 3 cells
+2023-03-02 15:32:59.483514			Analysing NP12-NB
+2023-03-02 15:33:02.412195			Analysing NP13-BB
+2023-03-02 15:33:05.343581			Analysing NP13-NB
+2023-03-02 15:33:08.313062			skipping NP14-NB with 2 cells
+2023-03-02 15:33:08.327569			skipping NP14-TB with 8 cells
+2023-03-02 15:33:08.340443			skipping NP15-NB with 0 cells
+2023-03-02 15:33:08.355764			Analysing NP16-NB
+2023-03-02 15:33:11.318802			Analysing NP17-NB
+2023-03-02 15:33:14.258169			skipping NP18-NB with 9 cells
+2023-03-02 15:33:14.272602			Analysing NP18-TB
+2023-03-02 15:33:17.224135			Analysing NP19-NB
+2023-03-02 15:33:20.197237			Analysing NP20-NB
+2023-03-02 15:33:23.207112			skipping NP20-TB with 0 cells
+2023-03-02 15:33:23.221500			skipping NP21-NB with 1 cells
+2023-03-02 15:33:23.234470			skipping NP21-TB with 0 cells
+2023-03-02 15:33:23.247641			skipping NP22-NB with 0 cells
+2023-03-02 15:33:23.260695			skipping NP22-TB with 0 cells
+2023-03-02 15:33:23.275160			Analysing NP23-NB
+2023-03-02 15:33:26.188539			skipping NP23-TB with 0 cells
+2023-03-02 15:33:26.203293			Analysing NP24-NB
+2023-03-02 15:33:29.113322			skipping NP26-NB with 0 cells
+2023-03-02 15:33:29.126757			skipping NP26-TB with 0 cells
+2023-03-02 15:33:29.143888			skipping NP27-NB with 1 cells
+2023-03-02 15:33:29.157238			skipping NP27-TB with 0 cells
+2023-03-02 15:33:29.171927			Analysing NP30-NB
+2023-03-02 15:33:32.132649			Analysing NP31-NB
+2023-03-02 15:33:35.075582			Analysing NP31-TB
+2023-03-02 15:33:38.043840			Analysing NP32-NB
+2023-03-02 15:33:40.957815			Analysing NP35-NB
+2023-03-02 15:33:43.865575			Analysing NP35-TB
+2023-03-02 15:33:46.760611			skipping NP36-NB with 0 cells
+2023-03-02 15:33:46.773922			skipping NP36-TB with 0 cells
+2023-03-02 15:33:46.787894			Analysing NP37-NB
+2023-03-02 15:33:49.697703			skipping NP37-TB with 1 cells
+2023-03-02 15:33:49.712562			Analysing NP38-NB
+2023-03-02 15:33:52.631314			skipping NP38-TB with 0 cells
+2023-03-02 15:33:52.646233			skipping NP39-NB with 12 cells
+2023-03-02 15:33:52.660824			Analysing NP39-TB
+2023-03-02 15:33:55.604582			skipping NP41-NB with 0 cells
+2023-03-02 15:33:55.618450			skipping NP43-NB with 1 cells
+2023-03-02 15:33:55.632335			Analysing NP44-NB_v1.0
+2023-03-02 15:33:58.555407			Analysing NP44-NB_v1.1
+2023-03-02 15:34:01.475938			Analysing NP44-TB
+2023-03-02 15:34:04.399835			skipping NP47-NB with 7 cells
+2023-03-02 15:34:04.400267	Analyzing Classical monocytes
+2023-03-02 15:34:04.568194			skipping AN5-NB with 0 cells
+2023-03-02 15:34:04.581397			skipping AN6-NB with 0 cells
+2023-03-02 15:34:04.595838			Analysing AN9-NB
+2023-03-02 15:34:06.373902			skipping AN11-NB with 2 cells
+2023-03-02 15:34:06.388333			skipping AN12-NB with 0 cells
+2023-03-02 15:34:06.401344			skipping AN13-NB with 0 cells
+2023-03-02 15:34:06.413943			skipping AN14-NB with 0 cells
+2023-03-02 15:34:06.427825			Analysing NP10-NB
+2023-03-02 15:34:08.205938			skipping NP11-NB with 5 cells
+2023-03-02 15:34:08.220345			skipping NP12-NB with 0 cells
+2023-03-02 15:34:08.234594			Analysing NP13-BB
+2023-03-02 15:34:09.998079			skipping NP13-NB with 1 cells
+2023-03-02 15:34:10.012383			skipping NP14-NB with 12 cells
+2023-03-02 15:34:10.026350			Analysing NP14-TB
+2023-03-02 15:34:11.784807			Analysing NP15-NB
+2023-03-02 15:34:13.540540			Analysing NP16-NB
+2023-03-02 15:34:15.312493			skipping NP17-NB with 0 cells
+2023-03-02 15:34:15.326903			Analysing NP18-NB
+2023-03-02 15:34:17.088848			Analysing NP18-TB
+2023-03-02 15:34:18.854307			skipping NP19-NB with 1 cells
+2023-03-02 15:34:18.868256			skipping NP20-NB with 1 cells
+2023-03-02 15:34:19.331449			skipping NP20-TB with 0 cells
+2023-03-02 15:34:19.344670			skipping NP21-NB with 0 cells
+2023-03-02 15:34:19.357577			skipping NP21-TB with 0 cells
+2023-03-02 15:34:19.370446			skipping NP22-NB with 0 cells
+2023-03-02 15:34:19.383353			skipping NP22-TB with 0 cells
+2023-03-02 15:34:19.396407			skipping NP23-NB with 0 cells
+2023-03-02 15:34:19.409512			skipping NP23-TB with 0 cells
+2023-03-02 15:34:19.423453			skipping NP24-NB with 1 cells
+2023-03-02 15:34:19.436288			skipping NP26-NB with 0 cells
+2023-03-02 15:34:19.449205			skipping NP26-TB with 0 cells
+2023-03-02 15:34:19.462174			skipping NP27-NB with 0 cells
+2023-03-02 15:34:19.475135			skipping NP27-TB with 0 cells
+2023-03-02 15:34:19.488029			skipping NP30-NB with 0 cells
+2023-03-02 15:34:19.502274			skipping NP31-NB with 0 cells
+2023-03-02 15:34:19.516591			skipping NP31-TB with 4 cells
+2023-03-02 15:34:19.530436			skipping NP32-NB with 1 cells
+2023-03-02 15:34:19.546476			skipping NP35-NB with 1 cells
+2023-03-02 15:34:19.561053			Analysing NP35-TB
+2023-03-02 15:34:21.345734			Analysing NP36-NB
+2023-03-02 15:34:23.125924			Analysing NP36-TB
+2023-03-02 15:34:24.928500			skipping NP37-NB with 0 cells
+2023-03-02 15:34:24.942941			skipping NP37-TB with 2 cells
+2023-03-02 15:34:24.955674			skipping NP38-NB with 0 cells
+2023-03-02 15:34:24.968573			skipping NP38-TB with 0 cells
+2023-03-02 15:34:24.981530			skipping NP39-NB with 0 cells
+2023-03-02 15:34:24.995525			Analysing NP39-TB
+2023-03-02 15:34:26.773151			skipping NP41-NB with 1 cells
+2023-03-02 15:34:26.787568			Analysing NP43-NB
+2023-03-02 15:34:28.566641			Analysing NP44-NB_v1.0
+2023-03-02 15:34:30.363450			skipping NP44-NB_v1.1 with 13 cells
+2023-03-02 15:34:30.378108			skipping NP44-TB with 0 cells
+2023-03-02 15:34:30.392484			skipping NP47-NB with 2 cells
+2023-03-02 15:34:30.392538	Analyzing DC1
+2023-03-02 15:34:30.431272	skipping DC1 with 5 subjects
+2023-03-02 15:34:30.431330	Analyzing Deuterosomal
+2023-03-02 15:34:30.480419	skipping Deuterosomal with 23 subjects
+2023-03-02 15:34:30.480481	Analyzing EC aerocyte capillary
+2023-03-02 15:34:30.562132	skipping EC aerocyte capillary with 25 subjects
+2023-03-02 15:34:30.562191	Analyzing EC general capillary
+2023-03-02 15:34:30.696595	skipping EC general capillary with 35 subjects
+2023-03-02 15:34:30.696651	Analyzing Migratory DCs
+2023-03-02 15:34:30.735328	skipping Migratory DCs with 6 subjects
+2023-03-02 15:34:30.735384	Analyzing NK cells
+2023-03-02 15:34:30.886254			skipping AN5-NB with 0 cells
+2023-03-02 15:34:30.901978			skipping AN6-NB with 0 cells
+2023-03-02 15:34:30.918201			skipping AN9-NB with 3 cells
+2023-03-02 15:34:30.931288			skipping AN11-NB with 0 cells
+2023-03-02 15:34:30.944279			skipping AN12-NB with 0 cells
+2023-03-02 15:34:30.957213			skipping AN13-NB with 0 cells
+2023-03-02 15:34:30.970146			skipping AN14-NB with 0 cells
+2023-03-02 15:34:30.984231			Analysing NP10-NB
+2023-03-02 15:34:32.709076			skipping NP11-NB with 5 cells
+2023-03-02 15:34:32.723428			skipping NP12-NB with 10 cells
+2023-03-02 15:34:32.737628			Analysing NP13-BB
+2023-03-02 15:34:34.467863			skipping NP13-NB with 4 cells
+2023-03-02 15:34:34.482686			skipping NP14-NB with 0 cells
+2023-03-02 15:34:34.497647			skipping NP14-TB with 1 cells
+2023-03-02 15:34:34.510899			skipping NP15-NB with 0 cells
+2023-03-02 15:34:34.525357			Analysing NP16-NB
+2023-03-02 15:34:36.266815			skipping NP17-NB with 10 cells
+2023-03-02 15:34:36.281165			skipping NP18-NB with 7 cells
+2023-03-02 15:34:36.295349			Analysing NP18-TB
+2023-03-02 15:34:38.038418			skipping NP19-NB with 9 cells
+2023-03-02 15:34:38.053478			Analysing NP20-NB
+2023-03-02 15:34:39.806498			skipping NP20-TB with 0 cells
+2023-03-02 15:34:39.821584			skipping NP21-NB with 0 cells
+2023-03-02 15:34:39.835556			skipping NP21-TB with 0 cells
+2023-03-02 15:34:39.848755			skipping NP22-NB with 0 cells
+2023-03-02 15:34:39.861907			skipping NP22-TB with 0 cells
+2023-03-02 15:34:39.876179			skipping NP23-NB with 1 cells
+2023-03-02 15:34:39.889358			skipping NP23-TB with 0 cells
+2023-03-02 15:34:39.903644			skipping NP24-NB with 1 cells
+2023-03-02 15:34:39.916861			skipping NP26-NB with 0 cells
+2023-03-02 15:34:39.929893			skipping NP26-TB with 0 cells
+2023-03-02 15:34:39.944968			skipping NP27-NB with 0 cells
+2023-03-02 15:34:39.958442			skipping NP27-TB with 0 cells
+2023-03-02 15:34:39.973097			skipping NP30-NB with 3 cells
+2023-03-02 15:34:39.987597			skipping NP31-NB with 1 cells
+2023-03-02 15:34:40.002363			skipping NP31-TB with 10 cells
+2023-03-02 15:34:40.015778			skipping NP32-NB with 0 cells
+2023-03-02 15:34:40.031188			skipping NP35-NB with 7 cells
+2023-03-02 15:34:40.048562			Analysing NP35-TB
+2023-03-02 15:34:41.794183			skipping NP36-NB with 7 cells
+2023-03-02 15:34:41.809076			skipping NP36-TB with 0 cells
+2023-03-02 15:34:41.822448			skipping NP37-NB with 0 cells
+2023-03-02 15:34:41.837542			skipping NP37-TB with 0 cells
+2023-03-02 15:34:41.851679			skipping NP38-NB with 2 cells
+2023-03-02 15:34:41.864789			skipping NP38-TB with 0 cells
+2023-03-02 15:34:41.878809			skipping NP39-NB with 1 cells
+2023-03-02 15:34:41.893168			Analysing NP39-TB
+2023-03-02 15:34:43.627208			skipping NP41-NB with 0 cells
+2023-03-02 15:34:43.640690			skipping NP43-NB with 0 cells
+2023-03-02 15:34:43.654904			skipping NP44-NB_v1.0 with 9 cells
+2023-03-02 15:34:43.669086			skipping NP44-NB_v1.1 with 10 cells
+2023-03-02 15:34:43.683598			skipping NP44-TB with 7 cells
+2023-03-02 15:34:43.696764			skipping NP47-NB with 0 cells
+2023-03-02 15:34:43.696817	Analyzing Non-classical monocytes
+2023-03-02 15:34:43.805772			skipping AN5-NB with 0 cells
+2023-03-02 15:34:43.818681			skipping AN6-NB with 0 cells
+2023-03-02 15:34:43.833523			skipping AN9-NB with 2 cells
+2023-03-02 15:34:43.848844			skipping AN11-NB with 0 cells
+2023-03-02 15:34:43.863745			skipping AN12-NB with 0 cells
+2023-03-02 15:34:43.878606			skipping AN13-NB with 0 cells
+2023-03-02 15:34:43.891988			skipping AN14-NB with 0 cells
+2023-03-02 15:34:43.906133			skipping NP10-NB with 6 cells
+2023-03-02 15:34:43.921226			skipping NP11-NB with 0 cells
+2023-03-02 15:34:43.935145			skipping NP12-NB with 2 cells
+2023-03-02 15:34:43.949027			skipping NP13-BB with 5 cells
+2023-03-02 15:34:43.961935			skipping NP13-NB with 0 cells
+2023-03-02 15:34:43.975957			skipping NP14-NB with 1 cells
+2023-03-02 15:34:43.990136			skipping NP14-TB with 3 cells
+2023-03-02 15:34:44.004051			skipping NP15-NB with 1 cells
+2023-03-02 15:34:44.018112			skipping NP16-NB with 3 cells
+2023-03-02 15:34:44.031192			skipping NP17-NB with 0 cells
+2023-03-02 15:34:44.045148			skipping NP18-NB with 1 cells
+2023-03-02 15:34:44.059452			skipping NP18-TB with 2 cells
+2023-03-02 15:34:44.072493			skipping NP19-NB with 0 cells
+2023-03-02 15:34:44.087638			skipping NP20-NB with 2 cells
+2023-03-02 15:34:44.102751			skipping NP20-TB with 0 cells
+2023-03-02 15:34:44.119497			skipping NP21-NB with 0 cells
+2023-03-02 15:34:44.134163			skipping NP21-TB with 0 cells
+2023-03-02 15:34:44.147196			skipping NP22-NB with 0 cells
+2023-03-02 15:34:44.160316			skipping NP22-TB with 0 cells
+2023-03-02 15:34:44.173430			skipping NP23-NB with 0 cells
+2023-03-02 15:34:44.187621			skipping NP23-TB with 8 cells
+2023-03-02 15:34:44.200756			skipping NP24-NB with 0 cells
+2023-03-02 15:34:44.213658			skipping NP26-NB with 0 cells
+2023-03-02 15:34:44.226690			skipping NP26-TB with 0 cells
+2023-03-02 15:34:44.239607			skipping NP27-NB with 0 cells
+2023-03-02 15:34:44.252581			skipping NP27-TB with 0 cells
+2023-03-02 15:34:44.266724			skipping NP30-NB with 4 cells
+2023-03-02 15:34:44.280656			skipping NP31-NB with 1 cells
+2023-03-02 15:34:44.294770			skipping NP31-TB with 5 cells
+2023-03-02 15:34:44.309572			skipping NP32-NB with 0 cells
+2023-03-02 15:34:44.324598			skipping NP35-NB with 2 cells
+2023-03-02 15:34:44.340747			skipping NP35-TB with 13 cells
+2023-03-02 15:34:44.356668			skipping NP36-NB with 1 cells
+2023-03-02 15:34:44.370018			skipping NP36-TB with 0 cells
+2023-03-02 15:34:44.383968			skipping NP37-NB with 1 cells
+2023-03-02 15:34:44.397933			skipping NP37-TB with 1 cells
+2023-03-02 15:34:44.410755			skipping NP38-NB with 0 cells
+2023-03-02 15:34:44.423776			skipping NP38-TB with 0 cells
+2023-03-02 15:34:44.436844			skipping NP39-NB with 0 cells
+2023-03-02 15:34:44.451019			skipping NP39-TB with 8 cells
+2023-03-02 15:34:44.464194			skipping NP41-NB with 0 cells
+2023-03-02 15:34:44.478337			skipping NP43-NB with 6 cells
+2023-03-02 15:34:44.492572			skipping NP44-NB_v1.0 with 1 cells
+2023-03-02 15:34:44.507243			skipping NP44-NB_v1.1 with 0 cells
+2023-03-02 15:34:44.520192			skipping NP44-TB with 0 cells
+2023-03-02 15:34:44.533088			skipping NP47-NB with 0 cells
+2023-03-02 15:34:44.533133	Analyzing Plasma cells
+2023-03-02 15:34:44.584485	skipping Plasma cells with 24 subjects
+2023-03-02 15:34:44.584726	Analyzing Plasmacytoid DCs
+2023-03-02 15:34:44.625152	skipping Plasmacytoid DCs with 6 subjects
+2023-03-02 15:34:44.625210	Analyzing T cells proliferating
+2023-03-02 15:34:44.667517	skipping T cells proliferating with 4 subjects
+2023-03-02 15:34:44.667572	Analyzing Basal
+2023-03-02 15:34:45.292439			Analysing AN5-NB
+2023-03-02 15:34:53.970912			skipping AN6-NB with 5 cells
+2023-03-02 15:34:53.985541			skipping AN9-NB with 12 cells
+2023-03-02 15:34:54.001432			Analysing AN11-NB
+2023-03-02 15:35:02.678563			skipping AN12-NB with 0 cells
+2023-03-02 15:35:02.693549			Analysing AN13-NB
+2023-03-02 15:35:11.279500			Analysing AN14-NB
+2023-03-02 15:35:19.917418			Analysing NP10-NB
+2023-03-02 15:35:28.529383			Analysing NP11-NB
+2023-03-02 15:35:37.076970			Analysing NP12-NB
+2023-03-02 15:35:45.643627			Analysing NP13-BB
+2023-03-02 15:35:54.414744			Analysing NP13-NB
+2023-03-02 15:36:03.208803			Analysing NP14-NB
+2023-03-02 15:36:12.001614			Analysing NP14-TB
+2023-03-02 15:36:20.667171			Analysing NP15-NB
+2023-03-02 15:36:29.409491			Analysing NP16-NB
+2023-03-02 15:36:38.295184			Analysing NP17-NB
+2023-03-02 15:36:47.283171			Analysing NP18-NB
+2023-03-02 15:36:55.965982			Analysing NP18-TB
+2023-03-02 15:37:04.767596			Analysing NP19-NB
+2023-03-02 15:37:13.455631			Analysing NP20-NB
+2023-03-02 15:37:22.099891			skipping NP20-TB with 7 cells
+2023-03-02 15:37:22.115364			Analysing NP21-NB
+2023-03-02 15:37:30.639267			Analysing NP21-TB
+2023-03-02 15:37:39.211572			Analysing NP22-NB
+2023-03-02 15:37:48.078991			Analysing NP22-TB
+2023-03-02 15:37:56.798033			Analysing NP23-NB
+2023-03-02 15:38:05.351511			Analysing NP23-TB
+2023-03-02 15:38:14.094903			Analysing NP24-NB
+2023-03-02 15:38:22.812397			Analysing NP26-NB
+2023-03-02 15:38:31.565754			Analysing NP26-TB
+2023-03-02 15:38:40.163151			Analysing NP27-NB
+2023-03-02 15:38:48.845236			Analysing NP27-TB
+2023-03-02 15:38:57.587393			Analysing NP30-NB
+2023-03-02 15:39:06.316939			Analysing NP31-NB
+2023-03-02 15:39:15.025073			Analysing NP31-TB
+2023-03-02 15:39:23.665259			Analysing NP32-NB
+2023-03-02 15:39:32.404481			Analysing NP35-NB
+2023-03-02 15:39:41.296691			skipping NP35-TB with 0 cells
+2023-03-02 15:39:41.313898			Analysing NP36-NB
+2023-03-02 15:39:50.172649			skipping NP36-TB with 1 cells
+2023-03-02 15:39:50.194400			Analysing NP37-NB
+2023-03-02 15:39:58.904531			Analysing NP37-TB
+2023-03-02 15:40:07.746390			Analysing NP38-NB
+2023-03-02 15:40:16.652251			skipping NP38-TB with 6 cells
+2023-03-02 15:40:16.667397			Analysing NP39-NB
+2023-03-02 15:40:25.429901			Analysing NP39-TB
+2023-03-02 15:40:34.053199			skipping NP41-NB with 4 cells
+2023-03-02 15:40:34.067839			Analysing NP43-NB
+2023-03-02 15:40:42.847465			Analysing NP44-NB_v1.0
+2023-03-02 15:40:51.540022			Analysing NP44-NB_v1.1
+2023-03-02 15:41:00.512088			skipping NP44-TB with 1 cells
+2023-03-02 15:41:00.529020			Analysing NP47-NB
+2023-03-02 15:41:09.640660	Analyzing DC2
+2023-03-02 15:41:09.811097			skipping AN5-NB with 0 cells
+2023-03-02 15:41:09.824087			skipping AN6-NB with 0 cells
+2023-03-02 15:41:09.838213			Analysing AN9-NB
+2023-03-02 15:41:10.777960			Analysing AN11-NB
+2023-03-02 15:41:11.714839			skipping AN12-NB with 0 cells
+2023-03-02 15:41:11.729406			skipping AN13-NB with 1 cells
+2023-03-02 15:41:11.742393			skipping AN14-NB with 0 cells
+2023-03-02 15:41:11.756784			Analysing NP10-NB
+2023-03-02 15:41:12.702074			skipping NP11-NB with 2 cells
+2023-03-02 15:41:12.716386			Analysing NP12-NB
+2023-03-02 15:41:13.655126			Analysing NP13-BB
+2023-03-02 15:41:14.592433			Analysing NP13-NB
+2023-03-02 15:41:15.520457			Analysing NP14-NB
+2023-03-02 15:41:16.441807			Analysing NP14-TB
+2023-03-02 15:41:17.388119			skipping NP15-NB with 4 cells
+2023-03-02 15:41:17.403171			Analysing NP16-NB
+2023-03-02 15:41:18.363866			skipping NP17-NB with 2 cells
+2023-03-02 15:41:18.378913			Analysing NP18-NB
+2023-03-02 15:41:19.341741			skipping NP18-TB with 8 cells
+2023-03-02 15:41:19.356621			skipping NP19-NB with 14 cells
+2023-03-02 15:41:19.371098			skipping NP20-NB with 13 cells
+2023-03-02 15:41:19.384325			skipping NP20-TB with 0 cells
+2023-03-02 15:41:19.399600			skipping NP21-NB with 0 cells
+2023-03-02 15:41:19.414340			skipping NP21-TB with 0 cells
+2023-03-02 15:41:19.427700			skipping NP22-NB with 0 cells
+2023-03-02 15:41:19.441030			skipping NP22-TB with 0 cells
+2023-03-02 15:41:19.454293			skipping NP23-NB with 0 cells
+2023-03-02 15:41:19.467744			skipping NP23-TB with 0 cells
+2023-03-02 15:41:19.482483			skipping NP24-NB with 5 cells
+2023-03-02 15:41:19.495957			skipping NP26-NB with 0 cells
+2023-03-02 15:41:19.509342			skipping NP26-TB with 0 cells
+2023-03-02 15:41:19.523633			skipping NP27-NB with 1 cells
+2023-03-02 15:41:19.536851			skipping NP27-TB with 0 cells
+2023-03-02 15:41:19.555339			skipping NP30-NB with 12 cells
+2023-03-02 15:41:19.573697			skipping NP31-NB with 6 cells
+2023-03-02 15:41:19.588418			skipping NP31-TB with 5 cells
+2023-03-02 15:41:19.604526			Analysing NP32-NB
+2023-03-02 15:41:20.558790			skipping NP35-NB with 9 cells
+2023-03-02 15:41:20.572494			skipping NP35-TB with 0 cells
+2023-03-02 15:41:20.586997			skipping NP36-NB with 14 cells
+2023-03-02 15:41:20.601449			skipping NP36-TB with 1 cells
+2023-03-02 15:41:20.616052			skipping NP37-NB with 7 cells
+2023-03-02 15:41:20.630541			skipping NP37-TB with 4 cells
+2023-03-02 15:41:20.645120			Analysing NP38-NB
+2023-03-02 15:41:21.606632			skipping NP38-TB with 0 cells
+2023-03-02 15:41:21.623756			skipping NP39-NB with 6 cells
+2023-03-02 15:41:21.638790			Analysing NP39-TB
+2023-03-02 15:41:22.621252			skipping NP41-NB with 8 cells
+2023-03-02 15:41:22.636283			skipping NP43-NB with 12 cells
+2023-03-02 15:41:22.651005			Analysing NP44-NB_v1.0
+2023-03-02 15:41:23.626305			Analysing NP44-NB_v1.1
+2023-03-02 15:41:24.587294			skipping NP44-TB with 3 cells
+2023-03-02 15:41:24.604477			skipping NP47-NB with 6 cells
+2023-03-02 15:41:24.604531	Analyzing EC venous
+2023-03-02 15:41:24.740535			skipping AN5-NB with 0 cells
+2023-03-02 15:41:24.754038			skipping AN6-NB with 0 cells
+2023-03-02 15:41:24.767435			skipping AN9-NB with 0 cells
+2023-03-02 15:41:24.780928			skipping AN11-NB with 0 cells
+2023-03-02 15:41:24.795038			skipping AN12-NB with 0 cells
+2023-03-02 15:41:24.810981			skipping AN13-NB with 0 cells
+2023-03-02 15:41:24.826127			skipping AN14-NB with 0 cells
+2023-03-02 15:41:24.839745			skipping NP10-NB with 0 cells
+2023-03-02 15:41:24.854879			skipping NP11-NB with 0 cells
+2023-03-02 15:41:24.868255			skipping NP12-NB with 0 cells
+2023-03-02 15:41:24.882583			skipping NP13-BB with 1 cells
+2023-03-02 15:41:24.896923			skipping NP13-NB with 1 cells
+2023-03-02 15:41:24.910487			skipping NP14-NB with 0 cells
+2023-03-02 15:41:24.923911			skipping NP14-TB with 0 cells
+2023-03-02 15:41:24.937449			skipping NP15-NB with 0 cells
+2023-03-02 15:41:24.950968			skipping NP16-NB with 0 cells
+2023-03-02 15:41:24.964438			skipping NP17-NB with 0 cells
+2023-03-02 15:41:24.978747			skipping NP18-NB with 1 cells
+2023-03-02 15:41:24.992905			skipping NP18-TB with 0 cells
+2023-03-02 15:41:25.007390			skipping NP19-NB with 1 cells
+2023-03-02 15:41:25.020771			skipping NP20-NB with 0 cells
+2023-03-02 15:41:25.037169			skipping NP20-TB with 0 cells
+2023-03-02 15:41:25.050738			skipping NP21-NB with 0 cells
+2023-03-02 15:41:25.064074			skipping NP21-TB with 0 cells
+2023-03-02 15:41:25.077573			skipping NP22-NB with 0 cells
+2023-03-02 15:41:25.091092			skipping NP22-TB with 0 cells
+2023-03-02 15:41:25.104722			skipping NP23-NB with 0 cells
+2023-03-02 15:41:25.118242			skipping NP23-TB with 0 cells
+2023-03-02 15:41:25.131828			skipping NP24-NB with 0 cells
+2023-03-02 15:41:25.145315			skipping NP26-NB with 0 cells
+2023-03-02 15:41:25.158624			skipping NP26-TB with 0 cells
+2023-03-02 15:41:25.172079			skipping NP27-NB with 0 cells
+2023-03-02 15:41:25.185425			skipping NP27-TB with 0 cells
+2023-03-02 15:41:25.198583			skipping NP30-NB with 0 cells
+2023-03-02 15:41:25.211740			skipping NP31-NB with 0 cells
+2023-03-02 15:41:25.224943			skipping NP31-TB with 0 cells
+2023-03-02 15:41:25.239642			skipping NP32-NB with 0 cells
+2023-03-02 15:41:25.255841			skipping NP35-NB with 0 cells
+2023-03-02 15:41:25.269581			skipping NP35-TB with 0 cells
+2023-03-02 15:41:25.283108			skipping NP36-NB with 0 cells
+2023-03-02 15:41:25.296782			skipping NP36-TB with 0 cells
+2023-03-02 15:41:25.310178			skipping NP37-NB with 0 cells
+2023-03-02 15:41:25.323544			skipping NP37-TB with 0 cells
+2023-03-02 15:41:25.337134			skipping NP38-NB with 0 cells
+2023-03-02 15:41:25.350493			skipping NP38-TB with 0 cells
+2023-03-02 15:41:25.363883			skipping NP39-NB with 0 cells
+2023-03-02 15:41:25.377095			skipping NP39-TB with 0 cells
+2023-03-02 15:41:25.390293			skipping NP41-NB with 0 cells
+2023-03-02 15:41:25.403510			skipping NP43-NB with 0 cells
+2023-03-02 15:41:25.419188			skipping NP44-NB_v1.0 with 1 cells
+2023-03-02 15:41:25.432288			skipping NP44-NB_v1.1 with 0 cells
+2023-03-02 15:41:25.445374			skipping NP44-TB with 0 cells
+2023-03-02 15:41:25.458795			skipping NP47-NB with 0 cells
+2023-03-02 15:41:25.459356	Analyzing Fibroblast lineage
+2023-03-02 15:41:25.643771			skipping AN5-NB with 1 cells
+2023-03-02 15:41:25.657144			skipping AN6-NB with 0 cells
+2023-03-02 15:41:25.671537			skipping AN9-NB with 0 cells
+2023-03-02 15:41:25.687279			skipping AN11-NB with 0 cells
+2023-03-02 15:41:25.702524			skipping AN12-NB with 0 cells
+2023-03-02 15:41:25.717607			skipping AN13-NB with 0 cells
+2023-03-02 15:41:25.741073			skipping AN14-NB with 0 cells
+2023-03-02 15:41:25.754640			skipping NP10-NB with 0 cells
+2023-03-02 15:41:25.768088			skipping NP11-NB with 0 cells
+2023-03-02 15:41:25.781557			skipping NP12-NB with 0 cells
+2023-03-02 15:41:25.795840			skipping NP13-BB with 1 cells
+2023-03-02 15:41:25.810463			skipping NP13-NB with 6 cells
+2023-03-02 15:41:25.823744			skipping NP14-NB with 0 cells
+2023-03-02 15:41:25.837038			skipping NP14-TB with 0 cells
+2023-03-02 15:41:25.850218			skipping NP15-NB with 0 cells
+2023-03-02 15:41:25.864668			skipping NP16-NB with 2 cells
+2023-03-02 15:41:25.877835			skipping NP17-NB with 0 cells
+2023-03-02 15:41:25.892685			skipping NP18-NB with 1 cells
+2023-03-02 15:41:25.909375			skipping NP18-TB with 0 cells
+2023-03-02 15:41:25.934791			skipping NP19-NB with 10 cells
+2023-03-02 15:41:25.948026			skipping NP20-NB with 0 cells
+2023-03-02 15:41:25.961282			skipping NP20-TB with 0 cells
+2023-03-02 15:41:25.974550			skipping NP21-NB with 0 cells
+2023-03-02 15:41:25.987932			skipping NP21-TB with 0 cells
+2023-03-02 15:41:26.008855			skipping NP22-NB with 0 cells
+2023-03-02 15:41:26.024630			skipping NP22-TB with 0 cells
+2023-03-02 15:41:26.037478			skipping NP23-NB with 0 cells
+2023-03-02 15:41:26.050245			skipping NP23-TB with 0 cells
+2023-03-02 15:41:26.063941			skipping NP24-NB with 1 cells
+2023-03-02 15:41:26.076515			skipping NP26-NB with 0 cells
+2023-03-02 15:41:26.089031			skipping NP26-TB with 0 cells
+2023-03-02 15:41:26.101484			skipping NP27-NB with 0 cells
+2023-03-02 15:41:26.114376			skipping NP27-TB with 0 cells
+2023-03-02 15:41:26.130621			skipping NP30-NB with 0 cells
+2023-03-02 15:41:26.143938			skipping NP31-NB with 0 cells
+2023-03-02 15:41:26.156673			skipping NP31-TB with 0 cells
+2023-03-02 15:41:26.169397			skipping NP32-NB with 0 cells
+2023-03-02 15:41:26.181984			skipping NP35-NB with 0 cells
+2023-03-02 15:41:26.194819			skipping NP35-TB with 0 cells
+2023-03-02 15:41:26.208209			skipping NP36-NB with 0 cells
+2023-03-02 15:41:26.221566			skipping NP36-TB with 0 cells
+2023-03-02 15:41:26.235282			skipping NP37-NB with 0 cells
+2023-03-02 15:41:26.249475			skipping NP37-TB with 0 cells
+2023-03-02 15:41:26.263420			skipping NP38-NB with 0 cells
+2023-03-02 15:41:26.276966			skipping NP38-TB with 0 cells
+2023-03-02 15:41:26.290589			skipping NP39-NB with 0 cells
+2023-03-02 15:41:26.305582			skipping NP39-TB with 1 cells
+2023-03-02 15:41:26.321011			skipping NP41-NB with 0 cells
+2023-03-02 15:41:26.335473			skipping NP43-NB with 0 cells
+2023-03-02 15:41:26.351643			skipping NP44-NB_v1.0 with 0 cells
+2023-03-02 15:41:26.367431			skipping NP44-NB_v1.1 with 0 cells
+2023-03-02 15:41:26.380806			skipping NP44-TB with 0 cells
+2023-03-02 15:41:26.395344			skipping NP47-NB with 2 cells
+2023-03-02 15:41:26.395424	Analyzing Macrophages
+2023-03-02 15:41:27.124353			skipping AN5-NB with 0 cells
+2023-03-02 15:41:27.137538			skipping AN6-NB with 0 cells
+2023-03-02 15:41:27.154443			skipping AN9-NB with 3 cells
+2023-03-02 15:41:27.168197			skipping AN11-NB with 2 cells
+2023-03-02 15:41:27.181073			skipping AN12-NB with 0 cells
+2023-03-02 15:41:27.193965			skipping AN13-NB with 0 cells
+2023-03-02 15:41:27.206899			skipping AN14-NB with 0 cells
+2023-03-02 15:41:27.220851			skipping NP10-NB with 6 cells
+2023-03-02 15:41:27.234741			skipping NP11-NB with 1 cells
+2023-03-02 15:41:27.248891			skipping NP12-NB with 2 cells
+2023-03-02 15:41:27.264275			Analysing NP13-BB
+2023-03-02 15:41:39.125988			skipping NP13-NB with 1 cells
+2023-03-02 15:41:39.144186			Analysing NP14-NB
+2023-03-02 15:41:50.808407			Analysing NP14-TB
+2023-03-02 15:42:02.472185			Analysing NP15-NB
+2023-03-02 15:42:14.220932			skipping NP16-NB with 4 cells
+2023-03-02 15:42:14.234212			skipping NP17-NB with 0 cells
+2023-03-02 15:42:14.248444			Analysing NP18-NB
+2023-03-02 15:42:25.740859			skipping NP18-TB with 0 cells
+2023-03-02 15:42:25.755462			skipping NP19-NB with 5 cells
+2023-03-02 15:42:25.769348			skipping NP20-NB with 2 cells
+2023-03-02 15:42:25.782045			skipping NP20-TB with 0 cells
+2023-03-02 15:42:25.794752			skipping NP21-NB with 0 cells
+2023-03-02 15:42:25.807397			skipping NP21-TB with 0 cells
+2023-03-02 15:42:25.819980			skipping NP22-NB with 0 cells
+2023-03-02 15:42:25.835005			skipping NP22-TB with 0 cells
+2023-03-02 15:42:25.847344			skipping NP23-NB with 0 cells
+2023-03-02 15:42:25.861247			Analysing NP23-TB
+2023-03-02 15:42:37.191124			skipping NP24-NB with 0 cells
+2023-03-02 15:42:37.204246			skipping NP26-NB with 0 cells
+2023-03-02 15:42:37.217030			skipping NP26-TB with 0 cells
+2023-03-02 15:42:37.230873			skipping NP27-NB with 1 cells
+2023-03-02 15:42:37.243804			skipping NP27-TB with 0 cells
+2023-03-02 15:42:37.256652			skipping NP30-NB with 0 cells
+2023-03-02 15:42:37.270259			skipping NP31-NB with 1 cells
+2023-03-02 15:42:37.286511			skipping NP31-TB with 2 cells
+2023-03-02 15:42:37.300393			Analysing NP32-NB
+2023-03-02 15:42:48.743820			skipping NP35-NB with 8 cells
+2023-03-02 15:42:48.758031			skipping NP35-TB with 1 cells
+2023-03-02 15:42:48.771983			Analysing NP36-NB
+2023-03-02 15:43:00.302172			skipping NP36-TB with 3 cells
+2023-03-02 15:43:00.321368			skipping NP37-NB with 1 cells
+2023-03-02 15:43:00.335966			Analysing NP37-TB
+2023-03-02 15:43:11.826844			skipping NP38-NB with 0 cells
+2023-03-02 15:43:11.840884			skipping NP38-TB with 0 cells
+2023-03-02 15:43:11.853675			skipping NP39-NB with 0 cells
+2023-03-02 15:43:11.869489			Analysing NP39-TB
+2023-03-02 15:43:23.458054			skipping NP41-NB with 1 cells
+2023-03-02 15:43:23.472900			Analysing NP43-NB
+2023-03-02 15:43:34.805558			skipping NP44-NB_v1.0 with 9 cells
+2023-03-02 15:43:34.820186			skipping NP44-NB_v1.1 with 14 cells
+2023-03-02 15:43:34.833095			skipping NP44-TB with 0 cells
+2023-03-02 15:43:34.847070			skipping NP47-NB with 1 cells
+2023-03-02 15:43:34.847136	Analyzing Multiciliated
+2023-03-02 15:43:35.221312			Analysing AN5-NB
+2023-03-02 15:43:39.229832			Analysing AN6-NB
+2023-03-02 15:43:43.249113			Analysing AN9-NB
+2023-03-02 15:43:47.242506			Analysing AN11-NB
+2023-03-02 15:43:51.252531			Analysing AN12-NB
+2023-03-02 15:43:55.241824			Analysing AN13-NB
+2023-03-02 15:43:59.343872			Analysing AN14-NB
+2023-03-02 15:44:03.381490			Analysing NP10-NB
+2023-03-02 15:44:07.428142			Analysing NP11-NB
+2023-03-02 15:44:11.453049			Analysing NP12-NB
+2023-03-02 15:44:15.536979			Analysing NP13-BB
+2023-03-02 15:44:19.893018			Analysing NP13-NB
+2023-03-02 15:44:24.004153			Analysing NP14-NB
+2023-03-02 15:44:28.115343			Analysing NP14-TB
+2023-03-02 15:44:32.200180			Analysing NP15-NB
+2023-03-02 15:44:36.296508			Analysing NP16-NB
+2023-03-02 15:44:40.471743			Analysing NP17-NB
+2023-03-02 15:44:44.492259			Analysing NP18-NB
+2023-03-02 15:44:48.540036			Analysing NP18-TB
+2023-03-02 15:44:52.561686			Analysing NP19-NB
+2023-03-02 15:44:56.583331			Analysing NP20-NB
+2023-03-02 15:45:00.682551			skipping NP20-TB with 8 cells
+2023-03-02 15:45:00.697322			Analysing NP21-NB
+2023-03-02 15:45:04.747995			skipping NP21-TB with 4 cells
+2023-03-02 15:45:04.762406			Analysing NP22-NB
+2023-03-02 15:45:08.815016			Analysing NP22-TB
+2023-03-02 15:45:12.990943			Analysing NP23-NB
+2023-03-02 15:45:17.134081			Analysing NP23-TB
+2023-03-02 15:45:21.169136			Analysing NP24-NB
+2023-03-02 15:45:25.312155			Analysing NP26-NB
+2023-03-02 15:45:29.407856			Analysing NP26-TB
+2023-03-02 15:45:33.437876			Analysing NP27-NB
+2023-03-02 15:45:37.467461			Analysing NP27-TB
+2023-03-02 15:45:41.485631			Analysing NP30-NB
+2023-03-02 15:45:45.616636			Analysing NP31-NB
+2023-03-02 15:45:49.616774			Analysing NP31-TB
+2023-03-02 15:45:53.687308			Analysing NP32-NB
+2023-03-02 15:45:57.740833			Analysing NP35-NB
+2023-03-02 15:46:01.833311			Analysing NP35-TB
+2023-03-02 15:46:05.853316			Analysing NP36-NB
+2023-03-02 15:46:09.929672			skipping NP36-TB with 5 cells
+2023-03-02 15:46:09.947927			Analysing NP37-NB
+2023-03-02 15:46:14.052385			Analysing NP37-TB
+2023-03-02 15:46:18.125817			Analysing NP38-NB
+2023-03-02 15:46:22.262750			Analysing NP38-TB
+2023-03-02 15:46:26.323427			Analysing NP39-NB
+2023-03-02 15:46:30.386810			Analysing NP39-TB
+2023-03-02 15:46:34.488391			Analysing NP41-NB
+2023-03-02 15:46:38.517218			Analysing NP43-NB
+2023-03-02 15:46:42.507423			Analysing NP44-NB_v1.0
+2023-03-02 15:46:46.515409			Analysing NP44-NB_v1.1
+2023-03-02 15:46:50.559794			skipping NP44-TB with 3 cells
+2023-03-02 15:46:50.574318			Analysing NP47-NB
+2023-03-02 15:46:54.593921	Analyzing Rare
+2023-03-02 15:46:54.650377	skipping Rare with 24 subjects
+2023-03-02 15:46:54.650429	Analyzing Secretory
+2023-03-02 15:46:55.417853			Analysing AN5-NB
+2023-03-02 15:47:03.697616			Analysing AN6-NB
+2023-03-02 15:47:11.890607			Analysing AN9-NB
+2023-03-02 15:47:20.320425			Analysing AN11-NB
+2023-03-02 15:47:29.006065			Analysing AN12-NB
+2023-03-02 15:47:37.018726			Analysing AN13-NB
+2023-03-02 15:47:45.542330			Analysing AN14-NB
+2023-03-02 15:47:53.830445			Analysing NP10-NB
+2023-03-02 15:48:02.175862			Analysing NP11-NB
+2023-03-02 15:48:10.197157			Analysing NP12-NB
+2023-03-02 15:48:18.407067			Analysing NP13-BB
+2023-03-02 15:48:26.534095			Analysing NP13-NB
+2023-03-02 15:48:34.777977			Analysing NP14-NB
+2023-03-02 15:48:43.117805			Analysing NP14-TB
+2023-03-02 15:48:51.242402			Analysing NP15-NB
+2023-03-02 15:48:59.470020			Analysing NP16-NB
+2023-03-02 15:49:07.921405			Analysing NP17-NB
+2023-03-02 15:49:16.198110			Analysing NP18-NB
+2023-03-02 15:49:24.431421			Analysing NP18-TB
+2023-03-02 15:49:32.948195			Analysing NP19-NB
+2023-03-02 15:49:41.215443			Analysing NP20-NB
+2023-03-02 15:49:50.023665			Analysing NP20-TB
+2023-03-02 15:49:58.135060			Analysing NP21-NB
+2023-03-02 15:50:06.268990			Analysing NP21-TB
+2023-03-02 15:50:14.368125			Analysing NP22-NB
+2023-03-02 15:50:22.602534			Analysing NP22-TB
+2023-03-02 15:50:30.798703			Analysing NP23-NB
+2023-03-02 15:50:39.154207			Analysing NP23-TB
+2023-03-02 15:50:47.518691			Analysing NP24-NB
+2023-03-02 15:50:55.839670			Analysing NP26-NB
+2023-03-02 15:51:04.020417			Analysing NP26-TB
+2023-03-02 15:51:12.278474			Analysing NP27-NB
+2023-03-02 15:51:20.396628			Analysing NP27-TB
+2023-03-02 15:51:28.599344			Analysing NP30-NB
+2023-03-02 15:51:36.885772			Analysing NP31-NB
+2023-03-02 15:51:45.294459			Analysing NP31-TB
+2023-03-02 15:51:53.558170			Analysing NP32-NB
+2023-03-02 15:52:03.022992			Analysing NP35-NB
+2023-03-02 15:52:11.401465			skipping NP35-TB with 0 cells
+2023-03-02 15:52:11.418510			Analysing NP36-NB
+2023-03-02 15:52:19.812838			skipping NP36-TB with 2 cells
+2023-03-02 15:52:19.830394			Analysing NP37-NB
+2023-03-02 15:52:28.092964			Analysing NP37-TB
+2023-03-02 15:52:36.130820			Analysing NP38-NB
+2023-03-02 15:52:44.580283			Analysing NP38-TB
+2023-03-02 15:52:52.770309			Analysing NP39-NB
+2023-03-02 15:53:01.207736			Analysing NP39-TB
+2023-03-02 15:53:09.549011			Analysing NP41-NB
+2023-03-02 15:53:17.785758			Analysing NP43-NB
+2023-03-02 15:53:26.334569			Analysing NP44-NB_v1.0
+2023-03-02 15:53:34.492109			Analysing NP44-NB_v1.1
+2023-03-02 15:53:43.016266			Analysing NP44-TB
+2023-03-02 15:53:51.258831			Analysing NP47-NB
+2023-03-02 15:53:59.572965	Analyzing Smooth muscle
+2023-03-02 15:53:59.646039	skipping Smooth muscle with 36 subjects
+2023-03-02 15:53:59.646156	Analyzing Submucosal Secretory
+2023-03-02 15:53:59.724058	skipping Submucosal Secretory with 30 subjects

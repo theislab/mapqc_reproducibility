@@ -1,0 +1,19 @@
+Parameters:
+Rejection of celltype per sample:	0.05
+Rejection of dataset at sample rejection rate of:	0.05
+Based on the baseline rejection rate samples are rejected when mapping fails in 3 celltypes 
+Mapping failed at 19.35% rejection of healthy samples.
+Consider remapping with different parameters or a diffrent method
+Failed samples:
+022C-b:	['CD4 T cells', 'CD8 T cells', 'NK cells']
+065C:	['Classical monocytes', 'DC2', 'NK cells']
+133C-a:	['Macrophages', 'DC2', 'NK cells']
+192C-a:	['Macrophages', 'Basal', 'Classical monocytes', 'DC2', 'NK cells', 'Secretory']
+226C-a:	['Macrophages', 'Classical monocytes', 'DC2', 'NK cells']
+226C-b:	['Macrophages', 'Classical monocytes', 'DC2']
+296C:	['AT2', 'Macrophages', 'CD4 T cells', 'NK cells']
+439C:	['Macrophages', 'CD4 T cells', 'CD8 T cells', 'Classical monocytes', 'DC2', 'NK cells', 'Non-classical monocytes', 'Secretory']
+439C-b:	['Macrophages', 'CD4 T cells', 'CD8 T cells', 'Classical monocytes', 'DC2', 'NK cells', 'Non-classical monocytes']
+454C:	['Basal', 'Classical monocytes', 'DC2']
+465C:	['Macrophages', 'CD4 T cells', 'CD8 T cells', 'NK cells']
+484C:	['CD8 T cells', 'DC2', 'NK cells']

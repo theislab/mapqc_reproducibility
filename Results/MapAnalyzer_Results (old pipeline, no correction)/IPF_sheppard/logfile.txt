@@ -1,0 +1,1514 @@
+2022-11-27 19:28:28.384416	Standarizing columns...
+2022-11-27 19:28:35.566528	Finished
+2022-11-27 19:28:35.615997	Checking columns...
+2022-11-27 19:28:36.931630	Analyzing Hematopoietic stem cells
+2022-11-27 19:28:37.198339	skipping Hematopoietic stem cells with 2 subjects
+2022-11-27 19:28:37.198450	Analyzing Mesothelium
+2022-11-27 19:28:37.247437	skipping Mesothelium with 7 subjects
+2022-11-27 19:28:37.247535	Analyzing Smooth muscle
+2022-11-27 19:28:37.427520			Analysing IPF1_Lin
+2022-11-27 19:28:40.110441			Analysing IPF2_All
+2022-11-27 19:28:40.600975			Analysing IPF2_Lin
+2022-11-27 19:28:41.345252			Analysing IPF3_All
+2022-11-27 19:28:42.006492			Analysing IPF3_Lin
+2022-11-27 19:28:43.180136			Analysing NML1_All
+2022-11-27 19:28:43.681845			Analysing NML1_Lin
+2022-11-27 19:28:44.389729			Analysing NML2_All
+2022-11-27 19:28:44.896163			Analysing NML2_Lin
+2022-11-27 19:28:45.537319			Analysing NML3_All
+2022-11-27 19:28:45.995181			Analysing NML3_Lin
+2022-11-27 19:28:46.580577	Analyzing AT1
+2022-11-27 19:28:46.696000			skipping IPF1_Lin with 0 cells
+2022-11-27 19:28:46.708995			skipping IPF2_All with 5 cells
+2022-11-27 19:28:46.721977			skipping IPF2_Lin with 3 cells
+2022-11-27 19:28:46.734965			skipping IPF3_All with 3 cells
+2022-11-27 19:28:46.747937			skipping IPF3_Lin with 3 cells
+2022-11-27 19:28:46.761125			Analysing NML1_All
+2022-11-27 19:28:48.389939			Analysing NML1_Lin
+2022-11-27 19:28:49.979215			Analysing NML2_All
+2022-11-27 19:28:51.660540			Analysing NML2_Lin
+2022-11-27 19:28:53.296240			Analysing NML3_All
+2022-11-27 19:28:54.890615			Analysing NML3_Lin
+2022-11-27 19:28:56.521004	Analyzing AT2
+2022-11-27 19:28:57.217981			skipping IPF1_Lin with 0 cells
+2022-11-27 19:28:57.231782			Analysing IPF2_All
+2022-11-27 19:29:03.422020			skipping IPF2_Lin with 5 cells
+2022-11-27 19:29:03.435243			Analysing IPF3_All
+2022-11-27 19:29:09.619845			skipping IPF3_Lin with 2 cells
+2022-11-27 19:29:09.633980			Analysing NML1_All
+2022-11-27 19:29:15.846478			Analysing NML1_Lin
+2022-11-27 19:29:21.918349			Analysing NML2_All
+2022-11-27 19:29:28.126542			Analysing NML2_Lin
+2022-11-27 19:29:34.385714			Analysing NML3_All
+2022-11-27 19:29:40.579610			Analysing NML3_Lin
+2022-11-27 19:29:46.699169	Analyzing EC arterial
+2022-11-27 19:29:46.829313			skipping IPF1_Lin with 1 cells
+2022-11-27 19:29:46.842923			Analysing IPF2_All
+2022-11-27 19:29:48.298972			skipping IPF2_Lin with 1 cells
+2022-11-27 19:29:48.312623			Analysing IPF3_All
+2022-11-27 19:29:49.743881			skipping IPF3_Lin with 0 cells
+2022-11-27 19:29:49.757298			Analysing NML1_All
+2022-11-27 19:29:51.091767			skipping NML1_Lin with 0 cells
+2022-11-27 19:29:51.105103			Analysing NML2_All
+2022-11-27 19:29:52.413122			skipping NML2_Lin with 0 cells
+2022-11-27 19:29:52.426289			Analysing NML3_All
+2022-11-27 19:29:53.797098			skipping NML3_Lin with 0 cells
+2022-11-27 19:29:53.797192	Analyzing Lymphatic EC differentiating
+2022-11-27 19:29:53.835085	skipping Lymphatic EC differentiating with 8 subjects
+2022-11-27 19:29:53.835134	Analyzing Lymphatic EC mature
+2022-11-27 19:29:53.917276			skipping IPF1_Lin with 1 cells
+2022-11-27 19:29:53.930984			skipping IPF2_All with 10 cells
+2022-11-27 19:29:53.942340			skipping IPF2_Lin with 0 cells
+2022-11-27 19:29:53.955339			Analysing IPF3_All
+2022-11-27 19:29:54.477199			skipping IPF3_Lin with 4 cells
+2022-11-27 19:29:54.490385			Analysing NML1_All
+2022-11-27 19:29:55.020299			skipping NML1_Lin with 0 cells
+2022-11-27 19:29:55.033616			skipping NML2_All with 5 cells
+2022-11-27 19:29:55.045738			skipping NML2_Lin with 0 cells
+2022-11-27 19:29:55.058949			skipping NML3_All with 10 cells
+2022-11-27 19:29:55.071142			skipping NML3_Lin with 0 cells
+2022-11-27 19:29:55.071210	Analyzing Lymphatic EC proliferating
+2022-11-27 19:29:55.107685	skipping Lymphatic EC proliferating with 1 subjects
+2022-11-27 19:29:55.107793	Analyzing Mast cells
+2022-11-27 19:29:55.213370			skipping IPF1_Lin with 0 cells
+2022-11-27 19:29:55.226774			skipping IPF2_All with 8 cells
+2022-11-27 19:29:55.239993			skipping IPF2_Lin with 2 cells
+2022-11-27 19:29:55.252947			Analysing IPF3_All
+2022-11-27 19:29:56.413377			skipping IPF3_Lin with 0 cells
+2022-11-27 19:29:56.426125			Analysing NML1_All
+2022-11-27 19:29:57.593714			Analysing NML1_Lin
+2022-11-27 19:29:58.707624			Analysing NML2_All
+2022-11-27 19:29:59.865906			skipping NML2_Lin with 0 cells
+2022-11-27 19:29:59.878985			skipping NML3_All with 7 cells
+2022-11-27 19:29:59.890896			skipping NML3_Lin with 0 cells
+2022-11-27 19:29:59.890933	Analyzing AT2 proliferating
+2022-11-27 19:29:59.941788	skipping AT2 proliferating with 27 subjects
+2022-11-27 19:29:59.941838	Analyzing Macrophages
+2022-11-27 19:30:01.297665			Analysing IPF1_Lin
+2022-11-27 19:30:13.065307			Analysing IPF2_All
+2022-11-27 19:30:25.036138			skipping IPF2_Lin with 13 cells
+2022-11-27 19:30:25.052857			Analysing IPF3_All
+2022-11-27 19:30:36.776294			Analysing IPF3_Lin
+2022-11-27 19:30:48.315842			Analysing NML1_All
+2022-11-27 19:31:00.229745			Analysing NML1_Lin
+2022-11-27 19:31:11.897150			Analysing NML2_All
+2022-11-27 19:31:23.445075			skipping NML2_Lin with 9 cells
+2022-11-27 19:31:23.461547			Analysing NML3_All
+2022-11-27 19:31:35.185791			Analysing NML3_Lin
+2022-11-27 19:31:46.787024	Analyzing B cells
+2022-11-27 19:31:46.893906			skipping IPF1_Lin with 7 cells
+2022-11-27 19:31:46.907352			Analysing IPF2_All
+2022-11-27 19:31:47.528538			skipping IPF2_Lin with 4 cells
+2022-11-27 19:31:47.542427			Analysing IPF3_All
+2022-11-27 19:31:48.122751			skipping IPF3_Lin with 0 cells
+2022-11-27 19:31:48.135915			skipping NML1_All with 5 cells
+2022-11-27 19:31:48.147988			skipping NML1_Lin with 0 cells
+2022-11-27 19:31:48.162466			Analysing NML2_All
+2022-11-27 19:31:48.761847			skipping NML2_Lin with 1 cells
+2022-11-27 19:31:48.775095			Analysing NML3_All
+2022-11-27 19:31:49.356577			skipping NML3_Lin with 0 cells
+2022-11-27 19:31:49.356672	Analyzing Basal
+2022-11-27 19:31:50.270310			skipping IPF1_Lin with 4 cells
+2022-11-27 19:31:50.286834			Analysing IPF2_All
+2022-11-27 19:32:00.508669			Analysing IPF2_Lin
+2022-11-27 19:32:08.955200			Analysing IPF3_All
+2022-11-27 19:32:17.568632			skipping IPF3_Lin with 14 cells
+2022-11-27 19:32:17.583591			Analysing NML1_All
+2022-11-27 19:32:26.052996			skipping NML1_Lin with 8 cells
+2022-11-27 19:32:26.065889			Analysing NML2_All
+2022-11-27 19:32:34.610224			Analysing NML2_Lin
+2022-11-27 19:32:43.172304			Analysing NML3_All
+2022-11-27 19:32:51.596746			Analysing NML3_Lin
+2022-11-27 19:33:00.028938	Analyzing CD4 T cells
+2022-11-27 19:33:00.298921			skipping IPF1_Lin with 2 cells
+2022-11-27 19:33:00.312350			Analysing IPF2_All
+2022-11-27 19:33:02.467989			skipping IPF2_Lin with 2 cells
+2022-11-27 19:33:02.481866			Analysing IPF3_All
+2022-11-27 19:33:04.649200			skipping IPF3_Lin with 1 cells
+2022-11-27 19:33:04.662410			skipping NML1_All with 2 cells
+2022-11-27 19:33:04.674369			skipping NML1_Lin with 0 cells
+2022-11-27 19:33:04.687836			Analysing NML2_All
+2022-11-27 19:33:06.837823			skipping NML2_Lin with 1 cells
+2022-11-27 19:33:06.851627			Analysing NML3_All
+2022-11-27 19:33:09.015952			skipping NML3_Lin with 2 cells
+2022-11-27 19:33:09.016044	Analyzing CD8 T cells
+2022-11-27 19:33:09.310969			skipping IPF1_Lin with 1 cells
+2022-11-27 19:33:09.327601			Analysing IPF2_All
+2022-11-27 19:33:12.237124			skipping IPF2_Lin with 0 cells
+2022-11-27 19:33:12.250567			Analysing IPF3_All
+2022-11-27 19:33:15.168444			skipping IPF3_Lin with 0 cells
+2022-11-27 19:33:15.181321			skipping NML1_All with 1 cells
+2022-11-27 19:33:15.193188			skipping NML1_Lin with 0 cells
+2022-11-27 19:33:15.206670			Analysing NML2_All
+2022-11-27 19:33:18.142375			skipping NML2_Lin with 1 cells
+2022-11-27 19:33:18.156290			Analysing NML3_All
+2022-11-27 19:33:21.078770			skipping NML3_Lin with 0 cells
+2022-11-27 19:33:21.079058	Analyzing Classical monocytes
+2022-11-27 19:33:21.296378			skipping IPF1_Lin with 0 cells
+2022-11-27 19:33:21.310253			Analysing IPF2_All
+2022-11-27 19:33:23.120006			skipping IPF2_Lin with 0 cells
+2022-11-27 19:33:23.134322			Analysing IPF3_All
+2022-11-27 19:33:24.955910			skipping IPF3_Lin with 0 cells
+2022-11-27 19:33:24.969872			Analysing NML1_All
+2022-11-27 19:33:26.801053			skipping NML1_Lin with 1 cells
+2022-11-27 19:33:26.815933			Analysing NML2_All
+2022-11-27 19:33:28.674067			skipping NML2_Lin with 1 cells
+2022-11-27 19:33:28.688705			Analysing NML3_All
+2022-11-27 19:33:30.540685			skipping NML3_Lin with 6 cells
+2022-11-27 19:33:30.540799	Analyzing DC1
+2022-11-27 19:33:30.582182	skipping DC1 with 19 subjects
+2022-11-27 19:33:30.582227	Analyzing DC2
+2022-11-27 19:33:30.733598			skipping IPF1_Lin with 1 cells
+2022-11-27 19:33:30.747574			Analysing IPF2_All
+2022-11-27 19:33:31.740723			skipping IPF2_Lin with 4 cells
+2022-11-27 19:33:31.755181			Analysing IPF3_All
+2022-11-27 19:33:32.732294			skipping IPF3_Lin with 0 cells
+2022-11-27 19:33:32.745680			Analysing NML1_All
+2022-11-27 19:33:33.712622			skipping NML1_Lin with 0 cells
+2022-11-27 19:33:33.726103			Analysing NML2_All
+2022-11-27 19:33:34.676108			skipping NML2_Lin with 0 cells
+2022-11-27 19:33:34.689719			Analysing NML3_All
+2022-11-27 19:33:35.643224			skipping NML3_Lin with 0 cells
+2022-11-27 19:33:35.643318	Analyzing Deuterosomal
+2022-11-27 19:33:35.704443			skipping IPF1_Lin with 0 cells
+2022-11-27 19:33:35.716679			skipping IPF2_All with 0 cells
+2022-11-27 19:33:35.729079			skipping IPF2_Lin with 0 cells
+2022-11-27 19:33:35.741653			skipping IPF3_All with 0 cells
+2022-11-27 19:33:35.753923			skipping IPF3_Lin with 0 cells
+2022-11-27 19:33:35.765958			skipping NML1_All with 0 cells
+2022-11-27 19:33:35.777978			skipping NML1_Lin with 0 cells
+2022-11-27 19:33:35.791047			skipping NML2_All with 1 cells
+2022-11-27 19:33:35.803166			skipping NML2_Lin with 0 cells
+2022-11-27 19:33:35.816628			skipping NML3_All with 0 cells
+2022-11-27 19:33:35.828452			skipping NML3_Lin with 0 cells
+2022-11-27 19:33:35.828488	Analyzing EC aerocyte capillary
+2022-11-27 19:33:35.931535	skipping EC aerocyte capillary with 30 subjects
+2022-11-27 19:33:35.931637	Analyzing EC general capillary
+2022-11-27 19:33:36.139443			skipping IPF1_Lin with 1 cells
+2022-11-27 19:33:36.154970			Analysing IPF2_All
+2022-11-27 19:33:37.771043			skipping IPF2_Lin with 3 cells
+2022-11-27 19:33:37.784781			Analysing IPF3_All
+2022-11-27 19:33:39.427754			skipping IPF3_Lin with 2 cells
+2022-11-27 19:33:39.441463			Analysing NML1_All
+2022-11-27 19:33:41.059894			skipping NML1_Lin with 4 cells
+2022-11-27 19:33:41.074309			Analysing NML2_All
+2022-11-27 19:33:42.746094			skipping NML2_Lin with 4 cells
+2022-11-27 19:33:42.759951			Analysing NML3_All
+2022-11-27 19:33:44.386822			skipping NML3_Lin with 2 cells
+2022-11-27 19:33:44.386914	Analyzing EC venous
+2022-11-27 19:33:44.572958			skipping IPF1_Lin with 10 cells
+2022-11-27 19:33:44.586539			Analysing IPF2_All
+2022-11-27 19:33:45.922026			skipping IPF2_Lin with 7 cells
+2022-11-27 19:33:45.937908			Analysing IPF3_All
+2022-11-27 19:33:47.357838			skipping IPF3_Lin with 7 cells
+2022-11-27 19:33:47.371277			Analysing NML1_All
+2022-11-27 19:33:48.688174			skipping NML1_Lin with 1 cells
+2022-11-27 19:33:48.701666			Analysing NML2_All
+2022-11-27 19:33:50.007483			skipping NML2_Lin with 0 cells
+2022-11-27 19:33:50.021213			Analysing NML3_All
+2022-11-27 19:33:51.330139			skipping NML3_Lin with 0 cells
+2022-11-27 19:33:51.330236	Analyzing Rare
+2022-11-27 19:33:51.374712	skipping Rare with 38 subjects
+2022-11-27 19:33:51.374782	Analyzing Migratory DCs
+2022-11-27 19:33:51.415309	skipping Migratory DCs with 17 subjects
+2022-11-27 19:33:51.415369	Analyzing NK cells
+2022-11-27 19:33:51.613817			skipping IPF1_Lin with 0 cells
+2022-11-27 19:33:51.627135			Analysing IPF2_All
+2022-11-27 19:33:53.363482			skipping IPF2_Lin with 1 cells
+2022-11-27 19:33:53.376759			Analysing IPF3_All
+2022-11-27 19:33:55.110385			skipping IPF3_Lin with 0 cells
+2022-11-27 19:33:55.123598			skipping NML1_All with 4 cells
+2022-11-27 19:33:55.135754			skipping NML1_Lin with 0 cells
+2022-11-27 19:33:55.149461			Analysing NML2_All
+2022-11-27 19:33:56.883235			skipping NML2_Lin with 0 cells
+2022-11-27 19:33:56.897133			Analysing NML3_All
+2022-11-27 19:33:58.677832			skipping NML3_Lin with 0 cells
+2022-11-27 19:33:58.677963	Analyzing Non-classical monocytes
+2022-11-27 19:33:58.812176			skipping IPF1_Lin with 0 cells
+2022-11-27 19:33:58.825535			Analysing IPF2_All
+2022-11-27 19:33:59.727733			skipping IPF2_Lin with 0 cells
+2022-11-27 19:33:59.740904			Analysing IPF3_All
+2022-11-27 19:34:00.631016			skipping IPF3_Lin with 0 cells
+2022-11-27 19:34:00.644986			Analysing NML1_All
+2022-11-27 19:34:01.537707			skipping NML1_Lin with 0 cells
+2022-11-27 19:34:01.551398			Analysing NML2_All
+2022-11-27 19:34:02.458855			skipping NML2_Lin with 0 cells
+2022-11-27 19:34:02.472350			Analysing NML3_All
+2022-11-27 19:34:03.368368			skipping NML3_Lin with 1 cells
+2022-11-27 19:34:03.368461	Analyzing Fibroblast lineage
+2022-11-27 19:34:03.828821			Analysing IPF1_Lin
+2022-11-27 19:34:06.268929			Analysing IPF2_All
+2022-11-27 19:34:08.443379			Analysing IPF2_Lin
+2022-11-27 19:34:10.991705			Analysing IPF3_All
+2022-11-27 19:34:13.190277			Analysing IPF3_Lin
+2022-11-27 19:34:15.851222			Analysing NML1_All
+2022-11-27 19:34:18.002662			Analysing NML1_Lin
+2022-11-27 19:34:20.917909			Analysing NML2_All
+2022-11-27 19:34:23.073594			Analysing NML2_Lin
+2022-11-27 19:34:25.548465			Analysing NML3_All
+2022-11-27 19:34:27.638673			Analysing NML3_Lin
+2022-11-27 19:34:29.829138	Analyzing Plasma cells
+2022-11-27 19:34:29.899072			skipping IPF1_Lin with 0 cells
+2022-11-27 19:34:29.912773			Analysing IPF2_All
+2022-11-27 19:34:30.105723			skipping IPF2_Lin with 0 cells
+2022-11-27 19:34:30.118708			Analysing IPF3_All
+2022-11-27 19:34:30.295809			skipping IPF3_Lin with 3 cells
+2022-11-27 19:34:30.308872			skipping NML1_All with 12 cells
+2022-11-27 19:34:30.320565			skipping NML1_Lin with 0 cells
+2022-11-27 19:34:30.333261			Analysing NML2_All
+2022-11-27 19:34:30.499572			skipping NML2_Lin with 2 cells
+2022-11-27 19:34:30.512745			Analysing NML3_All
+2022-11-27 19:34:30.680432			skipping NML3_Lin with 0 cells
+2022-11-27 19:34:30.680530	Analyzing Plasmacytoid DCs
+2022-11-27 19:34:30.720381	skipping Plasmacytoid DCs with 20 subjects
+2022-11-27 19:34:30.720466	Analyzing T cells proliferating
+2022-11-27 19:34:30.759134	skipping T cells proliferating with 13 subjects
+2022-11-27 19:34:30.759225	Analyzing Secretory
+2022-11-27 19:34:31.582423			skipping IPF1_Lin with 1 cells
+2022-11-27 19:34:31.595819			Analysing IPF2_All
+2022-11-27 19:34:39.772288			skipping IPF2_Lin with 8 cells
+2022-11-27 19:34:39.785917			Analysing IPF3_All
+2022-11-27 19:34:47.684646			skipping IPF3_Lin with 7 cells
+2022-11-27 19:34:47.697575			skipping NML1_All with 14 cells
+2022-11-27 19:34:47.710717			Analysing NML1_Lin
+2022-11-27 19:34:55.873831			Analysing NML2_All
+2022-11-27 19:35:03.995547			Analysing NML2_Lin
+2022-11-27 19:35:11.986603			Analysing NML3_All
+2022-11-27 19:35:20.018362			Analysing NML3_Lin
+2022-11-27 19:35:28.069350	Analyzing Multiciliated
+2022-11-27 19:35:28.569677			skipping IPF1_Lin with 2 cells
+2022-11-27 19:35:28.583093			Analysing IPF2_All
+2022-11-27 19:35:32.689414			skipping IPF2_Lin with 7 cells
+2022-11-27 19:35:32.702858			Analysing IPF3_All
+2022-11-27 19:35:36.839557			Analysing IPF3_Lin
+2022-11-27 19:35:40.961372			skipping NML1_All with 8 cells
+2022-11-27 19:35:40.973688			skipping NML1_Lin with 0 cells
+2022-11-27 19:35:40.986991			skipping NML2_All with 13 cells
+2022-11-27 19:35:40.999881			skipping NML2_Lin with 1 cells
+2022-11-27 19:35:41.012950			skipping NML3_All with 5 cells
+2022-11-27 19:35:41.025787			skipping NML3_Lin with 1 cells
+2022-11-27 19:35:41.025830	Analyzing Submucosal Secretory
+2022-11-27 19:35:41.111453	skipping Submucosal Secretory with 34 subjects
+2022-11-27 20:51:30.598864	Standarizing columns...
+2022-11-27 20:51:37.044106	Finished
+2022-11-27 20:51:37.064866	Checking columns...
+2022-11-27 20:51:38.263108	Analyzing Hematopoietic stem cells
+2022-11-27 20:51:38.435657	skipping Hematopoietic stem cells with 2 subjects
+2022-11-27 20:51:38.435719	Analyzing Mesothelium
+2022-11-27 20:51:38.474795	skipping Mesothelium with 7 subjects
+2022-11-27 20:51:38.474847	Analyzing Smooth muscle
+2022-11-27 20:51:38.660357			Analysing IPF1_Lin
+2022-11-27 20:51:51.355277			Analysing IPF2_All
+2022-11-27 20:51:51.850055			Analysing IPF2_Lin
+2022-11-27 20:51:52.585657			Analysing IPF3_All
+2022-11-27 20:51:53.283329			Analysing IPF3_Lin
+2022-11-27 20:53:37.312173	Standarizing columns...
+2022-11-27 20:53:43.720875	Finished
+2022-11-27 20:53:43.756757	Checking columns...
+2022-11-27 20:53:44.612807	Analyzing Hematopoietic stem cells
+2022-11-27 20:53:44.783468	skipping Hematopoietic stem cells with 2 subjects
+2022-11-27 20:53:44.783548	Analyzing Mesothelium
+2022-11-27 20:53:44.822909	skipping Mesothelium with 7 subjects
+2022-11-27 20:53:44.823003	Analyzing Smooth muscle
+2022-11-27 20:53:45.003912			Analysing IPF1_Lin
+2022-11-27 20:53:51.609443			Analysing IPF2_All
+2022-11-27 20:53:52.129612			Analysing IPF2_Lin
+2022-11-27 20:53:52.884123			Analysing IPF3_All
+2022-11-27 20:53:53.583729			Analysing IPF3_Lin
+2022-11-27 20:55:33.123227			Analysing NML1_All
+2022-11-27 20:55:33.630277			Analysing NML1_Lin
+2022-11-27 20:55:34.333382			Analysing NML2_All
+2022-11-27 20:55:34.843935			Analysing NML2_Lin
+2022-11-27 20:55:35.501727			Analysing NML3_All
+2022-11-27 20:55:35.966355			Analysing NML3_Lin
+2022-11-27 20:55:36.563347	Analyzing AT1
+2022-11-27 20:55:36.697873			skipping IPF1_Lin with 0 cells
+2022-11-27 20:55:36.713519			skipping IPF2_All with 5 cells
+2022-11-27 20:55:36.726976			skipping IPF2_Lin with 3 cells
+2022-11-27 20:55:36.740572			skipping IPF3_All with 3 cells
+2022-11-27 20:55:36.754295			skipping IPF3_Lin with 3 cells
+2022-11-27 20:55:36.768453			Analysing NML1_All
+2022-11-27 20:55:38.451442			Analysing NML1_Lin
+2022-11-27 20:55:40.051801			Analysing NML2_All
+2022-11-27 20:55:41.714052			Analysing NML2_Lin
+2022-11-27 20:55:43.381256			Analysing NML3_All
+2022-11-27 20:55:44.999371			Analysing NML3_Lin
+2022-11-27 20:55:46.614380	Analyzing AT2
+2022-11-27 20:55:47.313780			skipping IPF1_Lin with 0 cells
+2022-11-27 20:55:47.327430			Analysing IPF2_All
+2022-11-27 20:55:53.548901			skipping IPF2_Lin with 5 cells
+2022-11-27 20:55:53.562782			Analysing IPF3_All
+2022-11-27 20:55:59.854757			skipping IPF3_Lin with 2 cells
+2022-11-27 20:55:59.869109			Analysing NML1_All
+2022-11-27 20:56:06.287304			Analysing NML1_Lin
+2022-11-27 20:56:12.533002			Analysing NML2_All
+2022-11-27 20:56:18.731195			Analysing NML2_Lin
+2022-11-27 20:56:25.079195			Analysing NML3_All
+2022-11-27 20:56:31.446979			Analysing NML3_Lin
+2022-11-27 20:56:37.610244	Analyzing EC arterial
+2022-11-27 20:56:37.741842			skipping IPF1_Lin with 1 cells
+2022-11-27 20:56:37.755665			Analysing IPF2_All
+2022-11-27 20:56:39.205457			skipping IPF2_Lin with 1 cells
+2022-11-27 20:56:39.219472			Analysing IPF3_All
+2022-11-27 20:56:40.635395			skipping IPF3_Lin with 0 cells
+2022-11-27 20:56:40.649109			Analysing NML1_All
+2022-11-27 20:56:41.988266			skipping NML1_Lin with 0 cells
+2022-11-27 20:56:42.001979			Analysing NML2_All
+2022-11-27 20:56:43.298577			skipping NML2_Lin with 0 cells
+2022-11-27 20:56:43.312201			Analysing NML3_All
+2022-11-27 20:56:44.664945			skipping NML3_Lin with 0 cells
+2022-11-27 20:56:44.665036	Analyzing Lymphatic EC differentiating
+2022-11-27 20:56:44.706316	skipping Lymphatic EC differentiating with 8 subjects
+2022-11-27 20:56:44.706379	Analyzing Lymphatic EC mature
+2022-11-27 20:56:44.790902			skipping IPF1_Lin with 1 cells
+2022-11-27 20:56:44.804422			skipping IPF2_All with 10 cells
+2022-11-27 20:56:44.816712			skipping IPF2_Lin with 0 cells
+2022-11-27 20:56:44.830086			Analysing IPF3_All
+2022-11-27 20:56:45.327195			skipping IPF3_Lin with 4 cells
+2022-11-27 20:56:45.340663			Analysing NML1_All
+2022-11-27 20:56:45.838010			skipping NML1_Lin with 0 cells
+2022-11-27 20:56:45.851521			skipping NML2_All with 5 cells
+2022-11-27 20:56:45.863773			skipping NML2_Lin with 0 cells
+2022-11-27 20:56:45.876963			skipping NML3_All with 10 cells
+2022-11-27 20:56:45.889246			skipping NML3_Lin with 0 cells
+2022-11-27 20:56:45.889282	Analyzing Lymphatic EC proliferating
+2022-11-27 20:56:45.924000	skipping Lymphatic EC proliferating with 1 subjects
+2022-11-27 20:56:45.924083	Analyzing Mast cells
+2022-11-27 20:56:46.028540			skipping IPF1_Lin with 0 cells
+2022-11-27 20:56:46.041538			skipping IPF2_All with 8 cells
+2022-11-27 20:56:46.054338			skipping IPF2_Lin with 2 cells
+2022-11-27 20:56:46.067006			Analysing IPF3_All
+2022-11-27 20:56:47.212006			skipping IPF3_Lin with 0 cells
+2022-11-27 20:56:47.225629			Analysing NML1_All
+2022-11-27 20:56:48.394354			Analysing NML1_Lin
+2022-11-27 20:56:49.524459			Analysing NML2_All
+2022-11-27 20:56:50.678231			skipping NML2_Lin with 0 cells
+2022-11-27 20:56:50.691951			skipping NML3_All with 7 cells
+2022-11-27 20:56:50.704655			skipping NML3_Lin with 0 cells
+2022-11-27 20:56:50.704742	Analyzing AT2 proliferating
+2022-11-27 20:56:50.752515	skipping AT2 proliferating with 27 subjects
+2022-11-27 20:56:50.752608	Analyzing Macrophages
+2022-11-27 20:56:52.085993			Analysing IPF1_Lin
+2022-11-27 20:57:03.804681			Analysing IPF2_All
+2022-11-27 20:57:15.578530			skipping IPF2_Lin with 13 cells
+2022-11-27 20:57:15.597904			Analysing IPF3_All
+2022-11-27 20:57:27.467067			Analysing IPF3_Lin
+2022-11-27 20:57:39.090258			Analysing NML1_All
+2022-11-27 20:57:50.803796			Analysing NML1_Lin
+2022-11-27 20:58:02.437207			Analysing NML2_All
+2022-11-27 20:58:14.232983			skipping NML2_Lin with 9 cells
+2022-11-27 20:58:14.249518			Analysing NML3_All
+2022-11-27 20:58:25.934575			Analysing NML3_Lin
+2022-11-27 20:58:37.512314	Analyzing B cells
+2022-11-27 20:58:37.632631			skipping IPF1_Lin with 7 cells
+2022-11-27 20:58:37.647670			Analysing IPF2_All
+2022-11-27 20:58:38.493445			skipping IPF2_Lin with 4 cells
+2022-11-27 20:58:38.507298			Analysing IPF3_All
+2022-11-27 20:58:39.133854			skipping IPF3_Lin with 0 cells
+2022-11-27 20:58:39.147347			skipping NML1_All with 5 cells
+2022-11-27 20:58:39.159505			skipping NML1_Lin with 0 cells
+2022-11-27 20:58:39.172823			Analysing NML2_All
+2022-11-27 20:58:39.802388			skipping NML2_Lin with 1 cells
+2022-11-27 20:58:39.815431			Analysing NML3_All
+2022-11-27 20:58:40.423154			skipping NML3_Lin with 0 cells
+2022-11-27 20:58:40.423215	Analyzing Basal
+2022-11-27 20:58:41.324357			skipping IPF1_Lin with 4 cells
+2022-11-27 20:58:41.338135			Analysing IPF2_All
+2022-11-27 20:58:50.126268			Analysing IPF2_Lin
+2022-11-27 20:58:58.753968			Analysing IPF3_All
+2022-11-27 20:59:07.473379			skipping IPF3_Lin with 14 cells
+2022-11-27 20:59:07.486970			Analysing NML1_All
+2022-11-27 20:59:16.186270			skipping NML1_Lin with 8 cells
+2022-11-27 20:59:16.200150			Analysing NML2_All
+2022-11-27 20:59:24.907576			Analysing NML2_Lin
+2022-11-27 20:59:33.628062			Analysing NML3_All
+2022-11-27 20:59:42.228589			Analysing NML3_Lin
+2022-11-27 20:59:50.846039	Analyzing CD4 T cells
+2022-11-27 20:59:51.115842			skipping IPF1_Lin with 2 cells
+2022-11-27 20:59:51.129773			Analysing IPF2_All
+2022-11-27 20:59:53.275871			skipping IPF2_Lin with 2 cells
+2022-11-27 20:59:53.289813			Analysing IPF3_All
+2022-11-27 20:59:55.437259			skipping IPF3_Lin with 1 cells
+2022-11-27 20:59:55.450519			skipping NML1_All with 2 cells
+2022-11-27 20:59:55.462722			skipping NML1_Lin with 0 cells
+2022-11-27 20:59:55.476239			Analysing NML2_All
+2022-11-27 20:59:57.624021			skipping NML2_Lin with 1 cells
+2022-11-27 20:59:57.637022			Analysing NML3_All
+2022-11-27 20:59:59.785998			skipping NML3_Lin with 2 cells
+2022-11-27 20:59:59.786093	Analyzing CD8 T cells
+2022-11-27 21:00:00.092147			skipping IPF1_Lin with 1 cells
+2022-11-27 21:00:00.106173			Analysing IPF2_All
+2022-11-27 21:00:03.102072			skipping IPF2_Lin with 0 cells
+2022-11-27 21:00:03.116525			Analysing IPF3_All
+2022-11-27 21:00:06.076806			skipping IPF3_Lin with 0 cells
+2022-11-27 21:00:06.090086			skipping NML1_All with 1 cells
+2022-11-27 21:00:06.102430			skipping NML1_Lin with 0 cells
+2022-11-27 21:00:06.116381			Analysing NML2_All
+2022-11-27 21:00:09.029550			skipping NML2_Lin with 1 cells
+2022-11-27 21:00:09.043570			Analysing NML3_All
+2022-11-27 21:00:11.955630			skipping NML3_Lin with 0 cells
+2022-11-27 21:00:11.955730	Analyzing Classical monocytes
+2022-11-27 21:00:12.169957			skipping IPF1_Lin with 0 cells
+2022-11-27 21:00:12.183709			Analysing IPF2_All
+2022-11-27 21:00:13.994377			skipping IPF2_Lin with 0 cells
+2022-11-27 21:00:14.008820			Analysing IPF3_All
+2022-11-27 21:00:15.813808			skipping IPF3_Lin with 0 cells
+2022-11-27 21:00:15.828181			Analysing NML1_All
+2022-11-27 21:00:17.641255			skipping NML1_Lin with 1 cells
+2022-11-27 21:00:17.655978			Analysing NML2_All
+2022-11-27 21:00:19.517784			skipping NML2_Lin with 1 cells
+2022-11-27 21:00:19.532672			Analysing NML3_All
+2022-11-27 21:00:21.380482			skipping NML3_Lin with 6 cells
+2022-11-27 21:00:21.380599	Analyzing DC1
+2022-11-27 21:00:21.427800	skipping DC1 with 19 subjects
+2022-11-27 21:00:21.427851	Analyzing DC2
+2022-11-27 21:00:21.572743			skipping IPF1_Lin with 1 cells
+2022-11-27 21:00:21.586821			Analysing IPF2_All
+2022-11-27 21:00:22.566139			skipping IPF2_Lin with 4 cells
+2022-11-27 21:00:22.581132			Analysing IPF3_All
+2022-11-27 21:00:23.567468			skipping IPF3_Lin with 0 cells
+2022-11-27 21:00:23.581262			Analysing NML1_All
+2022-11-27 21:00:24.520308			skipping NML1_Lin with 0 cells
+2022-11-27 21:00:24.534212			Analysing NML2_All
+2022-11-27 21:00:25.481453			skipping NML2_Lin with 0 cells
+2022-11-27 21:00:25.495718			Analysing NML3_All
+2022-11-27 21:00:26.449199			skipping NML3_Lin with 0 cells
+2022-11-27 21:00:26.449302	Analyzing Deuterosomal
+2022-11-27 21:00:26.509509			skipping IPF1_Lin with 0 cells
+2022-11-27 21:00:26.522011			skipping IPF2_All with 0 cells
+2022-11-27 21:00:26.534341			skipping IPF2_Lin with 0 cells
+2022-11-27 21:00:26.546737			skipping IPF3_All with 0 cells
+2022-11-27 21:00:26.559064			skipping IPF3_Lin with 0 cells
+2022-11-27 21:00:26.571250			skipping NML1_All with 0 cells
+2022-11-27 21:00:26.583411			skipping NML1_Lin with 0 cells
+2022-11-27 21:00:26.596562			skipping NML2_All with 1 cells
+2022-11-27 21:00:26.608853			skipping NML2_Lin with 0 cells
+2022-11-27 21:00:26.621131			skipping NML3_All with 0 cells
+2022-11-27 21:00:26.633191			skipping NML3_Lin with 0 cells
+2022-11-27 21:00:26.633231	Analyzing EC aerocyte capillary
+2022-11-27 21:00:26.733407	skipping EC aerocyte capillary with 30 subjects
+2022-11-27 21:00:26.733513	Analyzing EC general capillary
+2022-11-27 21:00:26.939331			skipping IPF1_Lin with 1 cells
+2022-11-27 21:00:26.952800			Analysing IPF2_All
+2022-11-27 21:00:28.559763			skipping IPF2_Lin with 3 cells
+2022-11-27 21:00:28.573600			Analysing IPF3_All
+2022-11-27 21:00:30.240513			skipping IPF3_Lin with 2 cells
+2022-11-27 21:00:30.254379			Analysing NML1_All
+2022-11-27 21:00:31.898513			skipping NML1_Lin with 4 cells
+2022-11-27 21:00:31.912440			Analysing NML2_All
+2022-11-27 21:00:33.609047			skipping NML2_Lin with 4 cells
+2022-11-27 21:00:33.622799			Analysing NML3_All
+2022-11-27 21:00:35.321488			skipping NML3_Lin with 2 cells
+2022-11-27 21:00:35.321560	Analyzing EC venous
+2022-11-27 21:00:35.505145			skipping IPF1_Lin with 10 cells
+2022-11-27 21:00:35.521370			Analysing IPF2_All
+2022-11-27 21:00:36.861682			skipping IPF2_Lin with 7 cells
+2022-11-27 21:00:36.877231			Analysing IPF3_All
+2022-11-27 21:00:38.324083			skipping IPF3_Lin with 7 cells
+2022-11-27 21:00:38.337752			Analysing NML1_All
+2022-11-27 21:00:39.661912			skipping NML1_Lin with 1 cells
+2022-11-27 21:00:39.675332			Analysing NML2_All
+2022-11-27 21:00:40.984011			skipping NML2_Lin with 0 cells
+2022-11-27 21:00:40.997543			Analysing NML3_All
+2022-11-27 21:00:42.301984			skipping NML3_Lin with 0 cells
+2022-11-27 21:00:42.302071	Analyzing Rare
+2022-11-27 21:00:42.346786	skipping Rare with 38 subjects
+2022-11-27 21:00:42.346846	Analyzing Migratory DCs
+2022-11-27 21:00:42.387744	skipping Migratory DCs with 17 subjects
+2022-11-27 21:00:42.387846	Analyzing NK cells
+2022-11-27 21:00:42.587504			skipping IPF1_Lin with 0 cells
+2022-11-27 21:00:42.600954			Analysing IPF2_All
+2022-11-27 21:00:44.328709			skipping IPF2_Lin with 1 cells
+2022-11-27 21:00:44.342023			Analysing IPF3_All
+2022-11-27 21:00:46.056015			skipping IPF3_Lin with 0 cells
+2022-11-27 21:00:46.069228			skipping NML1_All with 4 cells
+2022-11-27 21:00:46.081250			skipping NML1_Lin with 0 cells
+2022-11-27 21:00:46.094680			Analysing NML2_All
+2022-11-27 21:00:47.838966			skipping NML2_Lin with 0 cells
+2022-11-27 21:00:47.852825			Analysing NML3_All
+2022-11-27 21:00:49.595401			skipping NML3_Lin with 0 cells
+2022-11-27 21:00:49.595524	Analyzing Non-classical monocytes
+2022-11-27 21:00:49.728383			skipping IPF1_Lin with 0 cells
+2022-11-27 21:00:49.741552			Analysing IPF2_All
+2022-11-27 21:00:50.635845			skipping IPF2_Lin with 0 cells
+2022-11-27 21:00:50.649190			Analysing IPF3_All
+2022-11-27 21:00:51.548170			skipping IPF3_Lin with 0 cells
+2022-11-27 21:00:51.561648			Analysing NML1_All
+2022-11-27 21:00:52.458293			skipping NML1_Lin with 0 cells
+2022-11-27 21:00:52.472286			Analysing NML2_All
+2022-11-27 21:00:53.376629			skipping NML2_Lin with 0 cells
+2022-11-27 21:00:53.390197			Analysing NML3_All
+2022-11-27 21:00:54.289870			skipping NML3_Lin with 1 cells
+2022-11-27 21:00:54.289966	Analyzing Fibroblast lineage
+2022-11-27 21:00:54.742001			Analysing IPF1_Lin
+2022-11-27 21:00:57.160280			Analysing IPF2_All
+2022-11-27 21:01:00.017380			Analysing IPF2_Lin
+2022-11-27 21:01:02.598320			Analysing IPF3_All
+2022-11-27 21:01:04.796331			Analysing IPF3_Lin
+2022-11-27 21:01:07.449160			Analysing NML1_All
+2022-11-27 21:01:09.655167			Analysing NML1_Lin
+2022-11-27 21:01:12.596833			Analysing NML2_All
+2022-11-27 21:01:14.814943			Analysing NML2_Lin
+2022-11-27 21:01:17.335896			Analysing NML3_All
+2022-11-27 21:01:19.462023			Analysing NML3_Lin
+2022-11-27 21:01:21.698933	Analyzing Plasma cells
+2022-11-27 21:01:21.768195			skipping IPF1_Lin with 0 cells
+2022-11-27 21:01:21.782190			Analysing IPF2_All
+2022-11-27 21:01:21.997958			skipping IPF2_Lin with 0 cells
+2022-11-27 21:01:22.011965			Analysing IPF3_All
+2022-11-27 21:01:22.220864			skipping IPF3_Lin with 3 cells
+2022-11-27 21:01:22.234175			skipping NML1_All with 12 cells
+2022-11-27 21:01:22.246554			skipping NML1_Lin with 0 cells
+2022-11-27 21:01:22.260207			Analysing NML2_All
+2022-11-27 21:01:22.450554			skipping NML2_Lin with 2 cells
+2022-11-27 21:01:22.463951			Analysing NML3_All
+2022-11-27 21:01:22.628553			skipping NML3_Lin with 0 cells
+2022-11-27 21:01:22.628645	Analyzing Plasmacytoid DCs
+2022-11-27 21:01:22.671923	skipping Plasmacytoid DCs with 20 subjects
+2022-11-27 21:01:22.671991	Analyzing T cells proliferating
+2022-11-27 21:01:22.712705	skipping T cells proliferating with 13 subjects
+2022-11-27 21:01:22.712773	Analyzing Secretory
+2022-11-27 21:01:23.494403			skipping IPF1_Lin with 1 cells
+2022-11-27 21:01:23.508524			Analysing IPF2_All
+2022-11-27 21:01:31.457404			skipping IPF2_Lin with 8 cells
+2022-11-27 21:01:31.471027			Analysing IPF3_All
+2022-11-27 21:01:39.454994			skipping IPF3_Lin with 7 cells
+2022-11-27 21:01:39.468839			skipping NML1_All with 14 cells
+2022-11-27 21:01:39.483267			Analysing NML1_Lin
+2022-11-27 21:01:47.481667			Analysing NML2_All
+2022-11-27 21:01:55.391564			Analysing NML2_Lin
+2022-11-27 21:02:03.388839			Analysing NML3_All
+2022-11-27 21:02:11.356055			Analysing NML3_Lin
+2022-11-27 21:02:19.384744	Analyzing Multiciliated
+2022-11-27 21:02:19.895029			skipping IPF1_Lin with 2 cells
+2022-11-27 21:02:19.908611			Analysing IPF2_All
+2022-11-27 21:02:24.035266			skipping IPF2_Lin with 7 cells
+2022-11-27 21:02:24.048145			Analysing IPF3_All
+2022-11-27 21:02:28.244586			Analysing IPF3_Lin
+2022-11-27 21:02:32.402663			skipping NML1_All with 8 cells
+2022-11-27 21:02:32.415012			skipping NML1_Lin with 0 cells
+2022-11-27 21:02:32.428409			skipping NML2_All with 13 cells
+2022-11-27 21:02:32.441480			skipping NML2_Lin with 1 cells
+2022-11-27 21:02:32.454692			skipping NML3_All with 5 cells
+2022-11-27 21:02:32.467742			skipping NML3_Lin with 1 cells
+2022-11-27 21:02:32.467795	Analyzing Submucosal Secretory
+2022-11-27 21:02:32.543477	skipping Submucosal Secretory with 34 subjects
+2022-11-27 22:07:51.344519	Standarizing columns...
+2022-11-27 22:07:57.781315	Finished
+2022-11-27 22:07:57.817484	Checking columns...
+2022-11-27 22:16:32.173315	Standarizing columns...
+2022-11-27 22:16:38.466980	Finished
+2022-11-27 22:16:38.499327	Checking columns...
+2022-11-28 15:32:06.544812	Standarizing columns...
+2022-11-28 15:32:14.526465	Finished
+2022-11-28 15:32:14.556891	Checking columns...
+2022-11-28 15:40:37.002458	Analyzing Hematopoietic stem cells
+2022-11-28 15:40:37.308569	skipping Hematopoietic stem cells with 2 subjects
+2022-11-28 15:40:37.308663	Analyzing Mesothelium
+2022-11-28 15:40:37.355714	skipping Mesothelium with 7 subjects
+2022-11-28 15:40:37.355815	Analyzing Smooth muscle
+2022-11-28 15:40:37.560170			Analysing IPF1_Lin
+2022-11-28 15:40:55.920186			Analysing IPF2_All
+2022-11-28 15:40:56.589486			Analysing IPF2_Lin
+2022-11-28 15:40:57.521825			Analysing IPF3_All
+2022-11-28 15:40:58.349016			Analysing IPF3_Lin
+2022-11-28 15:43:01.639007			Analysing NML1_All
+2022-11-28 15:43:02.228561			Analysing NML1_Lin
+2022-11-28 15:43:03.077462			Analysing NML2_All
+2022-11-28 15:43:03.690607			Analysing NML2_Lin
+2022-11-28 15:43:04.472641			Analysing NML3_All
+2022-11-28 15:43:05.036713			Analysing NML3_Lin
+2022-11-28 15:43:05.742694	Analyzing AT1
+2022-11-28 15:43:05.897332			skipping IPF1_Lin with 0 cells
+2022-11-28 15:43:05.911585			skipping IPF2_All with 5 cells
+2022-11-28 15:43:05.925814			skipping IPF2_Lin with 3 cells
+2022-11-28 15:43:05.940328			skipping IPF3_All with 3 cells
+2022-11-28 15:43:05.954944			skipping IPF3_Lin with 3 cells
+2022-11-28 15:43:05.969790			Analysing NML1_All
+2022-11-28 15:43:07.923395			Analysing NML1_Lin
+2022-11-28 15:43:09.811771			Analysing NML2_All
+2022-11-28 15:43:12.287869			Analysing NML2_Lin
+2022-11-28 15:43:14.241364			Analysing NML3_All
+2022-11-28 15:43:16.170425			Analysing NML3_Lin
+2022-11-28 15:43:18.081651	Analyzing AT2
+2022-11-28 15:43:18.974556			skipping IPF1_Lin with 0 cells
+2022-11-28 15:43:18.989586			Analysing IPF2_All
+2022-11-28 15:43:26.436042			skipping IPF2_Lin with 5 cells
+2022-11-28 15:43:26.450827			Analysing IPF3_All
+2022-11-28 15:43:33.790922			skipping IPF3_Lin with 2 cells
+2022-11-28 15:43:33.807089			Analysing NML1_All
+2022-11-28 15:43:41.015867			Analysing NML1_Lin
+2022-11-28 15:43:48.212324			Analysing NML2_All
+2022-11-28 15:43:55.461386			Analysing NML2_Lin
+2022-11-28 15:44:02.632358			Analysing NML3_All
+2022-11-28 15:44:09.932037			Analysing NML3_Lin
+2022-11-28 15:44:17.215257	Analyzing EC arterial
+2022-11-28 15:44:17.375851			skipping IPF1_Lin with 1 cells
+2022-11-28 15:44:17.391183			Analysing IPF2_All
+2022-11-28 15:44:19.093583			skipping IPF2_Lin with 1 cells
+2022-11-28 15:44:19.109265			Analysing IPF3_All
+2022-11-28 15:44:20.784801			skipping IPF3_Lin with 0 cells
+2022-11-28 15:44:20.799710			Analysing NML1_All
+2022-11-28 15:44:22.387171			skipping NML1_Lin with 0 cells
+2022-11-28 15:44:22.402541			Analysing NML2_All
+2022-11-28 15:44:23.942226			skipping NML2_Lin with 0 cells
+2022-11-28 15:44:23.957217			Analysing NML3_All
+2022-11-28 15:44:25.555281			skipping NML3_Lin with 0 cells
+2022-11-28 15:44:25.555390	Analyzing Lymphatic EC differentiating
+2022-11-28 15:44:25.616169	skipping Lymphatic EC differentiating with 8 subjects
+2022-11-28 15:44:25.616269	Analyzing Lymphatic EC mature
+2022-11-28 15:44:25.717466			skipping IPF1_Lin with 1 cells
+2022-11-28 15:44:25.732099			skipping IPF2_All with 10 cells
+2022-11-28 15:44:25.745353			skipping IPF2_Lin with 0 cells
+2022-11-28 15:44:25.760053			Analysing IPF3_All
+2022-11-28 15:44:26.390777			skipping IPF3_Lin with 4 cells
+2022-11-28 15:44:26.405388			Analysing NML1_All
+2022-11-28 15:44:27.026814			skipping NML1_Lin with 0 cells
+2022-11-28 15:44:27.041294			skipping NML2_All with 5 cells
+2022-11-28 15:44:27.054754			skipping NML2_Lin with 0 cells
+2022-11-28 15:44:27.069247			skipping NML3_All with 10 cells
+2022-11-28 15:44:27.082453			skipping NML3_Lin with 0 cells
+2022-11-28 15:44:27.082544	Analyzing Lymphatic EC proliferating
+2022-11-28 15:44:27.120493	skipping Lymphatic EC proliferating with 1 subjects
+2022-11-28 15:44:27.120582	Analyzing Mast cells
+2022-11-28 15:44:27.241701			skipping IPF1_Lin with 0 cells
+2022-11-28 15:44:27.256512			skipping IPF2_All with 8 cells
+2022-11-28 15:44:27.270838			skipping IPF2_Lin with 2 cells
+2022-11-28 15:44:27.285338			Analysing IPF3_All
+2022-11-28 15:44:28.650882			skipping IPF3_Lin with 0 cells
+2022-11-28 15:44:28.665713			Analysing NML1_All
+2022-11-28 15:44:30.081625			Analysing NML1_Lin
+2022-11-28 15:44:31.433155			Analysing NML2_All
+2022-11-28 15:44:32.833356			skipping NML2_Lin with 0 cells
+2022-11-28 15:44:32.847760			skipping NML3_All with 7 cells
+2022-11-28 15:44:32.860826			skipping NML3_Lin with 0 cells
+2022-11-28 15:44:32.860916	Analyzing AT2 proliferating
+2022-11-28 15:44:32.913071	skipping AT2 proliferating with 27 subjects
+2022-11-28 15:44:32.913174	Analyzing Macrophages
+2022-11-28 15:44:34.630029			Analysing IPF1_Lin
+2022-11-28 15:44:48.425795			Analysing IPF2_All
+2022-11-28 15:45:02.214722			skipping IPF2_Lin with 13 cells
+2022-11-28 15:45:02.233180			Analysing IPF3_All
+2022-11-28 15:45:15.945508			Analysing IPF3_Lin
+2022-11-28 15:45:29.422172			Analysing NML1_All
+2022-11-28 15:45:42.953303			Analysing NML1_Lin
+2022-11-28 15:45:56.566475			Analysing NML2_All
+2022-11-28 15:46:10.030450			skipping NML2_Lin with 9 cells
+2022-11-28 15:46:10.048523			Analysing NML3_All
+2022-11-28 15:46:23.745096			Analysing NML3_Lin
+2022-11-28 15:46:37.392038	Analyzing B cells
+2022-11-28 15:46:37.522834			skipping IPF1_Lin with 7 cells
+2022-11-28 15:46:37.538487			Analysing IPF2_All
+2022-11-28 15:46:38.296299			skipping IPF2_Lin with 4 cells
+2022-11-28 15:46:38.311265			Analysing IPF3_All
+2022-11-28 15:46:39.012610			skipping IPF3_Lin with 0 cells
+2022-11-28 15:46:39.027210			skipping NML1_All with 5 cells
+2022-11-28 15:46:39.040371			skipping NML1_Lin with 0 cells
+2022-11-28 15:46:39.055108			Analysing NML2_All
+2022-11-28 15:46:39.776079			skipping NML2_Lin with 1 cells
+2022-11-28 15:46:39.790972			Analysing NML3_All
+2022-11-28 15:46:40.488985			skipping NML3_Lin with 0 cells
+2022-11-28 15:46:40.489096	Analyzing Basal
+2022-11-28 15:46:41.622316			skipping IPF1_Lin with 4 cells
+2022-11-28 15:46:41.637347			Analysing IPF2_All
+2022-11-28 15:46:51.628021			Analysing IPF2_Lin
+2022-11-28 15:47:01.462133			Analysing IPF3_All
+2022-11-28 15:47:11.476685			skipping IPF3_Lin with 14 cells
+2022-11-28 15:47:11.491576			Analysing NML1_All
+2022-11-28 15:47:21.415970			skipping NML1_Lin with 8 cells
+2022-11-28 15:47:21.430652			Analysing NML2_All
+2022-11-28 15:47:31.228863			Analysing NML2_Lin
+2022-11-28 15:47:41.186159			Analysing NML3_All
+2022-11-28 15:47:51.138634			Analysing NML3_Lin
+2022-11-28 15:48:01.056654	Analyzing CD4 T cells
+2022-11-28 15:48:01.351695			skipping IPF1_Lin with 2 cells
+2022-11-28 15:48:01.366934			Analysing IPF2_All
+2022-11-28 15:48:03.733581			skipping IPF2_Lin with 2 cells
+2022-11-28 15:48:03.749331			Analysing IPF3_All
+2022-11-28 15:48:06.092304			skipping IPF3_Lin with 1 cells
+2022-11-28 15:48:06.107064			skipping NML1_All with 2 cells
+2022-11-28 15:48:06.120479			skipping NML1_Lin with 0 cells
+2022-11-28 15:48:06.135748			Analysing NML2_All
+2022-11-28 15:48:08.495231			skipping NML2_Lin with 1 cells
+2022-11-28 15:48:08.510657			Analysing NML3_All
+2022-11-28 15:48:10.839532			skipping NML3_Lin with 2 cells
+2022-11-28 15:48:10.839641	Analyzing CD8 T cells
+2022-11-28 15:48:11.185753			skipping IPF1_Lin with 1 cells
+2022-11-28 15:48:11.200442			Analysing IPF2_All
+2022-11-28 15:48:14.435149			skipping IPF2_Lin with 0 cells
+2022-11-28 15:48:14.450369			Analysing IPF3_All
+2022-11-28 15:48:17.680741			skipping IPF3_Lin with 0 cells
+2022-11-28 15:48:17.695656			skipping NML1_All with 1 cells
+2022-11-28 15:48:17.709374			skipping NML1_Lin with 0 cells
+2022-11-28 15:48:17.724760			Analysing NML2_All
+2022-11-28 15:48:20.987723			skipping NML2_Lin with 1 cells
+2022-11-28 15:48:21.007024			Analysing NML3_All
+2022-11-28 15:48:24.237059			skipping NML3_Lin with 0 cells
+2022-11-28 15:48:24.237222	Analyzing Classical monocytes
+2022-11-28 15:48:24.496965			skipping IPF1_Lin with 0 cells
+2022-11-28 15:48:24.512065			Analysing IPF2_All
+2022-11-28 15:48:26.488744			skipping IPF2_Lin with 0 cells
+2022-11-28 15:48:26.504308			Analysing IPF3_All
+2022-11-28 15:48:28.462309			skipping IPF3_Lin with 0 cells
+2022-11-28 15:48:28.477770			Analysing NML1_All
+2022-11-28 15:48:30.458505			skipping NML1_Lin with 1 cells
+2022-11-28 15:48:30.474168			Analysing NML2_All
+2022-11-28 15:48:32.481258			skipping NML2_Lin with 1 cells
+2022-11-28 15:48:32.497255			Analysing NML3_All
+2022-11-28 15:48:34.514422			skipping NML3_Lin with 6 cells
+2022-11-28 15:48:34.514534	Analyzing DC1
+2022-11-28 15:48:34.566504	skipping DC1 with 19 subjects
+2022-11-28 15:48:34.566604	Analyzing DC2
+2022-11-28 15:48:34.739603			skipping IPF1_Lin with 1 cells
+2022-11-28 15:48:34.755028			Analysing IPF2_All
+2022-11-28 15:48:35.817699			skipping IPF2_Lin with 4 cells
+2022-11-28 15:48:35.837115			Analysing IPF3_All
+2022-11-28 15:48:36.897338			skipping IPF3_Lin with 0 cells
+2022-11-28 15:48:36.912125			Analysing NML1_All
+2022-11-28 15:48:37.924218			skipping NML1_Lin with 0 cells
+2022-11-28 15:48:37.939224			Analysing NML2_All
+2022-11-28 15:48:38.959026			skipping NML2_Lin with 0 cells
+2022-11-28 15:48:38.973865			Analysing NML3_All
+2022-11-28 15:48:39.998827			skipping NML3_Lin with 0 cells
+2022-11-28 15:48:39.998942	Analyzing Deuterosomal
+2022-11-28 15:48:40.067005			skipping IPF1_Lin with 0 cells
+2022-11-28 15:48:40.080744			skipping IPF2_All with 0 cells
+2022-11-28 15:48:40.094146			skipping IPF2_Lin with 0 cells
+2022-11-28 15:48:40.107701			skipping IPF3_All with 0 cells
+2022-11-28 15:48:40.120917			skipping IPF3_Lin with 0 cells
+2022-11-28 15:48:40.134055			skipping NML1_All with 0 cells
+2022-11-28 15:48:40.149358			skipping NML1_Lin with 0 cells
+2022-11-28 15:48:40.164066			skipping NML2_All with 1 cells
+2022-11-28 15:48:40.177566			skipping NML2_Lin with 0 cells
+2022-11-28 15:48:40.190788			skipping NML3_All with 0 cells
+2022-11-28 15:48:40.203987			skipping NML3_Lin with 0 cells
+2022-11-28 15:48:40.204087	Analyzing EC aerocyte capillary
+2022-11-28 15:48:40.320159	skipping EC aerocyte capillary with 30 subjects
+2022-11-28 15:48:40.320263	Analyzing EC general capillary
+2022-11-28 15:48:40.568377			skipping IPF1_Lin with 1 cells
+2022-11-28 15:48:40.583068			Analysing IPF2_All
+2022-11-28 15:48:42.364561			skipping IPF2_Lin with 3 cells
+2022-11-28 15:48:42.379869			Analysing IPF3_All
+2022-11-28 15:48:44.179520			skipping IPF3_Lin with 2 cells
+2022-11-28 15:48:44.194712			Analysing NML1_All
+2022-11-28 15:48:45.980815			skipping NML1_Lin with 4 cells
+2022-11-28 15:48:45.996722			Analysing NML2_All
+2022-11-28 15:48:47.800914			skipping NML2_Lin with 4 cells
+2022-11-28 15:48:47.815882			Analysing NML3_All
+2022-11-28 15:48:49.581335			skipping NML3_Lin with 2 cells
+2022-11-28 15:48:49.581442	Analyzing EC venous
+2022-11-28 15:48:49.797691			skipping IPF1_Lin with 10 cells
+2022-11-28 15:48:49.813375			Analysing IPF2_All
+2022-11-28 15:48:51.267720			skipping IPF2_Lin with 7 cells
+2022-11-28 15:48:51.284910			Analysing IPF3_All
+2022-11-28 15:48:52.845447			skipping IPF3_Lin with 7 cells
+2022-11-28 15:48:52.860395			Analysing NML1_All
+2022-11-28 15:48:54.277656			skipping NML1_Lin with 1 cells
+2022-11-28 15:48:54.292280			Analysing NML2_All
+2022-11-28 15:48:55.714973			skipping NML2_Lin with 0 cells
+2022-11-28 15:48:55.729765			Analysing NML3_All
+2022-11-28 15:48:57.132706			skipping NML3_Lin with 0 cells
+2022-11-28 15:48:57.132807	Analyzing Rare
+2022-11-28 15:48:57.183330	skipping Rare with 38 subjects
+2022-11-28 15:48:57.183433	Analyzing Migratory DCs
+2022-11-28 15:48:57.231287	skipping Migratory DCs with 17 subjects
+2022-11-28 15:48:57.231397	Analyzing NK cells
+2022-11-28 15:48:57.459435			skipping IPF1_Lin with 0 cells
+2022-11-28 15:48:57.473861			Analysing IPF2_All
+2022-11-28 15:48:59.354758			skipping IPF2_Lin with 1 cells
+2022-11-28 15:48:59.369808			Analysing IPF3_All
+2022-11-28 15:49:01.282051			skipping IPF3_Lin with 0 cells
+2022-11-28 15:49:01.296650			skipping NML1_All with 4 cells
+2022-11-28 15:49:01.310414			skipping NML1_Lin with 0 cells
+2022-11-28 15:49:01.325843			Analysing NML2_All
+2022-11-28 15:49:03.233519			skipping NML2_Lin with 0 cells
+2022-11-28 15:49:03.249202			Analysing NML3_All
+2022-11-28 15:49:05.172306			skipping NML3_Lin with 0 cells
+2022-11-28 15:49:05.172442	Analyzing Non-classical monocytes
+2022-11-28 15:49:05.334878			skipping IPF1_Lin with 0 cells
+2022-11-28 15:49:05.349816			Analysing IPF2_All
+2022-11-28 15:49:06.302146			skipping IPF2_Lin with 0 cells
+2022-11-28 15:49:06.316626			Analysing IPF3_All
+2022-11-28 15:49:07.286252			skipping IPF3_Lin with 0 cells
+2022-11-28 15:49:07.300924			Analysing NML1_All
+2022-11-28 15:49:08.268977			skipping NML1_Lin with 0 cells
+2022-11-28 15:49:08.284126			Analysing NML2_All
+2022-11-28 15:49:09.263697			skipping NML2_Lin with 0 cells
+2022-11-28 15:49:09.278340			Analysing NML3_All
+2022-11-28 15:49:10.249168			skipping NML3_Lin with 1 cells
+2022-11-28 15:49:10.249286	Analyzing Fibroblast lineage
+2022-11-28 15:49:10.787610			Analysing IPF1_Lin
+2022-11-28 15:49:13.449443			Analysing IPF2_All
+2022-11-28 15:49:15.824554			Analysing IPF2_Lin
+2022-11-28 15:49:18.592070			Analysing IPF3_All
+2022-11-28 15:49:21.000969			Analysing IPF3_Lin
+2022-11-28 15:49:23.892856			Analysing NML1_All
+2022-11-28 15:49:26.239858			Analysing NML1_Lin
+2022-11-28 15:49:29.463855			Analysing NML2_All
+2022-11-28 15:49:31.834425			Analysing NML2_Lin
+2022-11-28 15:49:34.548859			Analysing NML3_All
+2022-11-28 15:49:36.829546			Analysing NML3_Lin
+2022-11-28 15:49:39.228669	Analyzing Plasma cells
+2022-11-28 15:49:39.306196			skipping IPF1_Lin with 0 cells
+2022-11-28 15:49:39.321144			Analysing IPF2_All
+2022-11-28 15:49:39.570577			skipping IPF2_Lin with 0 cells
+2022-11-28 15:49:39.585901			Analysing IPF3_All
+2022-11-28 15:49:39.818181			skipping IPF3_Lin with 3 cells
+2022-11-28 15:49:39.832735			skipping NML1_All with 12 cells
+2022-11-28 15:49:39.846041			skipping NML1_Lin with 0 cells
+2022-11-28 15:49:39.860583			Analysing NML2_All
+2022-11-28 15:49:40.077365			skipping NML2_Lin with 2 cells
+2022-11-28 15:49:40.091457			Analysing NML3_All
+2022-11-28 15:49:40.310278			skipping NML3_Lin with 0 cells
+2022-11-28 15:49:40.310386	Analyzing Plasmacytoid DCs
+2022-11-28 15:49:40.356658	skipping Plasmacytoid DCs with 20 subjects
+2022-11-28 15:49:40.356761	Analyzing T cells proliferating
+2022-11-28 15:49:40.401440	skipping T cells proliferating with 13 subjects
+2022-11-28 15:49:40.401542	Analyzing Secretory
+2022-11-28 15:49:41.420959			skipping IPF1_Lin with 1 cells
+2022-11-28 15:49:41.435653			Analysing IPF2_All
+2022-11-28 15:49:50.730261			skipping IPF2_Lin with 8 cells
+2022-11-28 15:49:50.745525			Analysing IPF3_All
+2022-11-28 15:49:59.896660			skipping IPF3_Lin with 7 cells
+2022-11-28 15:49:59.911254			skipping NML1_All with 14 cells
+2022-11-28 15:49:59.925973			Analysing NML1_Lin
+2022-11-28 15:50:09.107254			Analysing NML2_All
+2022-11-28 15:50:18.278120			Analysing NML2_Lin
+2022-11-28 15:50:27.402339			Analysing NML3_All
+2022-11-28 15:50:36.641519			Analysing NML3_Lin
+2022-11-28 15:50:45.974162	Analyzing Multiciliated
+2022-11-28 15:50:46.580993			skipping IPF1_Lin with 2 cells
+2022-11-28 15:50:46.595919			Analysing IPF2_All
+2022-11-28 15:50:51.209323			skipping IPF2_Lin with 7 cells
+2022-11-28 15:50:51.223930			Analysing IPF3_All
+2022-11-28 15:50:55.899936			Analysing IPF3_Lin
+2022-11-28 15:51:00.486843			skipping NML1_All with 8 cells
+2022-11-28 15:51:00.500098			skipping NML1_Lin with 0 cells
+2022-11-28 15:51:00.514868			skipping NML2_All with 13 cells
+2022-11-28 15:51:00.529192			skipping NML2_Lin with 1 cells
+2022-11-28 15:51:00.543381			skipping NML3_All with 5 cells
+2022-11-28 15:51:00.557633			skipping NML3_Lin with 1 cells
+2022-11-28 15:51:00.557732	Analyzing Submucosal Secretory
+2022-11-28 15:51:00.649577	skipping Submucosal Secretory with 34 subjects
+2022-11-28 16:01:11.519344	Standarizing columns...
+2022-11-28 16:01:20.003729	Finished
+2022-11-28 16:01:20.030182	Checking columns...
+2022-11-28 16:06:43.979379	Standarizing columns...
+2022-11-28 16:06:52.233172	Finished
+2022-11-28 16:06:52.259353	Checking columns...
+2022-12-07 00:42:38.277141	Standarizing columns...
+2022-12-07 00:42:45.508899	Finished
+2022-12-07 00:42:45.518563	Transferring labels...
+2022-12-07 00:42:46.474820	Train KNNModel
+2022-12-07 00:42:46.667347	Transfer Labels
+2022-12-07 01:06:23.457838	Checking columns...
+2022-12-07 01:06:32.612812	Analyzing Hematopoietic stem cells
+2022-12-07 01:06:32.635336	skipping Hematopoietic stem cells with 2 subjects
+2022-12-07 01:06:32.635404	Analyzing Mesothelium
+2022-12-07 01:06:32.658617	skipping Mesothelium with 7 subjects
+2022-12-07 01:06:32.658697	Analyzing AT1
+2022-12-07 01:06:32.735532			skipping IPF1_Lin with 0 cells
+2022-12-07 01:06:32.742832			skipping IPF2_All with 5 cells
+2022-12-07 01:06:32.750006			skipping IPF2_Lin with 2 cells
+2022-12-07 01:06:32.757194			skipping IPF3_All with 3 cells
+2022-12-07 01:06:32.764493			skipping IPF3_Lin with 3 cells
+2022-12-07 01:06:32.771833			Analysing NML1_All
+2022-12-07 01:06:56.314506			Analysing NML1_Lin
+2022-12-07 01:06:58.014625			Analysing NML2_All
+2022-12-07 01:07:00.048810			Analysing NML2_Lin
+2022-12-07 01:07:02.293395			Analysing NML3_All
+2022-12-07 01:07:04.067444			Analysing NML3_Lin
+2022-12-07 01:07:06.643887	Analyzing AT2
+2022-12-07 01:07:07.055781			skipping IPF1_Lin with 0 cells
+2022-12-07 01:07:07.063184			Analysing IPF2_All
+2022-12-07 01:07:17.065008			Analysing IPF2_Lin
+2022-12-07 01:07:28.629292			Analysing IPF3_All
+2022-12-07 01:07:40.295076			skipping IPF3_Lin with 6 cells
+2022-12-07 01:07:40.305376			Analysing NML1_All
+2022-12-07 01:07:52.554041			Analysing NML1_Lin
+2022-12-07 01:08:03.563320			Analysing NML2_All
+2022-12-07 01:08:15.401410			Analysing NML2_Lin
+2022-12-07 01:08:24.274512			Analysing NML3_All
+2022-12-07 01:08:34.051964			Analysing NML3_Lin
+2022-12-07 01:08:45.392105	Analyzing EC arterial
+2022-12-07 01:08:45.491783			skipping IPF1_Lin with 2 cells
+2022-12-07 01:08:45.498979			Analysing IPF2_All
+2022-12-07 01:08:47.048593			skipping IPF2_Lin with 1 cells
+2022-12-07 01:08:47.056000			Analysing IPF3_All
+2022-12-07 01:08:48.822141			skipping IPF3_Lin with 1 cells
+2022-12-07 01:08:48.839920			Analysing NML1_All
+2022-12-07 01:08:50.676797			skipping NML1_Lin with 0 cells
+2022-12-07 01:08:50.684218			Analysing NML2_All
+2022-12-07 01:08:52.114455			skipping NML2_Lin with 0 cells
+2022-12-07 01:08:52.121855			Analysing NML3_All
+2022-12-07 01:08:54.125872			skipping NML3_Lin with 0 cells
+2022-12-07 01:08:54.125958	Analyzing Lymphatic EC differentiating
+2022-12-07 01:08:54.156845	skipping Lymphatic EC differentiating with 8 subjects
+2022-12-07 01:08:54.156918	Analyzing Lymphatic EC mature
+2022-12-07 01:08:54.207369			skipping IPF1_Lin with 2 cells
+2022-12-07 01:08:54.214597			skipping IPF2_All with 12 cells
+2022-12-07 01:08:54.221401			skipping IPF2_Lin with 1 cells
+2022-12-07 01:08:54.228605			Analysing IPF3_All
+2022-12-07 01:08:54.788950			skipping IPF3_Lin with 4 cells
+2022-12-07 01:08:54.795846			Analysing NML1_All
+2022-12-07 01:08:55.341003			skipping NML1_Lin with 0 cells
+2022-12-07 01:08:55.347885			Analysing NML2_All
+2022-12-07 01:08:55.870740			skipping NML2_Lin with 0 cells
+2022-12-07 01:08:55.877973			skipping NML3_All with 13 cells
+2022-12-07 01:08:55.884368			skipping NML3_Lin with 0 cells
+2022-12-07 01:08:55.884434	Analyzing Lymphatic EC proliferating
+2022-12-07 01:08:55.904664	skipping Lymphatic EC proliferating with 1 subjects
+2022-12-07 01:08:55.904745	Analyzing Mast cells
+2022-12-07 01:08:55.964631			skipping IPF1_Lin with 0 cells
+2022-12-07 01:08:55.971627			skipping IPF2_All with 8 cells
+2022-12-07 01:08:55.978393			skipping IPF2_Lin with 2 cells
+2022-12-07 01:08:55.985369			Analysing IPF3_All
+2022-12-07 01:08:57.334581			skipping IPF3_Lin with 0 cells
+2022-12-07 01:08:57.352405			Analysing NML1_All
+2022-12-07 01:08:59.200951			Analysing NML1_Lin
+2022-12-07 01:09:00.473892			Analysing NML2_All
+2022-12-07 01:09:02.018102			skipping NML2_Lin with 0 cells
+2022-12-07 01:09:02.025583			skipping NML3_All with 7 cells
+2022-12-07 01:09:02.032746			skipping NML3_Lin with 1 cells
+2022-12-07 01:09:02.032825	Analyzing AT2 proliferating
+2022-12-07 01:09:02.060670	skipping AT2 proliferating with 27 subjects
+2022-12-07 01:09:02.060753	Analyzing B cells
+2022-12-07 01:09:02.113602			skipping IPF1_Lin with 6 cells
+2022-12-07 01:09:02.121462			Analysing IPF2_All
+2022-12-07 01:09:02.913906			skipping IPF2_Lin with 4 cells
+2022-12-07 01:09:02.921168			Analysing IPF3_All
+2022-12-07 01:09:03.736324			skipping IPF3_Lin with 0 cells
+2022-12-07 01:09:03.743304			skipping NML1_All with 4 cells
+2022-12-07 01:09:03.749961			skipping NML1_Lin with 0 cells
+2022-12-07 01:09:03.757065			Analysing NML2_All
+2022-12-07 01:09:04.492258			skipping NML2_Lin with 1 cells
+2022-12-07 01:09:04.499675			Analysing NML3_All
+2022-12-07 01:09:05.134230			skipping NML3_Lin with 0 cells
+2022-12-07 01:09:05.134318	Analyzing CD4 T cells
+2022-12-07 01:09:05.300141			skipping IPF1_Lin with 2 cells
+2022-12-07 01:09:05.307560			Analysing IPF2_All
+2022-12-07 01:09:09.135601			skipping IPF2_Lin with 1 cells
+2022-12-07 01:09:09.146469			Analysing IPF3_All
+2022-12-07 01:09:15.757392			skipping IPF3_Lin with 0 cells
+2022-12-07 01:09:15.764999			skipping NML1_All with 3 cells
+2022-12-07 01:09:15.771528			skipping NML1_Lin with 0 cells
+2022-12-07 01:09:15.778749			Analysing NML2_All
+2022-12-07 01:09:20.893890			skipping NML2_Lin with 0 cells
+2022-12-07 01:09:20.902023			Analysing NML3_All
+2022-12-07 01:09:25.474965			skipping NML3_Lin with 0 cells
+2022-12-07 01:09:25.475080	Analyzing CD8 T cells
+2022-12-07 01:09:25.670851			skipping IPF1_Lin with 2 cells
+2022-12-07 01:09:25.678009			Analysing IPF2_All
+2022-12-07 01:09:31.004273			skipping IPF2_Lin with 0 cells
+2022-12-07 01:09:31.015018			Analysing IPF3_All
+2022-12-07 01:09:36.483502			skipping IPF3_Lin with 0 cells
+2022-12-07 01:09:36.490897			skipping NML1_All with 1 cells
+2022-12-07 01:09:36.497335			skipping NML1_Lin with 0 cells
+2022-12-07 01:09:36.504700			Analysing NML2_All
+2022-12-07 01:09:41.198927			skipping NML2_Lin with 1 cells
+2022-12-07 01:09:41.207085			Analysing NML3_All
+2022-12-07 01:09:45.713516			skipping NML3_Lin with 1 cells
+2022-12-07 01:09:45.713634	Analyzing Classical monocytes
+2022-12-07 01:09:45.872796			skipping IPF1_Lin with 0 cells
+2022-12-07 01:09:45.882487			Analysing IPF2_All
+2022-12-07 01:09:49.210521			skipping IPF2_Lin with 0 cells
+2022-12-07 01:09:49.222856			Analysing IPF3_All
+2022-12-07 01:09:53.025662			skipping IPF3_Lin with 0 cells
+2022-12-07 01:09:53.033456			Analysing NML1_All
+2022-12-07 01:09:55.756362			skipping NML1_Lin with 1 cells
+2022-12-07 01:09:55.772260			Analysing NML2_All
+2022-12-07 01:09:58.196208			skipping NML2_Lin with 1 cells
+2022-12-07 01:09:58.204627			Analysing NML3_All
+2022-12-07 01:10:02.242913			skipping NML3_Lin with 6 cells
+2022-12-07 01:10:02.243001	Analyzing DC1
+2022-12-07 01:10:02.267990	skipping DC1 with 19 subjects
+2022-12-07 01:10:02.268084	Analyzing Deuterosomal
+2022-12-07 01:10:02.305066			skipping IPF1_Lin with 0 cells
+2022-12-07 01:10:02.311618			skipping IPF2_All with 0 cells
+2022-12-07 01:10:02.318195			skipping IPF2_Lin with 0 cells
+2022-12-07 01:10:02.324925			skipping IPF3_All with 0 cells
+2022-12-07 01:10:02.331461			skipping IPF3_Lin with 0 cells
+2022-12-07 01:10:02.338318			skipping NML1_All with 0 cells
+2022-12-07 01:10:02.345017			skipping NML1_Lin with 0 cells
+2022-12-07 01:10:02.352140			skipping NML2_All with 1 cells
+2022-12-07 01:10:02.358906			skipping NML2_Lin with 0 cells
+2022-12-07 01:10:02.365427			skipping NML3_All with 0 cells
+2022-12-07 01:10:02.372112			skipping NML3_Lin with 0 cells
+2022-12-07 01:10:02.372177	Analyzing EC aerocyte capillary
+2022-12-07 01:10:02.431799	skipping EC aerocyte capillary with 30 subjects
+2022-12-07 01:10:02.431880	Analyzing EC general capillary
+2022-12-07 01:10:02.549611			skipping IPF1_Lin with 1 cells
+2022-12-07 01:10:02.556880			Analysing IPF2_All
+2022-12-07 01:10:06.146001			skipping IPF2_Lin with 3 cells
+2022-12-07 01:10:06.154175			Analysing IPF3_All
+2022-12-07 01:10:08.295875			skipping IPF3_Lin with 2 cells
+2022-12-07 01:10:08.303981			Analysing NML1_All
+2022-12-07 01:10:11.658162			skipping NML1_Lin with 4 cells
+2022-12-07 01:10:11.666282			Analysing NML2_All
+2022-12-07 01:10:13.850328			skipping NML2_Lin with 4 cells
+2022-12-07 01:10:13.861131			Analysing NML3_All
+2022-12-07 01:10:17.990651			skipping NML3_Lin with 2 cells
+2022-12-07 01:10:17.990761	Analyzing Migratory DCs
+2022-12-07 01:10:18.018890	skipping Migratory DCs with 17 subjects
+2022-12-07 01:10:18.018969	Analyzing NK cells
+2022-12-07 01:10:18.140380			skipping IPF1_Lin with 0 cells
+2022-12-07 01:10:18.147655			Analysing IPF2_All
+2022-12-07 01:10:21.054451			skipping IPF2_Lin with 1 cells
+2022-12-07 01:10:21.072709			Analysing IPF3_All
+2022-12-07 01:10:24.027381			skipping IPF3_Lin with 0 cells
+2022-12-07 01:10:24.035041			skipping NML1_All with 5 cells
+2022-12-07 01:10:24.041819			skipping NML1_Lin with 0 cells
+2022-12-07 01:10:24.049391			Analysing NML2_All
+2022-12-07 01:10:26.993637			skipping NML2_Lin with 1 cells
+2022-12-07 01:10:27.001903			Analysing NML3_All
+2022-12-07 01:10:29.735059			skipping NML3_Lin with 0 cells
+2022-12-07 01:10:29.735217	Analyzing Non-classical monocytes
+2022-12-07 01:10:29.888441			skipping IPF1_Lin with 0 cells
+2022-12-07 01:10:29.902446			Analysing IPF2_All
+2022-12-07 01:10:32.873835			skipping IPF2_Lin with 0 cells
+2022-12-07 01:10:32.881551			Analysing IPF3_All
+2022-12-07 01:10:34.016298			skipping IPF3_Lin with 0 cells
+2022-12-07 01:10:34.023819			Analysing NML1_All
+2022-12-07 01:10:35.174003			skipping NML1_Lin with 0 cells
+2022-12-07 01:10:35.181635			Analysing NML2_All
+2022-12-07 01:10:37.298882			skipping NML2_Lin with 0 cells
+2022-12-07 01:10:37.306470			Analysing NML3_All
+2022-12-07 01:10:38.471778			skipping NML3_Lin with 2 cells
+2022-12-07 01:10:38.471874	Analyzing Plasma cells
+2022-12-07 01:10:38.512380			skipping IPF1_Lin with 0 cells
+2022-12-07 01:10:38.519627			Analysing IPF2_All
+2022-12-07 01:10:38.696446			skipping IPF2_Lin with 0 cells
+2022-12-07 01:10:38.703747			Analysing IPF3_All
+2022-12-07 01:10:38.886343			skipping IPF3_Lin with 3 cells
+2022-12-07 01:10:38.893419			skipping NML1_All with 12 cells
+2022-12-07 01:10:38.899938			skipping NML1_Lin with 0 cells
+2022-12-07 01:10:38.907136			Analysing NML2_All
+2022-12-07 01:10:39.079663			skipping NML2_Lin with 2 cells
+2022-12-07 01:10:39.086947			Analysing NML3_All
+2022-12-07 01:10:39.260558			skipping NML3_Lin with 0 cells
+2022-12-07 01:10:39.260642	Analyzing Plasmacytoid DCs
+2022-12-07 01:10:39.286641	skipping Plasmacytoid DCs with 20 subjects
+2022-12-07 01:10:39.286723	Analyzing T cells proliferating
+2022-12-07 01:10:39.310581	skipping T cells proliferating with 13 subjects
+2022-12-07 01:10:39.310660	Analyzing Basal
+2022-12-07 01:10:40.201769			skipping IPF1_Lin with 3 cells
+2022-12-07 01:10:40.215920			Analysing IPF2_All
+2022-12-07 01:10:55.204000			skipping IPF2_Lin with 5 cells
+2022-12-07 01:10:55.212419			Analysing IPF3_All
+2022-12-07 01:11:08.546983			skipping IPF3_Lin with 5 cells
+2022-12-07 01:11:08.555213			skipping NML1_All with 6 cells
+2022-12-07 01:11:08.562580			skipping NML1_Lin with 0 cells
+2022-12-07 01:11:08.569914			skipping NML2_All with 3 cells
+2022-12-07 01:11:08.577290			skipping NML2_Lin with 5 cells
+2022-12-07 01:11:08.584426			skipping NML3_All with 7 cells
+2022-12-07 01:11:08.591777			Analysing NML3_Lin
+2022-12-07 01:11:23.929724	Analyzing DC2
+2022-12-07 01:11:24.061351			skipping IPF1_Lin with 1 cells
+2022-12-07 01:11:24.069055			Analysing IPF2_All
+2022-12-07 01:11:25.961034			skipping IPF2_Lin with 4 cells
+2022-12-07 01:11:25.979890			Analysing IPF3_All
+2022-12-07 01:11:27.373729			skipping IPF3_Lin with 0 cells
+2022-12-07 01:11:27.381257			Analysing NML1_All
+2022-12-07 01:11:28.633170			skipping NML1_Lin with 0 cells
+2022-12-07 01:11:28.640843			Analysing NML2_All
+2022-12-07 01:11:30.917082			skipping NML2_Lin with 0 cells
+2022-12-07 01:11:30.924789			Analysing NML3_All
+2022-12-07 01:11:32.187716			skipping NML3_Lin with 0 cells
+2022-12-07 01:11:32.187799	Analyzing EC venous
+2022-12-07 01:11:32.296499			skipping IPF1_Lin with 9 cells
+2022-12-07 01:11:32.304039			Analysing IPF2_All
+2022-12-07 01:11:34.597763			skipping IPF2_Lin with 4 cells
+2022-12-07 01:11:34.608926			Analysing IPF3_All
+2022-12-07 01:11:36.452645			skipping IPF3_Lin with 7 cells
+2022-12-07 01:11:36.460349			Analysing NML1_All
+2022-12-07 01:11:38.899412			skipping NML1_Lin with 1 cells
+2022-12-07 01:11:38.907179			Analysing NML2_All
+2022-12-07 01:11:40.606072			skipping NML2_Lin with 0 cells
+2022-12-07 01:11:40.613681			Analysing NML3_All
+2022-12-07 01:11:44.177268			skipping NML3_Lin with 0 cells
+2022-12-07 01:11:44.177361	Analyzing Fibroblast lineage
+2022-12-07 01:11:44.460502			Analysing IPF1_Lin
+2022-12-07 01:11:48.303718			Analysing IPF2_All
+2022-12-07 01:11:50.874425			Analysing IPF2_Lin
+2022-12-07 01:11:56.344366			Analysing IPF3_All
+2022-12-07 01:12:00.990387			Analysing IPF3_Lin
+2022-12-07 01:12:04.897557			Analysing NML1_All
+2022-12-07 01:12:08.887882			Analysing NML1_Lin
+2022-12-07 01:12:15.069950			Analysing NML2_All
+2022-12-07 01:12:18.406928			Analysing NML2_Lin
+2022-12-07 01:12:21.465443			Analysing NML3_All
+2022-12-07 01:12:24.658774			Analysing NML3_Lin
+2022-12-07 01:12:29.911983	Analyzing Macrophages
+2022-12-07 01:12:30.707823			Analysing IPF1_Lin
+2022-12-07 01:12:50.951438			Analysing IPF2_All
+2022-12-07 01:13:09.950655			skipping IPF2_Lin with 14 cells
+2022-12-07 01:13:09.960902			Analysing IPF3_All
+2022-12-07 01:13:28.668653			Analysing IPF3_Lin
+2022-12-07 01:13:49.721183			Analysing NML1_All
+2022-12-07 01:14:08.464226			Analysing NML1_Lin
+2022-12-07 01:14:26.922252			Analysing NML2_All
+2022-12-07 01:14:47.070953			skipping NML2_Lin with 9 cells
+2022-12-07 01:14:47.088354			Analysing NML3_All
+2022-12-07 01:15:06.832223			Analysing NML3_Lin
+2022-12-07 01:15:24.390848	Analyzing Multiciliated
+2022-12-07 01:15:24.678740			skipping IPF1_Lin with 2 cells
+2022-12-07 01:15:24.685990			Analysing IPF2_All
+2022-12-07 01:15:32.102794			skipping IPF2_Lin with 7 cells
+2022-12-07 01:15:32.111171			Analysing IPF3_All
+2022-12-07 01:15:40.029243			Analysing IPF3_Lin
+2022-12-07 01:15:48.009708			skipping NML1_All with 8 cells
+2022-12-07 01:15:48.016913			skipping NML1_Lin with 0 cells
+2022-12-07 01:15:48.024104			skipping NML2_All with 13 cells
+2022-12-07 01:15:48.030975			skipping NML2_Lin with 1 cells
+2022-12-07 01:15:48.038444			skipping NML3_All with 5 cells
+2022-12-07 01:15:48.045432			skipping NML3_Lin with 1 cells
+2022-12-07 01:15:48.045518	Analyzing Rare
+2022-12-07 01:15:48.082573	skipping Rare with 38 subjects
+2022-12-07 01:15:48.082666	Analyzing Secretory
+2022-12-07 01:15:48.562689			skipping IPF1_Lin with 1 cells
+2022-12-07 01:15:48.570114			Analysing IPF2_All
+2022-12-07 01:16:05.673483			skipping IPF2_Lin with 12 cells
+2022-12-07 01:16:05.681907			Analysing IPF3_All
+2022-12-07 01:16:18.916974			skipping IPF3_Lin with 9 cells
+2022-12-07 01:16:18.969512			skipping NML1_All with 14 cells
+2022-12-07 01:16:19.003543			Analysing NML1_Lin
+2022-12-07 01:16:31.257872			Analysing NML2_All
+2022-12-07 01:16:45.588888			Analysing NML2_Lin
+2022-12-07 01:16:59.489592			Analysing NML3_All
+2022-12-07 01:17:15.255982			Analysing NML3_Lin
+2022-12-07 01:17:30.725099	Analyzing Smooth muscle
+2022-12-07 01:17:30.871986			Analysing IPF1_Lin
+2022-12-07 01:17:31.785000			Analysing IPF2_All
+2022-12-07 01:17:32.351717			Analysing IPF2_Lin
+2022-12-07 01:17:33.638397			Analysing IPF3_All
+2022-12-07 01:17:35.157993			Analysing IPF3_Lin
+2022-12-07 01:17:36.729876			Analysing NML1_All
+2022-12-07 01:17:37.315933			Analysing NML1_Lin
+2022-12-07 01:17:38.122759			Analysing NML2_All
+2022-12-07 01:17:38.678009			Analysing NML2_Lin
+2022-12-07 01:17:39.616393			Analysing NML3_All
+2022-12-07 01:17:40.365820			Analysing NML3_Lin
+2022-12-07 01:17:41.410803	Analyzing Submucosal Secretory
+2022-12-07 01:17:41.455167	skipping Submucosal Secretory with 34 subjects
+2022-12-08 19:53:07.808121	Standarizing columns...
+2022-12-08 19:53:12.142170	Finished
+2022-12-08 19:53:24.729181	Checking columns...
+2022-12-12 21:32:36.111744	Standarizing columns...
+2022-12-12 21:32:41.373242	Finished
+2022-12-12 21:32:41.529097	Checking columns...
+2022-12-13 14:05:29.645190	Standarizing columns...
+2022-12-13 14:05:34.338524	Finished
+2022-12-13 14:05:34.367054	Transferring labels...
+2022-12-13 14:05:35.285395	Train KNNModel
+2022-12-13 14:05:35.426000	Transfer Labels
+2022-12-13 14:26:20.360895	Transferring labels...
+2022-12-13 14:26:21.600695	Train KNNModel
+2022-12-13 14:26:21.763298	Transfer Labels
+2022-12-13 14:49:36.436915	Checking columns...
+2022-12-13 14:49:40.767653	Checking columns...
+2022-12-13 14:49:44.128432	Analyzing Hematopoietic stem cells
+2022-12-13 14:49:44.299357	skipping Hematopoietic stem cells with 2 subjects
+2022-12-13 14:49:44.299540	Analyzing Mesothelium
+2022-12-13 14:49:44.332182	skipping Mesothelium with 7 subjects
+2022-12-13 14:49:44.332286	Analyzing AT1
+2022-12-13 14:49:44.427203			skipping IPF1_Lin with 0 cells
+2022-12-13 14:49:44.435267			skipping IPF2_All with 5 cells
+2022-12-13 14:49:44.443011			skipping IPF2_Lin with 2 cells
+2022-12-13 14:49:44.450902			skipping IPF3_All with 3 cells
+2022-12-13 14:49:44.458573			skipping IPF3_Lin with 3 cells
+2022-12-13 14:49:44.466410			Analysing NML1_All
+2022-12-13 14:49:59.111670			Analysing NML1_Lin
+2022-12-13 14:50:00.863819			Analysing NML2_All
+2022-12-13 14:50:02.698885			Analysing NML2_Lin
+2022-12-13 14:50:04.416143			Analysing NML3_All
+2022-12-13 14:50:06.277286			Analysing NML3_Lin
+2022-12-13 14:50:08.116256	Analyzing AT2
+2022-12-13 14:50:08.583069			skipping IPF1_Lin with 0 cells
+2022-12-13 14:50:08.591109			Analysing IPF2_All
+2022-12-13 14:50:15.634576			Analysing IPF2_Lin
+2022-12-13 14:50:22.341133			Analysing IPF3_All
+2022-12-13 14:50:29.198871			skipping IPF3_Lin with 6 cells
+2022-12-13 14:50:29.208688			Analysing NML1_All
+2022-12-13 14:50:36.133366			Analysing NML1_Lin
+2022-12-13 14:50:42.980181			Analysing NML2_All
+2022-12-13 14:50:49.894203			Analysing NML2_Lin
+2022-12-13 14:50:56.773947			Analysing NML3_All
+2022-12-13 14:51:03.601936			Analysing NML3_Lin
+2022-12-13 14:51:10.484416	Analyzing EC arterial
+2022-12-13 14:51:10.569244			skipping IPF1_Lin with 2 cells
+2022-12-13 14:51:10.577105			Analysing IPF2_All
+2022-12-13 14:51:12.156897			skipping IPF2_Lin with 1 cells
+2022-12-13 14:51:12.165017			Analysing IPF3_All
+2022-12-13 14:51:13.689739			skipping IPF3_Lin with 1 cells
+2022-12-13 14:51:13.704405			Analysing NML1_All
+2022-12-13 14:51:15.234888			skipping NML1_Lin with 0 cells
+2022-12-13 14:51:15.242788			Analysing NML2_All
+2022-12-13 14:51:16.756436			skipping NML2_Lin with 0 cells
+2022-12-13 14:51:16.764268			Analysing NML3_All
+2022-12-13 14:51:18.298693			skipping NML3_Lin with 0 cells
+2022-12-13 14:51:18.298806	Analyzing Lymphatic EC differentiating
+2022-12-13 14:51:18.326409	skipping Lymphatic EC differentiating with 8 subjects
+2022-12-13 14:51:18.326521	Analyzing Lymphatic EC mature
+2022-12-13 14:51:18.381607			skipping IPF1_Lin with 2 cells
+2022-12-13 14:51:18.389187			skipping IPF2_All with 12 cells
+2022-12-13 14:51:18.396819			skipping IPF2_Lin with 1 cells
+2022-12-13 14:51:18.404400			Analysing IPF3_All
+2022-12-13 14:51:18.986420			skipping IPF3_Lin with 4 cells
+2022-12-13 14:51:18.994545			Analysing NML1_All
+2022-12-13 14:51:19.579604			skipping NML1_Lin with 0 cells
+2022-12-13 14:51:19.587526			Analysing NML2_All
+2022-12-13 14:51:20.155629			skipping NML2_Lin with 0 cells
+2022-12-13 14:51:20.163241			skipping NML3_All with 13 cells
+2022-12-13 14:51:20.170544			skipping NML3_Lin with 0 cells
+2022-12-13 14:51:20.170650	Analyzing Lymphatic EC proliferating
+2022-12-13 14:51:20.192803	skipping Lymphatic EC proliferating with 1 subjects
+2022-12-13 14:51:20.192917	Analyzing Mast cells
+2022-12-13 14:51:20.261217			skipping IPF1_Lin with 0 cells
+2022-12-13 14:51:20.268796			skipping IPF2_All with 8 cells
+2022-12-13 14:51:20.276384			skipping IPF2_Lin with 2 cells
+2022-12-13 14:51:20.283986			Analysing IPF3_All
+2022-12-13 14:51:21.564397			skipping IPF3_Lin with 0 cells
+2022-12-13 14:51:21.572389			Analysing NML1_All
+2022-12-13 14:51:22.832672			Analysing NML1_Lin
+2022-12-13 14:51:24.098011			Analysing NML2_All
+2022-12-13 14:51:25.441826			skipping NML2_Lin with 0 cells
+2022-12-13 14:51:25.449778			skipping NML3_All with 7 cells
+2022-12-13 14:51:25.457253			skipping NML3_Lin with 1 cells
+2022-12-13 14:51:25.457367	Analyzing AT2 proliferating
+2022-12-13 14:51:25.487850	skipping AT2 proliferating with 27 subjects
+2022-12-13 14:51:25.487960	Analyzing B cells
+2022-12-13 14:51:25.546702			skipping IPF1_Lin with 6 cells
+2022-12-13 14:51:25.555343			Analysing IPF2_All
+2022-12-13 14:51:26.257758			skipping IPF2_Lin with 4 cells
+2022-12-13 14:51:26.266020			Analysing IPF3_All
+2022-12-13 14:51:26.938599			skipping IPF3_Lin with 0 cells
+2022-12-13 14:51:26.946320			skipping NML1_All with 4 cells
+2022-12-13 14:51:26.953782			skipping NML1_Lin with 0 cells
+2022-12-13 14:51:26.961636			Analysing NML2_All
+2022-12-13 14:51:27.639143			skipping NML2_Lin with 1 cells
+2022-12-13 14:51:27.647285			Analysing NML3_All
+2022-12-13 14:51:28.320038			skipping NML3_Lin with 0 cells
+2022-12-13 14:51:28.320142	Analyzing CD4 T cells
+2022-12-13 14:51:28.475600			skipping IPF1_Lin with 2 cells
+2022-12-13 14:51:28.483416			Analysing IPF2_All
+2022-12-13 14:51:30.794814			skipping IPF2_Lin with 1 cells
+2022-12-13 14:51:30.807124			Analysing IPF3_All
+2022-12-13 14:51:33.103967			skipping IPF3_Lin with 0 cells
+2022-12-13 14:51:33.112499			skipping NML1_All with 3 cells
+2022-12-13 14:51:33.119802			skipping NML1_Lin with 0 cells
+2022-12-13 14:51:33.127857			Analysing NML2_All
+2022-12-13 14:51:35.443551			skipping NML2_Lin with 0 cells
+2022-12-13 14:51:35.452303			Analysing NML3_All
+2022-12-13 14:51:37.748964			skipping NML3_Lin with 0 cells
+2022-12-13 14:51:37.749092	Analyzing CD8 T cells
+2022-12-13 14:51:37.960018			skipping IPF1_Lin with 2 cells
+2022-12-13 14:51:37.967767			Analysing IPF2_All
+2022-12-13 14:51:41.176578			skipping IPF2_Lin with 0 cells
+2022-12-13 14:51:41.189317			Analysing IPF3_All
+2022-12-13 14:51:44.379291			skipping IPF3_Lin with 0 cells
+2022-12-13 14:51:44.387792			skipping NML1_All with 1 cells
+2022-12-13 14:51:44.395178			skipping NML1_Lin with 0 cells
+2022-12-13 14:51:44.403578			Analysing NML2_All
+2022-12-13 14:51:47.597438			skipping NML2_Lin with 1 cells
+2022-12-13 14:51:47.606404			Analysing NML3_All
+2022-12-13 14:51:50.806827			skipping NML3_Lin with 1 cells
+2022-12-13 14:51:50.806964	Analyzing Classical monocytes
+2022-12-13 14:51:50.956270			skipping IPF1_Lin with 0 cells
+2022-12-13 14:51:50.964368			Analysing IPF2_All
+2022-12-13 14:51:52.871073			skipping IPF2_Lin with 0 cells
+2022-12-13 14:51:52.884639			Analysing IPF3_All
+2022-12-13 14:51:54.843525			skipping IPF3_Lin with 0 cells
+2022-12-13 14:51:54.852518			Analysing NML1_All
+2022-12-13 14:51:56.780229			skipping NML1_Lin with 1 cells
+2022-12-13 14:51:56.789517			Analysing NML2_All
+2022-12-13 14:51:58.760991			skipping NML2_Lin with 1 cells
+2022-12-13 14:51:58.770397			Analysing NML3_All
+2022-12-13 14:52:00.735241			skipping NML3_Lin with 6 cells
+2022-12-13 14:52:00.735362	Analyzing DC1
+2022-12-13 14:52:00.762978	skipping DC1 with 19 subjects
+2022-12-13 14:52:00.763070	Analyzing Deuterosomal
+2022-12-13 14:52:00.806231			skipping IPF1_Lin with 0 cells
+2022-12-13 14:52:00.813612			skipping IPF2_All with 0 cells
+2022-12-13 14:52:00.820766			skipping IPF2_Lin with 0 cells
+2022-12-13 14:52:00.828090			skipping IPF3_All with 0 cells
+2022-12-13 14:52:00.835175			skipping IPF3_Lin with 0 cells
+2022-12-13 14:52:00.842455			skipping NML1_All with 0 cells
+2022-12-13 14:52:00.849939			skipping NML1_Lin with 0 cells
+2022-12-13 14:52:00.857681			skipping NML2_All with 1 cells
+2022-12-13 14:52:00.865930			skipping NML2_Lin with 0 cells
+2022-12-13 14:52:00.873172			skipping NML3_All with 0 cells
+2022-12-13 14:52:00.880650			skipping NML3_Lin with 0 cells
+2022-12-13 14:52:00.880751	Analyzing EC aerocyte capillary
+2022-12-13 14:52:00.950875	skipping EC aerocyte capillary with 30 subjects
+2022-12-13 14:52:00.950996	Analyzing EC general capillary
+2022-12-13 14:52:01.085468			skipping IPF1_Lin with 1 cells
+2022-12-13 14:52:01.093328			Analysing IPF2_All
+2022-12-13 14:52:02.813396			skipping IPF2_Lin with 3 cells
+2022-12-13 14:52:02.822273			Analysing IPF3_All
+2022-12-13 14:52:04.564313			skipping IPF3_Lin with 2 cells
+2022-12-13 14:52:04.573257			Analysing NML1_All
+2022-12-13 14:52:06.331795			skipping NML1_Lin with 4 cells
+2022-12-13 14:52:06.340898			Analysing NML2_All
+2022-12-13 14:52:08.109997			skipping NML2_Lin with 4 cells
+2022-12-13 14:52:08.118801			Analysing NML3_All
+2022-12-13 14:52:09.875591			skipping NML3_Lin with 2 cells
+2022-12-13 14:52:09.875705	Analyzing Migratory DCs
+2022-12-13 14:52:09.903192	skipping Migratory DCs with 17 subjects
+2022-12-13 14:52:09.903279	Analyzing NK cells
+2022-12-13 14:52:10.045573			skipping IPF1_Lin with 0 cells
+2022-12-13 14:52:10.053479			Analysing IPF2_All
+2022-12-13 14:52:11.880849			skipping IPF2_Lin with 1 cells
+2022-12-13 14:52:11.889475			Analysing IPF3_All
+2022-12-13 14:52:13.752693			skipping IPF3_Lin with 0 cells
+2022-12-13 14:52:13.761127			skipping NML1_All with 5 cells
+2022-12-13 14:52:13.768427			skipping NML1_Lin with 0 cells
+2022-12-13 14:52:13.776512			Analysing NML2_All
+2022-12-13 14:52:15.638665			skipping NML2_Lin with 1 cells
+2022-12-13 14:52:15.647683			Analysing NML3_All
+2022-12-13 14:52:17.547265			skipping NML3_Lin with 0 cells
+2022-12-13 14:52:17.547377	Analyzing Non-classical monocytes
+2022-12-13 14:52:17.643746			skipping IPF1_Lin with 0 cells
+2022-12-13 14:52:17.651844			Analysing IPF2_All
+2022-12-13 14:52:18.584361			skipping IPF2_Lin with 0 cells
+2022-12-13 14:52:18.592425			Analysing IPF3_All
+2022-12-13 14:52:19.532316			skipping IPF3_Lin with 0 cells
+2022-12-13 14:52:19.540857			Analysing NML1_All
+2022-12-13 14:52:20.486103			skipping NML1_Lin with 0 cells
+2022-12-13 14:52:20.494495			Analysing NML2_All
+2022-12-13 14:52:21.441561			skipping NML2_Lin with 0 cells
+2022-12-13 14:52:21.449807			Analysing NML3_All
+2022-12-13 14:52:22.394649			skipping NML3_Lin with 2 cells
+2022-12-13 14:52:22.394762	Analyzing Plasma cells
+2022-12-13 14:52:22.442220			skipping IPF1_Lin with 0 cells
+2022-12-13 14:52:22.450004			Analysing IPF2_All
+2022-12-13 14:52:22.665441			skipping IPF2_Lin with 0 cells
+2022-12-13 14:52:22.673397			Analysing IPF3_All
+2022-12-13 14:52:22.879144			skipping IPF3_Lin with 3 cells
+2022-12-13 14:52:22.887136			skipping NML1_All with 12 cells
+2022-12-13 14:52:22.894292			skipping NML1_Lin with 0 cells
+2022-12-13 14:52:22.902278			Analysing NML2_All
+2022-12-13 14:52:23.094132			skipping NML2_Lin with 2 cells
+2022-12-13 14:52:23.101847			Analysing NML3_All
+2022-12-13 14:52:23.297170			skipping NML3_Lin with 0 cells
+2022-12-13 14:52:23.297283	Analyzing Plasmacytoid DCs
+2022-12-13 14:52:23.327385	skipping Plasmacytoid DCs with 20 subjects
+2022-12-13 14:52:23.327494	Analyzing T cells proliferating
+2022-12-13 14:52:23.355066	skipping T cells proliferating with 13 subjects
+2022-12-13 14:52:23.355169	Analyzing Basal
+2022-12-13 14:52:23.992924			skipping IPF1_Lin with 3 cells
+2022-12-13 14:52:24.001030			Analysing IPF2_All
+2022-12-13 14:52:33.897622			skipping IPF2_Lin with 5 cells
+2022-12-13 14:52:33.906872			Analysing IPF3_All
+2022-12-13 14:52:43.563928			skipping IPF3_Lin with 5 cells
+2022-12-13 14:52:43.573247			skipping NML1_All with 6 cells
+2022-12-13 14:52:43.580215			skipping NML1_Lin with 0 cells
+2022-12-13 14:52:43.587797			skipping NML2_All with 3 cells
+2022-12-13 14:52:43.595700			skipping NML2_Lin with 5 cells
+2022-12-13 14:52:43.603272			skipping NML3_All with 7 cells
+2022-12-13 14:52:43.611179			Analysing NML3_Lin
+2022-12-13 14:52:53.428704	Analyzing DC2
+2022-12-13 14:52:53.528015			skipping IPF1_Lin with 1 cells
+2022-12-13 14:52:53.536283			Analysing IPF2_All
+2022-12-13 14:52:54.561037			skipping IPF2_Lin with 4 cells
+2022-12-13 14:52:54.575229			Analysing IPF3_All
+2022-12-13 14:52:55.635099			skipping IPF3_Lin with 0 cells
+2022-12-13 14:52:55.643616			Analysing NML1_All
+2022-12-13 14:52:56.622062			skipping NML1_Lin with 0 cells
+2022-12-13 14:52:56.630395			Analysing NML2_All
+2022-12-13 14:52:57.624300			skipping NML2_Lin with 0 cells
+2022-12-13 14:52:57.632537			Analysing NML3_All
+2022-12-13 14:52:58.613993			skipping NML3_Lin with 0 cells
+2022-12-13 14:52:58.614131	Analyzing EC venous
+2022-12-13 14:52:58.732398			skipping IPF1_Lin with 9 cells
+2022-12-13 14:52:58.740316			Analysing IPF2_All
+2022-12-13 14:53:00.170526			skipping IPF2_Lin with 4 cells
+2022-12-13 14:53:00.180038			Analysing IPF3_All
+2022-12-13 14:53:01.706978			skipping IPF3_Lin with 7 cells
+2022-12-13 14:53:01.715446			Analysing NML1_All
+2022-12-13 14:53:03.106259			skipping NML1_Lin with 1 cells
+2022-12-13 14:53:03.114795			Analysing NML2_All
+2022-12-13 14:53:04.507677			skipping NML2_Lin with 0 cells
+2022-12-13 14:53:04.516103			Analysing NML3_All
+2022-12-13 14:53:05.925027			skipping NML3_Lin with 0 cells
+2022-12-13 14:53:05.925175	Analyzing Fibroblast lineage
+2022-12-13 14:53:06.258008			Analysing IPF1_Lin
+2022-12-13 14:53:08.789721			Analysing IPF2_All
+2022-12-13 14:53:11.038559			Analysing IPF2_Lin
+2022-12-13 14:53:13.717248			Analysing IPF3_All
+2022-12-13 14:53:16.010533			Analysing IPF3_Lin
+2022-12-13 14:53:18.762578			Analysing NML1_All
+2022-12-13 14:53:21.022067			Analysing NML1_Lin
+2022-12-13 14:53:24.159244			Analysing NML2_All
+2022-12-13 14:53:26.432573			Analysing NML2_Lin
+2022-12-13 14:53:29.023435			Analysing NML3_All
+2022-12-13 14:53:31.208638			Analysing NML3_Lin
+2022-12-13 14:53:33.554501	Analyzing Macrophages
+2022-12-13 14:53:34.450472			Analysing IPF1_Lin
+2022-12-13 14:53:47.606160			Analysing IPF2_All
+2022-12-13 14:54:00.744142			skipping IPF2_Lin with 14 cells
+2022-12-13 14:54:00.756279			Analysing IPF3_All
+2022-12-13 14:54:13.902443			Analysing IPF3_Lin
+2022-12-13 14:54:27.112636			Analysing NML1_All
+2022-12-13 14:54:40.472581			Analysing NML1_Lin
+2022-12-13 14:54:54.407001			Analysing NML2_All
+2022-12-13 14:55:07.720472			skipping NML2_Lin with 9 cells
+2022-12-13 14:55:07.732096			Analysing NML3_All
+2022-12-13 14:55:21.017773			Analysing NML3_Lin
+2022-12-13 14:55:34.037156	Analyzing Multiciliated
+2022-12-13 14:55:34.378155			skipping IPF1_Lin with 2 cells
+2022-12-13 14:55:34.386188			Analysing IPF2_All
+2022-12-13 14:55:39.143455			skipping IPF2_Lin with 7 cells
+2022-12-13 14:55:39.155298			Analysing IPF3_All
+2022-12-13 14:55:43.625828			Analysing IPF3_Lin
+2022-12-13 14:55:48.013957			skipping NML1_All with 8 cells
+2022-12-13 14:55:48.030397			skipping NML1_Lin with 0 cells
+2022-12-13 14:55:48.038409			skipping NML2_All with 13 cells
+2022-12-13 14:55:48.046130			skipping NML2_Lin with 1 cells
+2022-12-13 14:55:48.054198			skipping NML3_All with 5 cells
+2022-12-13 14:55:48.061780			skipping NML3_Lin with 1 cells
+2022-12-13 14:55:48.061895	Analyzing Rare
+2022-12-13 14:55:48.114047	skipping Rare with 38 subjects
+2022-12-13 14:55:48.114154	Analyzing Secretory
+2022-12-13 14:55:48.686831			skipping IPF1_Lin with 1 cells
+2022-12-13 14:55:48.694761			Analysing IPF2_All
+2022-12-13 14:55:57.913207			skipping IPF2_Lin with 12 cells
+2022-12-13 14:55:57.922322			Analysing IPF3_All
+2022-12-13 14:56:06.990238			skipping IPF3_Lin with 9 cells
+2022-12-13 14:56:06.999054			skipping NML1_All with 14 cells
+2022-12-13 14:56:07.006697			Analysing NML1_Lin
+2022-12-13 14:56:16.279791			Analysing NML2_All
+2022-12-13 14:56:25.455111			Analysing NML2_Lin
+2022-12-13 14:56:34.485133			Analysing NML3_All
+2022-12-13 14:56:43.400486			Analysing NML3_Lin
+2022-12-13 14:56:52.442022	Analyzing Smooth muscle
+2022-12-13 14:56:52.560695			Analysing IPF1_Lin
+2022-12-13 14:56:53.498397			Analysing IPF2_All
+2022-12-13 14:56:54.070756			Analysing IPF2_Lin
+2022-12-13 14:56:54.859992			Analysing IPF3_All
+2022-12-13 14:56:55.643213			Analysing IPF3_Lin
+2022-12-13 14:56:56.863372			Analysing NML1_All
+2022-12-13 14:56:57.383281			Analysing NML1_Lin
+2022-12-13 14:56:58.153612			Analysing NML2_All
+2022-12-13 14:56:58.683104			Analysing NML2_Lin
+2022-12-13 14:56:59.394856			Analysing NML3_All
+2022-12-13 14:56:59.882009			Analysing NML3_Lin
+2022-12-13 14:57:00.555165	Analyzing Submucosal Secretory
+2022-12-13 14:57:00.613808	skipping Submucosal Secretory with 34 subjects
+2022-12-13 23:31:43.351892	Standarizing columns...
+2022-12-13 23:31:48.390396	Finished
+2022-12-13 23:32:04.800744	Checking columns...
+2022-12-14 12:31:05.852892	Standarizing columns...
+2022-12-14 12:31:10.890984	Finished
+2022-12-14 12:31:26.005608	Checking columns...
+2022-12-15 19:19:53.146745	Standarizing columns...
+2022-12-15 19:19:57.900558	Finished
+2022-12-15 19:20:10.345553	Checking columns...
+2022-12-15 19:25:34.215791	Standarizing columns...
+2022-12-15 19:25:38.545607	Finished
+2022-12-15 19:25:50.377199	Checking columns...
+2022-12-15 19:26:11.424840	skipping celltype Mast cells for disease effect evaluation: confounded healthy
+2022-12-15 19:26:12.392350	skipping celltype CD4 T cells for disease effect evaluation: confounded healthy
+2022-12-15 19:26:12.392720	skipping celltype CD8 T cells for disease effect evaluation: confounded healthy
+2022-12-15 19:26:12.392764	skipping celltype Classical monocytes for disease effect evaluation: confounded healthy
+2022-12-15 19:26:12.578749	skipping celltype NK cells for disease effect evaluation: confounded healthy
+2022-12-15 19:26:12.653908	skipping celltype Fibroblast lineage for disease effect evaluation: confounded healthy

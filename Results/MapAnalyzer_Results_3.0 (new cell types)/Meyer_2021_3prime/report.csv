@@ -1,0 +1,97 @@
+,cell_label,sample,mean,health_status,dataset,excluded,label
+0,AT2,HCATisStab7732261,-0.006299986109036704,healthy,Meyer_2021_3prime,False,healthy accepted
+1,Alveolar macrophages,HCATisStab7732261,0.19635636529766642,healthy,Meyer_2021_3prime,False,healthy accepted
+2,Fibroblast lineage,HCATisStab7732261,0.2062400922594192,healthy,Meyer_2021_3prime,False,healthy accepted
+3,Interstitial macrophages,HCATisStab7732261,0.19611283167252636,healthy,Meyer_2021_3prime,False,healthy accepted
+4,Monocytes,HCATisStab7732261,0.1915276596194606,healthy,Meyer_2021_3prime,False,healthy accepted
+5,NK cells,HCATisStab7732261,0.19891256537597868,healthy,Meyer_2021_3prime,False,healthy accepted
+6,T cell lineage,HCATisStab7732261,0.22440224681949328,healthy,Meyer_2021_3prime,False,healthy accepted
+7,AT2,HCATisStab7732262,0.18337422473243847,healthy,Meyer_2021_3prime,False,healthy accepted
+8,Alveolar macrophages,HCATisStab7732262,0.13340971827054704,healthy,Meyer_2021_3prime,False,healthy accepted
+9,Fibroblast lineage,HCATisStab7732262,-0.060680528925927235,healthy,Meyer_2021_3prime,False,healthy accepted
+10,Interstitial macrophages,HCATisStab7732262,0.16103786382554475,healthy,Meyer_2021_3prime,False,healthy accepted
+11,Mast cells,HCATisStab7732262,-0.07942394934164326,healthy,Meyer_2021_3prime,False,healthy accepted
+12,Monocytes,HCATisStab7732262,-0.153270904261115,healthy,Meyer_2021_3prime,False,healthy accepted
+13,NK cells,HCATisStab7732262,0.2119307745074872,healthy,Meyer_2021_3prime,False,healthy accepted
+14,T cell lineage,HCATisStab7732262,-0.018369248877936784,healthy,Meyer_2021_3prime,False,healthy accepted
+15,Alveolar macrophages,HCATisStab7732263,0.05605745132939777,healthy,Meyer_2021_3prime,False,healthy accepted
+16,Fibroblast lineage,HCATisStab7732263,0.23097336829715198,healthy,Meyer_2021_3prime,False,healthy accepted
+17,Interstitial macrophages,HCATisStab7732263,0.2119638264399939,healthy,Meyer_2021_3prime,False,healthy accepted
+18,Mast cells,HCATisStab7732263,-0.24908572944592255,healthy,Meyer_2021_3prime,False,healthy accepted
+19,Monocytes,HCATisStab7732263,-0.15336624418869138,healthy,Meyer_2021_3prime,False,healthy accepted
+20,NK cells,HCATisStab7732263,0.1740024292577933,healthy,Meyer_2021_3prime,False,healthy accepted
+21,T cell lineage,HCATisStab7732263,0.08834514243142377,healthy,Meyer_2021_3prime,False,healthy accepted
+22,AT2,HCATisStab7732264,0.19014042959008748,healthy,Meyer_2021_3prime,False,healthy accepted
+23,Alveolar macrophages,HCATisStab7732264,0.10877217187123223,healthy,Meyer_2021_3prime,False,healthy accepted
+24,Dendritic cells,HCATisStab7732264,0.01683345083519805,healthy,Meyer_2021_3prime,False,healthy accepted
+25,EC arterial,HCATisStab7732264,0.31352274409936165,healthy,Meyer_2021_3prime,False,healthy accepted
+26,EC venous,HCATisStab7732264,0.1948007948822279,healthy,Meyer_2021_3prime,False,healthy accepted
+27,Fibroblast lineage,HCATisStab7732264,0.18456121688267246,healthy,Meyer_2021_3prime,False,healthy accepted
+28,Interstitial macrophages,HCATisStab7732264,0.12460771118448533,healthy,Meyer_2021_3prime,False,healthy accepted
+29,Mast cells,HCATisStab7732264,-0.21654723423151967,healthy,Meyer_2021_3prime,False,healthy accepted
+30,Monocytes,HCATisStab7732264,-0.19870945613605573,healthy,Meyer_2021_3prime,False,healthy accepted
+31,NK cells,HCATisStab7732264,0.06988953771522011,healthy,Meyer_2021_3prime,False,healthy accepted
+32,T cell lineage,HCATisStab7732264,0.17098051982667006,healthy,Meyer_2021_3prime,False,healthy accepted
+33,Transitional Club-AT2,HCATisStab7732264,0.14556350754565028,healthy,Meyer_2021_3prime,False,healthy accepted
+34,Alveolar macrophages,WTDAtest7732265,-0.07754327544910311,healthy,Meyer_2021_3prime,False,healthy accepted
+35,Dendritic cells,WTDAtest7732265,-0.0010798985926405713,healthy,Meyer_2021_3prime,False,healthy accepted
+36,EC arterial,WTDAtest7732265,0.40480093921998916,healthy,Meyer_2021_3prime,False,healthy accepted
+37,EC venous,WTDAtest7732265,0.21929643855698222,healthy,Meyer_2021_3prime,False,healthy accepted
+38,Fibroblast lineage,WTDAtest7732265,0.16617018326279365,healthy,Meyer_2021_3prime,False,healthy accepted
+39,Interstitial macrophages,WTDAtest7732265,-0.040247875839411196,healthy,Meyer_2021_3prime,False,healthy accepted
+40,Mast cells,WTDAtest7732265,-0.1212698372865344,healthy,Meyer_2021_3prime,False,healthy accepted
+41,Monocytes,WTDAtest7732265,-0.028717678379234945,healthy,Meyer_2021_3prime,False,healthy accepted
+42,Multiciliated (non-nasal),WTDAtest7732265,0.10503874138315195,healthy,Meyer_2021_3prime,False,healthy accepted
+43,NK cells,WTDAtest7732265,0.09923221595274079,healthy,Meyer_2021_3prime,False,healthy accepted
+44,Suprabasal,WTDAtest7732265,0.056645924762927624,healthy,Meyer_2021_3prime,False,healthy accepted
+45,T cell lineage,WTDAtest7732265,-0.03487904688830101,healthy,Meyer_2021_3prime,False,healthy accepted
+46,Fibroblast lineage,WTDAtest7732266,0.0032876668232819095,healthy,Meyer_2021_3prime,False,healthy accepted
+47,Goblet,WTDAtest7732266,0.12546183763267105,healthy,Meyer_2021_3prime,False,healthy accepted
+48,Multiciliated (non-nasal),WTDAtest7732266,-0.029200202992641366,healthy,Meyer_2021_3prime,False,healthy accepted
+49,NK cells,WTDAtest7732266,0.07332316808923467,healthy,Meyer_2021_3prime,False,healthy accepted
+50,Suprabasal,WTDAtest7732266,0.06780755492547241,healthy,Meyer_2021_3prime,False,healthy accepted
+51,T cell lineage,WTDAtest7732266,0.12362078959283451,healthy,Meyer_2021_3prime,False,healthy accepted
+52,Transitional Club-AT2,WTDAtest7732266,-0.1106354590359202,healthy,Meyer_2021_3prime,False,healthy accepted
+53,EC arterial,WTDAtest7732267,0.32904924689703285,healthy,Meyer_2021_3prime,False,healthy accepted
+54,EC venous,WTDAtest7732267,0.24446478283399808,healthy,Meyer_2021_3prime,False,healthy accepted
+55,Fibroblast lineage,WTDAtest7732267,0.21373762593791223,healthy,Meyer_2021_3prime,False,healthy accepted
+56,Interstitial macrophages,WTDAtest7732267,0.0006826644346543675,healthy,Meyer_2021_3prime,False,healthy accepted
+57,Monocytes,WTDAtest7732267,0.07432324691379377,healthy,Meyer_2021_3prime,False,healthy accepted
+58,Multiciliated (non-nasal),WTDAtest7732267,0.06066913412500541,healthy,Meyer_2021_3prime,False,healthy accepted
+59,NK cells,WTDAtest7732267,0.12712897472356388,healthy,Meyer_2021_3prime,False,healthy accepted
+60,Suprabasal,WTDAtest7732267,-0.2195740067958622,healthy,Meyer_2021_3prime,False,healthy accepted
+61,T cell lineage,WTDAtest7732267,0.20142051569279773,healthy,Meyer_2021_3prime,False,healthy accepted
+62,Alveolar macrophages,WTDAtest7732268,0.16803364308670143,healthy,Meyer_2021_3prime,False,healthy accepted
+63,Dendritic cells,WTDAtest7732268,0.054897624954910906,healthy,Meyer_2021_3prime,False,healthy accepted
+64,EC arterial,WTDAtest7732268,0.31496782280861024,healthy,Meyer_2021_3prime,False,healthy accepted
+65,EC venous,WTDAtest7732268,0.06847826153969538,healthy,Meyer_2021_3prime,False,healthy accepted
+66,Fibroblast lineage,WTDAtest7732268,0.0746338443455219,healthy,Meyer_2021_3prime,False,healthy accepted
+67,Interstitial macrophages,WTDAtest7732268,-0.12823596517342428,healthy,Meyer_2021_3prime,False,healthy accepted
+68,Monocytes,WTDAtest7732268,0.04211807741513418,healthy,Meyer_2021_3prime,False,healthy accepted
+69,NK cells,WTDAtest7732268,0.04431401287117964,healthy,Meyer_2021_3prime,False,healthy accepted
+70,T cell lineage,WTDAtest7732268,-0.055092946590914904,healthy,Meyer_2021_3prime,False,healthy accepted
+71,AT2,WTDAtest7732269,0.19136176358446533,healthy,Meyer_2021_3prime,False,healthy accepted
+72,EC arterial,WTDAtest7732269,0.2800659586530996,healthy,Meyer_2021_3prime,False,healthy accepted
+73,EC venous,WTDAtest7732269,0.07735609834375279,healthy,Meyer_2021_3prime,False,healthy accepted
+74,Fibroblast lineage,WTDAtest7732269,0.022154622139045788,healthy,Meyer_2021_3prime,False,healthy accepted
+75,Multiciliated (non-nasal),WTDAtest7732269,-0.0439292239884137,healthy,Meyer_2021_3prime,False,healthy accepted
+76,Transitional Club-AT2,WTDAtest7732269,0.11266377584587095,healthy,Meyer_2021_3prime,False,healthy accepted
+77,AT2,WTDAtest7732270,0.2323906724733591,healthy,Meyer_2021_3prime,False,healthy accepted
+78,Alveolar macrophages,WTDAtest7732270,0.15785011797424775,healthy,Meyer_2021_3prime,False,healthy accepted
+79,EC arterial,WTDAtest7732270,0.35302013034928026,healthy,Meyer_2021_3prime,False,healthy accepted
+80,EC venous,WTDAtest7732270,0.2659884810184403,healthy,Meyer_2021_3prime,False,healthy accepted
+81,Fibroblast lineage,WTDAtest7732270,0.10999197520335663,healthy,Meyer_2021_3prime,False,healthy accepted
+82,Interstitial macrophages,WTDAtest7732270,0.056137593125090035,healthy,Meyer_2021_3prime,False,healthy accepted
+83,Multiciliated (non-nasal),WTDAtest7732270,-0.03299789532270969,healthy,Meyer_2021_3prime,False,healthy accepted
+84,T cell lineage,WTDAtest7732270,0.10970075863152828,healthy,Meyer_2021_3prime,False,healthy accepted
+85,Transitional Club-AT2,WTDAtest7732270,0.12563017058471637,healthy,Meyer_2021_3prime,False,healthy accepted
+86,AT2,WTDAtest7887999,0.020921464689889202,healthy,Meyer_2021_3prime,False,healthy accepted
+87,Monocytes,WTDAtest7887999,0.11603623662872697,healthy,Meyer_2021_3prime,False,healthy accepted
+88,T cell lineage,WTDAtest7887999,0.10542072219057408,healthy,Meyer_2021_3prime,False,healthy accepted
+89,AT2,WTDAtest7888000,-0.148964706958494,healthy,Meyer_2021_3prime,False,healthy accepted
+90,Fibroblast lineage,WTDAtest7888000,-0.12514654918606527,healthy,Meyer_2021_3prime,False,healthy accepted
+91,Fibroblast lineage,WTDAtest7888001,0.1337873844099171,healthy,Meyer_2021_3prime,False,healthy accepted
+92,Dendritic cells,WTDAtest7888002,-0.018719463534525582,healthy,Meyer_2021_3prime,False,healthy accepted
+93,Monocytes,WTDAtest7888002,0.05237043853498069,healthy,Meyer_2021_3prime,False,healthy accepted
+94,NK cells,WTDAtest7888002,0.07077995547871152,healthy,Meyer_2021_3prime,False,healthy accepted
+95,T cell lineage,WTDAtest7888002,0.04474339681299366,healthy,Meyer_2021_3prime,False,healthy accepted

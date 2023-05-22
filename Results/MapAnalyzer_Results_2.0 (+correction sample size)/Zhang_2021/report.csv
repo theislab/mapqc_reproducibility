@@ -1,0 +1,87 @@
+,cell_label,sample,mean,health_status,dataset,excluded,label
+0,CD4 T cells,HC1,-0.7352234525434916,healthy,Zhang_2021,True,healthy rejected
+1,CD8 T cells,HC1,-0.7801300536806371,healthy,Zhang_2021,True,healthy rejected
+2,DC2,HC1,-0.49911639731762336,healthy,Zhang_2021,True,healthy rejected
+3,Macrophages,HC1,-0.12926387383265753,healthy,Zhang_2021,False,healthy accepted
+4,Macrophages,HC2,-0.13403548523304926,healthy,Zhang_2021,False,healthy accepted
+5,Multiciliated,HC2,-0.7887662150239214,healthy,Zhang_2021,True,healthy rejected
+6,CD4 T cells,HC3,-0.5702253807846612,healthy,Zhang_2021,True,healthy rejected
+7,CD8 T cells,HC3,-0.6095438360658517,healthy,Zhang_2021,True,healthy rejected
+8,DC2,HC3,-0.414247116655003,healthy,Zhang_2021,True,healthy rejected
+9,Macrophages,HC3,-0.24451760549303897,healthy,Zhang_2021,True,healthy rejected
+10,CD4 T cells,M1,-0.4550658900543648,disease,Zhang_2021,True,disease rejected
+11,CD8 T cells,M1,-0.4963827333992313,disease,Zhang_2021,True,disease rejected
+12,Classical monocytes,M1,-0.44255211959793433,disease,Zhang_2021,True,disease rejected
+13,DC2,M1,-0.40329376601414213,disease,Zhang_2021,True,disease rejected
+14,Macrophages,M1,-0.26614106981340613,disease,Zhang_2021,True,disease rejected
+15,Multiciliated,M1,-0.533307232452089,disease,Zhang_2021,True,disease rejected
+16,NK cells,M1,-0.5603578428774892,disease,Zhang_2021,True,disease rejected
+17,Non-classical monocytes,M1,-0.2991555327026512,disease,Zhang_2021,True,disease rejected
+18,Secretory,M1,-0.23458841810117026,disease,Zhang_2021,False,disease accepted
+19,CD4 T cells,M2,-0.37643433669345333,disease,Zhang_2021,True,disease rejected
+20,CD8 T cells,M2,-0.4413189280058432,disease,Zhang_2021,True,disease rejected
+21,DC2,M2,-0.4199659985579787,disease,Zhang_2021,True,disease rejected
+22,Macrophages,M2,-0.24207878387867354,disease,Zhang_2021,True,disease rejected
+23,Multiciliated,M2,-0.50360765995769,disease,Zhang_2021,True,disease rejected
+24,NK cells,M2,-0.3235654671993944,disease,Zhang_2021,False,disease accepted
+25,Non-classical monocytes,M2,-0.3563145999435002,disease,Zhang_2021,True,disease rejected
+26,Secretory,M2,-0.2601191994532819,disease,Zhang_2021,True,disease rejected
+27,CD4 T cells,M3,-0.35131252591162637,disease,Zhang_2021,True,disease rejected
+28,CD8 T cells,M3,-0.48366829697608393,disease,Zhang_2021,True,disease rejected
+29,DC2,M3,-0.5188064883591543,disease,Zhang_2021,True,disease rejected
+30,Macrophages,M3,-0.3901657179346534,disease,Zhang_2021,True,disease rejected
+31,Non-classical monocytes,M3,-0.24370416534954586,disease,Zhang_2021,True,disease rejected
+32,Secretory,M3,-0.4857130657442081,disease,Zhang_2021,True,disease rejected
+33,CD4 T cells,S1,-0.4393297568398033,disease,Zhang_2021,True,disease rejected
+34,CD8 T cells,S1,-0.45714237973136596,disease,Zhang_2021,True,disease rejected
+35,Classical monocytes,S1,-0.14010245885305012,disease,Zhang_2021,False,disease accepted
+36,DC2,S1,-0.3571659000023759,disease,Zhang_2021,True,disease rejected
+37,Macrophages,S1,-0.13240287227761594,disease,Zhang_2021,False,disease accepted
+38,Multiciliated,S1,-0.2701283786394116,disease,Zhang_2021,True,disease rejected
+39,NK cells,S1,-0.46447262031200753,disease,Zhang_2021,True,disease rejected
+40,Non-classical monocytes,S1,0.07611146299146426,disease,Zhang_2021,False,disease accepted
+41,Secretory,S1,-0.16995014624747296,disease,Zhang_2021,False,disease accepted
+42,AT2,S2,-0.42326648938658173,disease,Zhang_2021,True,disease rejected
+43,Basal,S2,-0.5042181475666296,disease,Zhang_2021,True,disease rejected
+44,CD4 T cells,S2,-0.381005878753261,disease,Zhang_2021,True,disease rejected
+45,CD8 T cells,S2,-0.4247035283999839,disease,Zhang_2021,True,disease rejected
+46,Classical monocytes,S2,0.015365342558268638,disease,Zhang_2021,False,disease accepted
+47,DC2,S2,-0.2778120909777555,disease,Zhang_2021,True,disease rejected
+48,Macrophages,S2,-0.15175249605725627,disease,Zhang_2021,False,disease accepted
+49,Multiciliated,S2,-0.3478365518533558,disease,Zhang_2021,True,disease rejected
+50,NK cells,S2,-0.4714705085772758,disease,Zhang_2021,True,disease rejected
+51,Non-classical monocytes,S2,0.011614173902859258,disease,Zhang_2021,False,disease accepted
+52,Secretory,S2,-0.34322361432858695,disease,Zhang_2021,True,disease rejected
+53,CD4 T cells,S3,0.022872316706959883,disease,Zhang_2021,False,disease accepted
+54,CD8 T cells,S3,-0.17898172456305772,disease,Zhang_2021,False,disease accepted
+55,Classical monocytes,S3,-0.3491935176800351,disease,Zhang_2021,True,disease rejected
+56,DC2,S3,-0.4688079303103578,disease,Zhang_2021,True,disease rejected
+57,Macrophages,S3,-0.31518726531815144,disease,Zhang_2021,True,disease rejected
+58,Multiciliated,S3,-0.5150792078303126,disease,Zhang_2021,True,disease rejected
+59,Non-classical monocytes,S3,-0.2440904794046881,disease,Zhang_2021,True,disease rejected
+60,Secretory,S3,-0.4816390384871754,disease,Zhang_2021,True,disease rejected
+61,Basal,S4,-0.4847645161435509,disease,Zhang_2021,True,disease rejected
+62,CD4 T cells,S4,-0.2824529558528725,disease,Zhang_2021,True,disease rejected
+63,CD8 T cells,S4,-0.028594099158988806,disease,Zhang_2021,False,disease accepted
+64,Classical monocytes,S4,-0.2587050662869087,disease,Zhang_2021,True,disease rejected
+65,DC2,S4,-0.3454674955781829,disease,Zhang_2021,True,disease rejected
+66,Macrophages,S4,-0.29920690867002486,disease,Zhang_2021,True,disease rejected
+67,Multiciliated,S4,-0.31490068134967897,disease,Zhang_2021,True,disease rejected
+68,Non-classical monocytes,S4,-0.20191235890136588,disease,Zhang_2021,True,disease rejected
+69,Secretory,S4,-0.4341508348151326,disease,Zhang_2021,True,disease rejected
+70,Basal,S5,-0.5422189399111621,disease,Zhang_2021,True,disease rejected
+71,CD4 T cells,S5,-0.31602271242559027,disease,Zhang_2021,True,disease rejected
+72,CD8 T cells,S5,-0.2191883675161313,disease,Zhang_2021,False,disease accepted
+73,Classical monocytes,S5,-0.3653520417428633,disease,Zhang_2021,True,disease rejected
+74,Macrophages,S5,-0.34166756764847056,disease,Zhang_2021,True,disease rejected
+75,Multiciliated,S5,-0.22569969919917954,disease,Zhang_2021,False,disease accepted
+76,Non-classical monocytes,S5,-0.40537381378486703,disease,Zhang_2021,True,disease rejected
+77,Secretory,S5,-0.4608421884520898,disease,Zhang_2021,True,disease rejected
+78,CD4 T cells,S6,-0.30531980690789906,disease,Zhang_2021,True,disease rejected
+79,CD8 T cells,S6,-0.5726858515289539,disease,Zhang_2021,True,disease rejected
+80,Classical monocytes,S6,-0.3426828241586193,disease,Zhang_2021,True,disease rejected
+81,Macrophages,S6,-0.33842630398972884,disease,Zhang_2021,True,disease rejected
+82,Multiciliated,S6,-0.4440410783608406,disease,Zhang_2021,True,disease rejected
+83,NK cells,S6,-0.326765105303489,disease,Zhang_2021,False,disease accepted
+84,Non-classical monocytes,S6,-0.3479206741646819,disease,Zhang_2021,True,disease rejected
+85,Secretory,S6,-0.46035464452710906,disease,Zhang_2021,True,disease rejected

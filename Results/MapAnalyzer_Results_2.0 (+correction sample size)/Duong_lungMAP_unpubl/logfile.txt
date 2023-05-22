@@ -1,0 +1,191 @@
+2023-03-02 15:41:48.994688	Standarizing columns...
+2023-03-02 15:41:52.537558	Finished
+2023-03-02 15:41:58.193927	Checking columns...
+2023-03-02 15:41:58.446163	Analyzing Hematopoietic stem cells
+2023-03-02 15:41:58.480995	skipping Hematopoietic stem cells with 1 subjects
+2023-03-02 15:41:58.481035	Analyzing Mesothelium
+2023-03-02 15:41:58.516645	skipping Mesothelium with 5 subjects
+2023-03-02 15:41:58.516683	Analyzing AT1
+2023-03-02 15:41:58.608001	skipping AT1 with 35 subjects
+2023-03-02 15:41:58.608052	Analyzing AT2
+2023-03-02 15:41:59.031698			Analysing Duong_lungMAP_unpubl_sample_0
+2023-03-02 15:42:05.235623			Analysing Duong_lungMAP_unpubl_sample_1
+2023-03-02 15:42:11.361084			Analysing Duong_lungMAP_unpubl_sample_2
+2023-03-02 15:42:17.570003			Analysing Duong_lungMAP_unpubl_sample_3
+2023-03-02 15:42:23.579875			Analysing Duong_lungMAP_unpubl_sample_4
+2023-03-02 15:42:29.594292			Analysing Duong_lungMAP_unpubl_sample_5
+2023-03-02 15:42:35.674844			Analysing Duong_lungMAP_unpubl_sample_6
+2023-03-02 15:42:42.027244			Analysing Duong_lungMAP_unpubl_sample_7
+2023-03-02 15:42:48.267573			Analysing Duong_lungMAP_unpubl_sample_8
+2023-03-02 15:42:54.379696	Analyzing EC arterial
+2023-03-02 15:42:54.476858			Analysing Duong_lungMAP_unpubl_sample_0
+2023-03-02 15:42:55.587733			Analysing Duong_lungMAP_unpubl_sample_1
+2023-03-02 15:42:56.698672			Analysing Duong_lungMAP_unpubl_sample_2
+2023-03-02 15:42:57.803401			Analysing Duong_lungMAP_unpubl_sample_3
+2023-03-02 15:42:58.842198			Analysing Duong_lungMAP_unpubl_sample_4
+2023-03-02 15:42:59.913709			Analysing Duong_lungMAP_unpubl_sample_5
+2023-03-02 15:43:01.019641			Analysing Duong_lungMAP_unpubl_sample_6
+2023-03-02 15:43:02.013985			Analysing Duong_lungMAP_unpubl_sample_7
+2023-03-02 15:43:03.016677			Analysing Duong_lungMAP_unpubl_sample_8
+2023-03-02 15:43:04.121822	Analyzing Lymphatic EC differentiating
+2023-03-02 15:43:04.164354	skipping Lymphatic EC differentiating with 3 subjects
+2023-03-02 15:43:04.164407	Analyzing Lymphatic EC mature
+2023-03-02 15:43:04.225088	skipping Lymphatic EC mature with 32 subjects
+2023-03-02 15:43:04.225137	Analyzing Lymphatic EC proliferating
+2023-03-02 15:43:04.259442	skipping Lymphatic EC proliferating with 0 subjects
+2023-03-02 15:43:04.259486	Analyzing Mast cells
+2023-03-02 15:43:04.349274			Analysing Duong_lungMAP_unpubl_sample_0
+2023-03-02 15:43:05.268870			Analysing Duong_lungMAP_unpubl_sample_1
+2023-03-02 15:43:06.179869			Analysing Duong_lungMAP_unpubl_sample_2
+2023-03-02 15:43:07.111568			Analysing Duong_lungMAP_unpubl_sample_3
+2023-03-02 15:43:08.036764			Analysing Duong_lungMAP_unpubl_sample_4
+2023-03-02 15:43:08.927716			Analysing Duong_lungMAP_unpubl_sample_5
+2023-03-02 15:43:09.827969			Analysing Duong_lungMAP_unpubl_sample_6
+2023-03-02 15:43:10.742469			Analysing Duong_lungMAP_unpubl_sample_7
+2023-03-02 15:43:11.645487			Analysing Duong_lungMAP_unpubl_sample_8
+2023-03-02 15:43:12.522277	Analyzing AT2 proliferating
+2023-03-02 15:43:12.561384	skipping AT2 proliferating with 14 subjects
+2023-03-02 15:43:12.561437	Analyzing B cells
+2023-03-02 15:43:12.621796	skipping B cells with 36 subjects
+2023-03-02 15:43:12.621853	Analyzing CD4 T cells
+2023-03-02 15:43:12.782869			Analysing Duong_lungMAP_unpubl_sample_0
+2023-03-02 15:43:14.903162			Analysing Duong_lungMAP_unpubl_sample_1
+2023-03-02 15:43:17.068215			Analysing Duong_lungMAP_unpubl_sample_2
+2023-03-02 15:43:19.192438			Analysing Duong_lungMAP_unpubl_sample_3
+2023-03-02 15:43:21.263165			Analysing Duong_lungMAP_unpubl_sample_4
+2023-03-02 15:43:23.386904			Analysing Duong_lungMAP_unpubl_sample_5
+2023-03-02 15:43:25.474172			Analysing Duong_lungMAP_unpubl_sample_6
+2023-03-02 15:43:27.611820			Analysing Duong_lungMAP_unpubl_sample_7
+2023-03-02 15:43:29.793651			Analysing Duong_lungMAP_unpubl_sample_8
+2023-03-02 15:43:31.934138	Analyzing CD8 T cells
+2023-03-02 15:43:32.148852			Analysing Duong_lungMAP_unpubl_sample_0
+2023-03-02 15:43:35.118095			Analysing Duong_lungMAP_unpubl_sample_1
+2023-03-02 15:43:38.020741			Analysing Duong_lungMAP_unpubl_sample_2
+2023-03-02 15:43:40.940321			Analysing Duong_lungMAP_unpubl_sample_3
+2023-03-02 15:43:43.877047			Analysing Duong_lungMAP_unpubl_sample_4
+2023-03-02 15:43:46.826917			Analysing Duong_lungMAP_unpubl_sample_5
+2023-03-02 15:43:49.715721			Analysing Duong_lungMAP_unpubl_sample_6
+2023-03-02 15:43:52.636177			Analysing Duong_lungMAP_unpubl_sample_7
+2023-03-02 15:43:55.627717			Analysing Duong_lungMAP_unpubl_sample_8
+2023-03-02 15:43:58.580283	Analyzing Classical monocytes
+2023-03-02 15:43:58.742299			Analysing Duong_lungMAP_unpubl_sample_0
+2023-03-02 15:44:00.540814			Analysing Duong_lungMAP_unpubl_sample_1
+2023-03-02 15:44:02.326114			Analysing Duong_lungMAP_unpubl_sample_2
+2023-03-02 15:44:04.183402			Analysing Duong_lungMAP_unpubl_sample_3
+2023-03-02 15:44:05.965417			Analysing Duong_lungMAP_unpubl_sample_4
+2023-03-02 15:44:07.736067			Analysing Duong_lungMAP_unpubl_sample_5
+2023-03-02 15:44:09.468350			Analysing Duong_lungMAP_unpubl_sample_6
+2023-03-02 15:44:11.218906			Analysing Duong_lungMAP_unpubl_sample_7
+2023-03-02 15:44:12.998417			Analysing Duong_lungMAP_unpubl_sample_8
+2023-03-02 15:44:14.773677	Analyzing DC1
+2023-03-02 15:44:14.808519	skipping DC1 with 5 subjects
+2023-03-02 15:44:14.808572	Analyzing Deuterosomal
+2023-03-02 15:44:14.848239	skipping Deuterosomal with 23 subjects
+2023-03-02 15:44:14.848281	Analyzing EC aerocyte capillary
+2023-03-02 15:44:14.925685	skipping EC aerocyte capillary with 25 subjects
+2023-03-02 15:44:14.925730	Analyzing EC general capillary
+2023-03-02 15:44:15.065751	skipping EC general capillary with 35 subjects
+2023-03-02 15:44:15.065929	Analyzing Migratory DCs
+2023-03-02 15:44:15.101496	skipping Migratory DCs with 6 subjects
+2023-03-02 15:44:15.101541	Analyzing NK cells
+2023-03-02 15:44:15.237810			Analysing Duong_lungMAP_unpubl_sample_0
+2023-03-02 15:44:16.954840			Analysing Duong_lungMAP_unpubl_sample_1
+2023-03-02 15:44:18.709053			Analysing Duong_lungMAP_unpubl_sample_2
+2023-03-02 15:44:20.458702			Analysing Duong_lungMAP_unpubl_sample_3
+2023-03-02 15:44:22.201167			Analysing Duong_lungMAP_unpubl_sample_4
+2023-03-02 15:44:23.939518			Analysing Duong_lungMAP_unpubl_sample_5
+2023-03-02 15:44:25.709819			Analysing Duong_lungMAP_unpubl_sample_6
+2023-03-02 15:44:27.451473			Analysing Duong_lungMAP_unpubl_sample_7
+2023-03-02 15:44:29.239801			Analysing Duong_lungMAP_unpubl_sample_8
+2023-03-02 15:44:30.930213	Analyzing Non-classical monocytes
+2023-03-02 15:44:31.028893			skipping Duong_lungMAP_unpubl_sample_0 with 9 cells
+2023-03-02 15:44:31.041364			Analysing Duong_lungMAP_unpubl_sample_1
+2023-03-02 15:44:31.913237			skipping Duong_lungMAP_unpubl_sample_2 with 9 cells
+2023-03-02 15:44:31.926941			skipping Duong_lungMAP_unpubl_sample_3 with 10 cells
+2023-03-02 15:44:31.940018			Analysing Duong_lungMAP_unpubl_sample_4
+2023-03-02 15:44:32.810560			Analysing Duong_lungMAP_unpubl_sample_5
+2023-03-02 15:44:33.701978			Analysing Duong_lungMAP_unpubl_sample_6
+2023-03-02 15:44:34.577277			Analysing Duong_lungMAP_unpubl_sample_7
+2023-03-02 15:44:35.455553			skipping Duong_lungMAP_unpubl_sample_8 with 14 cells
+2023-03-02 15:44:35.455891	Analyzing Plasma cells
+2023-03-02 15:44:35.503223	skipping Plasma cells with 24 subjects
+2023-03-02 15:44:35.503280	Analyzing Plasmacytoid DCs
+2023-03-02 15:44:35.539438	skipping Plasmacytoid DCs with 6 subjects
+2023-03-02 15:44:35.539479	Analyzing T cells proliferating
+2023-03-02 15:44:35.575971	skipping T cells proliferating with 4 subjects
+2023-03-02 15:44:35.576011	Analyzing Basal
+2023-03-02 15:44:36.083330			Analysing Duong_lungMAP_unpubl_sample_0
+2023-03-02 15:44:44.415920			Analysing Duong_lungMAP_unpubl_sample_1
+2023-03-02 15:44:52.768740			Analysing Duong_lungMAP_unpubl_sample_2
+2023-03-02 15:45:01.026395			Analysing Duong_lungMAP_unpubl_sample_3
+2023-03-02 15:45:09.407384			Analysing Duong_lungMAP_unpubl_sample_4
+2023-03-02 15:45:17.813055			Analysing Duong_lungMAP_unpubl_sample_5
+2023-03-02 15:45:26.020694			Analysing Duong_lungMAP_unpubl_sample_6
+2023-03-02 15:45:34.385423			Analysing Duong_lungMAP_unpubl_sample_7
+2023-03-02 15:45:42.838832			Analysing Duong_lungMAP_unpubl_sample_8
+2023-03-02 15:45:51.154610	Analyzing DC2
+2023-03-02 15:45:51.256678			Analysing Duong_lungMAP_unpubl_sample_0
+2023-03-02 15:45:52.181435			Analysing Duong_lungMAP_unpubl_sample_1
+2023-03-02 15:45:53.104870			Analysing Duong_lungMAP_unpubl_sample_2
+2023-03-02 15:45:54.026697			Analysing Duong_lungMAP_unpubl_sample_3
+2023-03-02 15:45:54.941024			Analysing Duong_lungMAP_unpubl_sample_4
+2023-03-02 15:45:55.856184			Analysing Duong_lungMAP_unpubl_sample_5
+2023-03-02 15:45:56.775638			Analysing Duong_lungMAP_unpubl_sample_6
+2023-03-02 15:45:57.702306			Analysing Duong_lungMAP_unpubl_sample_7
+2023-03-02 15:45:58.638530			Analysing Duong_lungMAP_unpubl_sample_8
+2023-03-02 15:45:59.562568	Analyzing EC venous
+2023-03-02 15:45:59.692637			Analysing Duong_lungMAP_unpubl_sample_0
+2023-03-02 15:46:01.006880			Analysing Duong_lungMAP_unpubl_sample_1
+2023-03-02 15:46:02.340098			Analysing Duong_lungMAP_unpubl_sample_2
+2023-03-02 15:46:03.670695			Analysing Duong_lungMAP_unpubl_sample_3
+2023-03-02 15:46:04.977221			Analysing Duong_lungMAP_unpubl_sample_4
+2023-03-02 15:46:06.298084			Analysing Duong_lungMAP_unpubl_sample_5
+2023-03-02 15:46:07.606647			Analysing Duong_lungMAP_unpubl_sample_6
+2023-03-02 15:46:08.907056			Analysing Duong_lungMAP_unpubl_sample_7
+2023-03-02 15:46:10.197944			Analysing Duong_lungMAP_unpubl_sample_8
+2023-03-02 15:46:11.473961	Analyzing Fibroblast lineage
+2023-03-02 15:46:11.653051			Analysing Duong_lungMAP_unpubl_sample_0
+2023-03-02 15:46:13.703190			Analysing Duong_lungMAP_unpubl_sample_1
+2023-03-02 15:46:15.846945			Analysing Duong_lungMAP_unpubl_sample_2
+2023-03-02 15:46:17.937781			Analysing Duong_lungMAP_unpubl_sample_3
+2023-03-02 15:46:20.012900			Analysing Duong_lungMAP_unpubl_sample_4
+2023-03-02 15:46:22.130229			Analysing Duong_lungMAP_unpubl_sample_5
+2023-03-02 15:46:24.267709			Analysing Duong_lungMAP_unpubl_sample_6
+2023-03-02 15:46:26.467509			Analysing Duong_lungMAP_unpubl_sample_7
+2023-03-02 15:46:28.625239			Analysing Duong_lungMAP_unpubl_sample_8
+2023-03-02 15:46:30.772698	Analyzing Macrophages
+2023-03-02 15:46:31.443142			Analysing Duong_lungMAP_unpubl_sample_0
+2023-03-02 15:46:42.789461			Analysing Duong_lungMAP_unpubl_sample_1
+2023-03-02 15:46:54.179118			Analysing Duong_lungMAP_unpubl_sample_2
+2023-03-02 15:47:05.302933			Analysing Duong_lungMAP_unpubl_sample_3
+2023-03-02 15:47:16.602420			Analysing Duong_lungMAP_unpubl_sample_4
+2023-03-02 15:47:27.754951			Analysing Duong_lungMAP_unpubl_sample_5
+2023-03-02 15:47:38.682137			Analysing Duong_lungMAP_unpubl_sample_6
+2023-03-02 15:47:49.866209			Analysing Duong_lungMAP_unpubl_sample_7
+2023-03-02 15:48:00.909442			Analysing Duong_lungMAP_unpubl_sample_8
+2023-03-02 15:48:12.120528	Analyzing Multiciliated
+2023-03-02 15:48:12.414323			Analysing Duong_lungMAP_unpubl_sample_0
+2023-03-02 15:48:16.462815			Analysing Duong_lungMAP_unpubl_sample_1
+2023-03-02 15:48:20.429256			Analysing Duong_lungMAP_unpubl_sample_2
+2023-03-02 15:48:24.372398			Analysing Duong_lungMAP_unpubl_sample_3
+2023-03-02 15:48:28.336207			Analysing Duong_lungMAP_unpubl_sample_4
+2023-03-02 15:48:32.433964			Analysing Duong_lungMAP_unpubl_sample_5
+2023-03-02 15:48:36.465901			Analysing Duong_lungMAP_unpubl_sample_6
+2023-03-02 15:48:40.393194			Analysing Duong_lungMAP_unpubl_sample_7
+2023-03-02 15:48:44.399453			Analysing Duong_lungMAP_unpubl_sample_8
+2023-03-02 15:48:48.395277	Analyzing Rare
+2023-03-02 15:48:48.435146	skipping Rare with 24 subjects
+2023-03-02 15:48:48.435201	Analyzing Secretory
+2023-03-02 15:48:48.930905			Analysing Duong_lungMAP_unpubl_sample_0
+2023-03-02 15:48:56.919266			Analysing Duong_lungMAP_unpubl_sample_1
+2023-03-02 15:49:04.876972			Analysing Duong_lungMAP_unpubl_sample_2
+2023-03-02 15:49:12.662326			Analysing Duong_lungMAP_unpubl_sample_3
+2023-03-02 15:49:20.675693			Analysing Duong_lungMAP_unpubl_sample_4
+2023-03-02 15:49:28.599905			Analysing Duong_lungMAP_unpubl_sample_5
+2023-03-02 15:49:36.466858			Analysing Duong_lungMAP_unpubl_sample_6
+2023-03-02 15:49:44.229266			Analysing Duong_lungMAP_unpubl_sample_7
+2023-03-02 15:49:52.064821			Analysing Duong_lungMAP_unpubl_sample_8
+2023-03-02 15:49:59.931699	Analyzing Smooth muscle
+2023-03-02 15:49:59.997995	skipping Smooth muscle with 36 subjects
+2023-03-02 15:49:59.998066	Analyzing Submucosal Secretory
+2023-03-02 15:50:00.057394	skipping Submucosal Secretory with 30 subjects

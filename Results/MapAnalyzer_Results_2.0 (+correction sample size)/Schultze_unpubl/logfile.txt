@@ -1,0 +1,267 @@
+2023-03-02 15:30:39.654923	Standarizing columns...
+2023-03-02 15:30:42.733357	Finished
+2023-03-02 15:30:49.495329	Checking columns...
+2023-03-02 15:30:49.650730	Analyzing Hematopoietic stem cells
+2023-03-02 15:30:49.687214	skipping Hematopoietic stem cells with 1 subjects
+2023-03-02 15:30:49.687256	Analyzing Mesothelium
+2023-03-02 15:30:49.723573	skipping Mesothelium with 5 subjects
+2023-03-02 15:30:49.723779	Analyzing AT1
+2023-03-02 15:30:49.801754	skipping AT1 with 35 subjects
+2023-03-02 15:30:49.801796	Analyzing AT2
+2023-03-02 15:30:50.181151			skipping Pool_350 with 8 cells
+2023-03-02 15:30:50.194264			skipping Pool_351 with 13 cells
+2023-03-02 15:30:50.207058			skipping Pool_352 with 11 cells
+2023-03-02 15:30:50.219657			skipping Pool_353 with 5 cells
+2023-03-02 15:30:50.232295			skipping Pool_354 with 2 cells
+2023-03-02 15:30:50.244753			skipping Pool_423 with 1 cells
+2023-03-02 15:30:50.257292			skipping Pool_424 with 4 cells
+2023-03-02 15:30:50.269659			skipping Pool_425 with 1 cells
+2023-03-02 15:30:50.282029			skipping Pool_426 with 1 cells
+2023-03-02 15:30:50.294593			Analysing Pool_437
+2023-03-02 15:30:57.152592			skipping Pool_438 with 7 cells
+2023-03-02 15:30:57.166200			skipping Pool_439 with 8 cells
+2023-03-02 15:30:57.179296			skipping Pool_440 with 11 cells
+2023-03-02 15:30:57.192459			Analysing Pool_441
+2023-03-02 15:31:03.233275	Analyzing EC arterial
+2023-03-02 15:31:03.321119			skipping Pool_350 with 0 cells
+2023-03-02 15:31:03.332565			skipping Pool_351 with 0 cells
+2023-03-02 15:31:03.345282			skipping Pool_352 with 0 cells
+2023-03-02 15:31:03.356819			skipping Pool_353 with 0 cells
+2023-03-02 15:31:03.368446			skipping Pool_354 with 0 cells
+2023-03-02 15:31:03.379887			skipping Pool_423 with 0 cells
+2023-03-02 15:31:03.391553			skipping Pool_424 with 0 cells
+2023-03-02 15:31:03.402979			skipping Pool_425 with 0 cells
+2023-03-02 15:31:03.414269			skipping Pool_426 with 0 cells
+2023-03-02 15:31:03.425588			skipping Pool_437 with 0 cells
+2023-03-02 15:31:03.437902			skipping Pool_438 with 0 cells
+2023-03-02 15:31:03.451961			skipping Pool_439 with 0 cells
+2023-03-02 15:31:03.463933			skipping Pool_440 with 0 cells
+2023-03-02 15:31:03.475941			skipping Pool_441 with 0 cells
+2023-03-02 15:31:03.475978	Analyzing Lymphatic EC differentiating
+2023-03-02 15:31:03.513509	skipping Lymphatic EC differentiating with 3 subjects
+2023-03-02 15:31:03.513547	Analyzing Lymphatic EC mature
+2023-03-02 15:31:03.569201	skipping Lymphatic EC mature with 32 subjects
+2023-03-02 15:31:03.569240	Analyzing Lymphatic EC proliferating
+2023-03-02 15:31:03.602264	skipping Lymphatic EC proliferating with 0 subjects
+2023-03-02 15:31:03.602301	Analyzing Mast cells
+2023-03-02 15:31:03.685118			skipping Pool_350 with 3 cells
+2023-03-02 15:31:03.697067			skipping Pool_351 with 0 cells
+2023-03-02 15:31:03.708428			skipping Pool_352 with 0 cells
+2023-03-02 15:31:03.719842			skipping Pool_353 with 0 cells
+2023-03-02 15:31:03.731219			skipping Pool_354 with 0 cells
+2023-03-02 15:31:03.743706			skipping Pool_423 with 3 cells
+2023-03-02 15:31:03.757252			skipping Pool_424 with 6 cells
+2023-03-02 15:31:03.769635			skipping Pool_425 with 4 cells
+2023-03-02 15:31:03.781965			skipping Pool_426 with 1 cells
+2023-03-02 15:31:03.794627			skipping Pool_437 with 3 cells
+2023-03-02 15:31:03.807300			skipping Pool_438 with 2 cells
+2023-03-02 15:31:03.818564			skipping Pool_439 with 0 cells
+2023-03-02 15:31:03.830803			skipping Pool_440 with 1 cells
+2023-03-02 15:31:03.843064			skipping Pool_441 with 1 cells
+2023-03-02 15:31:03.843099	Analyzing AT2 proliferating
+2023-03-02 15:31:03.880128	skipping AT2 proliferating with 14 subjects
+2023-03-02 15:31:03.880164	Analyzing B cells
+2023-03-02 15:31:03.938807	skipping B cells with 36 subjects
+2023-03-02 15:31:03.938986	Analyzing CD4 T cells
+2023-03-02 15:31:04.119349			skipping Pool_350 with 9 cells
+2023-03-02 15:31:04.131880			skipping Pool_351 with 12 cells
+2023-03-02 15:31:04.145112			skipping Pool_352 with 3 cells
+2023-03-02 15:31:04.161491			skipping Pool_353 with 4 cells
+2023-03-02 15:31:04.174959			skipping Pool_354 with 8 cells
+2023-03-02 15:31:04.187498			Analysing Pool_423
+2023-03-02 15:31:06.317039			Analysing Pool_424
+2023-03-02 15:31:08.427565			Analysing Pool_425
+2023-03-02 15:31:10.554367			skipping Pool_426 with 13 cells
+2023-03-02 15:31:10.571025			Analysing Pool_437
+2023-03-02 15:31:12.692800			skipping Pool_438 with 8 cells
+2023-03-02 15:31:12.706391			skipping Pool_439 with 7 cells
+2023-03-02 15:31:12.719213			skipping Pool_440 with 4 cells
+2023-03-02 15:31:12.731946			skipping Pool_441 with 1 cells
+2023-03-02 15:31:12.731988	Analyzing CD8 T cells
+2023-03-02 15:31:12.939330			Analysing Pool_350
+2023-03-02 15:31:15.890916			Analysing Pool_351
+2023-03-02 15:31:18.899910			Analysing Pool_352
+2023-03-02 15:31:21.834674			Analysing Pool_353
+2023-03-02 15:31:24.763393			Analysing Pool_354
+2023-03-02 15:31:29.507543			Analysing Pool_423
+2023-03-02 15:31:32.472195			Analysing Pool_424
+2023-03-02 15:31:35.463298			Analysing Pool_425
+2023-03-02 15:31:38.453266			Analysing Pool_426
+2023-03-02 15:31:41.399104			Analysing Pool_437
+2023-03-02 15:31:44.327344			Analysing Pool_438
+2023-03-02 15:31:47.306322			Analysing Pool_439
+2023-03-02 15:31:50.244240			Analysing Pool_440
+2023-03-02 15:31:53.171061			skipping Pool_441 with 10 cells
+2023-03-02 15:31:53.171447	Analyzing Classical monocytes
+2023-03-02 15:31:53.314718			skipping Pool_350 with 7 cells
+2023-03-02 15:31:53.327326			skipping Pool_351 with 14 cells
+2023-03-02 15:31:53.339932			skipping Pool_352 with 5 cells
+2023-03-02 15:31:53.352428			skipping Pool_353 with 10 cells
+2023-03-02 15:31:53.365020			skipping Pool_354 with 9 cells
+2023-03-02 15:31:53.379075			Analysing Pool_423
+2023-03-02 15:31:55.158062			Analysing Pool_424
+2023-03-02 15:31:56.925254			Analysing Pool_425
+2023-03-02 15:31:58.690281			Analysing Pool_426
+2023-03-02 15:32:00.435054			skipping Pool_437 with 5 cells
+2023-03-02 15:32:00.451002			skipping Pool_438 with 5 cells
+2023-03-02 15:32:00.463483			skipping Pool_439 with 2 cells
+2023-03-02 15:32:00.475934			skipping Pool_440 with 2 cells
+2023-03-02 15:32:00.488462			skipping Pool_441 with 10 cells
+2023-03-02 15:32:00.488503	Analyzing DC1
+2023-03-02 15:32:00.525373	skipping DC1 with 5 subjects
+2023-03-02 15:32:00.525408	Analyzing Deuterosomal
+2023-03-02 15:32:00.564377	skipping Deuterosomal with 23 subjects
+2023-03-02 15:32:00.564413	Analyzing EC aerocyte capillary
+2023-03-02 15:32:00.634781	skipping EC aerocyte capillary with 25 subjects
+2023-03-02 15:32:00.634824	Analyzing EC general capillary
+2023-03-02 15:32:00.752123	skipping EC general capillary with 35 subjects
+2023-03-02 15:32:00.752185	Analyzing Migratory DCs
+2023-03-02 15:32:00.787832	skipping Migratory DCs with 6 subjects
+2023-03-02 15:32:00.787877	Analyzing NK cells
+2023-03-02 15:32:00.921849			skipping Pool_350 with 11 cells
+2023-03-02 15:32:00.934545			skipping Pool_351 with 9 cells
+2023-03-02 15:32:00.947168			skipping Pool_352 with 3 cells
+2023-03-02 15:32:00.960415			skipping Pool_353 with 1 cells
+2023-03-02 15:32:00.976746			skipping Pool_354 with 7 cells
+2023-03-02 15:32:00.990901			Analysing Pool_423
+2023-03-02 15:32:02.703013			Analysing Pool_424
+2023-03-02 15:32:04.426129			Analysing Pool_425
+2023-03-02 15:32:06.145202			Analysing Pool_426
+2023-03-02 15:32:07.849066			skipping Pool_437 with 0 cells
+2023-03-02 15:32:07.861139			skipping Pool_438 with 0 cells
+2023-03-02 15:32:07.872694			skipping Pool_439 with 0 cells
+2023-03-02 15:32:07.884293			skipping Pool_440 with 0 cells
+2023-03-02 15:32:07.896883			skipping Pool_441 with 1 cells
+2023-03-02 15:32:07.896919	Analyzing Non-classical monocytes
+2023-03-02 15:32:07.990571			skipping Pool_350 with 0 cells
+2023-03-02 15:32:08.002124			skipping Pool_351 with 0 cells
+2023-03-02 15:32:08.014991			skipping Pool_352 with 0 cells
+2023-03-02 15:32:08.026327			skipping Pool_353 with 0 cells
+2023-03-02 15:32:08.037674			skipping Pool_354 with 0 cells
+2023-03-02 15:32:08.050201			skipping Pool_423 with 7 cells
+2023-03-02 15:32:08.065245			skipping Pool_424 with 4 cells
+2023-03-02 15:32:08.079115			skipping Pool_425 with 4 cells
+2023-03-02 15:32:08.092965			skipping Pool_426 with 2 cells
+2023-03-02 15:32:08.104528			skipping Pool_437 with 0 cells
+2023-03-02 15:32:08.116013			skipping Pool_438 with 0 cells
+2023-03-02 15:32:08.127430			skipping Pool_439 with 0 cells
+2023-03-02 15:32:08.138856			skipping Pool_440 with 0 cells
+2023-03-02 15:32:08.150449			skipping Pool_441 with 0 cells
+2023-03-02 15:32:08.150484	Analyzing Plasma cells
+2023-03-02 15:32:08.194028	skipping Plasma cells with 24 subjects
+2023-03-02 15:32:08.194064	Analyzing Plasmacytoid DCs
+2023-03-02 15:32:08.229106	skipping Plasmacytoid DCs with 6 subjects
+2023-03-02 15:32:08.229144	Analyzing T cells proliferating
+2023-03-02 15:32:08.265293	skipping T cells proliferating with 4 subjects
+2023-03-02 15:32:08.265328	Analyzing Basal
+2023-03-02 15:32:08.773119			skipping Pool_350 with 0 cells
+2023-03-02 15:32:08.786129			skipping Pool_351 with 1 cells
+2023-03-02 15:32:08.798907			skipping Pool_352 with 4 cells
+2023-03-02 15:32:08.811613			skipping Pool_353 with 5 cells
+2023-03-02 15:32:08.824245			skipping Pool_354 with 2 cells
+2023-03-02 15:32:08.835794			skipping Pool_423 with 0 cells
+2023-03-02 15:32:08.847147			skipping Pool_424 with 0 cells
+2023-03-02 15:32:08.861375			skipping Pool_425 with 1 cells
+2023-03-02 15:32:08.873793			skipping Pool_426 with 3 cells
+2023-03-02 15:32:08.885038			skipping Pool_437 with 0 cells
+2023-03-02 15:32:08.897528			skipping Pool_438 with 2 cells
+2023-03-02 15:32:08.910126			skipping Pool_439 with 2 cells
+2023-03-02 15:32:08.922442			skipping Pool_440 with 1 cells
+2023-03-02 15:32:08.934741			skipping Pool_441 with 1 cells
+2023-03-02 15:32:08.934776	Analyzing DC2
+2023-03-02 15:32:09.032863			skipping Pool_350 with 8 cells
+2023-03-02 15:32:09.048492			skipping Pool_351 with 6 cells
+2023-03-02 15:32:09.061203			skipping Pool_352 with 4 cells
+2023-03-02 15:32:09.073700			skipping Pool_353 with 1 cells
+2023-03-02 15:32:09.086360			skipping Pool_354 with 5 cells
+2023-03-02 15:32:09.099221			Analysing Pool_423
+2023-03-02 15:32:10.027894			Analysing Pool_424
+2023-03-02 15:32:10.973523			Analysing Pool_425
+2023-03-02 15:32:11.954747			skipping Pool_426 with 14 cells
+2023-03-02 15:32:11.968440			skipping Pool_437 with 5 cells
+2023-03-02 15:32:11.981890			skipping Pool_438 with 9 cells
+2023-03-02 15:32:11.995307			skipping Pool_439 with 3 cells
+2023-03-02 15:32:12.008555			skipping Pool_440 with 4 cells
+2023-03-02 15:32:12.022138			skipping Pool_441 with 4 cells
+2023-03-02 15:32:12.022176	Analyzing EC venous
+2023-03-02 15:32:12.145495			skipping Pool_350 with 0 cells
+2023-03-02 15:32:12.158261			skipping Pool_351 with 0 cells
+2023-03-02 15:32:12.174321			skipping Pool_352 with 0 cells
+2023-03-02 15:32:12.187658			skipping Pool_353 with 0 cells
+2023-03-02 15:32:12.199989			skipping Pool_354 with 0 cells
+2023-03-02 15:32:12.212305			skipping Pool_423 with 0 cells
+2023-03-02 15:32:12.224724			skipping Pool_424 with 0 cells
+2023-03-02 15:32:12.237116			skipping Pool_425 with 0 cells
+2023-03-02 15:32:12.249399			skipping Pool_426 with 0 cells
+2023-03-02 15:32:12.261547			skipping Pool_437 with 0 cells
+2023-03-02 15:32:12.273838			skipping Pool_438 with 0 cells
+2023-03-02 15:32:12.285951			skipping Pool_439 with 0 cells
+2023-03-02 15:32:12.298432			skipping Pool_440 with 0 cells
+2023-03-02 15:32:12.310768			skipping Pool_441 with 0 cells
+2023-03-02 15:32:12.310806	Analyzing Fibroblast lineage
+2023-03-02 15:32:12.478280			skipping Pool_350 with 0 cells
+2023-03-02 15:32:12.490408			skipping Pool_351 with 0 cells
+2023-03-02 15:32:12.502283			skipping Pool_352 with 0 cells
+2023-03-02 15:32:12.514244			skipping Pool_353 with 0 cells
+2023-03-02 15:32:12.527305			skipping Pool_354 with 1 cells
+2023-03-02 15:32:12.539562			skipping Pool_423 with 0 cells
+2023-03-02 15:32:12.551784			skipping Pool_424 with 0 cells
+2023-03-02 15:32:12.564001			skipping Pool_425 with 0 cells
+2023-03-02 15:32:12.577167			skipping Pool_426 with 1 cells
+2023-03-02 15:32:12.589314			skipping Pool_437 with 0 cells
+2023-03-02 15:32:12.601222			skipping Pool_438 with 0 cells
+2023-03-02 15:32:12.613994			skipping Pool_439 with 0 cells
+2023-03-02 15:32:12.625918			skipping Pool_440 with 0 cells
+2023-03-02 15:32:12.637807			skipping Pool_441 with 0 cells
+2023-03-02 15:32:12.637844	Analyzing Macrophages
+2023-03-02 15:32:13.289606			Analysing Pool_350
+2023-03-02 15:32:24.337576			Analysing Pool_351
+2023-03-02 15:32:35.427015			Analysing Pool_352
+2023-03-02 15:32:46.538827			Analysing Pool_353
+2023-03-02 15:32:57.489660			Analysing Pool_354
+2023-03-02 15:33:08.914672			Analysing Pool_423
+2023-03-02 15:33:20.032705			Analysing Pool_424
+2023-03-02 15:33:31.315046			Analysing Pool_425
+2023-03-02 15:33:42.421890			Analysing Pool_426
+2023-03-02 15:33:53.538074			skipping Pool_437 with 2 cells
+2023-03-02 15:33:53.552099			skipping Pool_438 with 7 cells
+2023-03-02 15:33:53.565527			skipping Pool_439 with 1 cells
+2023-03-02 15:33:53.579024			skipping Pool_440 with 4 cells
+2023-03-02 15:33:53.592649			skipping Pool_441 with 8 cells
+2023-03-02 15:33:53.592693	Analyzing Multiciliated
+2023-03-02 15:33:53.889435			Analysing Pool_350
+2023-03-02 15:33:57.852451			Analysing Pool_351
+2023-03-02 15:34:01.798741			Analysing Pool_352
+2023-03-02 15:34:05.771872			Analysing Pool_353
+2023-03-02 15:34:09.719684			Analysing Pool_354
+2023-03-02 15:34:13.674567			Analysing Pool_423
+2023-03-02 15:34:17.728539			Analysing Pool_424
+2023-03-02 15:34:21.739792			Analysing Pool_425
+2023-03-02 15:34:25.728218			Analysing Pool_426
+2023-03-02 15:34:29.646342			skipping Pool_437 with 4 cells
+2023-03-02 15:34:29.659759			skipping Pool_438 with 2 cells
+2023-03-02 15:34:29.672362			skipping Pool_439 with 3 cells
+2023-03-02 15:34:29.685102			Analysing Pool_440
+2023-03-02 15:34:33.675670			skipping Pool_441 with 10 cells
+2023-03-02 15:34:33.675900	Analyzing Rare
+2023-03-02 15:34:33.715646	skipping Rare with 24 subjects
+2023-03-02 15:34:33.715701	Analyzing Secretory
+2023-03-02 15:34:34.206889			Analysing Pool_350
+2023-03-02 15:34:42.124357			Analysing Pool_351
+2023-03-02 15:34:49.927468			Analysing Pool_352
+2023-03-02 15:34:57.743523			skipping Pool_353 with 14 cells
+2023-03-02 15:34:57.756424			Analysing Pool_354
+2023-03-02 15:35:05.593927			Analysing Pool_423
+2023-03-02 15:35:13.551844			Analysing Pool_424
+2023-03-02 15:35:21.517866			skipping Pool_425 with 11 cells
+2023-03-02 15:35:21.531277			skipping Pool_426 with 3 cells
+2023-03-02 15:35:21.544005			skipping Pool_437 with 7 cells
+2023-03-02 15:35:21.556706			Analysing Pool_438
+2023-03-02 15:35:29.388631			skipping Pool_439 with 12 cells
+2023-03-02 15:35:29.401808			Analysing Pool_440
+2023-03-02 15:35:37.333485			Analysing Pool_441
+2023-03-02 15:35:45.112864	Analyzing Smooth muscle
+2023-03-02 15:35:45.174008	skipping Smooth muscle with 36 subjects
+2023-03-02 15:35:45.174056	Analyzing Submucosal Secretory
+2023-03-02 15:35:45.234958	skipping Submucosal Secretory with 30 subjects
+2023-03-02 15:36:05.176517	skipping celltype NK cells for disease effect evaluation: confounded healthy

@@ -1,0 +1,154 @@
+,cell_label,sample,mean,health_status,excluded,label
+0,AT2,muc10380,0.2633457299619735,healthy,False,healthy accepted
+1,Alveolar macrophages,muc10380,0.5970588099272525,healthy,False,healthy accepted
+2,Dendritic cells,muc10380,0.581614442388801,healthy,False,healthy accepted
+3,EC arterial,muc10380,0.5801797966624416,healthy,False,healthy accepted
+4,EC venous,muc10380,0.8222443003480028,healthy,False,healthy accepted
+5,Fibroblast lineage,muc10380,0.24385906807679147,healthy,False,healthy accepted
+6,Interstitial macrophages,muc10380,0.5751086507946992,healthy,False,healthy accepted
+7,Mast cells,muc10380,0.22634157370617636,healthy,False,healthy accepted
+8,Monocytes,muc10380,0.43042069534883903,healthy,False,healthy accepted
+9,Multiciliated (non-nasal),muc10380,0.9829969477653503,healthy,False,healthy accepted
+10,NK cells,muc10380,0.45625376138680923,healthy,False,healthy accepted
+11,T cell lineage,muc10380,0.3030615818687482,healthy,False,healthy accepted
+12,AT2,muc10381,0.6538499250442167,healthy,False,healthy accepted
+13,Alveolar macrophages,muc10381,0.734919292457176,healthy,False,healthy accepted
+14,Dendritic cells,muc10381,0.6525232704035167,healthy,False,healthy accepted
+15,EC arterial,muc10381,0.6372259395463126,healthy,False,healthy accepted
+16,EC venous,muc10381,0.28710429984680946,healthy,False,healthy accepted
+17,Fibroblast lineage,muc10381,0.4159249261802605,healthy,False,healthy accepted
+18,Goblet,muc10381,0.8869336159140976,healthy,False,healthy accepted
+19,Interstitial macrophages,muc10381,0.53872507594546,healthy,False,healthy accepted
+20,Mast cells,muc10381,0.37834897099578,healthy,False,healthy accepted
+21,Monocytes,muc10381,0.6399597143527211,healthy,False,healthy accepted
+22,Multiciliated (non-nasal),muc10381,0.43690905222216053,healthy,False,healthy accepted
+23,Suprabasal,muc10381,0.8530048931899824,healthy,False,healthy accepted
+24,T cell lineage,muc10381,0.3319541259753949,healthy,False,healthy accepted
+25,AT2,muc3843,0.3585356656229748,healthy,False,healthy accepted
+26,Alveolar macrophages,muc3843,0.5191769086885039,healthy,False,healthy accepted
+27,Dendritic cells,muc3843,0.7868255836921826,healthy,False,healthy accepted
+28,Fibroblast lineage,muc3843,0.9091065335273742,healthy,False,healthy accepted
+29,Interstitial macrophages,muc3843,0.9601799015487943,healthy,False,healthy accepted
+30,Mast cells,muc3843,0.5514219913043474,healthy,False,healthy accepted
+31,Monocytes,muc3843,0.9021993987262249,healthy,False,healthy accepted
+32,Multiciliated (non-nasal),muc3843,0.8379633536316314,healthy,False,healthy accepted
+33,NK cells,muc3843,0.5914762683212758,healthy,False,healthy accepted
+34,T cell lineage,muc3843,0.7056829927127752,healthy,False,healthy accepted
+35,Transitional Club-AT2,muc3843,0.9081162284402287,healthy,False,healthy accepted
+36,AT2,muc4658,0.32114235467509755,healthy,False,healthy accepted
+37,Alveolar macrophages,muc4658,0.5401312296696131,healthy,False,healthy accepted
+38,Dendritic cells,muc4658,0.6933034817377727,healthy,False,healthy accepted
+39,Fibroblast lineage,muc4658,0.8950437728096458,healthy,False,healthy accepted
+40,Goblet,muc4658,0.7666363815466563,healthy,False,healthy accepted
+41,Interstitial macrophages,muc4658,0.7652431703375085,healthy,False,healthy accepted
+42,Mast cells,muc4658,0.42269808493438177,healthy,False,healthy accepted
+43,Monocytes,muc4658,0.897491104900837,healthy,False,healthy accepted
+44,Multiciliated (non-nasal),muc4658,0.6615923835842077,healthy,False,healthy accepted
+45,NK cells,muc4658,0.8992313224336376,healthy,False,healthy accepted
+46,T cell lineage,muc4658,0.7958701435309737,healthy,False,healthy accepted
+47,Transitional Club-AT2,muc4658,0.6407728147692978,healthy,False,healthy accepted
+48,Alveolar macrophages,muc4659,0.6267975641105987,healthy,False,healthy accepted
+49,Dendritic cells,muc4659,0.87053803135367,healthy,False,healthy accepted
+50,Interstitial macrophages,muc4659,0.8984442790349324,healthy,False,healthy accepted
+51,Mast cells,muc4659,0.36204837723117733,healthy,False,healthy accepted
+52,Monocytes,muc4659,0.8301915294594235,healthy,False,healthy accepted
+53,T cell lineage,muc4659,0.7120424068222443,healthy,False,healthy accepted
+54,AT2,muc5103,0.21569727163334357,healthy,False,healthy accepted
+55,Alveolar macrophages,muc5103,0.7178643120622094,healthy,False,healthy accepted
+56,Dendritic cells,muc5103,0.6515662538895913,healthy,False,healthy accepted
+57,EC venous,muc5103,0.6670955454309782,healthy,False,healthy accepted
+58,Fibroblast lineage,muc5103,0.5425823432823984,healthy,False,healthy accepted
+59,Goblet,muc5103,0.708918150733499,healthy,False,healthy accepted
+60,Interstitial macrophages,muc5103,0.8291629433631897,healthy,False,healthy accepted
+61,Mast cells,muc5103,0.30420394984980087,healthy,False,healthy accepted
+62,Monocytes,muc5103,0.3491763178353781,healthy,False,healthy accepted
+63,Multiciliated (non-nasal),muc5103,0.6109947801226436,healthy,False,healthy accepted
+64,NK cells,muc5103,0.8847316252250298,healthy,False,healthy accepted
+65,Suprabasal,muc5103,0.7478930040573081,healthy,False,healthy accepted
+66,T cell lineage,muc5103,0.7509345473068901,healthy,False,healthy accepted
+67,Transitional Club-AT2,muc5103,0.4588062378710934,healthy,False,healthy accepted
+68,AT2,muc5105,0.3840092564166724,healthy,False,healthy accepted
+69,Alveolar macrophages,muc5105,0.5675342339370703,healthy,False,healthy accepted
+70,Dendritic cells,muc5105,0.871843195931856,healthy,False,healthy accepted
+71,Interstitial macrophages,muc5105,0.9247268895308177,healthy,False,healthy accepted
+72,Monocytes,muc5105,0.8607171308703538,healthy,False,healthy accepted
+73,Multiciliated (non-nasal),muc5105,0.8670271052555605,healthy,False,healthy accepted
+74,T cell lineage,muc5105,0.8764006078243256,healthy,False,healthy accepted
+75,AT2,muc5212,0.3960857873328142,healthy,False,healthy accepted
+76,Alveolar macrophages,muc5212,0.7762688063503651,healthy,False,healthy accepted
+77,Dendritic cells,muc5212,0.8281932349006335,healthy,False,healthy accepted
+78,EC arterial,muc5212,0.8885227032005787,healthy,False,healthy accepted
+79,EC venous,muc5212,0.8225320813984707,healthy,False,healthy accepted
+80,Fibroblast lineage,muc5212,0.7178233111898105,healthy,False,healthy accepted
+81,Interstitial macrophages,muc5212,0.9204019966513611,healthy,False,healthy accepted
+82,Mast cells,muc5212,0.6347051936682764,healthy,False,healthy accepted
+83,Monocytes,muc5212,0.6444523311287597,healthy,False,healthy accepted
+84,NK cells,muc5212,0.9335154349153693,healthy,False,healthy accepted
+85,T cell lineage,muc5212,0.7596957828492334,healthy,False,healthy accepted
+86,AT2,muc5213,0.29958182298410674,healthy,False,healthy accepted
+87,Alveolar macrophages,muc5213,0.7971441537762681,healthy,False,healthy accepted
+88,Dendritic cells,muc5213,0.8007256749429201,healthy,False,healthy accepted
+89,EC venous,muc5213,0.863999530673027,healthy,False,healthy accepted
+90,Fibroblast lineage,muc5213,0.8901671247048811,healthy,False,healthy accepted
+91,Mast cells,muc5213,0.7521015079692006,healthy,False,healthy accepted
+92,Monocytes,muc5213,0.7190506846933766,healthy,False,healthy accepted
+93,Multiciliated (non-nasal),muc5213,0.8577498507499695,healthy,False,healthy accepted
+94,NK cells,muc5213,0.83695942018595,healthy,False,healthy accepted
+95,T cell lineage,muc5213,0.6773566908425898,healthy,False,healthy accepted
+96,Dendritic cells,muc5288,0.8667076006531715,healthy,False,healthy accepted
+97,AT2,muc8257_1,0.7197143890031981,healthy,False,healthy accepted
+98,Alveolar macrophages,muc8257_1,0.9075032692689162,healthy,False,healthy accepted
+99,Dendritic cells,muc8257_1,0.48766448278782776,healthy,False,healthy accepted
+100,EC arterial,muc8257_1,0.7050030773878098,healthy,False,healthy accepted
+101,EC venous,muc8257_1,0.2329878670170368,healthy,False,healthy accepted
+102,Fibroblast lineage,muc8257_1,0.21415351984921482,healthy,False,healthy accepted
+103,Interstitial macrophages,muc8257_1,0.5524963865225966,healthy,False,healthy accepted
+104,Mast cells,muc8257_1,0.2273579322779754,healthy,False,healthy accepted
+105,Monocytes,muc8257_1,0.4467349308218027,healthy,False,healthy accepted
+106,Multiciliated (non-nasal),muc8257_1,0.7572995272054467,healthy,False,healthy accepted
+107,T cell lineage,muc8257_1,0.3797912396004124,healthy,False,healthy accepted
+108,Transitional Club-AT2,muc8257_1,0.8772172508416353,healthy,False,healthy accepted
+109,AT2,muc8257_2,0.6723821220332629,healthy,False,healthy accepted
+110,Alveolar macrophages,muc8257_2,0.9499560457009536,healthy,False,healthy accepted
+111,Dendritic cells,muc8257_2,0.5238958570447847,healthy,False,healthy accepted
+112,EC arterial,muc8257_2,0.7710428197275508,healthy,False,healthy accepted
+113,EC venous,muc8257_2,0.2367781889765778,healthy,False,healthy accepted
+114,Fibroblast lineage,muc8257_2,0.22878041053314552,healthy,False,healthy accepted
+115,Interstitial macrophages,muc8257_2,0.633940112607723,healthy,False,healthy accepted
+116,Mast cells,muc8257_2,0.21946437685909573,healthy,False,healthy accepted
+117,Monocytes,muc8257_2,0.44249149406243704,healthy,False,healthy accepted
+118,Multiciliated (non-nasal),muc8257_2,0.8096041800319285,healthy,False,healthy accepted
+119,T cell lineage,muc8257_2,0.4314354362248884,healthy,False,healthy accepted
+120,Transitional Club-AT2,muc8257_2,0.7991531216181241,healthy,False,healthy accepted
+121,AT2,muc9826,0.45490651964646533,healthy,False,healthy accepted
+122,Alveolar macrophages,muc9826,0.7730631967917228,healthy,False,healthy accepted
+123,Dendritic cells,muc9826,0.7056683778551454,healthy,False,healthy accepted
+124,EC venous,muc9826,0.9114859338962671,healthy,False,healthy accepted
+125,Fibroblast lineage,muc9826,0.614663772110702,healthy,False,healthy accepted
+126,Interstitial macrophages,muc9826,0.5025238349404225,healthy,False,healthy accepted
+127,Mast cells,muc9826,0.4481606157650934,healthy,False,healthy accepted
+128,Monocytes,muc9826,0.2303801092860858,healthy,False,healthy accepted
+129,Multiciliated (non-nasal),muc9826,0.9495727293927905,healthy,False,healthy accepted
+130,NK cells,muc9826,0.8187804504444725,healthy,False,healthy accepted
+131,T cell lineage,muc9826,0.6692267764628548,healthy,False,healthy accepted
+132,AT2,muc9832,0.1648296666992963,healthy,False,healthy accepted
+133,Alveolar macrophages,muc9832,0.7450253596564509,healthy,False,healthy accepted
+134,Dendritic cells,muc9832,0.832010533227477,healthy,False,healthy accepted
+135,Fibroblast lineage,muc9832,0.8972446918487549,healthy,False,healthy accepted
+136,Mast cells,muc9832,0.6525935318734911,healthy,False,healthy accepted
+137,Monocytes,muc9832,0.5802051277888804,healthy,False,healthy accepted
+138,Multiciliated (non-nasal),muc9832,0.99775580316782,healthy,False,healthy accepted
+139,NK cells,muc9832,0.6273113552368048,healthy,False,healthy accepted
+140,T cell lineage,muc9832,0.7583637538163558,healthy,False,healthy accepted
+141,AT2,muc9833,0.1470918328949133,healthy,False,healthy accepted
+142,Alveolar macrophages,muc9833,0.6623678357500733,healthy,False,healthy accepted
+143,Dendritic cells,muc9833,0.35375199038003174,healthy,False,healthy accepted
+144,EC arterial,muc9833,0.9164813384413719,healthy,False,healthy accepted
+145,EC venous,muc9833,0.4779896764616881,healthy,False,healthy accepted
+146,Fibroblast lineage,muc9833,0.6034419545690521,healthy,False,healthy accepted
+147,Interstitial macrophages,muc9833,0.7957410770265952,healthy,False,healthy accepted
+148,Mast cells,muc9833,0.1776853191485032,healthy,False,healthy accepted
+149,Monocytes,muc9833,0.5790665068324994,healthy,False,healthy accepted
+150,Multiciliated (non-nasal),muc9833,0.89453015897585,healthy,False,healthy accepted
+151,NK cells,muc9833,0.43979548274471264,healthy,False,healthy accepted
+152,T cell lineage,muc9833,0.5489544190869621,healthy,False,healthy accepted

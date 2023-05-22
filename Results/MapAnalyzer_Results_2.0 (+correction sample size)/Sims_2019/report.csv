@@ -1,0 +1,12 @@
+,cell_label,sample,mean,health_status,dataset,excluded,label
+0,CD4 T cells,PP001,-0.09037432550449398,healthy,Sims_2019,False,healthy accepted
+1,CD8 T cells,PP001,-0.0008211979771318711,healthy,Sims_2019,False,healthy accepted
+2,NK cells,PP001,-0.16838239234375196,healthy,Sims_2019,False,healthy accepted
+3,CD4 T cells,PP002,-0.21099290221079947,disease,Sims_2019,False,disease accepted
+4,CD8 T cells,PP002,-0.2363036740284724,disease,Sims_2019,False,disease accepted
+5,NK cells,PP002,-0.3009382579803134,disease,Sims_2019,False,disease accepted
+6,CD4 T cells,PP009,-0.24541201847021604,healthy,Sims_2019,False,healthy accepted
+7,CD8 T cells,PP009,-0.18092916887762323,healthy,Sims_2019,False,healthy accepted
+8,CD4 T cells,PP010,-0.2637412045105479,disease,Sims_2019,False,disease accepted
+9,CD8 T cells,PP010,-0.158592739264576,disease,Sims_2019,False,disease accepted
+10,NK cells,PP010,-0.23137722664174576,disease,Sims_2019,False,disease accepted

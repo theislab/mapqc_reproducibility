@@ -1,0 +1,763 @@
+,cell_label,sample,mean,health_status,excluded,label
+0,AT2,001C,0.47306007146835327,healthy,False,healthy accepted
+1,Alveolar macrophages,001C,0.34032918314644417,healthy,False,healthy accepted
+2,Dendritic cells,001C,0.7615776203180614,healthy,False,healthy accepted
+3,Fibroblast lineage,001C,0.8665425479412079,healthy,False,healthy accepted
+4,Interstitial macrophages,001C,0.6588482923413578,healthy,False,healthy accepted
+5,Monocytes,001C,0.25152071772116047,healthy,False,healthy accepted
+6,NK cells,001C,0.3353265440257798,healthy,False,healthy accepted
+7,T cell lineage,001C,0.5374612051654946,healthy,False,healthy accepted
+8,Alveolar macrophages,002C,0.3563610025321548,healthy,False,healthy accepted
+9,Interstitial macrophages,002C,0.3933763901138893,healthy,False,healthy accepted
+10,Monocytes,002C,0.6894376381215724,healthy,False,healthy accepted
+11,Multiciliated (non-nasal),002C,0.8395013689994812,healthy,False,healthy accepted
+12,T cell lineage,002C,0.795254099700186,healthy,False,healthy accepted
+13,AT2,003C,0.9368452640140758,healthy,False,healthy accepted
+14,Alveolar macrophages,003C,0.20605086686918803,healthy,False,healthy accepted
+15,Dendritic cells,003C,0.3678046886243072,healthy,False,healthy accepted
+16,Fibroblast lineage,003C,0.8056474089622497,healthy,False,healthy accepted
+17,Interstitial macrophages,003C,0.291539858822008,healthy,False,healthy accepted
+18,Monocytes,003C,0.20815399246054733,healthy,False,healthy accepted
+19,Multiciliated (non-nasal),003C,0.7376805455596359,healthy,False,healthy accepted
+20,NK cells,003C,0.30209055844367155,healthy,True,healthy rejected
+21,T cell lineage,003C,0.356971135312594,healthy,False,healthy accepted
+22,AT2,010I,0.45355295478925417,disease,False,disease accepted
+23,Alveolar macrophages,010I,0.19526068741587532,disease,False,disease accepted
+24,Dendritic cells,010I,0.2614524069906543,disease,True,disease rejected
+25,EC venous,010I,0.7890416607260704,disease,False,disease accepted
+26,Fibroblast lineage,010I,0.7501118863696483,disease,False,disease accepted
+27,Goblet,010I,0.5613590334066931,disease,False,disease accepted
+28,Interstitial macrophages,010I,0.19792419476808032,disease,False,disease accepted
+29,Mast cells,010I,0.5858320480301267,disease,False,disease accepted
+30,Monocytes,010I,0.3231837417343785,disease,False,disease accepted
+31,Multiciliated (non-nasal),010I,0.1529444326706989,disease,True,disease rejected
+32,NK cells,010I,0.6588208039601644,disease,False,disease accepted
+33,T cell lineage,010I,0.23095042592407092,disease,True,disease rejected
+34,Transitional Club-AT2,010I,0.4749209871260973,disease,False,disease accepted
+35,AT2,021I,0.5705589798347253,disease,False,disease accepted
+36,Alveolar macrophages,021I,0.39302943970384757,disease,False,disease accepted
+37,Dendritic cells,021I,0.3365072893573582,disease,False,disease accepted
+38,EC venous,021I,0.1294486961576418,disease,True,disease rejected
+39,Fibroblast lineage,021I,0.20207513805648894,disease,False,disease accepted
+40,Interstitial macrophages,021I,0.24347838071324596,disease,False,disease accepted
+41,Monocytes,021I,0.1667949324347884,disease,False,disease accepted
+42,Multiciliated (non-nasal),021I,0.43905506555137097,disease,False,disease accepted
+43,NK cells,021I,0.10431571747047712,disease,True,disease rejected
+44,Suprabasal,021I,0.698714090021033,disease,False,disease accepted
+45,T cell lineage,021I,0.19514890503299936,disease,True,disease rejected
+46,Transitional Club-AT2,021I,0.726177328824997,disease,False,disease accepted
+47,AT2,022C-a,0.6480102197182449,healthy,False,healthy accepted
+48,Alveolar macrophages,022C-a,0.17194349405419163,healthy,False,healthy accepted
+49,Dendritic cells,022C-a,0.446406453612794,healthy,False,healthy accepted
+50,Fibroblast lineage,022C-a,0.8338685929775238,healthy,False,healthy accepted
+51,Interstitial macrophages,022C-a,0.3500401963279901,healthy,False,healthy accepted
+52,Mast cells,022C-a,0.6870572851462797,healthy,False,healthy accepted
+53,Monocytes,022C-a,0.28228113803909743,healthy,False,healthy accepted
+54,Multiciliated (non-nasal),022C-a,0.738691962078998,healthy,False,healthy accepted
+55,NK cells,022C-a,0.11815129093041543,healthy,True,healthy rejected
+56,T cell lineage,022C-a,0.166061380810751,healthy,True,healthy rejected
+57,AT2,022C-b,0.7535594191688758,healthy,False,healthy accepted
+58,Alveolar macrophages,022C-b,0.16812451291836958,healthy,False,healthy accepted
+59,Dendritic cells,022C-b,0.5136375455748659,healthy,False,healthy accepted
+60,Fibroblast lineage,022C-b,0.7785059719656905,healthy,False,healthy accepted
+61,Interstitial macrophages,022C-b,0.3441816539952156,healthy,False,healthy accepted
+62,Monocytes,022C-b,0.28962354068598817,healthy,False,healthy accepted
+63,Multiciliated (non-nasal),022C-b,0.891901605659061,healthy,False,healthy accepted
+64,NK cells,022C-b,0.104534716706313,healthy,True,healthy rejected
+65,T cell lineage,022C-b,0.167677194109797,healthy,True,healthy rejected
+66,AT2,022I,0.49709764815131086,disease,False,disease accepted
+67,Alveolar macrophages,022I,0.190062921962161,disease,False,disease accepted
+68,Dendritic cells,022I,0.3107469580451942,disease,False,disease accepted
+69,EC venous,022I,0.11819177017840884,disease,True,disease rejected
+70,Fibroblast lineage,022I,0.2774946313138626,disease,False,disease accepted
+71,Goblet,022I,0.6760171135266622,disease,False,disease accepted
+72,Interstitial macrophages,022I,0.2835997730406675,disease,False,disease accepted
+73,Mast cells,022I,0.6379651886224746,disease,False,disease accepted
+74,Monocytes,022I,0.1928786409975076,disease,False,disease accepted
+75,Multiciliated (non-nasal),022I,0.4975142922303682,disease,False,disease accepted
+76,NK cells,022I,0.23437562354446684,disease,True,disease rejected
+77,Suprabasal,022I,0.5972471999771455,disease,False,disease accepted
+78,T cell lineage,022I,0.2722150504744301,disease,False,disease accepted
+79,Transitional Club-AT2,022I,0.8225544028811984,disease,False,disease accepted
+80,Alveolar macrophages,025I,0.08832047979155733,disease,True,disease rejected
+81,Dendritic cells,025I,0.2774521972096408,disease,True,disease rejected
+82,EC venous,025I,0.568781969093141,disease,False,disease accepted
+83,Fibroblast lineage,025I,0.8674958760247511,disease,False,disease accepted
+84,Goblet,025I,0.8927492946386337,disease,False,disease accepted
+85,Interstitial macrophages,025I,0.31403433270194225,disease,False,disease accepted
+86,Monocytes,025I,0.32645834311332605,disease,False,disease accepted
+87,Multiciliated (non-nasal),025I,0.32434254366283616,disease,False,disease accepted
+88,NK cells,025I,0.37183566136105406,disease,False,disease accepted
+89,T cell lineage,025I,0.3848502330042215,disease,False,disease accepted
+90,Transitional Club-AT2,025I,0.6459691173607304,disease,False,disease accepted
+91,Alveolar macrophages,034C,0.4278350575430105,healthy,False,healthy accepted
+92,Interstitial macrophages,034C,0.2710470331505315,healthy,False,healthy accepted
+93,Monocytes,034C,0.14619421892595,healthy,True,healthy rejected
+94,T cell lineage,034C,0.895313249392943,healthy,False,healthy accepted
+95,AT2,034I-a,0.428551548519837,disease,False,disease accepted
+96,Alveolar macrophages,034I-a,0.646207672236739,disease,False,disease accepted
+97,Dendritic cells,034I-a,0.47073168974596685,disease,False,disease accepted
+98,EC arterial,034I-a,0.6953756785200488,disease,False,disease accepted
+99,EC venous,034I-a,0.19157460083498348,disease,False,disease accepted
+100,Fibroblast lineage,034I-a,0.23655891318543987,disease,False,disease accepted
+101,Goblet,034I-a,0.544862134501021,disease,False,disease accepted
+102,Interstitial macrophages,034I-a,0.22585540719010277,disease,False,disease accepted
+103,Mast cells,034I-a,0.399882817047558,disease,False,disease accepted
+104,Monocytes,034I-a,0.566755701803555,disease,False,disease accepted
+105,Multiciliated (non-nasal),034I-a,0.6867601615754334,disease,False,disease accepted
+106,NK cells,034I-a,0.5827095398886336,disease,False,disease accepted
+107,Suprabasal,034I-a,0.35380130495558276,disease,False,disease accepted
+108,T cell lineage,034I-a,0.6001315611409735,disease,False,disease accepted
+109,Transitional Club-AT2,034I-a,0.724334948119663,disease,False,disease accepted
+110,AT2,040I,0.7019393647971907,disease,False,disease accepted
+111,Alveolar macrophages,040I,0.7716303802266413,disease,False,disease accepted
+112,Dendritic cells,040I,0.5340283445336602,disease,False,disease accepted
+113,EC venous,040I,0.15512228198349473,disease,True,disease rejected
+114,Fibroblast lineage,040I,0.4206522520360552,disease,False,disease accepted
+115,Interstitial macrophages,040I,0.3460862216497348,disease,False,disease accepted
+116,Monocytes,040I,0.2785502847354712,disease,False,disease accepted
+117,Multiciliated (non-nasal),040I,0.5965758434462326,disease,False,disease accepted
+118,NK cells,040I,0.2991985576227307,disease,True,disease rejected
+119,T cell lineage,040I,0.24781512968490657,disease,True,disease rejected
+120,Alveolar macrophages,040I-b,0.16069153180410856,disease,False,disease accepted
+121,Dendritic cells,040I-b,0.7000222076794931,disease,False,disease accepted
+122,Fibroblast lineage,040I-b,0.9186811071855051,disease,False,disease accepted
+123,Interstitial macrophages,040I-b,0.26652472519621967,disease,False,disease accepted
+124,Monocytes,040I-b,0.609211069263088,disease,False,disease accepted
+125,Multiciliated (non-nasal),040I-b,0.24947668132087103,disease,False,disease accepted
+126,NK cells,040I-b,0.759256472713069,disease,False,disease accepted
+127,T cell lineage,040I-b,0.5949556773913831,disease,False,disease accepted
+128,AT2,041I-b,0.4399540244855664,disease,False,disease accepted
+129,Alveolar macrophages,041I-b,0.34044526915075524,disease,False,disease accepted
+130,Dendritic cells,041I-b,0.3667298756585252,disease,False,disease accepted
+131,EC venous,041I-b,0.18166584068125013,disease,True,disease rejected
+132,Fibroblast lineage,041I-b,0.4079288330765954,disease,False,disease accepted
+133,Goblet,041I-b,0.7867249045521021,disease,False,disease accepted
+134,Interstitial macrophages,041I-b,0.15390189909346447,disease,True,disease rejected
+135,Monocytes,041I-b,0.4128282464171971,disease,False,disease accepted
+136,Multiciliated (non-nasal),041I-b,0.3835174946538256,disease,False,disease accepted
+137,NK cells,041I-b,0.5677388045522902,disease,False,disease accepted
+138,T cell lineage,041I-b,0.3554408734928129,disease,False,disease accepted
+139,Transitional Club-AT2,041I-b,0.6291282705962657,disease,False,disease accepted
+140,Alveolar macrophages,051I,0.5204492387698686,disease,False,disease accepted
+141,EC venous,051I,0.462162800376182,disease,False,disease accepted
+142,Fibroblast lineage,051I,0.33698281304392685,disease,False,disease accepted
+143,Interstitial macrophages,051I,0.14119602764471076,disease,True,disease rejected
+144,Monocytes,051I,0.2855020672485063,disease,False,disease accepted
+145,Multiciliated (non-nasal),051I,0.24977206807794433,disease,False,disease accepted
+146,NK cells,051I,0.19547281927999946,disease,True,disease rejected
+147,Suprabasal,051I,0.7263256348669529,disease,False,disease accepted
+148,T cell lineage,051I,0.2556231454326278,disease,True,disease rejected
+149,Alveolar macrophages,051I-a,0.5337723982232956,disease,False,disease accepted
+150,Dendritic cells,051I-a,0.6255751619317446,disease,False,disease accepted
+151,EC venous,051I-a,0.46472999387575936,disease,False,disease accepted
+152,Fibroblast lineage,051I-a,0.3650175205597447,disease,False,disease accepted
+153,Goblet,051I-a,0.5624771911937457,disease,False,disease accepted
+154,Interstitial macrophages,051I-a,0.1511032457209516,disease,True,disease rejected
+155,Mast cells,051I-a,0.5884974547054457,disease,False,disease accepted
+156,Monocytes,051I-a,0.36293495378711005,disease,False,disease accepted
+157,Multiciliated (non-nasal),051I-a,0.2319283086093182,disease,True,disease rejected
+158,NK cells,051I-a,0.362665382012104,disease,False,disease accepted
+159,T cell lineage,051I-a,0.37573041219632647,disease,False,disease accepted
+160,Alveolar macrophages,053I,0.4078660864591304,disease,False,disease accepted
+161,Dendritic cells,053I,0.5218009000993333,disease,False,disease accepted
+162,Interstitial macrophages,053I,0.4661551925437805,disease,False,disease accepted
+163,Monocytes,053I,0.4566148146757948,disease,False,disease accepted
+164,Multiciliated (non-nasal),053I,0.46891376553103326,disease,False,disease accepted
+165,NK cells,053I,0.24300909784613867,disease,True,disease rejected
+166,T cell lineage,053I,0.3121420612217545,disease,False,disease accepted
+167,Alveolar macrophages,053I-d,0.49353029736738213,disease,False,disease accepted
+168,Dendritic cells,053I-d,0.5187759257149788,disease,False,disease accepted
+169,Interstitial macrophages,053I-d,0.5543136567763624,disease,False,disease accepted
+170,Monocytes,053I-d,0.6218390504938441,disease,False,disease accepted
+171,Multiciliated (non-nasal),053I-d,0.2927401970932445,disease,False,disease accepted
+172,NK cells,053I-d,0.1571456787446709,disease,True,disease rejected
+173,T cell lineage,053I-d,0.30776210312220836,disease,False,disease accepted
+174,Alveolar macrophages,053I-n,0.5394312217197275,disease,False,disease accepted
+175,Dendritic cells,053I-n,0.45454691292591465,disease,False,disease accepted
+176,Interstitial macrophages,053I-n,0.7237586191012746,disease,False,disease accepted
+177,Monocytes,053I-n,0.8021886582468071,disease,False,disease accepted
+178,Multiciliated (non-nasal),053I-n,0.5575581657198759,disease,False,disease accepted
+179,NK cells,053I-n,0.17335436430759724,disease,True,disease rejected
+180,T cell lineage,053I-n,0.3183162597511099,disease,False,disease accepted
+181,Alveolar macrophages,063I-b,0.14293782700043986,disease,False,disease accepted
+182,Dendritic cells,063I-b,0.39908092813989654,disease,False,disease accepted
+183,EC venous,063I-b,0.33770951300719254,disease,False,disease accepted
+184,Fibroblast lineage,063I-b,0.15396817455030215,disease,True,disease rejected
+185,Interstitial macrophages,063I-b,0.32229756389771447,disease,False,disease accepted
+186,Monocytes,063I-b,0.5220522583494412,disease,False,disease accepted
+187,Multiciliated (non-nasal),063I-b,0.8400494119395381,disease,False,disease accepted
+188,Suprabasal,063I-b,0.7479371689260006,disease,False,disease accepted
+189,T cell lineage,063I-b,0.7007574598858322,disease,False,disease accepted
+190,Alveolar macrophages,065C,0.2518150618864456,healthy,False,healthy accepted
+191,Dendritic cells,065C,0.38330819155089557,healthy,False,healthy accepted
+192,Interstitial macrophages,065C,0.16452171817299324,healthy,True,healthy rejected
+193,Monocytes,065C,0.1338219549996376,healthy,True,healthy rejected
+194,Multiciliated (non-nasal),065C,0.7223047189987623,healthy,False,healthy accepted
+195,T cell lineage,065C,0.3797073048338586,healthy,False,healthy accepted
+196,Alveolar macrophages,081C,0.8442598867874879,healthy,False,healthy accepted
+197,Dendritic cells,081C,0.6335983213878447,healthy,False,healthy accepted
+198,Interstitial macrophages,081C,0.224231037672106,healthy,False,healthy accepted
+199,Monocytes,081C,0.09836466609603091,healthy,True,healthy rejected
+200,Alveolar macrophages,084C,0.16586908673189474,healthy,False,healthy accepted
+201,Dendritic cells,084C,0.5181945959726969,healthy,False,healthy accepted
+202,Interstitial macrophages,084C,0.380508845443746,healthy,False,healthy accepted
+203,Monocytes,084C,0.36969392101191695,healthy,False,healthy accepted
+204,T cell lineage,084C,0.6148596803347269,healthy,False,healthy accepted
+205,Alveolar macrophages,092C,0.07612396146086549,healthy,True,healthy rejected
+206,Dendritic cells,092C,0.3062390455523053,healthy,False,healthy accepted
+207,Interstitial macrophages,092C,0.24545014343269858,healthy,False,healthy accepted
+208,Monocytes,092C,0.3309545862552621,healthy,False,healthy accepted
+209,NK cells,092C,0.28132239109254437,healthy,True,healthy rejected
+210,T cell lineage,092C,0.7796255677938462,healthy,False,healthy accepted
+211,AT2,098C-a,0.6109408548633967,healthy,False,healthy accepted
+212,Alveolar macrophages,098C-a,0.10779768499620873,healthy,True,healthy rejected
+213,Dendritic cells,098C-a,0.3898810257436708,healthy,False,healthy accepted
+214,EC arterial,098C-a,0.8493232639396892,healthy,False,healthy accepted
+215,Fibroblast lineage,098C-a,0.6545253974753756,healthy,False,healthy accepted
+216,Interstitial macrophages,098C-a,0.395708150724803,healthy,False,healthy accepted
+217,Monocytes,098C-a,0.40183194476713036,healthy,False,healthy accepted
+218,Multiciliated (non-nasal),098C-a,0.4278494943352928,healthy,False,healthy accepted
+219,NK cells,098C-a,0.10888086649804159,healthy,True,healthy rejected
+220,T cell lineage,098C-a,0.15349045706957914,healthy,True,healthy rejected
+221,AT2,098C-b,0.7242466990115508,healthy,False,healthy accepted
+222,Alveolar macrophages,098C-b,0.08586071126638449,healthy,True,healthy rejected
+223,Dendritic cells,098C-b,0.3817625130446435,healthy,False,healthy accepted
+224,EC venous,098C-b,0.8635326364765996,healthy,False,healthy accepted
+225,Fibroblast lineage,098C-b,0.6267698461301306,healthy,False,healthy accepted
+226,Interstitial macrophages,098C-b,0.3814085110398626,healthy,False,healthy accepted
+227,Monocytes,098C-b,0.36262393297968865,healthy,False,healthy accepted
+228,Multiciliated (non-nasal),098C-b,0.47772187275974,healthy,False,healthy accepted
+229,NK cells,098C-b,0.11460360818517269,healthy,True,healthy rejected
+230,T cell lineage,098C-b,0.16995283163582472,healthy,True,healthy rejected
+231,Alveolar macrophages,123I,0.45656872986570385,disease,False,disease accepted
+232,Dendritic cells,123I,0.4456917876258301,disease,False,disease accepted
+233,EC venous,123I,0.7457437124103308,disease,False,disease accepted
+234,Fibroblast lineage,123I,0.6928843274712563,disease,False,disease accepted
+235,Interstitial macrophages,123I,0.2529133603911622,disease,False,disease accepted
+236,Monocytes,123I,0.3903400228872638,disease,False,disease accepted
+237,Multiciliated (non-nasal),123I,0.4384914316425595,disease,False,disease accepted
+238,NK cells,123I,0.34604149066296447,disease,False,disease accepted
+239,T cell lineage,123I,0.5515822021157614,disease,False,disease accepted
+240,Transitional Club-AT2,123I,0.8895380218823751,disease,False,disease accepted
+241,AT2,133C-a,0.20111402025469866,healthy,False,healthy accepted
+242,Alveolar macrophages,133C-a,0.10720764912178242,healthy,True,healthy rejected
+243,Dendritic cells,133C-a,0.22621205150708,healthy,True,healthy rejected
+244,EC arterial,133C-a,0.6720338463783264,healthy,False,healthy accepted
+245,EC venous,133C-a,0.799229676524798,healthy,False,healthy accepted
+246,Interstitial macrophages,133C-a,0.07125651992454432,healthy,True,healthy rejected
+247,Monocytes,133C-a,0.2587596694112354,healthy,False,healthy accepted
+248,Multiciliated (non-nasal),133C-a,0.5878988303244114,healthy,False,healthy accepted
+249,NK cells,133C-a,0.21171127976517057,healthy,True,healthy rejected
+250,T cell lineage,133C-a,0.21967764491913305,healthy,True,healthy rejected
+251,Transitional Club-AT2,133C-a,0.915461945037047,healthy,False,healthy accepted
+252,AT2,135I-a,0.4921666258910241,disease,False,disease accepted
+253,Alveolar macrophages,135I-a,0.3726928302001817,disease,False,disease accepted
+254,Dendritic cells,135I-a,0.26926000012870854,disease,True,disease rejected
+255,Fibroblast lineage,135I-a,0.855580215518539,disease,False,disease accepted
+256,Goblet,135I-a,0.6680191185994026,disease,False,disease accepted
+257,Interstitial macrophages,135I-a,0.24739181454079437,disease,False,disease accepted
+258,Monocytes,135I-a,0.2988840462572245,disease,False,disease accepted
+259,Multiciliated (non-nasal),135I-a,0.3588134013064331,disease,False,disease accepted
+260,NK cells,135I-a,0.15307636706829936,disease,True,disease rejected
+261,Suprabasal,135I-a,0.9248949408531189,disease,False,disease accepted
+262,T cell lineage,135I-a,0.26174263621073385,disease,False,disease accepted
+263,Transitional Club-AT2,135I-a,0.7301676577451278,disease,False,disease accepted
+264,AT2,135I-b,0.41387347818205233,disease,False,disease accepted
+265,Alveolar macrophages,135I-b,0.34259105795486405,disease,False,disease accepted
+266,Dendritic cells,135I-b,0.22125847483145947,disease,True,disease rejected
+267,Fibroblast lineage,135I-b,0.8513510631190406,disease,False,disease accepted
+268,Goblet,135I-b,0.6106603439107086,disease,False,disease accepted
+269,Interstitial macrophages,135I-b,0.23921743951342275,disease,False,disease accepted
+270,Monocytes,135I-b,0.277241990467167,disease,False,disease accepted
+271,Multiciliated (non-nasal),135I-b,0.41715669669113314,disease,False,disease accepted
+272,NK cells,135I-b,0.16221450961570047,disease,True,disease rejected
+273,Suprabasal,135I-b,0.9934302978217602,disease,False,disease accepted
+274,T cell lineage,135I-b,0.22459702945052987,disease,True,disease rejected
+275,Transitional Club-AT2,135I-b,0.7399712770444448,disease,False,disease accepted
+276,Alveolar macrophages,137C,0.37972793902017543,healthy,False,healthy accepted
+277,Dendritic cells,137C,0.5419618915766478,healthy,False,healthy accepted
+278,Fibroblast lineage,137C,0.9479118347167969,healthy,False,healthy accepted
+279,Interstitial macrophages,137C,0.3228952510512204,healthy,False,healthy accepted
+280,Monocytes,137C,0.10214510831509284,healthy,True,healthy rejected
+281,NK cells,137C,0.15533625865194559,healthy,True,healthy rejected
+282,T cell lineage,137C,0.4804822661099024,healthy,False,healthy accepted
+283,AT2,137C-a,0.759004857456475,healthy,False,healthy accepted
+284,Alveolar macrophages,137C-a,0.3430261966761652,healthy,False,healthy accepted
+285,Dendritic cells,137C-a,0.3171602752310841,healthy,False,healthy accepted
+286,EC venous,137C-a,0.5178738531528735,healthy,False,healthy accepted
+287,Fibroblast lineage,137C-a,0.6697751906480682,healthy,False,healthy accepted
+288,Interstitial macrophages,137C-a,0.3423880928402132,healthy,False,healthy accepted
+289,Monocytes,137C-a,0.3027405172164895,healthy,False,healthy accepted
+290,Multiciliated (non-nasal),137C-a,0.504177533377729,healthy,False,healthy accepted
+291,NK cells,137C-a,0.4518479603963594,healthy,False,healthy accepted
+292,T cell lineage,137C-a,0.45118553343376044,healthy,False,healthy accepted
+293,AT2,137C-b,0.7652833686425136,healthy,False,healthy accepted
+294,Alveolar macrophages,137C-b,0.3634853973280963,healthy,False,healthy accepted
+295,Dendritic cells,137C-b,0.27085823078937443,healthy,True,healthy rejected
+296,EC arterial,137C-b,0.7205769618352255,healthy,False,healthy accepted
+297,EC venous,137C-b,0.5896301554872635,healthy,False,healthy accepted
+298,Fibroblast lineage,137C-b,0.5871039361764605,healthy,False,healthy accepted
+299,Interstitial macrophages,137C-b,0.32002160868985124,healthy,False,healthy accepted
+300,Monocytes,137C-b,0.26296846920646905,healthy,False,healthy accepted
+301,Multiciliated (non-nasal),137C-b,0.6824784656645546,healthy,False,healthy accepted
+302,NK cells,137C-b,0.3925890166672968,healthy,False,healthy accepted
+303,T cell lineage,137C-b,0.40905257367945097,healthy,False,healthy accepted
+304,Alveolar macrophages,138I,0.546813589097424,disease,False,disease accepted
+305,Dendritic cells,138I,0.7047445885837078,disease,False,disease accepted
+306,Fibroblast lineage,138I,0.6108681996663411,disease,False,disease accepted
+307,Interstitial macrophages,138I,0.4192474317146329,disease,False,disease accepted
+308,Monocytes,138I,0.49497630411910043,disease,False,disease accepted
+309,AT2,138I-a,0.7630362440558041,disease,False,disease accepted
+310,Alveolar macrophages,138I-a,0.35936081653261287,disease,False,disease accepted
+311,Dendritic cells,138I-a,0.22155455836233356,disease,True,disease rejected
+312,EC arterial,138I-a,0.7803624421358109,disease,False,disease accepted
+313,EC venous,138I-a,0.21541219573526632,disease,False,disease accepted
+314,Fibroblast lineage,138I-a,0.3180354624091009,disease,False,disease accepted
+315,Goblet,138I-a,0.6470927314178364,disease,False,disease accepted
+316,Interstitial macrophages,138I-a,0.1604084110001281,disease,True,disease rejected
+317,Mast cells,138I-a,0.8312061905860901,disease,False,disease accepted
+318,Monocytes,138I-a,0.2961192455930914,disease,False,disease accepted
+319,Multiciliated (non-nasal),138I-a,0.5542023054710249,disease,False,disease accepted
+320,NK cells,138I-a,0.18230777643912005,disease,True,disease rejected
+321,Suprabasal,138I-a,0.7855019412542644,disease,False,disease accepted
+322,T cell lineage,138I-a,0.24434367599181647,disease,True,disease rejected
+323,Transitional Club-AT2,138I-a,0.42151454888517037,disease,False,disease accepted
+324,AT2,145I-a,0.9127302520415362,disease,False,disease accepted
+325,Alveolar macrophages,145I-a,0.1717750979207216,disease,False,disease accepted
+326,Dendritic cells,145I-a,0.18857704299620479,disease,True,disease rejected
+327,Interstitial macrophages,145I-a,0.3008394689750155,disease,False,disease accepted
+328,Monocytes,145I-a,0.3435190195315329,disease,False,disease accepted
+329,Multiciliated (non-nasal),145I-a,0.22828556857945648,disease,True,disease rejected
+330,NK cells,145I-a,0.5185780716204985,disease,False,disease accepted
+331,T cell lineage,145I-a,0.1558016641252574,disease,True,disease rejected
+332,Alveolar macrophages,157I,0.5172569293633331,disease,False,disease accepted
+333,Dendritic cells,157I,0.6885555492714047,disease,False,disease accepted
+334,Interstitial macrophages,157I,0.42192135652793306,disease,False,disease accepted
+335,Monocytes,157I,0.8082464921474457,disease,False,disease accepted
+336,NK cells,157I,0.477737195789814,disease,False,disease accepted
+337,T cell lineage,157I,0.6893216733838997,disease,False,disease accepted
+338,Transitional Club-AT2,157I,0.7332057588630252,disease,False,disease accepted
+339,AT2,157I-a,0.8095545528396484,disease,False,disease accepted
+340,Alveolar macrophages,157I-a,0.43423818338694226,disease,False,disease accepted
+341,Dendritic cells,157I-a,0.39831554110856454,disease,False,disease accepted
+342,EC venous,157I-a,0.6488177943229675,disease,False,disease accepted
+343,Fibroblast lineage,157I-a,0.8071292340755463,disease,False,disease accepted
+344,Goblet,157I-a,0.6645336089990078,disease,False,disease accepted
+345,Interstitial macrophages,157I-a,0.2628372427769352,disease,False,disease accepted
+346,Monocytes,157I-a,0.6848231547141099,disease,False,disease accepted
+347,Multiciliated (non-nasal),157I-a,0.394936823046924,disease,False,disease accepted
+348,NK cells,157I-a,0.24980957798050857,disease,True,disease rejected
+349,Suprabasal,157I-a,0.8179739500795092,disease,False,disease accepted
+350,T cell lineage,157I-a,0.35236940702588687,disease,False,disease accepted
+351,Transitional Club-AT2,157I-a,0.6823832851941468,disease,False,disease accepted
+352,AT2,157I-b,0.5249131653058742,disease,False,disease accepted
+353,Alveolar macrophages,157I-b,0.3952599763648419,disease,False,disease accepted
+354,Dendritic cells,157I-b,0.44156604081398915,disease,False,disease accepted
+355,EC venous,157I-b,0.550846238548939,disease,False,disease accepted
+356,Fibroblast lineage,157I-b,0.8690555145343145,disease,False,disease accepted
+357,Goblet,157I-b,0.7005909738632349,disease,False,disease accepted
+358,Interstitial macrophages,157I-b,0.2868808085163183,disease,False,disease accepted
+359,Mast cells,157I-b,0.6960540600121021,disease,False,disease accepted
+360,Monocytes,157I-b,0.6341568878361661,disease,False,disease accepted
+361,Multiciliated (non-nasal),157I-b,0.3233059701780157,disease,False,disease accepted
+362,NK cells,157I-b,0.19837544619327133,disease,True,disease rejected
+363,Suprabasal,157I-b,0.6585621853669484,disease,False,disease accepted
+364,T cell lineage,157I-b,0.3348229771458659,disease,False,disease accepted
+365,Transitional Club-AT2,157I-b,0.7916371589121611,disease,False,disease accepted
+366,AT2,158I-b,0.7110496236949314,disease,False,disease accepted
+367,Alveolar macrophages,158I-b,0.29757021479358703,disease,False,disease accepted
+368,Dendritic cells,158I-b,0.3859183402952844,disease,False,disease accepted
+369,EC venous,158I-b,0.6222610537042009,disease,False,disease accepted
+370,Fibroblast lineage,158I-b,0.9319911572668288,disease,False,disease accepted
+371,Interstitial macrophages,158I-b,0.2830147307174512,disease,False,disease accepted
+372,Mast cells,158I-b,0.5208112808025401,disease,False,disease accepted
+373,Monocytes,158I-b,0.39334985386703236,disease,False,disease accepted
+374,Multiciliated (non-nasal),158I-b,0.3192999812810489,disease,False,disease accepted
+375,NK cells,158I-b,0.24268408411401596,disease,True,disease rejected
+376,Suprabasal,158I-b,0.8000188893393466,disease,False,disease accepted
+377,T cell lineage,158I-b,0.09888058019196683,disease,True,disease rejected
+378,Transitional Club-AT2,158I-b,0.8702318748912296,disease,False,disease accepted
+379,AT2,160C,0.49086790562100835,healthy,False,healthy accepted
+380,Alveolar macrophages,160C,0.14625684261951502,healthy,False,healthy accepted
+381,Dendritic cells,160C,0.47975111414860117,healthy,False,healthy accepted
+382,Fibroblast lineage,160C,0.8810382800943711,healthy,False,healthy accepted
+383,Interstitial macrophages,160C,0.32531697217715333,healthy,False,healthy accepted
+384,Monocytes,160C,0.2569105359099326,healthy,False,healthy accepted
+385,Multiciliated (non-nasal),160C,0.4271826003759838,healthy,False,healthy accepted
+386,NK cells,160C,0.3732172944639103,healthy,False,healthy accepted
+387,T cell lineage,160C,0.5039741803809781,healthy,False,healthy accepted
+388,AT2,166I-a,0.7140173550162997,disease,False,disease accepted
+389,Alveolar macrophages,166I-a,0.2611018454727875,disease,False,disease accepted
+390,Dendritic cells,166I-a,0.2881210948796989,disease,True,disease rejected
+391,EC arterial,166I-a,0.6313455262354442,disease,False,disease accepted
+392,EC venous,166I-a,0.3579219942267266,disease,False,disease accepted
+393,Fibroblast lineage,166I-a,0.6031371973703304,disease,False,disease accepted
+394,Goblet,166I-a,0.6297767138288867,disease,False,disease accepted
+395,Interstitial macrophages,166I-a,0.29123698680721605,disease,False,disease accepted
+396,Mast cells,166I-a,0.5026435403055266,disease,False,disease accepted
+397,Monocytes,166I-a,0.3133778199596187,disease,False,disease accepted
+398,Multiciliated (non-nasal),166I-a,0.30197360033612447,disease,False,disease accepted
+399,NK cells,166I-a,0.1854853108617486,disease,True,disease rejected
+400,Suprabasal,166I-a,0.882198940962553,disease,False,disease accepted
+401,T cell lineage,166I-a,0.2974217650437048,disease,False,disease accepted
+402,AT2,174I-a,0.3158203367217395,disease,False,disease accepted
+403,Alveolar macrophages,174I-a,0.242144253047676,disease,False,disease accepted
+404,Dendritic cells,174I-a,0.2743030282450536,disease,True,disease rejected
+405,EC venous,174I-a,0.671176077463688,disease,False,disease accepted
+406,Fibroblast lineage,174I-a,0.80720256378011,disease,False,disease accepted
+407,Goblet,174I-a,0.6353043446627756,disease,False,disease accepted
+408,Interstitial macrophages,174I-a,0.34767090889734537,disease,False,disease accepted
+409,Mast cells,174I-a,0.46832038456088176,disease,False,disease accepted
+410,Monocytes,174I-a,0.41126996181647024,disease,False,disease accepted
+411,Multiciliated (non-nasal),174I-a,0.3309489473751491,disease,False,disease accepted
+412,NK cells,174I-a,0.16994365348643753,disease,True,disease rejected
+413,Suprabasal,174I-a,0.726922543425309,disease,False,disease accepted
+414,T cell lineage,174I-a,0.2986214170796187,disease,False,disease accepted
+415,Transitional Club-AT2,174I-a,0.7446872409380657,disease,False,disease accepted
+416,AT2,177I,0.7760132097679636,disease,False,disease accepted
+417,Alveolar macrophages,177I,0.15628028907191047,disease,False,disease accepted
+418,Dendritic cells,177I,0.3035148029617559,disease,False,disease accepted
+419,Fibroblast lineage,177I,0.7197705805991534,disease,False,disease accepted
+420,Goblet,177I,0.6664764745079953,disease,False,disease accepted
+421,Interstitial macrophages,177I,0.35834313560161396,disease,False,disease accepted
+422,Monocytes,177I,0.2700127564178755,disease,False,disease accepted
+423,Multiciliated (non-nasal),177I,0.4624610187411465,disease,False,disease accepted
+424,NK cells,177I,0.16340504197387004,disease,True,disease rejected
+425,T cell lineage,177I,0.2961510706881507,disease,False,disease accepted
+426,Transitional Club-AT2,177I,0.7156569854386391,disease,False,disease accepted
+427,Alveolar macrophages,179I,0.3282607494565629,disease,False,disease accepted
+428,Dendritic cells,179I,0.24851468900087637,disease,True,disease rejected
+429,EC venous,179I,0.8790655334790548,disease,False,disease accepted
+430,Fibroblast lineage,179I,0.9057546442463285,disease,False,disease accepted
+431,Interstitial macrophages,179I,0.28769134333276913,disease,False,disease accepted
+432,Mast cells,179I,0.6704925667298468,disease,False,disease accepted
+433,Monocytes,179I,0.4019274665318383,disease,False,disease accepted
+434,Multiciliated (non-nasal),179I,0.7174492814601996,disease,False,disease accepted
+435,NK cells,179I,0.10970877549738028,disease,True,disease rejected
+436,T cell lineage,179I,0.28270828812559945,disease,False,disease accepted
+437,Transitional Club-AT2,179I,0.9770066255614871,disease,False,disease accepted
+438,AT2,192C-a,0.41475021802954914,healthy,False,healthy accepted
+439,Alveolar macrophages,192C-a,0.19860139093539525,healthy,False,healthy accepted
+440,Dendritic cells,192C-a,0.2545306745790488,healthy,True,healthy rejected
+441,Fibroblast lineage,192C-a,0.37771227383054795,healthy,False,healthy accepted
+442,Interstitial macrophages,192C-a,0.04791610340104652,healthy,True,healthy rejected
+443,Mast cells,192C-a,0.34020359942223877,healthy,False,healthy accepted
+444,Monocytes,192C-a,0.11934112728377158,healthy,True,healthy rejected
+445,Multiciliated (non-nasal),192C-a,0.7413607366383076,healthy,False,healthy accepted
+446,NK cells,192C-a,0.06005325106026465,healthy,True,healthy rejected
+447,T cell lineage,192C-a,0.28961097987351614,healthy,False,healthy accepted
+448,Alveolar macrophages,208C,0.28022152456512833,healthy,False,healthy accepted
+449,Dendritic cells,208C,0.3668554160502498,healthy,False,healthy accepted
+450,Interstitial macrophages,208C,0.16657525364725884,healthy,True,healthy rejected
+451,Monocytes,208C,0.37280576341643423,healthy,False,healthy accepted
+452,Multiciliated (non-nasal),208C,0.5311071671630171,healthy,False,healthy accepted
+453,T cell lineage,208C,0.7376009880327711,healthy,False,healthy accepted
+454,AT2,209I-a,0.1815642965624907,disease,False,disease accepted
+455,Alveolar macrophages,209I-a,0.3979281469427072,disease,False,disease accepted
+456,Dendritic cells,209I-a,0.5514725159388035,disease,False,disease accepted
+457,EC venous,209I-a,0.40194868959952146,disease,False,disease accepted
+458,Fibroblast lineage,209I-a,0.7899118881476553,disease,False,disease accepted
+459,Goblet,209I-a,0.5003577467567962,disease,False,disease accepted
+460,Interstitial macrophages,209I-a,0.25319249851210834,disease,False,disease accepted
+461,Monocytes,209I-a,0.43638923698726595,disease,False,disease accepted
+462,Multiciliated (non-nasal),209I-a,0.1554729424127633,disease,True,disease rejected
+463,NK cells,209I-a,0.5788816621956917,disease,False,disease accepted
+464,Suprabasal,209I-a,0.7338291662079948,disease,False,disease accepted
+465,T cell lineage,209I-a,0.41254991469744995,disease,False,disease accepted
+466,Transitional Club-AT2,209I-a,0.8784035990635554,disease,False,disease accepted
+467,Alveolar macrophages,210CO,0.24640124736243119,disease,False,disease accepted
+468,Dendritic cells,210CO,0.24894299183326304,disease,True,disease rejected
+469,Goblet,210CO,0.7667375189416549,disease,False,disease accepted
+470,Interstitial macrophages,210CO,0.1510653663142115,disease,True,disease rejected
+471,Monocytes,210CO,0.36958201415587794,disease,False,disease accepted
+472,Multiciliated (non-nasal),210CO,0.336588608830409,disease,False,disease accepted
+473,NK cells,210CO,0.5624771118164062,disease,False,disease accepted
+474,Suprabasal,210CO,0.8164640609174967,disease,False,disease accepted
+475,T cell lineage,210CO,0.4860172672839514,disease,False,disease accepted
+476,Transitional Club-AT2,210CO,0.7057210337370634,disease,False,disease accepted
+477,AT2,212I-a,0.4845658250980907,disease,False,disease accepted
+478,Alveolar macrophages,212I-a,0.23178995441649167,disease,False,disease accepted
+479,Dendritic cells,212I-a,0.37298671310549386,disease,False,disease accepted
+480,Goblet,212I-a,0.5514558733951661,disease,False,disease accepted
+481,Interstitial macrophages,212I-a,0.13331975924626815,disease,True,disease rejected
+482,Monocytes,212I-a,0.38931930840796775,disease,False,disease accepted
+483,Multiciliated (non-nasal),212I-a,0.12882680516087394,disease,True,disease rejected
+484,NK cells,212I-a,0.25928924520987834,disease,True,disease rejected
+485,Suprabasal,212I-a,0.8655636712260868,disease,False,disease accepted
+486,T cell lineage,212I-a,0.27064193625420585,disease,False,disease accepted
+487,Transitional Club-AT2,212I-a,0.5649024994833575,disease,False,disease accepted
+488,Alveolar macrophages,214I-a,0.6035420581404316,disease,False,disease accepted
+489,Dendritic cells,214I-a,0.8267903096146054,disease,False,disease accepted
+490,Interstitial macrophages,214I-a,0.35129572073356274,disease,False,disease accepted
+491,Monocytes,214I-a,0.26855634832131403,disease,False,disease accepted
+492,Multiciliated (non-nasal),214I-a,0.24045781138412348,disease,False,disease accepted
+493,T cell lineage,214I-a,0.8028480131179094,disease,False,disease accepted
+494,AT2,218C-a,0.7214501119322247,healthy,False,healthy accepted
+495,Alveolar macrophages,218C-a,0.6111779548006043,healthy,False,healthy accepted
+496,Dendritic cells,218C-a,0.6982093510719446,healthy,False,healthy accepted
+497,Fibroblast lineage,218C-a,0.5826664194464684,healthy,False,healthy accepted
+498,Interstitial macrophages,218C-a,0.42050356868119954,healthy,False,healthy accepted
+499,Monocytes,218C-a,0.5349077295827663,healthy,False,healthy accepted
+500,Multiciliated (non-nasal),218C-a,0.9135241174697876,healthy,False,healthy accepted
+501,NK cells,218C-a,0.43759653063187764,healthy,False,healthy accepted
+502,T cell lineage,218C-a,0.7126715510479502,healthy,False,healthy accepted
+503,AT2,218C-b,0.7617577544667504,healthy,False,healthy accepted
+504,Alveolar macrophages,218C-b,0.5166484324204527,healthy,False,healthy accepted
+505,Dendritic cells,218C-b,0.611418076356252,healthy,False,healthy accepted
+506,Fibroblast lineage,218C-b,0.6861517131328583,healthy,False,healthy accepted
+507,Interstitial macrophages,218C-b,0.36042512462498916,healthy,False,healthy accepted
+508,Monocytes,218C-b,0.4945155376490073,healthy,False,healthy accepted
+509,Multiciliated (non-nasal),218C-b,0.7644744088703935,healthy,False,healthy accepted
+510,NK cells,218C-b,0.47887371049115535,healthy,False,healthy accepted
+511,T cell lineage,218C-b,0.8356027207497893,healthy,False,healthy accepted
+512,Alveolar macrophages,219C-a,0.6548426274255098,healthy,False,healthy accepted
+513,Dendritic cells,219C-a,0.566899879111184,healthy,False,healthy accepted
+514,Interstitial macrophages,219C-a,0.34597157936147127,healthy,False,healthy accepted
+515,Monocytes,219C-a,0.39846762605114944,healthy,False,healthy accepted
+516,Multiciliated (non-nasal),219C-a,0.8543528682655759,healthy,False,healthy accepted
+517,NK cells,219C-a,0.3003940557113342,healthy,True,healthy rejected
+518,T cell lineage,219C-a,0.49971139635525497,healthy,False,healthy accepted
+519,Alveolar macrophages,219C-b,0.5644311850025717,healthy,False,healthy accepted
+520,Dendritic cells,219C-b,0.6985859330743551,healthy,False,healthy accepted
+521,Interstitial macrophages,219C-b,0.278387914653063,healthy,False,healthy accepted
+522,Monocytes,219C-b,0.3541181596170783,healthy,False,healthy accepted
+523,Multiciliated (non-nasal),219C-b,0.8843694925308228,healthy,False,healthy accepted
+524,NK cells,219C-b,0.258650126758342,healthy,True,healthy rejected
+525,T cell lineage,219C-b,0.5672317764887186,healthy,False,healthy accepted
+526,AT2,221I-a,0.6643088907003403,disease,False,disease accepted
+527,Alveolar macrophages,221I-a,0.41522205112721716,disease,False,disease accepted
+528,Dendritic cells,221I-a,0.5788876049684225,disease,False,disease accepted
+529,Fibroblast lineage,221I-a,0.9909263957630504,disease,False,disease accepted
+530,Goblet,221I-a,0.7809197086354961,disease,False,disease accepted
+531,Interstitial macrophages,221I-a,0.2541595145915225,disease,False,disease accepted
+532,Mast cells,221I-a,0.7166666019530523,disease,False,disease accepted
+533,Monocytes,221I-a,0.5510501328911676,disease,False,disease accepted
+534,Multiciliated (non-nasal),221I-a,0.2389171426332586,disease,True,disease rejected
+535,NK cells,221I-a,0.1796844519991076,disease,True,disease rejected
+536,Suprabasal,221I-a,0.8586773849450625,disease,False,disease accepted
+537,T cell lineage,221I-a,0.5277409921197788,disease,False,disease accepted
+538,Transitional Club-AT2,221I-a,0.7372501677936978,disease,False,disease accepted
+539,Alveolar macrophages,222C,0.254707167506971,healthy,False,healthy accepted
+540,Dendritic cells,222C,0.6443327406886965,healthy,False,healthy accepted
+541,Fibroblast lineage,222C,0.8885514140129089,healthy,False,healthy accepted
+542,Interstitial macrophages,222C,0.4148342667129256,healthy,False,healthy accepted
+543,Monocytes,222C,0.33952416300622096,healthy,False,healthy accepted
+544,NK cells,222C,0.1680707049763037,healthy,True,healthy rejected
+545,T cell lineage,222C,0.36689603763455847,healthy,False,healthy accepted
+546,AT2,222I-a,0.5278485375570088,disease,False,disease accepted
+547,Alveolar macrophages,222I-a,0.5677769201155484,disease,False,disease accepted
+548,Dendritic cells,222I-a,0.5029842532995455,disease,False,disease accepted
+549,EC venous,222I-a,0.8402137599493328,disease,False,disease accepted
+550,Fibroblast lineage,222I-a,0.7276541126625878,disease,False,disease accepted
+551,Goblet,222I-a,0.6663697143085301,disease,False,disease accepted
+552,Interstitial macrophages,222I-a,0.31377212899339096,disease,False,disease accepted
+553,Mast cells,222I-a,0.5715165820085641,disease,False,disease accepted
+554,Monocytes,222I-a,0.4954645834718576,disease,False,disease accepted
+555,Multiciliated (non-nasal),222I-a,0.5494059491588661,disease,False,disease accepted
+556,NK cells,222I-a,0.501258497974321,disease,False,disease accepted
+557,Suprabasal,222I-a,0.9025397362380192,disease,False,disease accepted
+558,T cell lineage,222I-a,0.2598430835471489,disease,False,disease accepted
+559,Transitional Club-AT2,222I-a,0.7419929377836724,disease,False,disease accepted
+560,AT2,222I-b,0.5951547641307116,disease,False,disease accepted
+561,Alveolar macrophages,222I-b,0.4158163291153703,disease,False,disease accepted
+562,Dendritic cells,222I-b,0.6175431064429969,disease,False,disease accepted
+563,Fibroblast lineage,222I-b,0.9052240429101167,disease,False,disease accepted
+564,Goblet,222I-b,0.8345236033201218,disease,False,disease accepted
+565,Interstitial macrophages,222I-b,0.25920277006616627,disease,False,disease accepted
+566,Mast cells,222I-b,0.5019672885537148,disease,False,disease accepted
+567,Monocytes,222I-b,0.5005799009934038,disease,False,disease accepted
+568,Multiciliated (non-nasal),222I-b,0.24181594440728343,disease,False,disease accepted
+569,NK cells,222I-b,0.16339040056985157,disease,True,disease rejected
+570,Suprabasal,222I-b,0.809879949092865,disease,False,disease accepted
+571,T cell lineage,222I-b,0.5094373875026461,disease,False,disease accepted
+572,Transitional Club-AT2,222I-b,0.8746272027492523,disease,False,disease accepted
+573,Alveolar macrophages,225I-a,0.26250373768242596,disease,False,disease accepted
+574,Dendritic cells,225I-a,0.4733518392808126,disease,False,disease accepted
+575,EC venous,225I-a,0.30260605232901555,disease,False,disease accepted
+576,Fibroblast lineage,225I-a,0.2836243315190773,disease,False,disease accepted
+577,Interstitial macrophages,225I-a,0.25350949808483403,disease,False,disease accepted
+578,Mast cells,225I-a,0.42913029291369814,disease,False,disease accepted
+579,Monocytes,225I-a,0.47284213122206376,disease,False,disease accepted
+580,Multiciliated (non-nasal),225I-a,0.21619731327518818,disease,True,disease rejected
+581,NK cells,225I-a,0.2863579742519423,disease,True,disease rejected
+582,T cell lineage,225I-a,0.5581872782761782,disease,False,disease accepted
+583,AT2,225I-b,0.6301542084131923,disease,False,disease accepted
+584,Alveolar macrophages,225I-b,0.2465633593866744,disease,False,disease accepted
+585,Dendritic cells,225I-b,0.42881524789151904,disease,False,disease accepted
+586,EC arterial,225I-b,0.7803782768109265,disease,False,disease accepted
+587,EC venous,225I-b,0.2663266377400809,disease,False,disease accepted
+588,Fibroblast lineage,225I-b,0.2613379585571737,disease,False,disease accepted
+589,Interstitial macrophages,225I-b,0.24864007179601047,disease,False,disease accepted
+590,Mast cells,225I-b,0.5419794975415521,disease,False,disease accepted
+591,Monocytes,225I-b,0.4250919461510803,disease,False,disease accepted
+592,Multiciliated (non-nasal),225I-b,0.1880197682377164,disease,True,disease rejected
+593,NK cells,225I-b,0.26499326270523255,disease,True,disease rejected
+594,T cell lineage,225I-b,0.4560914914207073,disease,False,disease accepted
+595,AT2,226C-a,0.5388452252525775,healthy,False,healthy accepted
+596,Alveolar macrophages,226C-a,0.1480076403381563,healthy,False,healthy accepted
+597,Dendritic cells,226C-a,0.14803450098377288,healthy,True,healthy rejected
+598,Interstitial macrophages,226C-a,0.08062096084008094,healthy,True,healthy rejected
+599,Monocytes,226C-a,0.11977587685262775,healthy,True,healthy rejected
+600,Multiciliated (non-nasal),226C-a,0.6766115041340098,healthy,False,healthy accepted
+601,NK cells,226C-a,0.2481815242960762,healthy,True,healthy rejected
+602,T cell lineage,226C-a,0.3308183026809328,healthy,False,healthy accepted
+603,AT2,226C-b,0.5163546602966057,healthy,False,healthy accepted
+604,Alveolar macrophages,226C-b,0.12396729991707628,healthy,True,healthy rejected
+605,Dendritic cells,226C-b,0.13561991889963643,healthy,True,healthy rejected
+606,Fibroblast lineage,226C-b,0.5527252252731059,healthy,False,healthy accepted
+607,Interstitial macrophages,226C-b,0.07604868009142192,healthy,True,healthy rejected
+608,Monocytes,226C-b,0.11694627006510375,healthy,True,healthy rejected
+609,Multiciliated (non-nasal),226C-b,0.6910717118870128,healthy,False,healthy accepted
+610,NK cells,226C-b,0.33463015186362993,healthy,True,healthy rejected
+611,T cell lineage,226C-b,0.3285541787352662,healthy,False,healthy accepted
+612,Alveolar macrophages,228I-a,0.27058333568087634,disease,False,disease accepted
+613,Dendritic cells,228I-a,0.8492851541800932,disease,False,disease accepted
+614,EC venous,228I-a,0.5384464739190955,disease,False,disease accepted
+615,Fibroblast lineage,228I-a,0.4768117101457302,disease,False,disease accepted
+616,Interstitial macrophages,228I-a,0.21189255472618637,disease,False,disease accepted
+617,Monocytes,228I-a,0.22534588567573913,disease,False,disease accepted
+618,Multiciliated (non-nasal),228I-a,0.5324630744514927,disease,False,disease accepted
+619,NK cells,228I-a,0.32887044131395315,disease,True,disease rejected
+620,T cell lineage,228I-a,0.5320069660962212,disease,False,disease accepted
+621,Alveolar macrophages,228I-b,0.2070576131957026,disease,False,disease accepted
+622,Dendritic cells,228I-b,0.8229999879132146,disease,False,disease accepted
+623,EC venous,228I-b,0.5290039833635092,disease,False,disease accepted
+624,Fibroblast lineage,228I-b,0.46898369811475277,disease,False,disease accepted
+625,Interstitial macrophages,228I-b,0.21417316732408723,disease,False,disease accepted
+626,Mast cells,228I-b,0.5778018715791404,disease,False,disease accepted
+627,Monocytes,228I-b,0.19850646419174692,disease,False,disease accepted
+628,Multiciliated (non-nasal),228I-b,0.557244879418406,disease,False,disease accepted
+629,NK cells,228I-b,0.4989056320366811,disease,False,disease accepted
+630,T cell lineage,228I-b,0.4158256335051542,disease,False,disease accepted
+631,Multiciliated (non-nasal),244C,0.6409831853473887,healthy,False,healthy accepted
+632,T cell lineage,244C,0.7215498921118284,healthy,False,healthy accepted
+633,Alveolar macrophages,253C,0.589389260741882,healthy,False,healthy accepted
+634,Dendritic cells,253C,0.5822825734985286,healthy,False,healthy accepted
+635,Fibroblast lineage,253C,0.9207513047301251,healthy,False,healthy accepted
+636,Interstitial macrophages,253C,0.7153388509538277,healthy,False,healthy accepted
+637,Monocytes,253C,0.40514982674022515,healthy,False,healthy accepted
+638,NK cells,253C,0.6947993299653453,healthy,False,healthy accepted
+639,T cell lineage,253C,0.6888251191199716,healthy,False,healthy accepted
+640,AT2,296C,0.08575776340439914,healthy,True,healthy rejected
+641,Alveolar macrophages,296C,0.1113518872611958,healthy,True,healthy rejected
+642,Dendritic cells,296C,0.47460000398682384,healthy,False,healthy accepted
+643,EC venous,296C,0.5921402559788139,healthy,False,healthy accepted
+644,Fibroblast lineage,296C,0.9442548376542551,healthy,False,healthy accepted
+645,Interstitial macrophages,296C,0.25519097496322096,healthy,False,healthy accepted
+646,Monocytes,296C,0.22677809463493756,healthy,False,healthy accepted
+647,Multiciliated (non-nasal),296C,0.6741660121414397,healthy,False,healthy accepted
+648,NK cells,296C,0.09506432730940323,healthy,True,healthy rejected
+649,T cell lineage,296C,0.17136324127108102,healthy,True,healthy rejected
+650,Alveolar macrophages,29I,0.2832197385629753,disease,False,disease accepted
+651,Dendritic cells,29I,0.42524480868059283,disease,False,disease accepted
+652,EC venous,29I,0.7075199923094582,disease,False,disease accepted
+653,Interstitial macrophages,29I,0.3164270793492294,disease,False,disease accepted
+654,Monocytes,29I,0.42463838563245887,disease,False,disease accepted
+655,Multiciliated (non-nasal),29I,0.40807810442886133,disease,False,disease accepted
+656,T cell lineage,29I,0.7134451480900369,disease,False,disease accepted
+657,Transitional Club-AT2,29I,0.6030121664206187,disease,False,disease accepted
+658,Alveolar macrophages,388C,0.10365325107481399,healthy,True,healthy rejected
+659,Dendritic cells,388C,0.2972578148564531,healthy,True,healthy rejected
+660,EC venous,388C,0.4122109115123748,healthy,False,healthy accepted
+661,Fibroblast lineage,388C,0.5142127896643018,healthy,False,healthy accepted
+662,Interstitial macrophages,388C,0.18396210844791436,healthy,True,healthy rejected
+663,Monocytes,388C,0.13118210294398297,healthy,True,healthy rejected
+664,Multiciliated (non-nasal),388C,0.5930717018517581,healthy,False,healthy accepted
+665,NK cells,388C,0.09215504066510632,healthy,True,healthy rejected
+666,T cell lineage,388C,0.36488902741616747,healthy,False,healthy accepted
+667,AT2,396C,0.127017516415799,healthy,True,healthy rejected
+668,Alveolar macrophages,396C,0.14935001746645993,healthy,False,healthy accepted
+669,Dendritic cells,396C,0.5641186001896858,healthy,False,healthy accepted
+670,Interstitial macrophages,396C,0.5362887929978908,healthy,False,healthy accepted
+671,Monocytes,396C,0.36851074921926763,healthy,False,healthy accepted
+672,Multiciliated (non-nasal),396C,0.6348235122859478,healthy,False,healthy accepted
+673,Alveolar macrophages,439C,0.037994345479654426,healthy,True,healthy rejected
+674,Dendritic cells,439C,0.28735728957690293,healthy,True,healthy rejected
+675,Interstitial macrophages,439C,0.13242218032745376,healthy,True,healthy rejected
+676,Monocytes,439C,0.032695842858230524,healthy,True,healthy rejected
+677,NK cells,439C,0.07447207834133329,healthy,True,healthy rejected
+678,T cell lineage,439C,0.026219048594867577,healthy,True,healthy rejected
+679,AT2,439C-b,0.5619781324092079,healthy,False,healthy accepted
+680,Alveolar macrophages,439C-b,0.061578954443854604,healthy,True,healthy rejected
+681,Dendritic cells,439C-b,0.2595140188523944,healthy,True,healthy rejected
+682,Fibroblast lineage,439C-b,0.9602251589298249,healthy,False,healthy accepted
+683,Interstitial macrophages,439C-b,0.26842001263071563,healthy,False,healthy accepted
+684,Monocytes,439C-b,0.12027593654191203,healthy,True,healthy rejected
+685,Multiciliated (non-nasal),439C-b,0.7824867545139222,healthy,False,healthy accepted
+686,NK cells,439C-b,0.11311358494687652,healthy,True,healthy rejected
+687,T cell lineage,439C-b,0.10987456363358092,healthy,True,healthy rejected
+688,AT2,454C,0.3145798606117471,healthy,False,healthy accepted
+689,Alveolar macrophages,454C,0.4202021222663461,healthy,False,healthy accepted
+690,Dendritic cells,454C,0.34235318008995125,healthy,False,healthy accepted
+691,Interstitial macrophages,454C,0.2608133156714892,healthy,False,healthy accepted
+692,Monocytes,454C,0.13681090363951504,healthy,True,healthy rejected
+693,NK cells,454C,0.5255091447254707,healthy,False,healthy accepted
+694,T cell lineage,454C,0.44773061171571465,healthy,False,healthy accepted
+695,AT2,465C,0.5706777106582498,healthy,False,healthy accepted
+696,Alveolar macrophages,465C,0.06852263690011764,healthy,True,healthy rejected
+697,Dendritic cells,465C,0.6460390786773392,healthy,False,healthy accepted
+698,Fibroblast lineage,465C,0.7822298603132367,healthy,False,healthy accepted
+699,Interstitial macrophages,465C,0.4773234033268755,healthy,False,healthy accepted
+700,Monocytes,465C,0.7730580045626714,healthy,False,healthy accepted
+701,NK cells,465C,0.15157307938956735,healthy,True,healthy rejected
+702,T cell lineage,465C,0.1229212607551434,healthy,True,healthy rejected
+703,Alveolar macrophages,47I-a,0.20728409961064728,disease,False,disease accepted
+704,Dendritic cells,47I-a,0.6601247881588183,disease,False,disease accepted
+705,Interstitial macrophages,47I-a,0.2186589256637323,disease,False,disease accepted
+706,Monocytes,47I-a,0.15318421815146707,disease,False,disease accepted
+707,T cell lineage,47I-a,0.36090351301696033,disease,False,disease accepted
+708,Alveolar macrophages,47I-b,0.3225744063330919,disease,False,disease accepted
+709,Dendritic cells,47I-b,0.5078753416034344,disease,False,disease accepted
+710,Fibroblast lineage,47I-b,0.7921610921621323,disease,False,disease accepted
+711,Interstitial macrophages,47I-b,0.31673623139855184,disease,False,disease accepted
+712,Monocytes,47I-b,0.4273151543457061,disease,False,disease accepted
+713,Multiciliated (non-nasal),47I-b,0.22522334814212228,disease,True,disease rejected
+714,NK cells,47I-b,0.20000218457514135,disease,True,disease rejected
+715,T cell lineage,47I-b,0.3605899673317664,disease,False,disease accepted
+716,AT2,483C,0.7312271335432606,healthy,False,healthy accepted
+717,Alveolar macrophages,483C,0.1046240754666518,healthy,True,healthy rejected
+718,Dendritic cells,483C,0.5541010631286368,healthy,False,healthy accepted
+719,Interstitial macrophages,483C,0.4623465938630569,healthy,False,healthy accepted
+720,Monocytes,483C,0.5315775733625332,healthy,False,healthy accepted
+721,Multiciliated (non-nasal),483C,0.6473906795183818,healthy,False,healthy accepted
+722,T cell lineage,483C,0.599637791392256,healthy,False,healthy accepted
+723,Alveolar macrophages,484C,0.25551846495968095,healthy,False,healthy accepted
+724,Dendritic cells,484C,0.2546936347827057,healthy,True,healthy rejected
+725,Interstitial macrophages,484C,0.3542598549298765,healthy,False,healthy accepted
+726,Monocytes,484C,0.5716520939157277,healthy,False,healthy accepted
+727,NK cells,484C,0.17714291012336342,healthy,True,healthy rejected
+728,T cell lineage,484C,0.14434337630240648,healthy,True,healthy rejected
+729,Alveolar macrophages,49I-a,0.3004324836071688,disease,False,disease accepted
+730,Dendritic cells,49I-a,0.24651568746458177,disease,True,disease rejected
+731,EC venous,49I-a,0.4532457890581678,disease,False,disease accepted
+732,Fibroblast lineage,49I-a,0.6647439534207443,disease,False,disease accepted
+733,Interstitial macrophages,49I-a,0.2691456933009366,disease,False,disease accepted
+734,Monocytes,49I-a,0.2435079840919378,disease,False,disease accepted
+735,Multiciliated (non-nasal),49I-a,0.22864123288609056,disease,True,disease rejected
+736,NK cells,49I-a,0.4048842136653956,disease,False,disease accepted
+737,T cell lineage,49I-a,0.3235297102767269,disease,False,disease accepted
+738,Alveolar macrophages,49I-b,0.3476867439914803,disease,False,disease accepted
+739,Dendritic cells,49I-b,0.3535655673773397,disease,False,disease accepted
+740,EC venous,49I-b,0.6112115067062955,disease,False,disease accepted
+741,Fibroblast lineage,49I-b,0.8280415804340289,disease,False,disease accepted
+742,Interstitial macrophages,49I-b,0.3402803883223067,disease,False,disease accepted
+743,Monocytes,49I-b,0.27102274710943147,disease,False,disease accepted
+744,Multiciliated (non-nasal),49I-b,0.2316438478963642,disease,True,disease rejected
+745,NK cells,49I-b,0.4701720280572772,disease,False,disease accepted
+746,T cell lineage,49I-b,0.3003267948531392,disease,False,disease accepted
+747,Alveolar macrophages,59I,0.7899552478471346,disease,False,disease accepted
+748,Dendritic cells,59I,0.798146708144082,disease,False,disease accepted
+749,EC venous,59I,0.19284017931749983,disease,False,disease accepted
+750,Fibroblast lineage,59I,0.7518514554892013,disease,False,disease accepted
+751,Interstitial macrophages,59I,0.4738439598106709,disease,False,disease accepted
+752,Monocytes,59I,0.6509450688248589,disease,False,disease accepted
+753,Multiciliated (non-nasal),59I,0.4138126596991046,disease,False,disease accepted
+754,NK cells,59I,0.24658227869878316,disease,True,disease rejected
+755,T cell lineage,59I,0.30881441203968185,disease,False,disease accepted
+756,Alveolar macrophages,92C,0.2487823969078442,healthy,False,healthy accepted
+757,Fibroblast lineage,92C,0.6792065928111205,healthy,False,healthy accepted
+758,Interstitial macrophages,92C,0.1419665502297564,healthy,True,healthy rejected
+759,Monocytes,92C,0.23482121357174457,healthy,False,healthy accepted
+760,NK cells,92C,0.18602944244048555,healthy,True,healthy rejected
+761,T cell lineage,92C,0.5531577579677105,healthy,False,healthy accepted

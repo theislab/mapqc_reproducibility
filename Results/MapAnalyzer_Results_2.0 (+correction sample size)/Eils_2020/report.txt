@@ -1,0 +1,69 @@
+Parameters:
+Rejection of celltype per sample:	0.05
+Rejection of dataset at sample rejection rate of:	0.05
+Based on the baseline rejection rate samples are rejected when mapping fails in 33.33% of celltypes 
+75.0% of healthy(12) samples rejected:
+ please remap with different parameters,a different method or reintegrate
+16E0F2ng:
+health_status  first      healthy
+dataset        first    Eils_2020
+excluded       sum              5
+               count            9
+fraction                 0.555556
+Name: 16E0F2ng, dtype: object
+1A1DFBng:
+health_status  first      healthy
+dataset        first    Eils_2020
+excluded       sum              4
+               count            6
+fraction                 0.666667
+Name: 1A1DFBng, dtype: object
+JVV9L8ng:
+health_status  first      healthy
+dataset        first    Eils_2020
+excluded       sum              8
+               count           13
+fraction                 0.615385
+Name: JVV9L8ng, dtype: object
+KJYDM1ng:
+health_status  first      healthy
+dataset        first    Eils_2020
+excluded       sum              1
+               count            2
+fraction                      0.5
+Name: KJYDM1ng, dtype: object
+ODGS1Mng:
+health_status  first      healthy
+dataset        first    Eils_2020
+excluded       sum              2
+               count            4
+fraction                      0.5
+Name: ODGS1Mng, dtype: object
+QZY9VQng:
+health_status  first      healthy
+dataset        first    Eils_2020
+excluded       sum              7
+               count           11
+fraction                 0.636364
+Name: QZY9VQng, dtype: object
+S4ECX8ng:
+health_status  first      healthy
+dataset        first    Eils_2020
+excluded       sum             10
+               count           12
+fraction                 0.833333
+Name: S4ECX8ng, dtype: object
+SHMI57ng:
+health_status  first      healthy
+dataset        first    Eils_2020
+excluded       sum              4
+               count            6
+fraction                 0.666667
+Name: SHMI57ng, dtype: object
+ZM3KACng:
+health_status  first      healthy
+dataset        first    Eils_2020
+excluded       sum              2
+               count            6
+fraction                 0.333333
+Name: ZM3KACng, dtype: object

@@ -1,0 +1,42 @@
+Parameters:
+Rejection of celltype per sample:	0.05
+Rejection of dataset at sample rejection rate of:	0.05
+Based on the baseline rejection rate samples are rejected when mapping fails in 33.33% of celltypes 
+3.39% of healthy(59) samples rejected:
+dataset is good to go
+WSSS8062681:
+health_status  first              healthy
+dataset        first    Meyer_2021_5prime
+excluded       sum                      4
+               count                   12
+fraction                         0.333333
+Name: WSSS8062681, dtype: object
+WSSS_A_LNG8620067:
+health_status  first              healthy
+dataset        first    Meyer_2021_5prime
+excluded       sum                      1
+               count                    3
+fraction                         0.333333
+Name: WSSS_A_LNG8620067, dtype: object
+
+
+
+After exclusion of rejected samples celltypes
+that show signs of batch effect are filtered at p = 0.05
+Following celltypes show signs of strong batch effect in healthy samples
+Excluding from disease effect candidate celltypes:
+
+
+Celltype	bh - corrected p-value
+Basal	 < 0.001
+Multiciliated	0.004
+CD8 T cells	0.036
+
+
+
+After exclusion of rejected samples and batch-effect affected celltypes
+disease effect is assumed at at p = 0.05
+Following celltypes show signs possible disease effect:
+
+
+Celltype	bh - corrected p-value

@@ -1,0 +1,171 @@
+,cell_label,sample,mean,health_status,dataset,excluded,label
+0,AT2,muc3843,-0.010679056678162269,healthy,Schiller_2020,False,healthy accepted
+1,Basal,muc3843,0.09830469922906682,healthy,Schiller_2020,False,healthy accepted
+2,CD4 T cells,muc3843,0.005743926771576202,healthy,Schiller_2020,False,healthy accepted
+3,CD8 T cells,muc3843,-0.0033689976064386062,healthy,Schiller_2020,False,healthy accepted
+4,Classical monocytes,muc3843,0.13266099259003794,healthy,Schiller_2020,False,healthy accepted
+5,DC2,muc3843,0.047561394625027176,healthy,Schiller_2020,False,healthy accepted
+6,Fibroblast lineage,muc3843,0.1582946717554804,healthy,Schiller_2020,False,healthy accepted
+7,Macrophages,muc3843,0.07760692882073672,healthy,Schiller_2020,False,healthy accepted
+8,Mast cells,muc3843,-0.12165748025307432,healthy,Schiller_2020,False,healthy accepted
+9,Multiciliated,muc3843,0.09114152625671001,healthy,Schiller_2020,False,healthy accepted
+10,NK cells,muc3843,-0.19982813317823844,healthy,Schiller_2020,False,healthy accepted
+11,Secretory,muc3843,0.18336799544332705,healthy,Schiller_2020,False,healthy accepted
+12,AT2,muc4658,-0.11767239990411127,healthy,Schiller_2020,False,healthy accepted
+13,Basal,muc4658,0.03515409638763245,healthy,Schiller_2020,False,healthy accepted
+14,CD8 T cells,muc4658,0.029190489729530644,healthy,Schiller_2020,False,healthy accepted
+15,Classical monocytes,muc4658,0.09306369184290075,healthy,Schiller_2020,False,healthy accepted
+16,DC2,muc4658,0.010830638093611289,healthy,Schiller_2020,False,healthy accepted
+17,Fibroblast lineage,muc4658,0.08986626937136422,healthy,Schiller_2020,False,healthy accepted
+18,Macrophages,muc4658,0.15304307876533907,healthy,Schiller_2020,False,healthy accepted
+19,Mast cells,muc4658,-0.18466682704534665,healthy,Schiller_2020,False,healthy accepted
+20,Multiciliated,muc4658,0.017073539068443222,healthy,Schiller_2020,False,healthy accepted
+21,NK cells,muc4658,0.0618545246955432,healthy,Schiller_2020,False,healthy accepted
+22,Secretory,muc4658,0.06852848405534717,healthy,Schiller_2020,False,healthy accepted
+23,CD8 T cells,muc4659,-0.16073585913388977,healthy,Schiller_2020,False,healthy accepted
+24,Classical monocytes,muc4659,0.039660779404937396,healthy,Schiller_2020,False,healthy accepted
+25,DC2,muc4659,-0.01061227352010674,healthy,Schiller_2020,False,healthy accepted
+26,Macrophages,muc4659,0.07936899893896499,healthy,Schiller_2020,False,healthy accepted
+27,Mast cells,muc4659,-0.31784679423671336,healthy,Schiller_2020,True,healthy rejected
+28,AT2,muc5103,-0.2660266097935049,healthy,Schiller_2020,False,healthy accepted
+29,Basal,muc5103,-0.15059067135923743,healthy,Schiller_2020,False,healthy accepted
+30,CD4 T cells,muc5103,-0.01821903771400757,healthy,Schiller_2020,False,healthy accepted
+31,CD8 T cells,muc5103,0.01955957275106679,healthy,Schiller_2020,False,healthy accepted
+32,Classical monocytes,muc5103,-0.04275479675941002,healthy,Schiller_2020,False,healthy accepted
+33,DC2,muc5103,0.01447881237807569,healthy,Schiller_2020,False,healthy accepted
+34,EC venous,muc5103,-0.08666389757873094,healthy,Schiller_2020,False,healthy accepted
+35,Fibroblast lineage,muc5103,-0.05898674796192771,healthy,Schiller_2020,False,healthy accepted
+36,Macrophages,muc5103,0.15057086922775764,healthy,Schiller_2020,False,healthy accepted
+37,Mast cells,muc5103,-0.19748137663828247,healthy,Schiller_2020,False,healthy accepted
+38,Multiciliated,muc5103,-0.05513708951442886,healthy,Schiller_2020,False,healthy accepted
+39,NK cells,muc5103,0.10941465529474659,healthy,Schiller_2020,False,healthy accepted
+40,Non-classical monocytes,muc5103,0.1108979064397354,healthy,Schiller_2020,False,healthy accepted
+41,Secretory,muc5103,-0.08743665164288861,healthy,Schiller_2020,False,healthy accepted
+42,AT2,muc5105,-0.13142863741548944,healthy,Schiller_2020,False,healthy accepted
+43,CD8 T cells,muc5105,0.07140850868647663,healthy,Schiller_2020,False,healthy accepted
+44,Classical monocytes,muc5105,0.1485737388575985,healthy,Schiller_2020,False,healthy accepted
+45,DC2,muc5105,0.11841362609260919,healthy,Schiller_2020,False,healthy accepted
+46,Macrophages,muc5105,0.1497372083951798,healthy,Schiller_2020,False,healthy accepted
+47,Multiciliated,muc5105,0.013530589603467424,healthy,Schiller_2020,False,healthy accepted
+48,Secretory,muc5105,0.10489064247702673,healthy,Schiller_2020,False,healthy accepted
+49,AT2,muc5212,-0.027614680216743015,healthy,Schiller_2020,False,healthy accepted
+50,CD4 T cells,muc5212,0.09474388599829675,healthy,Schiller_2020,False,healthy accepted
+51,CD8 T cells,muc5212,0.0952631202548796,healthy,Schiller_2020,False,healthy accepted
+52,Classical monocytes,muc5212,-0.0018102253310499083,healthy,Schiller_2020,False,healthy accepted
+53,DC2,muc5212,0.14899111484994498,healthy,Schiller_2020,False,healthy accepted
+54,EC arterial,muc5212,0.13349067595986486,healthy,Schiller_2020,False,healthy accepted
+55,EC venous,muc5212,0.06815402377280477,healthy,Schiller_2020,False,healthy accepted
+56,Fibroblast lineage,muc5212,0.09590842115854115,healthy,Schiller_2020,False,healthy accepted
+57,Macrophages,muc5212,0.20264415413995163,healthy,Schiller_2020,False,healthy accepted
+58,Mast cells,muc5212,0.07171035426606831,healthy,Schiller_2020,False,healthy accepted
+59,NK cells,muc5212,0.10097383906361501,healthy,Schiller_2020,False,healthy accepted
+60,Non-classical monocytes,muc5212,0.1988130017805596,healthy,Schiller_2020,False,healthy accepted
+61,AT2,muc5213,-0.2538540051006092,healthy,Schiller_2020,False,healthy accepted
+62,Basal,muc5213,0.10083308945163105,healthy,Schiller_2020,False,healthy accepted
+63,CD4 T cells,muc5213,0.09017937563413037,healthy,Schiller_2020,False,healthy accepted
+64,CD8 T cells,muc5213,0.028279629298279096,healthy,Schiller_2020,False,healthy accepted
+65,Classical monocytes,muc5213,0.05376576229026686,healthy,Schiller_2020,False,healthy accepted
+66,DC2,muc5213,0.0929458335814175,healthy,Schiller_2020,False,healthy accepted
+67,EC venous,muc5213,0.08250913712755503,healthy,Schiller_2020,False,healthy accepted
+68,Fibroblast lineage,muc5213,0.2205938683312516,healthy,Schiller_2020,False,healthy accepted
+69,Macrophages,muc5213,0.19021833424110268,healthy,Schiller_2020,False,healthy accepted
+70,Mast cells,muc5213,0.0573586419004235,healthy,Schiller_2020,False,healthy accepted
+71,Multiciliated,muc5213,0.24001043052526683,healthy,Schiller_2020,False,healthy accepted
+72,NK cells,muc5213,0.08206454490640258,healthy,Schiller_2020,False,healthy accepted
+73,Non-classical monocytes,muc5213,0.15697930371864777,healthy,Schiller_2020,False,healthy accepted
+74,Secretory,muc5213,0.18406085960824004,healthy,Schiller_2020,False,healthy accepted
+75,DC2,muc5288,-0.023931184658835924,healthy,Schiller_2020,False,healthy accepted
+76,AT2,muc8257_1,0.10699542482361524,disease,Schiller_2020,False,disease accepted
+77,Basal,muc8257_1,0.13797031006728966,disease,Schiller_2020,False,disease accepted
+78,CD4 T cells,muc8257_1,-0.2094173237862122,disease,Schiller_2020,False,disease accepted
+79,CD8 T cells,muc8257_1,-0.21451812985608554,disease,Schiller_2020,False,disease accepted
+80,Classical monocytes,muc8257_1,-0.1240279838454384,disease,Schiller_2020,False,disease accepted
+81,DC2,muc8257_1,-0.0556048835724412,disease,Schiller_2020,False,disease accepted
+82,EC arterial,muc8257_1,0.02482387717692336,disease,Schiller_2020,False,disease accepted
+83,EC venous,muc8257_1,-0.14615327534470385,disease,Schiller_2020,False,disease accepted
+84,Fibroblast lineage,muc8257_1,-0.1313050259215304,disease,Schiller_2020,False,disease accepted
+85,Macrophages,muc8257_1,0.08279974833335002,disease,Schiller_2020,False,disease accepted
+86,Mast cells,muc8257_1,-0.13192311365122703,disease,Schiller_2020,False,disease accepted
+87,Multiciliated,muc8257_1,0.08323415608806228,disease,Schiller_2020,False,disease accepted
+88,Non-classical monocytes,muc8257_1,-0.0740521927294352,disease,Schiller_2020,False,disease accepted
+89,Secretory,muc8257_1,0.1524987642691381,disease,Schiller_2020,False,disease accepted
+90,AT2,muc8257_2,0.09418342632509225,disease,Schiller_2020,False,disease accepted
+91,Basal,muc8257_2,0.11873160332690536,disease,Schiller_2020,False,disease accepted
+92,CD4 T cells,muc8257_2,-0.14027166428305193,disease,Schiller_2020,False,disease accepted
+93,CD8 T cells,muc8257_2,-0.16467001706750423,disease,Schiller_2020,False,disease accepted
+94,Classical monocytes,muc8257_2,-0.07573963565084108,disease,Schiller_2020,False,disease accepted
+95,DC2,muc8257_2,-0.0063744971762919045,disease,Schiller_2020,False,disease accepted
+96,EC arterial,muc8257_2,0.08683322598727383,disease,Schiller_2020,False,disease accepted
+97,EC venous,muc8257_2,-0.14196240485824946,disease,Schiller_2020,False,disease accepted
+98,Fibroblast lineage,muc8257_2,-0.10848788594185646,disease,Schiller_2020,False,disease accepted
+99,Macrophages,muc8257_2,0.11745951846732816,disease,Schiller_2020,False,disease accepted
+100,Mast cells,muc8257_2,-0.13566164569407074,disease,Schiller_2020,False,disease accepted
+101,Multiciliated,muc8257_2,0.09048992646871123,disease,Schiller_2020,False,disease accepted
+102,Non-classical monocytes,muc8257_2,-0.08953143843979172,disease,Schiller_2020,False,disease accepted
+103,Secretory,muc8257_2,0.09599159114457978,disease,Schiller_2020,False,disease accepted
+104,AT2,muc9826,-0.02058865166998186,disease,Schiller_2020,False,disease accepted
+105,Basal,muc9826,0.06074258880076444,disease,Schiller_2020,False,disease accepted
+106,CD4 T cells,muc9826,-0.007220090917651856,disease,Schiller_2020,False,disease accepted
+107,CD8 T cells,muc9826,0.0019247811847081797,disease,Schiller_2020,False,disease accepted
+108,Classical monocytes,muc9826,-0.02065633682043172,disease,Schiller_2020,False,disease accepted
+109,DC2,muc9826,0.11647299484391649,disease,Schiller_2020,False,disease accepted
+110,EC venous,muc9826,0.15567313141049344,disease,Schiller_2020,False,disease accepted
+111,Fibroblast lineage,muc9826,0.07197550501423877,disease,Schiller_2020,False,disease accepted
+112,Macrophages,muc9826,0.1924107996587382,disease,Schiller_2020,False,disease accepted
+113,Mast cells,muc9826,-0.028150804805050222,disease,Schiller_2020,False,disease accepted
+114,Multiciliated,muc9826,0.2471476409353699,disease,Schiller_2020,False,disease accepted
+115,NK cells,muc9826,-0.033669064353569644,disease,Schiller_2020,False,disease accepted
+116,Non-classical monocytes,muc9826,-0.08342255073833854,disease,Schiller_2020,False,disease accepted
+117,Secretory,muc9826,0.11829443683823981,disease,Schiller_2020,False,disease accepted
+118,AT2,muc9832,-0.24447674969594796,healthy,Schiller_2020,False,healthy accepted
+119,CD4 T cells,muc9832,0.012432999177657611,healthy,Schiller_2020,False,healthy accepted
+120,CD8 T cells,muc9832,0.000246184764233881,healthy,Schiller_2020,False,healthy accepted
+121,Classical monocytes,muc9832,0.04459480666576954,healthy,Schiller_2020,False,healthy accepted
+122,DC2,muc9832,0.06708567459305814,healthy,Schiller_2020,False,healthy accepted
+123,Fibroblast lineage,muc9832,0.10171562759648978,healthy,Schiller_2020,False,healthy accepted
+124,Macrophages,muc9832,0.12925348481238408,healthy,Schiller_2020,False,healthy accepted
+125,Mast cells,muc9832,0.0008277815163169056,healthy,Schiller_2020,False,healthy accepted
+126,Multiciliated,muc9832,0.10642142339255312,healthy,Schiller_2020,False,healthy accepted
+127,NK cells,muc9832,-0.18093679476284064,healthy,Schiller_2020,False,healthy accepted
+128,Non-classical monocytes,muc9832,0.015613838645622047,healthy,Schiller_2020,False,healthy accepted
+129,AT2,muc9833,-0.17476482804379545,healthy,Schiller_2020,False,healthy accepted
+130,CD4 T cells,muc9833,0.08920333463653474,healthy,Schiller_2020,False,healthy accepted
+131,CD8 T cells,muc9833,-0.08057410414834676,healthy,Schiller_2020,False,healthy accepted
+132,Classical monocytes,muc9833,0.014614302212703878,healthy,Schiller_2020,False,healthy accepted
+133,DC2,muc9833,-0.10270091651328545,healthy,Schiller_2020,False,healthy accepted
+134,EC arterial,muc9833,0.1614493074753678,healthy,Schiller_2020,False,healthy accepted
+135,EC venous,muc9833,-0.11729313336337926,healthy,Schiller_2020,False,healthy accepted
+136,Fibroblast lineage,muc9833,0.02958652593408284,healthy,Schiller_2020,False,healthy accepted
+137,Macrophages,muc9833,0.17689650534452517,healthy,Schiller_2020,False,healthy accepted
+138,Mast cells,muc9833,-0.1265045933701237,healthy,Schiller_2020,False,healthy accepted
+139,Multiciliated,muc9833,0.060000476953763315,healthy,Schiller_2020,False,healthy accepted
+140,NK cells,muc9833,-0.2655952908360323,healthy,Schiller_2020,False,healthy accepted
+141,Non-classical monocytes,muc9833,-0.12117771786573417,healthy,Schiller_2020,False,healthy accepted
+142,AT2,muc10380,-0.18006011194697524,healthy,Schiller_2020,False,healthy accepted
+143,Basal,muc10380,0.15019326728478866,healthy,Schiller_2020,False,healthy accepted
+144,CD4 T cells,muc10380,-0.21080943949247954,healthy,Schiller_2020,False,healthy accepted
+145,CD8 T cells,muc10380,-0.20152506525888908,healthy,Schiller_2020,False,healthy accepted
+146,Classical monocytes,muc10380,-0.00421597088200365,healthy,Schiller_2020,False,healthy accepted
+147,DC2,muc10380,0.04191467783502345,healthy,Schiller_2020,False,healthy accepted
+148,EC arterial,muc10380,0.0006722488563665197,healthy,Schiller_2020,False,healthy accepted
+149,EC venous,muc10380,0.11516218203013517,healthy,Schiller_2020,False,healthy accepted
+150,Fibroblast lineage,muc10380,-0.14100435355946375,healthy,Schiller_2020,False,healthy accepted
+151,Macrophages,muc10380,0.09254915867226299,healthy,Schiller_2020,False,healthy accepted
+152,Mast cells,muc10380,-0.16620421594927548,healthy,Schiller_2020,False,healthy accepted
+153,Multiciliated,muc10380,0.13362762225322067,healthy,Schiller_2020,False,healthy accepted
+154,NK cells,muc10380,-0.21707013274130738,healthy,Schiller_2020,False,healthy accepted
+155,Non-classical monocytes,muc10380,-0.11875137783301543,healthy,Schiller_2020,False,healthy accepted
+156,Secretory,muc10380,0.09374151787008178,healthy,Schiller_2020,False,healthy accepted
+157,AT2,muc10381,-0.006547477763530374,disease,Schiller_2020,False,disease accepted
+158,Basal,muc10381,0.18540267678954425,disease,Schiller_2020,False,disease accepted
+159,CD4 T cells,muc10381,-0.13623120159402224,disease,Schiller_2020,False,disease accepted
+160,CD8 T cells,muc10381,-0.2593636152076838,disease,Schiller_2020,False,disease accepted
+161,Classical monocytes,muc10381,0.09394831167561646,disease,Schiller_2020,False,disease accepted
+162,DC2,muc10381,0.06494457789977348,disease,Schiller_2020,False,disease accepted
+163,EC arterial,muc10381,0.023559545671714033,disease,Schiller_2020,False,disease accepted
+164,EC venous,muc10381,-0.14400998214175909,disease,Schiller_2020,False,disease accepted
+165,Fibroblast lineage,muc10381,-0.08712053623282728,disease,Schiller_2020,False,disease accepted
+166,Macrophages,muc10381,0.09405591390246848,disease,Schiller_2020,False,disease accepted
+167,Mast cells,muc10381,-0.06558854106736262,disease,Schiller_2020,False,disease accepted
+168,Multiciliated,muc10381,-0.04880028606744741,disease,Schiller_2020,False,disease accepted
+169,Secretory,muc10381,0.19777826707663493,disease,Schiller_2020,False,disease accepted

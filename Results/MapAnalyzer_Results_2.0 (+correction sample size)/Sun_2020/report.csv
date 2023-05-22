@@ -1,0 +1,119 @@
+,cell_label,sample,mean,health_status,dataset,excluded,label
+0,AT2,GSM4906346,-0.3171499843055171,healthy,Sun_2020_batch4,True,healthy rejected
+1,Basal,GSM4906346,-0.43217439940726965,healthy,Sun_2020_batch4,True,healthy rejected
+2,CD4 T cells,GSM4906346,-0.45619337883733235,healthy,Sun_2020_batch4,True,healthy rejected
+3,CD8 T cells,GSM4906346,-0.1912378514670251,healthy,Sun_2020_batch4,False,healthy accepted
+4,Classical monocytes,GSM4906346,-0.2822815890129555,healthy,Sun_2020_batch4,True,healthy rejected
+5,DC2,GSM4906346,-0.47297833105704934,healthy,Sun_2020_batch4,True,healthy rejected
+6,EC arterial,GSM4906346,-0.17001065656668418,healthy,Sun_2020_batch4,False,healthy accepted
+7,EC venous,GSM4906346,-0.4587369818093387,healthy,Sun_2020_batch4,True,healthy rejected
+8,Fibroblast lineage,GSM4906346,-0.19126529860217129,healthy,Sun_2020_batch4,False,healthy accepted
+9,Macrophages,GSM4906346,-0.5065072818827305,healthy,Sun_2020_batch4,True,healthy rejected
+10,Multiciliated,GSM4906346,-0.45737138820344636,healthy,Sun_2020_batch4,True,healthy rejected
+11,NK cells,GSM4906346,-0.518304487126257,healthy,Sun_2020_batch4,True,healthy rejected
+12,Non-classical monocytes,GSM4906346,-0.4443729041606182,healthy,Sun_2020_batch4,True,healthy rejected
+13,Secretory,GSM4906346,-0.4267106597903417,healthy,Sun_2020_batch4,True,healthy rejected
+14,AT2,GSM4906347,-0.3180950964919402,healthy,Sun_2020_batch4,True,healthy rejected
+15,Basal,GSM4906347,-0.4861406839310025,healthy,Sun_2020_batch4,True,healthy rejected
+16,CD4 T cells,GSM4906347,-0.5313204434744033,healthy,Sun_2020_batch4,True,healthy rejected
+17,CD8 T cells,GSM4906347,-0.4581887596345372,healthy,Sun_2020_batch4,True,healthy rejected
+18,Classical monocytes,GSM4906347,-0.4637211028516125,healthy,Sun_2020_batch4,True,healthy rejected
+19,DC2,GSM4906347,-0.6229986996727926,healthy,Sun_2020_batch4,True,healthy rejected
+20,EC venous,GSM4906347,-0.4863698140189452,healthy,Sun_2020_batch4,True,healthy rejected
+21,Fibroblast lineage,GSM4906347,-0.22111789302929674,healthy,Sun_2020_batch4,False,healthy accepted
+22,Macrophages,GSM4906347,-0.5301948281945866,healthy,Sun_2020_batch4,True,healthy rejected
+23,Multiciliated,GSM4906347,-0.4396781064495971,healthy,Sun_2020_batch4,True,healthy rejected
+24,NK cells,GSM4906347,-0.5413286390526828,healthy,Sun_2020_batch4,True,healthy rejected
+25,Non-classical monocytes,GSM4906347,-0.42250427232843946,healthy,Sun_2020_batch4,True,healthy rejected
+26,Secretory,GSM4906347,-0.45202801413709515,healthy,Sun_2020_batch4,True,healthy rejected
+27,AT2,GSM4906348,-0.28630753938612413,healthy,Sun_2020_batch3,True,healthy rejected
+28,CD4 T cells,GSM4906348,-0.5231513679035653,healthy,Sun_2020_batch3,True,healthy rejected
+29,CD8 T cells,GSM4906348,-0.28415106175776017,healthy,Sun_2020_batch3,False,healthy accepted
+30,Classical monocytes,GSM4906348,-0.34336337276814166,healthy,Sun_2020_batch3,True,healthy rejected
+31,DC2,GSM4906348,-0.32645494970763117,healthy,Sun_2020_batch3,True,healthy rejected
+32,EC arterial,GSM4906348,-0.3625679711582194,healthy,Sun_2020_batch3,True,healthy rejected
+33,EC venous,GSM4906348,-0.429130116793495,healthy,Sun_2020_batch3,True,healthy rejected
+34,Fibroblast lineage,GSM4906348,-0.2606071335899397,healthy,Sun_2020_batch3,False,healthy accepted
+35,Macrophages,GSM4906348,-0.2562496377394174,healthy,Sun_2020_batch3,True,healthy rejected
+36,Multiciliated,GSM4906348,-0.5345829279905655,healthy,Sun_2020_batch3,True,healthy rejected
+37,NK cells,GSM4906348,-0.4304152561415282,healthy,Sun_2020_batch3,True,healthy rejected
+38,Non-classical monocytes,GSM4906348,-0.34289508186805384,healthy,Sun_2020_batch3,True,healthy rejected
+39,Secretory,GSM4906348,-0.08622399905477629,healthy,Sun_2020_batch3,False,healthy accepted
+40,AT2,GSM4906349,-0.28573941125924956,healthy,Sun_2020_batch3,True,healthy rejected
+41,Basal,GSM4906349,-0.28538954457455346,healthy,Sun_2020_batch3,False,healthy accepted
+42,CD4 T cells,GSM4906349,-0.5130455401749637,healthy,Sun_2020_batch3,True,healthy rejected
+43,CD8 T cells,GSM4906349,-0.4262051675009525,healthy,Sun_2020_batch3,True,healthy rejected
+44,Classical monocytes,GSM4906349,-0.41768402271549954,healthy,Sun_2020_batch3,True,healthy rejected
+45,DC2,GSM4906349,-0.42803576803139576,healthy,Sun_2020_batch3,True,healthy rejected
+46,EC arterial,GSM4906349,-0.2576807840800488,healthy,Sun_2020_batch3,True,healthy rejected
+47,Fibroblast lineage,GSM4906349,-0.29067514811878464,healthy,Sun_2020_batch3,False,healthy accepted
+48,Macrophages,GSM4906349,-0.2706292861830659,healthy,Sun_2020_batch3,True,healthy rejected
+49,Multiciliated,GSM4906349,-0.5012263788835036,healthy,Sun_2020_batch3,True,healthy rejected
+50,NK cells,GSM4906349,-0.32319410916321223,healthy,Sun_2020_batch3,False,healthy accepted
+51,Non-classical monocytes,GSM4906349,-0.4173369203334637,healthy,Sun_2020_batch3,True,healthy rejected
+52,Secretory,GSM4906349,-0.40640066878122116,healthy,Sun_2020_batch3,True,healthy rejected
+53,AT2,GSM4906350,-0.18725811325766772,healthy,Sun_2020_batch2,False,healthy accepted
+54,Basal,GSM4906350,-0.21581196638074374,healthy,Sun_2020_batch2,False,healthy accepted
+55,CD4 T cells,GSM4906350,-0.4107799366308086,healthy,Sun_2020_batch2,True,healthy rejected
+56,CD8 T cells,GSM4906350,-0.3913767437023412,healthy,Sun_2020_batch2,True,healthy rejected
+57,Classical monocytes,GSM4906350,-0.4285233738337314,healthy,Sun_2020_batch2,True,healthy rejected
+58,DC2,GSM4906350,-0.47408433542338924,healthy,Sun_2020_batch2,True,healthy rejected
+59,EC arterial,GSM4906350,-0.23668647101881146,healthy,Sun_2020_batch2,False,healthy accepted
+60,EC venous,GSM4906350,-0.12946613737666623,healthy,Sun_2020_batch2,False,healthy accepted
+61,Fibroblast lineage,GSM4906350,-0.2474113352831891,healthy,Sun_2020_batch2,False,healthy accepted
+62,Macrophages,GSM4906350,-0.14002185229923317,healthy,Sun_2020_batch2,False,healthy accepted
+63,Mast cells,GSM4906350,-0.6088462284532286,healthy,Sun_2020_batch2,True,healthy rejected
+64,NK cells,GSM4906350,-0.5076501388195627,healthy,Sun_2020_batch2,True,healthy rejected
+65,Non-classical monocytes,GSM4906350,-0.4295973986315381,healthy,Sun_2020_batch2,True,healthy rejected
+66,Secretory,GSM4906350,-0.3951446699822151,healthy,Sun_2020_batch2,True,healthy rejected
+67,AT2,GSM4906351,-0.3304446499097348,healthy,Sun_2020_batch1,True,healthy rejected
+68,Basal,GSM4906351,-0.3660249394511159,healthy,Sun_2020_batch1,True,healthy rejected
+69,CD4 T cells,GSM4906351,-0.492079056832787,healthy,Sun_2020_batch1,True,healthy rejected
+70,CD8 T cells,GSM4906351,-0.4875626027097051,healthy,Sun_2020_batch1,True,healthy rejected
+71,Classical monocytes,GSM4906351,-0.4604912604308398,healthy,Sun_2020_batch1,True,healthy rejected
+72,DC2,GSM4906351,-0.721946707233287,healthy,Sun_2020_batch1,True,healthy rejected
+73,EC arterial,GSM4906351,-0.3817535304811129,healthy,Sun_2020_batch1,True,healthy rejected
+74,EC venous,GSM4906351,-0.5744950082815954,healthy,Sun_2020_batch1,True,healthy rejected
+75,Fibroblast lineage,GSM4906351,-0.31848887644646773,healthy,Sun_2020_batch1,False,healthy accepted
+76,Macrophages,GSM4906351,-0.2949718437339251,healthy,Sun_2020_batch1,True,healthy rejected
+77,Multiciliated,GSM4906351,-0.47087994396351346,healthy,Sun_2020_batch1,True,healthy rejected
+78,NK cells,GSM4906351,-0.5599471630461269,healthy,Sun_2020_batch1,True,healthy rejected
+79,Non-classical monocytes,GSM4906351,-0.19287205511137578,healthy,Sun_2020_batch1,True,healthy rejected
+80,Secretory,GSM4906351,-0.5034094336799947,healthy,Sun_2020_batch1,True,healthy rejected
+81,AT2,GSM4906352,-0.2678078071187774,healthy,Sun_2020_batch3,False,healthy accepted
+82,Basal,GSM4906352,-0.17854618158761804,healthy,Sun_2020_batch3,False,healthy accepted
+83,CD4 T cells,GSM4906352,-0.3617027096941704,healthy,Sun_2020_batch3,True,healthy rejected
+84,CD8 T cells,GSM4906352,-0.33644618625021866,healthy,Sun_2020_batch3,False,healthy accepted
+85,Classical monocytes,GSM4906352,-0.4422329922743262,healthy,Sun_2020_batch3,True,healthy rejected
+86,DC2,GSM4906352,-0.5396593728181007,healthy,Sun_2020_batch3,True,healthy rejected
+87,EC venous,GSM4906352,-0.12750346359202225,healthy,Sun_2020_batch3,False,healthy accepted
+88,Fibroblast lineage,GSM4906352,-0.29949929929142727,healthy,Sun_2020_batch3,False,healthy accepted
+89,Macrophages,GSM4906352,-0.29430171426589313,healthy,Sun_2020_batch3,True,healthy rejected
+90,Multiciliated,GSM4906352,-0.41274648412453646,healthy,Sun_2020_batch3,True,healthy rejected
+91,NK cells,GSM4906352,-0.10508555374138295,healthy,Sun_2020_batch3,False,healthy accepted
+92,Non-classical monocytes,GSM4906352,-0.3348380546460679,healthy,Sun_2020_batch3,True,healthy rejected
+93,Secretory,GSM4906352,-0.30406981527522703,healthy,Sun_2020_batch3,True,healthy rejected
+94,AT2,GSM4906353,-0.41061689869330953,healthy,Sun_2020_batch2,True,healthy rejected
+95,Basal,GSM4906353,-0.4764548476639878,healthy,Sun_2020_batch2,True,healthy rejected
+96,CD4 T cells,GSM4906353,-0.5708935552167073,healthy,Sun_2020_batch2,True,healthy rejected
+97,CD8 T cells,GSM4906353,-0.5546196431655929,healthy,Sun_2020_batch2,True,healthy rejected
+98,Classical monocytes,GSM4906353,-0.4469172734003159,healthy,Sun_2020_batch2,True,healthy rejected
+99,DC2,GSM4906353,-0.6987123295422834,healthy,Sun_2020_batch2,True,healthy rejected
+100,Fibroblast lineage,GSM4906353,-0.3314474941405669,healthy,Sun_2020_batch2,False,healthy accepted
+101,Macrophages,GSM4906353,-0.43180806672522976,healthy,Sun_2020_batch2,True,healthy rejected
+102,Multiciliated,GSM4906353,-0.3168928688298976,healthy,Sun_2020_batch2,True,healthy rejected
+103,NK cells,GSM4906353,-0.2938284137250463,healthy,Sun_2020_batch2,False,healthy accepted
+104,Non-classical monocytes,GSM4906353,-0.4560187209790498,healthy,Sun_2020_batch2,True,healthy rejected
+105,Secretory,GSM4906353,-0.38050098864755255,healthy,Sun_2020_batch2,True,healthy rejected
+106,AT2,GSM4906354,-0.22446284524246504,healthy,Sun_2020_batch4,False,healthy accepted
+107,Basal,GSM4906354,-0.2820697761722575,healthy,Sun_2020_batch4,False,healthy accepted
+108,CD4 T cells,GSM4906354,-0.4518538502883405,healthy,Sun_2020_batch4,True,healthy rejected
+109,CD8 T cells,GSM4906354,-0.4146984963468432,healthy,Sun_2020_batch4,True,healthy rejected
+110,Classical monocytes,GSM4906354,-0.4154456357448953,healthy,Sun_2020_batch4,True,healthy rejected
+111,DC2,GSM4906354,-0.5324820280407107,healthy,Sun_2020_batch4,True,healthy rejected
+112,Fibroblast lineage,GSM4906354,-0.211381195805752,healthy,Sun_2020_batch4,False,healthy accepted
+113,Macrophages,GSM4906354,-0.31399779524628935,healthy,Sun_2020_batch4,True,healthy rejected
+114,Multiciliated,GSM4906354,-0.49260104420411716,healthy,Sun_2020_batch4,True,healthy rejected
+115,NK cells,GSM4906354,-0.3110350837504217,healthy,Sun_2020_batch4,False,healthy accepted
+116,Non-classical monocytes,GSM4906354,-0.2538256865236113,healthy,Sun_2020_batch4,True,healthy rejected
+117,Secretory,GSM4906354,-0.3658227281241646,healthy,Sun_2020_batch4,True,healthy rejected

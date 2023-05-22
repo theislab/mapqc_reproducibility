@@ -1,0 +1,51 @@
+,cell_label,sample,mean,health_status,excluded,label
+0,Goblet,BG9_12,0.21000929762038492,disease,False,disease accepted
+1,Multiciliated (non-nasal),BG9_12,0.7441897448457655,disease,False,disease accepted
+2,Suprabasal,BG9_12,0.22678148201825613,disease,False,disease accepted
+3,Goblet,BG9_18,0.7164120733737945,disease,False,disease accepted
+4,Suprabasal,BG9_18,0.4255774621087224,disease,False,disease accepted
+5,Goblet,BG9_19,0.8924189448356629,healthy,False,healthy accepted
+6,Suprabasal,BG9_19,0.2614235125393385,healthy,False,healthy accepted
+7,Goblet,BG9_2,0.5298918767273426,healthy,False,healthy accepted
+8,Suprabasal,BG9_2,0.3670963403888092,healthy,False,healthy accepted
+9,Goblet,BG9_20,0.3725485031080148,disease,False,disease accepted
+10,Mast cells,BG9_20,0.5761889550420973,disease,False,disease accepted
+11,Multiciliated (non-nasal),BG9_20,0.24928839760844831,disease,False,disease accepted
+12,Suprabasal,BG9_20,0.40152311810489855,disease,False,disease accepted
+13,Goblet,BG9_21,0.8905043363571167,healthy,False,healthy accepted
+14,Multiciliated (non-nasal),BG9_21,0.362064447172068,healthy,False,healthy accepted
+15,Suprabasal,BG9_21,0.4741481604002302,healthy,False,healthy accepted
+16,Goblet,BG9_22,0.7313906992635419,healthy,False,healthy accepted
+17,Multiciliated (non-nasal),BG9_22,0.7043049212012972,healthy,False,healthy accepted
+18,Suprabasal,BG9_22,0.6488165674515368,healthy,False,healthy accepted
+19,Goblet,BG9_23,0.36316580955035,disease,False,disease accepted
+20,Multiciliated (non-nasal),BG9_23,0.381571533270554,disease,False,disease accepted
+21,Suprabasal,BG9_23,0.6818596966050822,disease,False,disease accepted
+22,Goblet,BG9_24,0.37983957568512244,disease,False,disease accepted
+23,Goblet,BG9_26,0.40205035501104947,disease,False,disease accepted
+24,Multiciliated (non-nasal),BG9_26,0.4313442768303282,disease,False,disease accepted
+25,Suprabasal,BG9_26,0.41756857429189903,disease,False,disease accepted
+26,Goblet,BG9_27,0.33699977384289587,disease,False,disease accepted
+27,Goblet,BG9_3,0.6388213570628848,healthy,False,healthy accepted
+28,Suprabasal,BG9_3,0.30427059028525094,healthy,False,healthy accepted
+29,Goblet,BG9_30,0.6824060249328613,disease,False,disease accepted
+30,Multiciliated (non-nasal),BG9_30,0.4011458177317647,disease,False,disease accepted
+31,Suprabasal,BG9_30,0.43257918963571645,disease,False,disease accepted
+32,Goblet,BG9_31,0.6019148440060452,healthy,False,healthy accepted
+33,Multiciliated (non-nasal),BG9_31,0.4413707731824732,healthy,False,healthy accepted
+34,Suprabasal,BG9_31,0.3738160040299269,healthy,False,healthy accepted
+35,Goblet,BG9_33,0.6267166023349596,healthy,False,healthy accepted
+36,Multiciliated (non-nasal),BG9_33,0.6967495499322047,healthy,False,healthy accepted
+37,Suprabasal,BG9_33,0.21768667883021345,healthy,False,healthy accepted
+38,Goblet,BG9_34,0.18053653044752996,disease,False,disease accepted
+39,Multiciliated (non-nasal),BG9_34,0.23785436613545835,disease,True,disease rejected
+40,Suprabasal,BG9_34,0.3491351018318723,disease,False,disease accepted
+41,Goblet,BG9_35,0.5105971453090509,disease,False,disease accepted
+42,Suprabasal,BG9_35,0.8086590038405524,disease,False,disease accepted
+43,Multiciliated (non-nasal),BG9_36,0.7404052093625069,disease,False,disease accepted
+44,Suprabasal,BG9_36,0.7463469230211698,disease,False,disease accepted
+45,Goblet,BG9_37,0.8482008099555969,healthy,False,healthy accepted
+46,Multiciliated (non-nasal),BG9_37,0.4765551446280519,healthy,False,healthy accepted
+47,Suprabasal,BG9_37,0.15107199131588342,healthy,False,healthy accepted
+48,Goblet,BG9_7,0.5916215242310003,disease,False,disease accepted
+49,Suprabasal,BG9_7,0.5379974085340897,disease,False,disease accepted

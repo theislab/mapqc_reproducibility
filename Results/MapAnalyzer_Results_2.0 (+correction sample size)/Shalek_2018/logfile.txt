@@ -1,0 +1,371 @@
+2023-03-02 15:04:12.488612	Standarizing columns...
+2023-03-02 15:04:15.749407	Finished
+2023-03-02 15:04:21.311220	Checking columns...
+2023-03-02 15:04:21.537693	Analyzing Hematopoietic stem cells
+2023-03-02 15:04:21.572555	skipping Hematopoietic stem cells with 1 subjects
+2023-03-02 15:04:21.572606	Analyzing Mesothelium
+2023-03-02 15:04:21.608353	skipping Mesothelium with 5 subjects
+2023-03-02 15:04:21.608396	Analyzing AT1
+2023-03-02 15:04:21.687986	skipping AT1 with 35 subjects
+2023-03-02 15:04:21.688051	Analyzing AT2
+2023-03-02 15:04:22.078816			skipping Polyp1TOT with 1 cells
+2023-03-02 15:04:22.091296			skipping Polyp2TOT with 0 cells
+2023-03-02 15:04:22.104660			skipping Polyp3TOT with 6 cells
+2023-03-02 15:04:22.117816			skipping Polyp4TOT with 4 cells
+2023-03-02 15:04:22.130859			skipping Polyp5TOT with 4 cells
+2023-03-02 15:04:22.144037			Analysing Polyp6ATOT
+2023-03-02 15:04:28.469631			skipping Polyp6BTOT with 2 cells
+2023-03-02 15:04:28.485039			skipping Polyp7TOT with 4 cells
+2023-03-02 15:04:28.498373			skipping Polyp8TOT with 4 cells
+2023-03-02 15:04:28.511882			skipping Polyp9TOT with 2 cells
+2023-03-02 15:04:28.524156			skipping Polyp11TOT with 0 cells
+2023-03-02 15:04:28.539372			skipping Polyp12TOT with 2 cells
+2023-03-02 15:04:28.552701			skipping Polyp13AEPI with 2 cells
+2023-03-02 15:04:28.565987			skipping Polyp14BEPI with 2 cells
+2023-03-02 15:04:28.579151			skipping Polyp15AEPI with 1 cells
+2023-03-02 15:04:28.592317			skipping Polyp16BEPI with 1 cells
+2023-03-02 15:04:28.604575			skipping Polyp17AEPI with 0 cells
+2023-03-02 15:04:28.618053			skipping Polyp17BEPI with 5 cells
+2023-03-02 15:04:28.630248			skipping Polyp18CEPI with 0 cells
+2023-03-02 15:04:28.642542			skipping Polyp19AEPI with 0 cells
+2023-03-02 15:04:28.654807			skipping Polyp19BEPI with 0 cells
+2023-03-02 15:04:28.654844	Analyzing EC arterial
+2023-03-02 15:04:28.750564			skipping Polyp1TOT with 7 cells
+2023-03-02 15:04:28.764366			Analysing Polyp2TOT
+2023-03-02 15:04:30.225816			skipping Polyp3TOT with 9 cells
+2023-03-02 15:04:30.238370			skipping Polyp4TOT with 0 cells
+2023-03-02 15:04:30.251648			skipping Polyp5TOT with 8 cells
+2023-03-02 15:04:30.264763			skipping Polyp6ATOT with 2 cells
+2023-03-02 15:04:30.277661			skipping Polyp6BTOT with 1 cells
+2023-03-02 15:04:30.290880			skipping Polyp7TOT with 7 cells
+2023-03-02 15:04:30.304029			skipping Polyp8TOT with 4 cells
+2023-03-02 15:04:30.317088			skipping Polyp9TOT with 8 cells
+2023-03-02 15:04:30.331267			skipping Polyp11TOT with 3 cells
+2023-03-02 15:04:30.344244			skipping Polyp12TOT with 9 cells
+2023-03-02 15:04:30.356070			skipping Polyp13AEPI with 0 cells
+2023-03-02 15:04:30.368118			skipping Polyp14BEPI with 0 cells
+2023-03-02 15:04:30.380098			skipping Polyp15AEPI with 0 cells
+2023-03-02 15:04:30.392067			skipping Polyp16BEPI with 0 cells
+2023-03-02 15:04:30.404056			skipping Polyp17AEPI with 0 cells
+2023-03-02 15:04:30.415952			skipping Polyp17BEPI with 0 cells
+2023-03-02 15:04:30.428031			skipping Polyp18CEPI with 0 cells
+2023-03-02 15:04:30.443067			skipping Polyp19AEPI with 0 cells
+2023-03-02 15:04:30.460937			skipping Polyp19BEPI with 0 cells
+2023-03-02 15:04:30.460983	Analyzing Lymphatic EC differentiating
+2023-03-02 15:04:30.500396	skipping Lymphatic EC differentiating with 3 subjects
+2023-03-02 15:04:30.500445	Analyzing Lymphatic EC mature
+2023-03-02 15:04:30.556954	skipping Lymphatic EC mature with 32 subjects
+2023-03-02 15:04:30.557009	Analyzing Lymphatic EC proliferating
+2023-03-02 15:04:30.589172	skipping Lymphatic EC proliferating with 0 subjects
+2023-03-02 15:04:30.589215	Analyzing Mast cells
+2023-03-02 15:04:30.679860			Analysing Polyp1TOT
+2023-03-02 15:04:31.852079			Analysing Polyp2TOT
+2023-03-02 15:04:33.003501			Analysing Polyp3TOT
+2023-03-02 15:04:34.152340			Analysing Polyp4TOT
+2023-03-02 15:04:35.271648			skipping Polyp5TOT with 1 cells
+2023-03-02 15:04:35.285548			skipping Polyp6ATOT with 3 cells
+2023-03-02 15:04:35.298101			skipping Polyp6BTOT with 0 cells
+2023-03-02 15:04:35.311775			skipping Polyp7TOT with 2 cells
+2023-03-02 15:04:35.325281			skipping Polyp8TOT with 3 cells
+2023-03-02 15:04:35.338787			Analysing Polyp9TOT
+2023-03-02 15:04:36.507231			Analysing Polyp11TOT
+2023-03-02 15:04:37.605837			Analysing Polyp12TOT
+2023-03-02 15:04:38.808105			skipping Polyp13AEPI with 9 cells
+2023-03-02 15:04:38.820854			skipping Polyp14BEPI with 0 cells
+2023-03-02 15:04:38.834545			Analysing Polyp15AEPI
+2023-03-02 15:04:39.949417			skipping Polyp16BEPI with 0 cells
+2023-03-02 15:04:39.962360			skipping Polyp17AEPI with 0 cells
+2023-03-02 15:04:39.975959			Analysing Polyp17BEPI
+2023-03-02 15:04:41.132869			skipping Polyp18CEPI with 0 cells
+2023-03-02 15:04:41.145524			skipping Polyp19AEPI with 0 cells
+2023-03-02 15:04:41.161657			Analysing Polyp19BEPI
+2023-03-02 15:04:42.387926	Analyzing AT2 proliferating
+2023-03-02 15:04:42.429632	skipping AT2 proliferating with 14 subjects
+2023-03-02 15:04:42.429695	Analyzing B cells
+2023-03-02 15:04:42.492995	skipping B cells with 36 subjects
+2023-03-02 15:04:42.493061	Analyzing CD4 T cells
+2023-03-02 15:04:42.660180			skipping Polyp1TOT with 11 cells
+2023-03-02 15:04:42.673815			skipping Polyp2TOT with 11 cells
+2023-03-02 15:04:42.687275			skipping Polyp3TOT with 6 cells
+2023-03-02 15:04:42.700513			skipping Polyp4TOT with 13 cells
+2023-03-02 15:04:42.713706			skipping Polyp5TOT with 5 cells
+2023-03-02 15:04:42.726895			skipping Polyp6ATOT with 5 cells
+2023-03-02 15:04:42.739997			skipping Polyp6BTOT with 2 cells
+2023-03-02 15:04:42.753155			skipping Polyp7TOT with 5 cells
+2023-03-02 15:04:42.767688			skipping Polyp8TOT with 5 cells
+2023-03-02 15:04:42.780816			Analysing Polyp9TOT
+2023-03-02 15:04:44.941159			Analysing Polyp11TOT
+2023-03-02 15:04:47.110334			Analysing Polyp12TOT
+2023-03-02 15:04:49.247276			skipping Polyp13AEPI with 9 cells
+2023-03-02 15:04:49.260957			skipping Polyp14BEPI with 8 cells
+2023-03-02 15:04:49.274134			Analysing Polyp15AEPI
+2023-03-02 15:04:51.442888			skipping Polyp16BEPI with 0 cells
+2023-03-02 15:04:51.455775			skipping Polyp17AEPI with 0 cells
+2023-03-02 15:04:51.469331			skipping Polyp17BEPI with 6 cells
+2023-03-02 15:04:51.481758			skipping Polyp18CEPI with 0 cells
+2023-03-02 15:04:51.495433			Analysing Polyp19AEPI
+2023-03-02 15:04:53.655638			Analysing Polyp19BEPI
+2023-03-02 15:04:55.794985	Analyzing CD8 T cells
+2023-03-02 15:04:56.006029			Analysing Polyp1TOT
+2023-03-02 15:04:58.968249			Analysing Polyp2TOT
+2023-03-02 15:05:01.956430			Analysing Polyp3TOT
+2023-03-02 15:05:04.937370			Analysing Polyp4TOT
+2023-03-02 15:05:07.924179			Analysing Polyp5TOT
+2023-03-02 15:05:10.887205			skipping Polyp6ATOT with 8 cells
+2023-03-02 15:05:10.901050			skipping Polyp6BTOT with 3 cells
+2023-03-02 15:05:10.914341			skipping Polyp7TOT with 2 cells
+2023-03-02 15:05:10.927625			skipping Polyp8TOT with 5 cells
+2023-03-02 15:05:10.941547			Analysing Polyp9TOT
+2023-03-02 15:05:13.948476			Analysing Polyp11TOT
+2023-03-02 15:05:16.925148			Analysing Polyp12TOT
+2023-03-02 15:05:19.921751			Analysing Polyp13AEPI
+2023-03-02 15:05:22.880174			Analysing Polyp14BEPI
+2023-03-02 15:05:25.847261			Analysing Polyp15AEPI
+2023-03-02 15:05:28.827059			skipping Polyp16BEPI with 0 cells
+2023-03-02 15:05:28.840824			skipping Polyp17AEPI with 2 cells
+2023-03-02 15:05:28.854182			Analysing Polyp17BEPI
+2023-03-02 15:05:31.817543			Analysing Polyp18CEPI
+2023-03-02 15:05:34.816132			skipping Polyp19AEPI with 11 cells
+2023-03-02 15:05:34.830826			Analysing Polyp19BEPI
+2023-03-02 15:05:37.793854	Analyzing Classical monocytes
+2023-03-02 15:05:37.948686			Analysing Polyp1TOT
+2023-03-02 15:05:39.755313			skipping Polyp2TOT with 11 cells
+2023-03-02 15:05:39.768998			skipping Polyp3TOT with 5 cells
+2023-03-02 15:05:39.782183			skipping Polyp4TOT with 3 cells
+2023-03-02 15:05:39.795374			skipping Polyp5TOT with 2 cells
+2023-03-02 15:05:39.808488			skipping Polyp6ATOT with 3 cells
+2023-03-02 15:05:39.820687			skipping Polyp6BTOT with 0 cells
+2023-03-02 15:05:39.833941			skipping Polyp7TOT with 5 cells
+2023-03-02 15:05:39.847152			skipping Polyp8TOT with 4 cells
+2023-03-02 15:05:39.860255			Analysing Polyp9TOT
+2023-03-02 15:05:41.638444			Analysing Polyp11TOT
+2023-03-02 15:05:43.410404			Analysing Polyp12TOT
+2023-03-02 15:05:45.195524			Analysing Polyp13AEPI
+2023-03-02 15:05:47.013560			Analysing Polyp14BEPI
+2023-03-02 15:05:48.818733			Analysing Polyp15AEPI
+2023-03-02 15:05:50.650471			Analysing Polyp16BEPI
+2023-03-02 15:05:52.454942			Analysing Polyp17AEPI
+2023-03-02 15:05:54.276023			skipping Polyp17BEPI with 3 cells
+2023-03-02 15:05:54.289985			skipping Polyp18CEPI with 4 cells
+2023-03-02 15:05:54.303952			Analysing Polyp19AEPI
+2023-03-02 15:05:56.130804			Analysing Polyp19BEPI
+2023-03-02 15:05:57.927254	Analyzing DC1
+2023-03-02 15:05:57.964090	skipping DC1 with 5 subjects
+2023-03-02 15:05:57.964149	Analyzing Deuterosomal
+2023-03-02 15:05:58.005749	skipping Deuterosomal with 23 subjects
+2023-03-02 15:05:58.005810	Analyzing EC aerocyte capillary
+2023-03-02 15:05:58.078685	skipping EC aerocyte capillary with 25 subjects
+2023-03-02 15:05:58.078750	Analyzing EC general capillary
+2023-03-02 15:05:58.199913	skipping EC general capillary with 35 subjects
+2023-03-02 15:05:58.200284	Analyzing Migratory DCs
+2023-03-02 15:05:58.237508	skipping Migratory DCs with 6 subjects
+2023-03-02 15:05:58.237567	Analyzing NK cells
+2023-03-02 15:05:58.377051			skipping Polyp1TOT with 2 cells
+2023-03-02 15:05:58.390115			skipping Polyp2TOT with 2 cells
+2023-03-02 15:05:58.404141			skipping Polyp3TOT with 5 cells
+2023-03-02 15:05:58.420326			skipping Polyp4TOT with 3 cells
+2023-03-02 15:05:58.433317			skipping Polyp5TOT with 1 cells
+2023-03-02 15:05:58.445514			skipping Polyp6ATOT with 0 cells
+2023-03-02 15:05:58.457831			skipping Polyp6BTOT with 0 cells
+2023-03-02 15:05:58.471119			skipping Polyp7TOT with 1 cells
+2023-03-02 15:05:58.483489			skipping Polyp8TOT with 0 cells
+2023-03-02 15:05:58.496942			Analysing Polyp9TOT
+2023-03-02 15:06:00.220832			skipping Polyp11TOT with 7 cells
+2023-03-02 15:06:00.234450			skipping Polyp12TOT with 14 cells
+2023-03-02 15:06:00.246375			skipping Polyp13AEPI with 0 cells
+2023-03-02 15:06:00.259115			skipping Polyp14BEPI with 1 cells
+2023-03-02 15:06:00.272105			skipping Polyp15AEPI with 13 cells
+2023-03-02 15:06:00.285843			skipping Polyp16BEPI with 0 cells
+2023-03-02 15:06:00.297762			skipping Polyp17AEPI with 0 cells
+2023-03-02 15:06:00.310967			skipping Polyp17BEPI with 6 cells
+2023-03-02 15:06:00.323814			skipping Polyp18CEPI with 1 cells
+2023-03-02 15:06:00.336963			skipping Polyp19AEPI with 3 cells
+2023-03-02 15:06:00.350216			skipping Polyp19BEPI with 5 cells
+2023-03-02 15:06:00.350254	Analyzing Non-classical monocytes
+2023-03-02 15:06:00.448056			skipping Polyp1TOT with 0 cells
+2023-03-02 15:06:00.460290			skipping Polyp2TOT with 0 cells
+2023-03-02 15:06:00.474692			skipping Polyp3TOT with 3 cells
+2023-03-02 15:06:00.486532			skipping Polyp4TOT with 0 cells
+2023-03-02 15:06:00.498354			skipping Polyp5TOT with 0 cells
+2023-03-02 15:06:00.510431			skipping Polyp6ATOT with 0 cells
+2023-03-02 15:06:00.522479			skipping Polyp6BTOT with 0 cells
+2023-03-02 15:06:00.535803			skipping Polyp7TOT with 2 cells
+2023-03-02 15:06:00.548949			skipping Polyp8TOT with 2 cells
+2023-03-02 15:06:00.560918			skipping Polyp9TOT with 0 cells
+2023-03-02 15:06:00.573656			skipping Polyp11TOT with 1 cells
+2023-03-02 15:06:00.586664			skipping Polyp12TOT with 4 cells
+2023-03-02 15:06:00.599672			skipping Polyp13AEPI with 4 cells
+2023-03-02 15:06:00.611650			skipping Polyp14BEPI with 0 cells
+2023-03-02 15:06:00.624491			skipping Polyp15AEPI with 1 cells
+2023-03-02 15:06:00.636419			skipping Polyp16BEPI with 0 cells
+2023-03-02 15:06:00.649407			skipping Polyp17AEPI with 0 cells
+2023-03-02 15:06:00.663798			skipping Polyp17BEPI with 1 cells
+2023-03-02 15:06:00.676056			skipping Polyp18CEPI with 0 cells
+2023-03-02 15:06:00.689340			skipping Polyp19AEPI with 2 cells
+2023-03-02 15:06:00.702254			skipping Polyp19BEPI with 4 cells
+2023-03-02 15:06:00.702291	Analyzing Plasma cells
+2023-03-02 15:06:00.754992	skipping Plasma cells with 24 subjects
+2023-03-02 15:06:00.755043	Analyzing Plasmacytoid DCs
+2023-03-02 15:06:00.793361	skipping Plasmacytoid DCs with 6 subjects
+2023-03-02 15:06:00.793406	Analyzing T cells proliferating
+2023-03-02 15:06:00.829387	skipping T cells proliferating with 4 subjects
+2023-03-02 15:06:00.829432	Analyzing Basal
+2023-03-02 15:06:01.379685			Analysing Polyp1TOT
+2023-03-02 15:06:10.808187			Analysing Polyp2TOT
+2023-03-02 15:06:19.489183			Analysing Polyp3TOT
+2023-03-02 15:06:28.113743			Analysing Polyp4TOT
+2023-03-02 15:06:36.897511			Analysing Polyp5TOT
+2023-03-02 15:06:45.587581			Analysing Polyp6ATOT
+2023-03-02 15:06:54.353212			Analysing Polyp6BTOT
+2023-03-02 15:07:03.162432			Analysing Polyp7TOT
+2023-03-02 15:07:11.905636			Analysing Polyp8TOT
+2023-03-02 15:07:20.538345			Analysing Polyp9TOT
+2023-03-02 15:07:29.190863			Analysing Polyp11TOT
+2023-03-02 15:07:37.977713			Analysing Polyp12TOT
+2023-03-02 15:07:46.819638			skipping Polyp13AEPI with 10 cells
+2023-03-02 15:07:46.833876			skipping Polyp14BEPI with 4 cells
+2023-03-02 15:07:46.847121			skipping Polyp15AEPI with 12 cells
+2023-03-02 15:07:46.859139			skipping Polyp16BEPI with 0 cells
+2023-03-02 15:07:46.874272			skipping Polyp17AEPI with 0 cells
+2023-03-02 15:07:46.889985			Analysing Polyp17BEPI
+2023-03-02 15:07:55.767120			Analysing Polyp18CEPI
+2023-03-02 15:08:04.459964			skipping Polyp19AEPI with 2 cells
+2023-03-02 15:08:04.475525			Analysing Polyp19BEPI
+2023-03-02 15:08:13.224998	Analyzing DC2
+2023-03-02 15:08:13.337305			Analysing Polyp1TOT
+2023-03-02 15:08:14.279397			Analysing Polyp2TOT
+2023-03-02 15:08:15.240815			Analysing Polyp3TOT
+2023-03-02 15:08:16.192249			Analysing Polyp4TOT
+2023-03-02 15:08:17.145789			skipping Polyp5TOT with 13 cells
+2023-03-02 15:08:17.159673			skipping Polyp6ATOT with 14 cells
+2023-03-02 15:08:17.172990			skipping Polyp6BTOT with 7 cells
+2023-03-02 15:08:17.186348			skipping Polyp7TOT with 12 cells
+2023-03-02 15:08:17.199798			Analysing Polyp8TOT
+2023-03-02 15:08:18.148901			Analysing Polyp9TOT
+2023-03-02 15:08:19.111933			Analysing Polyp11TOT
+2023-03-02 15:08:20.059475			Analysing Polyp12TOT
+2023-03-02 15:08:21.015154			Analysing Polyp13AEPI
+2023-03-02 15:08:21.982303			Analysing Polyp14BEPI
+2023-03-02 15:08:22.935454			Analysing Polyp15AEPI
+2023-03-02 15:08:23.900499			skipping Polyp16BEPI with 0 cells
+2023-03-02 15:08:23.914676			skipping Polyp17AEPI with 2 cells
+2023-03-02 15:08:23.928410			Analysing Polyp17BEPI
+2023-03-02 15:08:24.883950			skipping Polyp18CEPI with 3 cells
+2023-03-02 15:08:24.900333			skipping Polyp19AEPI with 13 cells
+2023-03-02 15:08:24.913724			Analysing Polyp19BEPI
+2023-03-02 15:08:25.858399	Analyzing EC venous
+2023-03-02 15:08:25.988025			Analysing Polyp1TOT
+2023-03-02 15:08:27.337513			Analysing Polyp2TOT
+2023-03-02 15:08:28.706427			Analysing Polyp3TOT
+2023-03-02 15:08:30.069749			Analysing Polyp4TOT
+2023-03-02 15:08:31.433237			Analysing Polyp5TOT
+2023-03-02 15:08:32.804924			Analysing Polyp6ATOT
+2023-03-02 15:08:34.196481			Analysing Polyp6BTOT
+2023-03-02 15:08:35.559195			Analysing Polyp7TOT
+2023-03-02 15:08:36.915895			Analysing Polyp8TOT
+2023-03-02 15:08:38.270207			Analysing Polyp9TOT
+2023-03-02 15:08:39.617230			Analysing Polyp11TOT
+2023-03-02 15:08:40.967441			Analysing Polyp12TOT
+2023-03-02 15:08:42.350623			skipping Polyp13AEPI with 0 cells
+2023-03-02 15:08:42.363708			skipping Polyp14BEPI with 0 cells
+2023-03-02 15:08:42.376333			skipping Polyp15AEPI with 0 cells
+2023-03-02 15:08:42.388886			skipping Polyp16BEPI with 0 cells
+2023-03-02 15:08:42.404132			skipping Polyp17AEPI with 0 cells
+2023-03-02 15:08:42.416864			skipping Polyp17BEPI with 0 cells
+2023-03-02 15:08:42.429480			skipping Polyp18CEPI with 0 cells
+2023-03-02 15:08:42.443195			skipping Polyp19AEPI with 3 cells
+2023-03-02 15:08:42.455585			skipping Polyp19BEPI with 0 cells
+2023-03-02 15:08:42.455641	Analyzing Fibroblast lineage
+2023-03-02 15:08:42.637670			Analysing Polyp1TOT
+2023-03-02 15:08:44.784931			Analysing Polyp2TOT
+2023-03-02 15:08:46.910377			Analysing Polyp3TOT
+2023-03-02 15:08:49.019942			Analysing Polyp4TOT
+2023-03-02 15:08:51.123016			Analysing Polyp5TOT
+2023-03-02 15:08:53.252485			Analysing Polyp6ATOT
+2023-03-02 15:08:55.376583			Analysing Polyp6BTOT
+2023-03-02 15:08:57.484555			Analysing Polyp7TOT
+2023-03-02 15:08:59.590175			Analysing Polyp8TOT
+2023-03-02 15:09:01.695765			Analysing Polyp9TOT
+2023-03-02 15:09:03.835595			Analysing Polyp11TOT
+2023-03-02 15:09:05.969809			Analysing Polyp12TOT
+2023-03-02 15:09:08.145442			skipping Polyp13AEPI with 0 cells
+2023-03-02 15:09:08.158492			skipping Polyp14BEPI with 0 cells
+2023-03-02 15:09:08.171111			skipping Polyp15AEPI with 0 cells
+2023-03-02 15:09:08.187040			skipping Polyp16BEPI with 0 cells
+2023-03-02 15:09:08.199798			skipping Polyp17AEPI with 0 cells
+2023-03-02 15:09:08.212527			skipping Polyp17BEPI with 0 cells
+2023-03-02 15:09:08.225149			skipping Polyp18CEPI with 0 cells
+2023-03-02 15:09:08.239079			Analysing Polyp19AEPI
+2023-03-02 15:09:10.368544			skipping Polyp19BEPI with 0 cells
+2023-03-02 15:09:10.368876	Analyzing Macrophages
+2023-03-02 15:09:11.056374			skipping Polyp1TOT with 14 cells
+2023-03-02 15:09:11.070790			skipping Polyp2TOT with 10 cells
+2023-03-02 15:09:11.084771			skipping Polyp3TOT with 3 cells
+2023-03-02 15:09:11.098717			skipping Polyp4TOT with 7 cells
+2023-03-02 15:09:11.112400			skipping Polyp5TOT with 1 cells
+2023-03-02 15:09:11.126215			skipping Polyp6ATOT with 4 cells
+2023-03-02 15:09:11.138900			skipping Polyp6BTOT with 0 cells
+2023-03-02 15:09:11.152615			skipping Polyp7TOT with 2 cells
+2023-03-02 15:09:11.166132			skipping Polyp8TOT with 1 cells
+2023-03-02 15:09:11.180028			Analysing Polyp9TOT
+2023-03-02 15:09:22.581745			Analysing Polyp11TOT
+2023-03-02 15:09:33.704480			Analysing Polyp12TOT
+2023-03-02 15:09:45.012790			Analysing Polyp13AEPI
+2023-03-02 15:09:56.115617			Analysing Polyp14BEPI
+2023-03-02 15:10:07.357018			Analysing Polyp15AEPI
+2023-03-02 15:10:18.442263			skipping Polyp16BEPI with 1 cells
+2023-03-02 15:10:18.456401			skipping Polyp17AEPI with 2 cells
+2023-03-02 15:10:18.469787			skipping Polyp17BEPI with 7 cells
+2023-03-02 15:10:18.481737			skipping Polyp18CEPI with 0 cells
+2023-03-02 15:10:18.494636			Analysing Polyp19AEPI
+2023-03-02 15:10:29.887994			Analysing Polyp19BEPI
+2023-03-02 15:10:41.029887	Analyzing Multiciliated
+2023-03-02 15:10:41.327448			skipping Polyp1TOT with 1 cells
+2023-03-02 15:10:41.343778			skipping Polyp2TOT with 6 cells
+2023-03-02 15:10:41.357390			Analysing Polyp3TOT
+2023-03-02 15:10:45.339719			skipping Polyp4TOT with 7 cells
+2023-03-02 15:10:45.353247			Analysing Polyp5TOT
+2023-03-02 15:10:49.372254			Analysing Polyp6ATOT
+2023-03-02 15:10:53.425455			Analysing Polyp6BTOT
+2023-03-02 15:10:57.523275			Analysing Polyp7TOT
+2023-03-02 15:11:01.782392			Analysing Polyp8TOT
+2023-03-02 15:11:05.756522			skipping Polyp9TOT with 11 cells
+2023-03-02 15:11:05.770732			skipping Polyp11TOT with 1 cells
+2023-03-02 15:11:05.784134			Analysing Polyp12TOT
+2023-03-02 15:11:09.776457			skipping Polyp13AEPI with 2 cells
+2023-03-02 15:11:09.789741			Analysing Polyp14BEPI
+2023-03-02 15:11:13.751618			Analysing Polyp15AEPI
+2023-03-02 15:11:17.809179			skipping Polyp16BEPI with 0 cells
+2023-03-02 15:11:17.822891			skipping Polyp17AEPI with 6 cells
+2023-03-02 15:11:17.836815			Analysing Polyp17BEPI
+2023-03-02 15:11:21.941005			Analysing Polyp18CEPI
+2023-03-02 15:11:25.924797			skipping Polyp19AEPI with 0 cells
+2023-03-02 15:11:25.939241			Analysing Polyp19BEPI
+2023-03-02 15:11:29.917602	Analyzing Rare
+2023-03-02 15:11:29.960757	skipping Rare with 24 subjects
+2023-03-02 15:11:29.960818	Analyzing Secretory
+2023-03-02 15:11:30.486132			Analysing Polyp1TOT
+2023-03-02 15:11:38.306031			Analysing Polyp2TOT
+2023-03-02 15:11:46.315914			Analysing Polyp3TOT
+2023-03-02 15:11:54.158526			Analysing Polyp4TOT
+2023-03-02 15:12:01.982654			Analysing Polyp5TOT
+2023-03-02 15:12:10.003760			Analysing Polyp6ATOT
+2023-03-02 15:12:18.096892			Analysing Polyp6BTOT
+2023-03-02 15:12:26.110377			Analysing Polyp7TOT
+2023-03-02 15:12:34.470175			Analysing Polyp8TOT
+2023-03-02 15:12:42.615041			Analysing Polyp9TOT
+2023-03-02 15:12:50.690955			Analysing Polyp11TOT
+2023-03-02 15:12:58.975533			Analysing Polyp12TOT
+2023-03-02 15:13:07.102503			Analysing Polyp13AEPI
+2023-03-02 15:13:15.476255			Analysing Polyp14BEPI
+2023-03-02 15:13:23.801408			Analysing Polyp15AEPI
+2023-03-02 15:13:32.120343			Analysing Polyp16BEPI
+2023-03-02 15:13:40.249179			Analysing Polyp17AEPI
+2023-03-02 15:13:48.658498			Analysing Polyp17BEPI
+2023-03-02 15:13:57.045796			Analysing Polyp18CEPI
+2023-03-02 15:14:05.703014			Analysing Polyp19AEPI
+2023-03-02 15:14:13.895053			Analysing Polyp19BEPI
+2023-03-02 15:14:22.380214	Analyzing Smooth muscle
+2023-03-02 15:14:22.444562	skipping Smooth muscle with 36 subjects
+2023-03-02 15:14:22.444624	Analyzing Submucosal Secretory
+2023-03-02 15:14:22.511022	skipping Submucosal Secretory with 30 subjects
