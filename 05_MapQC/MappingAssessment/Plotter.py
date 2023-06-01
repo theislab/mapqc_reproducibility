@@ -341,9 +341,10 @@ class MapPlot:
         save
             Whether to save the resulting plot.
         """
-        adata = adata.copy()
-        title = f"{title_stub} umap query {mode}"
-        filename = f"{title_stub} query {mode}.png"
+        if mode not in ["reference", "rejection_status"]:
+            adata = adata.copy()
+        title = f"{title_stub} umap {mode}"
+        filename = f"{title_stub} {mode}.png"
         color_label, palette, color_map, legend_loc, legend_fontsize, na_color, vmax = (
             None,
             None,
@@ -412,7 +413,7 @@ class MapPlot:
             palette = "colorblind"
         elif mode == "cell_labels":
             preprocess_cell_labels_mode(adata, excluded_data)
-            palette, na_color = "colorblind", "0.7"
+            color_label, palette, na_color = "cell_label", "colorblind", "0.7"
             legend_loc, legend_fontsize = get_legend_settings(on_data)
         elif mode == "rejection_status":
             color_label, palette, na_color = get_rejection_status_settings(
@@ -428,22 +429,19 @@ class MapPlot:
         if restrict_to is not None:
             adata = adata[adata.obs.cell_label.isin(restrict_to)].copy()
 
-        if save:
-            filename = f"{title_stub} query {mode}.png"
-
         sc.pl.umap(
             adata,
             color=color_label,
             palette=palette if mode != "query_scores" else None,
             color_map=color_map if mode == "query_scores" else None,
-            legend_loc=legend_loc,
+            legend_loc=legend_loc if legend_loc is not None else "right margin",
             legend_fontsize=legend_fontsize,
             title=title,
             na_in_legend=True if mode == "cell_labels" else False,
-            na_color=na_color,
+            na_color=na_color if na_color is not None else "lightgray",
             vmax=1.2 if mode == "query_scores" else None,
             size=0.5,
-            save=filename,
+            save=filename if save else None,
         )
 
     def __transform(self, group, transform_path):
