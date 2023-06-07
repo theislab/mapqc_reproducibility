@@ -480,7 +480,7 @@ class LabelLeveling:
         A list of pairs of connected cell types.
         """
         # Remove below diagonal to avoid double edges
-        graph = np.tril(graph)
+        graph = np.tril(graph)  # np.tril removes the *upper* diagonal
 
         # Get indices of non-zero elements in the graph
         indices = np.nonzero(graph)
@@ -507,7 +507,7 @@ class LabelLeveling:
 
         reference = self.__adata[
             self.__adata.obs["query_or_reference"] == "reference"
-        ].copy()  # FIXME: change to sensible variable name
+        ].copy()
 
         # Step 1: Set cells to their finest annotation (i.e. highest level).
         reference.obs["cell_label"] = reference.obs[self.finest_level_column]
@@ -517,7 +517,7 @@ class LabelLeveling:
         self.write(f"starting with cell labels:\n{list(categories)}\n")
 
         iteration = 1
-        same_celltype_composition = False  # FIXME: change to sensible variable name
+        same_celltype_composition = False
 
         # Needed to run PAGA
         sc.pp.neighbors(reference, n_neighbors=15, n_pcs=30)
@@ -544,12 +544,16 @@ class LabelLeveling:
                     self.write(
                         f"merging related cell types {self.dict_children[parent]} to parental cell type {parent}\n"
                     )
-                    # reference.obs["cell_label"] = reference.obs["cell_label"].astype(str) # FIXME: why twice?
+                    reference.obs["cell_label"] = reference.obs["cell_label"].astype(
+                        str
+                    )
                     reference.obs.loc[
                         reference.obs["cell_label"].isin(self.dict_children[parent]),
                         "cell_label",
                     ] = parent
-                    # reference.obs["cell_label"] = reference.obs["cell_label"].astype("category") # FIXME: why is this reconversion needed at each iteration?
+                    reference.obs["cell_label"] = reference.obs["cell_label"].astype(
+                        "category"
+                    )
 
             # cleanup for cell types that were not merged
             # "or set to their parental cell type because more than one generation away:"
@@ -568,17 +572,25 @@ class LabelLeveling:
                             f"merging related cell types {i[0]} and {i[1]} to parental cell type {parent}\n"
                         )
                         if parent == i[0]:
-                            # reference.obs["cell_label"] = reference.obs["cell_label"].astype(str)
+                            reference.obs["cell_label"] = reference.obs[
+                                "cell_label"
+                            ].astype(str)
                             reference.obs.loc[
                                 reference.obs["cell_label"] == i[1], "cell_label"
                             ] = parent
-                            # reference.obs["cell_label"] = reference.obs["cell_label"].astype("category")
+                            reference.obs["cell_label"] = reference.obs[
+                                "cell_label"
+                            ].astype("category")
                         else:
-                            # reference.obs["cell_label"] = reference.obs["cell_label"].astype(str)
+                            reference.obs["cell_label"] = reference.obs[
+                                "cell_label"
+                            ].astype(str)
                             reference.obs.loc[
                                 reference.obs["cell_label"] == i[0], "cell_label"
                             ] = parent
-                            # reference.obs["cell_label"] = reference.obs["cell_label"].astype("category")
+                            reference.obs["cell_label"] = reference.obs[
+                                "cell_label"
+                            ].astype("category")
 
             # Step 4: Repeat steps 2-3 on new cell labels until no changes occur in cell type composition
             if len(reference.obs["cell_label"].cat.categories) != len(categories):
@@ -1031,9 +1043,7 @@ class MappingScoring:
             ]
 
             # group adata by sample and cell label + log_count = log(sample size)
-            baseline_g = self.group_adata(
-                adata=baseline
-            )  # TODO: move the initialization of `group_adata` up
+            baseline_g = self.group_adata(adata=baseline)
             transformation = []
 
             for ct in self.cell_types:
@@ -1217,7 +1227,6 @@ class MappingScoring:
         First rejection status for each cell type is obtained via 'filter_sample_mean'.
 
         Then for each sample, a custom threshold based on the cell types present in the query sample are obtained via 'get_threshold'.
-        # FIXME: move `get_threshold` further up. I would expect to find it more easily and know what it does.
 
         Based on that threshold the overall sample is either rejected or accepted.
 
@@ -1296,7 +1305,7 @@ class MappingScoring:
                     (adata.obs["sample"] == sample_id), "rejection_status"
                 ] = "rejected"
                 sample_report.loc[sample_id, "accepted"] = False
-                # Why do we need both a "rejection_status" and an "accepted" field?
+                # FIXME: Why do we need both a "rejection_status" and an "accepted" field?
             else:
                 adata.obs.loc[
                     (adata.obs["sample"] == sample_id), "rejection_status"
@@ -1589,7 +1598,7 @@ class MappingScoring:
 
         count_list = []
         for sample in table.columns:
-            # 0: rejected 1: accepted -1: undefined
+            # 0: rejected; 1: accepted; -1: undefined
             counts = table[sample].value_counts().reindex([0, 1, -1], fill_value=0)
             # weight: number of defined cell types (0 and 1)
             weight = len(cell_type_list_query) - counts[-1]
