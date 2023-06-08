@@ -193,6 +193,7 @@ class AdataHandler:
                 n_neighbors=n_neighbors,
             )
 
+            ref_obs = ref_adata.obs
             del ref_adata
 
             query_adata = self.__adata[self.__adata.obs.query_or_reference == "query"]
@@ -204,7 +205,7 @@ class AdataHandler:
                 labels, uncert = label_transfer.weighted_knn_transfer(
                     query_adata=query_adata,
                     query_adata_emb=f"{embedding_column}",
-                    ref_adata_obs=ref_adata.obs,
+                    ref_adata_obs=ref_obs,
                     label_keys=label,
                     knn_model=self.knn_model,
                     numpy_pickle=pickle,
@@ -238,8 +239,8 @@ class AdataHandler:
         connect_threshold: float,
         annotation_columns: List[str],
         finest_level_column: str,  # TODO: How's is this supposed to be provided at runtime?
-        transfer_columns: Optional[List[str]],
         unlabeled_tag: str,
+        transfer_columns: Optional[Union[List[str], None]] = None,
         query: bool = False,
     ) -> None:
         """
@@ -490,7 +491,7 @@ class LabelLeveling:
 
         return edgelist
 
-    def set_cell_labels(self, connect_threshold: float) -> pd.Series[str]:
+    def set_cell_labels(self, connect_threshold: float) -> pd.Series:
         """
         Core algorithm of the class. Iteratively connects edges with connectivity >= connect_threshold.
         Assumption: interconnected cell types are harder to distinguish when mapping leading to higher uncertainty.
@@ -609,9 +610,7 @@ class LabelLeveling:
         del reference
         return labels
 
-    def set_transferred_cell_labels(
-        self, transfer_columns: List[str]
-    ) -> pd.Series[str]:
+    def set_transferred_cell_labels(self, transfer_columns: List[str]) -> pd.Series:
         """
         If label transfer has been performed on query before setting the appropriate cell type levels,
         reannotates query cells with the appropriate levels.
