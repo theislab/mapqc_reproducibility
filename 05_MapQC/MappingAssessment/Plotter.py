@@ -406,11 +406,11 @@ class MapPlot:
         elif mode == "reference":
             color_label = "query_or_reference"
             # TODO: fix color assignment
-            # palette = {
-            #    "reference": "0.7",
-            #    "query": color_query,
-            # }
-            palette = "colorblind"
+            palette = {
+                "reference": "0.7",
+                "query": color_query,
+            }  # type: ignore[assignment]
+            # palette = "colorblind"
         elif mode == "cell_labels":
             preprocess_cell_labels_mode(adata, excluded_data)
             color_label, palette, na_color = "cell_label", "colorblind", "0.7"
