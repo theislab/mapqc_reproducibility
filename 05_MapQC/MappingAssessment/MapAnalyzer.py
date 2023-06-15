@@ -12,6 +12,7 @@ import statsmodels.stats.multitest as mtc
 from anndata import AnnData
 from MappingAssessment import label_transfer
 from numpy import ndarray
+from tqdm import tqdm
 
 
 class AdataHandler:
@@ -861,7 +862,9 @@ class MappingScoring:
                 .cat.categories
             )
 
-        for cell_type in adata.obs["cell_label"].astype("category").cat.categories:
+        for cell_type in tqdm(
+            adata.obs["cell_label"].astype("category").cat.categories
+        ):
             self.write(f"Analyzing {cell_type}", verbose)
 
             # subset anndata to cell_type
@@ -1019,7 +1022,8 @@ class MappingScoring:
             file.close()
 
         if overwrite:
-            self.__adata[adata.obs.index].obs = adata.obs
+            # self.__adata[adata.obs.index].obs = adata.obs
+            self.__adata.obs.update(adata.obs)
         else:
             return adata
 
@@ -1253,9 +1257,7 @@ class MappingScoring:
         feedback_data = []  # Collects feedback from `filter_sample_mean`
         sample_thresholds = {}  # Collecting sample custom thresholds
 
-        for (
-            sample_id
-        ) in samples:  # FIXME: change to more sensible variable name - e.g. `sample_id`
+        for sample_id in samples:
             sample_feedback, cell_type_list = self.filter_sample_mean(
                 adata, sample_id, cutoff, verbose=verbose
             )
@@ -1279,13 +1281,11 @@ class MappingScoring:
 
         # Create a sample report
         sample_report = rejection_report.groupby("sample").agg(
-            {"health_status": "first"}
-        )  # , "excluded": ["sum","count"]})
-        # sample_report["fraction"] = sample_report["excluded"]["sum"]/sample_report["excluded"]["count"]
-
+            {"health_status": "first", "excluded": ["sum", "count"]}
+        )
         # Get the fraction of rejected samples
         sample_report["fraction"] = (
-            sample_report["excluded"].sum() / sample_report["excluded"].count()
+            sample_report["excluded"]["sum"] / sample_report["excluded"]["count"]
         )
 
         # add rejection to obs variable
