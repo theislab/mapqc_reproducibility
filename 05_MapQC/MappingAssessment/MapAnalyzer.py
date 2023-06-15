@@ -737,7 +737,8 @@ class MappingScoring:
 
         
         if overwrite:
-             self.__adata[adata.obs.index].obs = adata.obs
+            #self.__adata[adata.obs.index].obs = adata.obs
+            self.__adata.obs.update(adata.obs)
         else:
             return adata
 
@@ -920,10 +921,14 @@ class MappingScoring:
             columns=["cell_label", "sample", "mean", "health_status","excluded", "label"],
         ) # FIXME: use "rejected" vs "excluded" for consistency
 
-        #creating sample report
-        sample_report = rejection_report.groupby("sample").agg({"health_status":"first", "excluded":["sum","count"]}) 
-        # FIXME: no need to add the "excluded"" column here - "fraction" can be computed without saving anything else
-        sample_report["fraction"] = sample_report["excluded"]["sum"]/sample_report["excluded"]["count"] 
+        # Create a sample report
+        sample_report = rejection_report.groupby("sample").agg(
+            {"health_status": "first", "excluded": ["sum", "count"]}
+        )
+        # Get the fraction of rejected samples
+        sample_report["fraction"] = (
+            sample_report["excluded"]["sum"] / sample_report["excluded"]["count"]
+        ) 
 
         # add rejection to obs variable   
         samples = list(sample_report.index)
