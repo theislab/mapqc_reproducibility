@@ -89,7 +89,7 @@ class MapPlot:
         )
 
         concat_query = concat[concat.query_or_reference == "query"]
-        concat_query["sample"].cat.remove_unused_categories(inplace=True)
+        concat_query["sample"].cat.remove_unused_categories()
 
         if sample_filter is None:
             print("Filtering is not performed")
