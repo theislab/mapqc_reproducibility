@@ -77,16 +77,24 @@ class MapPlot:
 
         # Plot
         fig, ax = plt.subplots(figsize=(22, 8))
-        plot_func = sns.violinplot if violin else sns.boxplot
 
-        plot_func(
-            x="cell_label",
-            y="score",
-            hue="query_or_reference",
-            # split=True,
-            palette={"query": color_query, "reference": "silver"},
-            data=concat,
-        )
+        if violin:
+            sns.violinplot(
+                x="cell_label",
+                y="score",
+                hue="query_or_reference",
+                split=True,
+                palette={"query": color_query, "reference": "silver"},
+                data=concat,
+            )
+        else:
+            sns.boxplot(
+                x="cell_label",
+                y="score",
+                hue="query_or_reference",
+                palette={"query": color_query, "reference": "silver"},
+                data=concat,
+            )
 
         concat_query = concat[concat.query_or_reference == "query"]
         concat_query["sample"].cat.remove_unused_categories()
