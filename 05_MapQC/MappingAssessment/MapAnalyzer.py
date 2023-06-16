@@ -293,7 +293,7 @@ class AdataHandler:
             ] = label_leveling.set_transferred_cell_labels(
                 transfer_columns  # type: ignore
             )
-        else:
+        elif query == True:
             self.__adata.obs.loc[
                 self.__adata.obs.query_or_reference == "query", "cell_label"
             ] = label_leveling.set_transferred_cell_labels(annotation_columns)
@@ -365,6 +365,22 @@ class LabelLeveling:
         -------
         A dictionary of the form dict_parents[child] = immediate_parent.
         """
+
+        """
+        dict_parents={}
+
+        for i in range(len(self.annotation_columns) - 1, 1, -1):
+            for cat in self.__adata.obs[self.annotation_columns[i]].cat.categories:
+                parent = self.__adata.obs.loc[
+                    self.__adata.obs[self.annotation_columns[i]] == cat,
+                    self.annotation_columns[i-1]
+                ][0]
+                dict_parents[cat] = parent
+        del dict_parents["None"]
+
+        return dict_parents
+        """
+
         dict_parents = {
             cat: self.__adata.obs.loc[
                 self.__adata.obs[self.annotation_columns[i]] == cat,
@@ -402,8 +418,12 @@ class LabelLeveling:
         -------
         Integer denoting the level of the annotation.
         """
-        for i, column in enumerate(reversed(self.annotation_columns)):
-            if cell_label in self.__adata.obs[column].cat.categories:
+
+        for i in range(len(self.annotation_columns) - 1, -1, -1):
+            if (
+                cell_label
+                in self.__adata.obs[self.annotation_columns[i]].cat.categories
+            ):
                 return i
 
     def get_parent(self, cell_type_1: str, cell_type_2: str):
