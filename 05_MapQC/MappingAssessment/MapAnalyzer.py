@@ -1032,9 +1032,7 @@ class MappingScoring:
         self.baseline = True
 
         if save:
-            adata.obs["score"].to_csv(
-                f"{self.workspace}/baseline.csv"
-            )  # FIXME: change `["score"]` to "baseline_score"
+            adata.obs["score"].to_csv(f"{self.workspace}/baseline.csv")
             group = self.group_adata(adata)
             file = open(f"{self.workspace}/cell_types.txt", "w")
             for ct in group.cell_label.cat.categories:
@@ -1042,7 +1040,6 @@ class MappingScoring:
             file.close()
 
         if overwrite:
-            # self.__adata[adata.obs.index].obs = adata.obs
             self.__adata.obs.update(adata.obs)
         else:
             return adata
