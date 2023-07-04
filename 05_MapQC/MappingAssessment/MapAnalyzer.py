@@ -59,7 +59,7 @@ class AdataHandler:
     def standarize_columns(
         self,
         query_dataset: AnnData,
-        condition_name: Union[str, None] = None,
+        condition_name: Union[List, None] = None,
         cell_type_col: str = "cell_label",
         dataset_col: str = "dataset",
         sample_col: str = "sample",
@@ -75,7 +75,7 @@ class AdataHandler:
         query_dataset
             Name of the query dataset to be analyzed.
         condition_name
-            Name of the condition in query dataset. If all healthy default is None.
+            Name of the condition(s) in query dataset. If all healthy default is None.
         cell_type_col
             Name of the column with working cell_type labels.
             Calculated in the pipeline. The creation of a custom label is left at the discretion of the user.
@@ -109,7 +109,7 @@ class AdataHandler:
         adata.obs["disease_or_healthy"] = "healthy"
         if condition_name != None:
             adata.obs.loc[
-                adata.obs[condition_col] == condition_name, "disease_or_healthy"
+                adata.obs[condition_col].isin(condition_name), "disease_or_healthy"
             ] = "disease"
 
         # either rename provided cell_label column or don't and warn the user that 'set_cell_type_levels' needs to be run then
@@ -880,7 +880,7 @@ class MappingScoring:
                 adata[adata.obs.query_or_reference == "query"]
                 .obs["sample"]
                 .cat.categories
-            )
+            )  # Query samples
 
         for cell_type in tqdm(
             adata.obs["cell_label"].astype("category").cat.categories
@@ -1456,7 +1456,7 @@ class MappingScoring:
 
         tested_cell_types = []
         for ct in self.cell_types:
-            if disease_status == "disease" and ct in self.affected_cell_types.tolist():  # type: ignore
+            if disease_status == "disease" and ct in self.affected_cell_types:  # type: ignore
                 self.write(
                     f"skipping cell type {ct} for disease effect evaluation: confounded healthy"
                 )
@@ -1491,12 +1491,17 @@ class MappingScoring:
             tested_cell_types, columns=["cell_label", "pvalue"]
         ).sort_values("pvalue")
 
-        if disease_status == "disease":
-            if len(tested_cell_types) == 0:
-                print("no cell_types for disease effect assessment")
+        # if disease_status == "disease":
+        disease_status_effect = "batch" if disease_status == "healthy" else "disease"
+        if len(tested_cell_types) == 0:
+            print(f"no cell_types for {disease_status_effect} effect assessment")
+            if disease_status == "healthy":
+                self.affected_cell_types = []
+                self.cell_type_report = tested_cell_types
+            else:
                 self.disease_cell_types = []
                 self.disease_report = tested_cell_types
-                return None
+            return None
 
         ks_positive_cts = self.multiple_testing_correction(
             tested_cell_types, cutoff_pval
@@ -1663,7 +1668,7 @@ class MappingScoring:
         self,
         cutoff_sample: float = 5,
         cutoff_cell_type: float = 0.05,
-        cutoff_disease: float = 5,
+        cutoff_disease: float = 0.05,
     ) -> None:
         """
         Core function: performs the entire analysis pipeline of the dataset.
