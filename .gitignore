@@ -1,4 +1,4 @@
 .ipynb_checkpoints/
-archive/
-figures/
+notebooks/.ipynb_checkpoints/
+notebooks/02_example_notebooks_mapqc_pipeline/data/
 None-requirements.txt
