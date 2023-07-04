@@ -106,7 +106,7 @@ class MapPlot:
                 y="score",
                 hue="disease_or_healthy" if disease else None,
                 hue_order=["healthy", "disease"] if disease else None,
-                palette=["limegreen", "navy"] if disease else "darkgreen",
+                palette=["limegreen", "red"] if disease else "darkgreen",
                 jitter=0.1,
                 data=concat_query,
             )
