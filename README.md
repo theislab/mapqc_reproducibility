@@ -37,7 +37,8 @@ Run differential abundance testing with Milo. Calculate differential embedding s
 
 #### 04_Analysis
 Notebooks to test out preliminary changes to the main code:
- - 01_Celltype_selection: Notebook to test out the cell type level selection approach with merging PAGA-graph connected cell types to their higher levels 
+ - 01_a_Celltype_selection: Notebook to test out the cell type level selection approach with merging PAGA-graph connected cell types to their higher levels 
+ - 01_b_Cell_type_level_validation: First experimental analysis of cell label levels (too coarse? too fine?)
  - 02_Table_rejection: Notebook that tests out sample rejection based on cell types present in the sample. First a prelimiary lookup table is calculated that can be saved.
  - 03_Overintegration_analysis: Some prelimiary analysis of overintegration of healthy samples 
 
