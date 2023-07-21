@@ -10,9 +10,10 @@ import scanpy as sc
 import scipy
 import statsmodels.stats.multitest as mtc
 from anndata import AnnData
-from MappingAssessment import label_transfer
 from numpy import ndarray
 from tqdm import tqdm
+
+from mapqc import label_transfer
 
 
 class AdataHandler:
@@ -58,7 +59,7 @@ class AdataHandler:
 
     def standarize_columns(
         self,
-        query_dataset: AnnData,
+        query_dataset: str,
         condition_name: Union[List, None] = None,
         cell_type_col: str = "cell_label",
         dataset_col: str = "dataset",
@@ -834,7 +835,7 @@ class MappingScoring:
         embedding: str = "X",
         verbose: bool = False,
         overwrite: bool = True,
-        save: bool = False,
+        save: Union[bool, str] = False,
     ) -> AnnData:
         """
         Computes the mixing scores of query or reference.
@@ -961,8 +962,12 @@ class MappingScoring:
                     sub.obs.loc[sub.obs.tmp_qr == "query"].index, "score"
                 ] = np.ravel(scores)
 
-        if save:
+        if isinstance(save, bool) and save:
             adata.obs["score"].to_csv(f"{self.workspace}/{self.ident}/scores.csv")
+        elif isinstance(save, str):
+            adata.obs["score"].to_csv(f"{save}")
+        elif not isinstance(save, (bool, str)):
+            raise AttributeError("Invalid type for argument 'save'.")
 
         if overwrite:
             self.__adata = adata
@@ -976,7 +981,7 @@ class MappingScoring:
         embedding: str = "X",
         overwrite: bool = True,
         verbose: bool = False,
-        save: bool = False,
+        save: Union[bool, str] = False,
     ):
         """
         Computes the mixing scores null distribution (i.e., the baseline).
@@ -1031,13 +1036,23 @@ class MappingScoring:
         # Log that baseline has been calculated
         self.baseline = True
 
-        if save:
-            adata.obs["score"].to_csv(f"{self.workspace}/baseline.csv")
+        if isinstance(save, bool) or isinstance(save, str):
+            if isinstance(save, bool):
+                save_path = self.workspace
+            else:
+                save_path = save
+
+            if not os.path.exists(save_path):
+                os.makedirs(save_path)
+
+            adata.obs["score"].to_csv(f"{save_path}/baseline.csv")
             group = self.group_adata(adata)
-            file = open(f"{self.workspace}/cell_types.txt", "w")
-            for ct in group.cell_label.cat.categories:
-                print(ct, file=file)
-            file.close()
+
+            with open(f"{save_path}/cell_types.txt", "w") as file:
+                for ct in group.cell_label.cat.categories:
+                    print(ct, file=file)
+        else:
+            raise AttributeError("Invalid type for argument 'save'.")
 
         if overwrite:
             self.__adata.obs.update(adata.obs)
@@ -1095,6 +1110,7 @@ class MappingScoring:
         """
         self.transformation = pd.read_csv(transformation_path, index_col="cell_label")
 
+    # BUG: score column is empty
     def add_baseline(self, baseline_path: str, cell_label_path: str) -> None:
         """
         Adds baseline from disc.
@@ -1128,6 +1144,37 @@ class MappingScoring:
         self.cell_types = cell_types
         self.baseline = True
 
+    def add_baseline_simplified(
+        self,
+        baseline_path: str,
+        cell_label_path: str,
+    ) -> None:
+        """
+        Adds baseline from disc.
+
+        Parameters
+        ----------
+        baseline_path
+            Path to baseline.
+        cell_label_path
+            Path to list of cell labels with sufficent subject count.
+        """
+        baseline_data = pd.read_csv(baseline_path, index_col=0)
+        self.__adata.obs.loc[
+            self.__adata.obs.query_or_reference == "reference", "score"
+        ] = baseline_data
+
+        cell_type_file = open(cell_label_path, "r")
+        cell_types = []
+
+        self.write("Baseline consists of following cell types:\n")
+
+        for ct in cell_type_file.readlines():
+            self.write(f"{ct}\n")
+            cell_types.append(ct.strip("\n"))
+        self.cell_types = cell_types
+        self.baseline = True
+
     def add_scores(self, score_path: str) -> None:
         """
         Adds precalculated scores.
@@ -1140,7 +1187,7 @@ class MappingScoring:
         score_data = pd.read_csv(score_path, index_col=0)
         # score_data.set_index("Unnamed: 0", inplace=True)
         self.__adata.obs.loc[
-            (self.__adata.obs.query_or_reference == "query"), "score"
+            self.__adata.obs.query_or_reference == "query", "score"
         ] = score_data
 
     # TODO: as of the purposes of this function consider changing its name
@@ -1208,7 +1255,7 @@ class MappingScoring:
             # Add cell type to list
             cell_type_list.append(ct)
 
-            # Obtain cutoff value for cell type amongus based on null distribution/baseline
+            # Get 5th percentile of baseline scores
             cutoff_val = np.percentile(baseline_scores, cutoff)
 
             if verbose:
@@ -1233,7 +1280,7 @@ class MappingScoring:
                     sample_mean,
                     sample_status,
                     rejected,
-                    label,  # FIXME: What for? Isn't `rejected` enough?
+                    label,
                 )
             )
 
@@ -1245,9 +1292,8 @@ class MappingScoring:
         """
         Function that manages the sample rejection.
         First rejection status for each cell type is obtained via 'filter_sample_mean'.
-
-        Then for each sample, a custom threshold based on the cell types present in the query sample are obtained via 'get_threshold'.
-
+        Then for each sample, a custom threshold based on the cell types present
+        in the query sample is obtained via 'get_threshold'.
         Based on that threshold the overall sample is either rejected or accepted.
 
         Parmeters
@@ -1395,7 +1441,7 @@ class MappingScoring:
         return None
 
     def multiple_testing_correction(
-        self, tested_cell_types: pd.DataFrame, cutoff_pval: float
+        self, tested_cell_types: pd.DataFrame, cutoff_pval: float = 0.05
     ) -> pd.Series:
         """
         Performs multiple testing correction for the KS statistic.
@@ -1414,7 +1460,7 @@ class MappingScoring:
             the baseline according to a one-sided KS test.
         """
         tested_cell_types["pvals_corr"] = mtc.multipletests(
-            tested_cell_types["pvalue"], 0.05, "fdr_bh"
+            tested_cell_types["pvalue"], cutoff_pval, "fdr_bh"
         )[1]
         ks_positive_cts = tested_cell_types[
             tested_cell_types["pvals_corr"] < cutoff_pval
@@ -1590,10 +1636,11 @@ class MappingScoring:
     ) -> ndarray:
         """
         Computes a custom threshold based on the cell types present in the query.
+
         Step 1:
             collects the counts of rejected cell types for reference samples.
         Step 2:
-            The 95th percentile of counts is obtained. (samples in reference that have more rejected cell types than 95% of the reference)
+            The 95th percentile of the counts distribution computed in Step 1 is obtained. (theta_c)
             This then the threshold for the query sample.
 
         Parameters
@@ -1810,7 +1857,7 @@ class MappingScoring:
         report_file.flush()
 
     # Bring up for enhanced interpretability of more detailed analyses using this function
-    def group_adata(self, adata: AnnData) -> AnnData:
+    def group_adata(self, adata: Union[AnnData, None] = None) -> AnnData:
         """
         Refactors and extends adata fields.
 
@@ -1824,9 +1871,21 @@ class MappingScoring:
         group_adata
             Extended AnnData object.
         """
+
+        if adata is None:
+            adata = self.__adata
+
         group_adata = (
             adata.obs.groupby(["cell_label", "sample"])
-            .agg({"score": "mean", "dataset": "first", "subject_ID": "count"})
+            .agg(
+                {
+                    "score": "mean",
+                    "query_or_reference": "first",
+                    "disease_or_healthy": "first",
+                    "dataset": "first",
+                    "subject_ID": "count",
+                }
+            )
             .dropna()
             .reset_index(drop=False)
         )
@@ -1837,6 +1896,46 @@ class MappingScoring:
         group_adata = group_adata.rename(columns={"subject_ID": "count"})
         group_adata["log_count"] = np.log(group_adata["count"])
         return group_adata
+
+    def apply_transformation(
+        self,
+        aggr_data: AnnData,
+        cell_subtypes: Optional[List[str]] = None,
+    ) -> pd.DataFrame:
+        """
+        Groups `adata` by cell type and sample and applies scores correction.
+
+        Parameters
+        ---------
+        aggr_data
+            AnnData object to apply the transformation on.
+        cell_subtypes
+            List of cell types whose first element is a parent and second is
+            descendant cell type. Used for applying the transformation using
+            the log-linear fit from the parent.
+
+        Returns
+        -------
+        aggr_data
+            Preprocessed `adata`.
+        """
+
+        self.write("Correcting for sample size...")
+        aggr_data["score_untrans"] = aggr_data["score"]
+        for ct in aggr_data.cell_label.cat.categories:
+            if cell_subtypes is not None and ct == cell_subtypes[1]:  # if ct is child
+                # use fit from parent
+                trans = self.transformation.loc[cell_subtypes[0]]  # type: ignore
+            else:
+                trans = self.transformation.loc[ct]  # type: ignore
+            aggr_data.loc[aggr_data.cell_label == ct, "score"] = aggr_data.loc[
+                aggr_data.cell_label == ct, "score"
+            ] - (
+                np.log(aggr_data.loc[aggr_data.cell_label == ct, "count"]) * trans.slope
+                + trans.intercept
+            )
+
+        return aggr_data
 
     def __preprocess_adata(
         self, adata: AnnData, only_reference: bool = True, transform: bool = True
