@@ -1,0 +1,11 @@
+name: r_seurat
+
+channels:
+  - conda-forge
+dependencies:
+  - r-base>=4.0
+  - r-seurat
+  - jupyterlab
+  - r-irkernel
+  - r-caret
+  - r-seuratdisk

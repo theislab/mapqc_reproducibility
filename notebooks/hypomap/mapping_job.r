@@ -1,5 +1,6 @@
 library(Seurat)
 library(ggplot2)
+library(caret)
 
 process_data <- function(data) {
   data <- NormalizeData(data)
@@ -15,6 +16,30 @@ save_plot <- function(data, filename, reduction = "umap") {
   print(p)
   ggsave(filename = filename, plot = p, dpi = 500)
 }
+
+evaluate_label <- function(hmp.query, label, config, run_dir) {
+  predicted_label <- paste0("predicted.", label)
+
+  # Create the plot
+  p1 <- DimPlot(hmp.query, group.by = predicted_label, shuffle = TRUE, raster.dpi = c(1024, 1024)) + NoLegend() + theme(aspect.ratio = 0.8)
+  p2 <- DimPlot(hmp.query, group.by = label, shuffle = TRUE, raster.dpi = c(1024, 1024)) + NoLegend() + theme(aspect.ratio = 0.8)
+  jpd <- p1 + p2
+  print(jpd)
+  ggsave(filename = file.path(run_dir, paste0(config, "_", label, "_predicted_plot.png")), plot = jpd, dpi = 400)
+  
+  common_levels <- sort(unique(c(hmp.query[[label]][[label]], hmp.query[[predicted_label]][[predicted_label]])))
+  actual <- factor(hmp.query[[label]][[label]], levels = common_levels)
+  predicted <- factor(hmp.query[[predicted_label]][[predicted_label]], levels = common_levels)
+  cm <- confusionMatrix(table(actual, predicted))
+
+  write.csv(as.data.frame(t(cm$overall)), file = file.path(run_dir, paste0(config, "_", label, "_overall_stats.csv")))
+  write.csv(cm$byClass, file = file.path(run_dir, paste0(config, "_", label, "byClass_stats.csv")))
+}
+
+#####################################################################################
+# Script starts here
+
+start_time <- Sys.time()
 
 job_id <- Sys.getenv("SLURM_JOB_ID")
 print(paste0("SLURM Job ID: ", job_id))
@@ -55,9 +80,13 @@ if(config == "no_filter") {
     anchors_params$k.score <- 15
     anchors_params$max.features <- 100
     anchors_params$n.trees <- 25
-  }
+}
 
+f_start_time <- Sys.time()
 anchors <- do.call(FindTransferAnchors, anchors_params)
+print("FindTransferAnchors time:")
+print(round(Sys.time() - f_start_time, 0))
+
 
 saveRDS(anchors, file = file.path(run_dir, paste0(config, "_anchors.rds")))
 
@@ -73,11 +102,15 @@ hmp.query <- MapQuery(
           C66_named = "C66_named"
       )
 )
-p1 <- DimPlot(hmp.query, group.by = 'predicted.C7_named', shuffle = TRUE, raster.dpi = c(1024, 1024)) + NoLegend() + theme(aspect.ratio = 0.8)
-p2 <- DimPlot(hmp.query, group.by = 'C7_named', shuffle = TRUE, raster.dpi = c(1024, 1024)) + NoLegend() + theme(aspect.ratio = 0.8)
-jpd <- p1 + p2
-print(jpd)
-ggsave(filename = file.path(run_dir, paste0(config, "_predicted_plot.png")), plot = jpd, dpi = 400)
+
+labels <- c("C7_named", "C25_named", "C66_named")
+for (label in labels) {
+    tryCatch({
+    evaluate_label(hmp.query, label, config, run_dir)
+  }, error = function(e) {
+    print(paste("Caught an error: ", e))
+  })
+}
 
 hmp.ref$id <- 'ref'
 hmp.query$id <- 'query'
@@ -90,4 +123,9 @@ save_plot(hmp.refquery, file.path(run_dir, paste0(config, "_mapped_umap.png")))
 hmp.refquery <- RunUMAP(hmp.refquery, reduction = 'spca', dims = 1:50, reduction.name = "redone_umap")
 save_plot(hmp.refquery, file.path(run_dir, paste0(config, "_recalculated_mapped_umap.png")), reduction = "redone_umap")
 
-saveRDS(hmp, file = file.path(run_dir, paste0(config, "_hypomap.rds")))
+saveRDS(hmp.refquery, file = file.path(run_dir, paste0(config, "_refquery.rds")))
+saveRDS(hmp.ref, file = file.path(run_dir, paste0(config, "_ref.rds")))
+saveRDS(hmp.query, file = file.path(run_dir, paste0(config, "__query.rds")))
+
+print("Total time:")
+print(round(Sys.time() - start_time, 0))

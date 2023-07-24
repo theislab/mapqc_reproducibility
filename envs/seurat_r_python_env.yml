@@ -1,0 +1,21 @@
+name: r_py_seurat
+
+channels:
+  - conda-forge
+
+dependencies:
+  - conda-forge::r-base>=4.0
+  - conda-forge::r-seurat
+  - conda-forge::r-tidyverse
+  - conda-forge::jupyterlab
+  - conda-forge::r-irkernel
+  - conda-forge::r-languageserver
+  - conda-forge::python=3.10
+  - conda-forge::scanpy
+  - conda-forge::python-igraph
+  - conda-forge::leidenalg
+  - conda-forge::pip
+  - conda-forge::ipywidgets
+  - conda-forge::r-caret
+  - conda-forge::r-seuratdisk
+  - conda-forge::r-devtools
