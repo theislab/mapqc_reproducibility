@@ -12,7 +12,7 @@ process_data <- function(data) {
 }
 
 save_plot <- function(data, filename, reduction = "umap") {
-  p <- DimPlot(data, group.by = 'id', shuffle = TRUE, reduction = reduction, raster.dpi = c(1024, 1024), order = c("ref", "query"))
+  p <- DimPlot(data, group.by = 'id', reduction = reduction, raster.dpi = c(1024, 1024), order = c("ref", "query"))
   print(p)
   ggsave(filename = filename, plot = p, dpi = 500)
 }
@@ -33,7 +33,7 @@ evaluate_label <- function(hmp.query, label, config, run_dir) {
   cm <- confusionMatrix(table(actual, predicted))
 
   write.csv(as.data.frame(t(cm$overall)), file = file.path(run_dir, paste0(config, "_", label, "_overall_stats.csv")))
-  write.csv(cm$byClass, file = file.path(run_dir, paste0(config, "_", label, "byClass_stats.csv")))
+  write.csv(cm$byClass, file = file.path(run_dir, paste0(config, "_", label, "_byClass_stats.csv")))
 }
 
 #####################################################################################
@@ -114,18 +114,17 @@ for (label in labels) {
 
 hmp.ref$id <- 'ref'
 hmp.query$id <- 'query'
-hmp.refquery <- merge(hmp.ref, hmp.query)
-hmp.refquery[["spca"]] <- merge(hmp.ref[["spca"]], hmp.query[["ref.spca"]])
-hmp.refquery[["umap"]] <- merge(hmp.ref[["umap_scvi"]], hmp.query[["ref.umap"]])
+hmp.refquery <- base::merge(hmp.ref, hmp.query)
 
-save_plot(hmp.refquery, file.path(run_dir, paste0(config, "_mapped_umap.png")))
-
+hmp.refquery[["spca"]] <- base::merge(hmp.ref[["spca"]], hmp.query[["ref.spca"]])
+hmp.refquery[["umap"]] <- base::merge(hmp.ref[["umap_scvi"]], hmp.query[["ref.umap"]])
 hmp.refquery <- RunUMAP(hmp.refquery, reduction = 'spca', dims = 1:50, reduction.name = "redone_umap")
+
 save_plot(hmp.refquery, file.path(run_dir, paste0(config, "_recalculated_mapped_umap.png")), reduction = "redone_umap")
+save_plot(hmp.refquery, file.path(run_dir, paste0(config, "_mapped_umap.png")), reduction = "umap")
 
 saveRDS(hmp.refquery, file = file.path(run_dir, paste0(config, "_refquery.rds")))
-saveRDS(hmp.ref, file = file.path(run_dir, paste0(config, "_ref.rds")))
-saveRDS(hmp.query, file = file.path(run_dir, paste0(config, "__query.rds")))
+saveRDS(hmp.query, file = file.path(run_dir, paste0(config, "_query.rds")))
 
 print("Total time:")
 print(round(Sys.time() - start_time, 0))
