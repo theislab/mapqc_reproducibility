@@ -1,5 +1,9 @@
 # HypoMap Atlas Conversion
 
+<img src="mapped_umap.png" alt="Mapped UMAP" width="400" class="center"/>
+
+The image above is a toy usecase where a dataset was mapped using the same scVI embedding as provided by the HypoMap authors.
+
 ## Environments
 use 
 - `envs/seurat_r_env.yml` if you only aim to use R
@@ -16,17 +20,18 @@ From the repo base directory, it can be run on slurm with:
 sbatch notebooks/hypomap/run_mapping_job.sbatch <PICK CONFIG HERE>
 ```
 
-The results get stored under:
-```
-/lustre/groups/ml01/datasets/projects/2023_jan_mapqc/runs/<SLURM JOB ID>
-```
-See documentation of the output files below.
-
-Fill `<PICK CONFIG HERE>` with either `no_filter` or `speed_filter`.
+Fill `<PICK CONFIG HERE>` with either `no_filter` or `speed_filter`. The former runs 25 and the latter 45 minutes.
 
 This setting adresses the main bottleneck of the computation, the filtering of the anchors. Due to the large dataset size and high similarity of the current proof of concept with the Rupp10x dataset, many anchors are found and thus filtering takes a long time. This [Seurat Github Issue](https://github.com/satijalab/seurat/issues/5206) hints at that the filtering can be skipped alltogether. Alternatively, the filtering parameters can be changed which `speed_filter` does. 
 
 ### Outputs
+The results get stored under:
+```
+/lustre/groups/ml01/datasets/projects/2023_jan_mapqc/runs/<SLURM JOB ID>
+```
+- `12604480` : `no_filter`
+- `12604481` : `speed_filter`
+
 The script outputs the following with:
 - Anchor filtering: `<CONFIG>` in (`no_filter` or`speed_filter`) 
 - Cell type transfer: `<ANN-LEVEL>` in (`C7_named`, `C25_named`, `C66_named`)
@@ -41,6 +46,5 @@ The script outputs the following with:
 ├── <CONFIG>_query.rds # Seurat query object
 └── <CONFIG_refquery.rds # Seurat object with joint embedding space and umap
 ```
-
 ## Seurat object to Anndata
 Use `convert_to_anndata.r`
