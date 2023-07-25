@@ -1,7 +1,7 @@
 #! /bin/bash
 
-#SBATCH -o mapping_%j.out
-#SBATCH -e mapping_%j.out
+#SBATCH -o /lustre/groups/ml01/datasets/projects/2023_jan_mapqc/runs/mapping_%j.out
+#SBATCH -e /lustre/groups/ml01/datasets/projects/2023_jan_mapqc/runs/mapping_%j.out
 #SBATCH --partition=cpu_p
 #SBATCH -J r_map
 #SBATCH --mem=100G
