@@ -31,6 +31,7 @@ The results get stored under:
 ```
 - `12604480` : `no_filter`
 - `12604481` : `speed_filter`
+All results can also be downloaded from [GDRIVE](https://drive.google.com/file/d/1auZyIiK5yqwQMBoWl0M6nrXzaTsByht-/view?usp=sharing)
 
 The script outputs the following with:
 - Anchor filtering: `<CONFIG>` in (`no_filter` or`speed_filter`) 
