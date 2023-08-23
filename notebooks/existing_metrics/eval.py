@@ -50,10 +50,10 @@ EMB_KEY = 'X_scanvi_emb'
 REF_SAMPLE_FRAC = 1.
 # REF_SAMPLE_FRAC = 0.1
 
-REF_DATASET_SUBSET = ['Meyer_2019', 'Teichmann_Meyer_2019']
-# REF_DATASET_SUBSET = []
-QUERY_DATASET_SUBSET = ['Meyer_2021_3prime', 'Regev_2021_Nuclei']
-# QUERY_DATASET_SUBSET = []
+# REF_DATASET_SUBSET = ['Meyer_2019', 'Teichmann_Meyer_2019']
+REF_DATASET_SUBSET = []
+# QUERY_DATASET_SUBSET = ['Meyer_2021_3prime', 'Regev_2021_Nuclei']
+QUERY_DATASET_SUBSET = []
 
 HLCA_DATA_PATH = os.path.expanduser('~/data/HLCA/hlca_all_cellxgene.h5ad')
 METRIC_OUT_PATH = os.path.expanduser('~/io/q2r_metric/')
