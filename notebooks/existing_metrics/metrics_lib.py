@@ -232,8 +232,7 @@ def calculate_scib_metrics(adata, obsm_emb_key, batch_key, dataset_key, sample_k
 def calculate_symphony_metrics(adata, adata_query, obsm_emb_key, donor_key, dataset_key, sample_key, dry_run=False):
     group_keys = {'per_dataset': dataset_key, 'per_sample': sample_key}
     results = {}
-    # TODO: @lisa: what is k for this? (currently k=90 as in ilisi (lisi_batch))
-    K_lisi = 90
+    K_lisi = 30
     with log_time("symphony metrics neighbors calculation", log=not dry_run):
         q_ng_indices, q_ng_distances = calculate_neighbors(adata_query, obsm_emb_key, k=K_lisi) if not dry_run else (None, None)
     with log_time("lisi_query_donor", log=not dry_run):
