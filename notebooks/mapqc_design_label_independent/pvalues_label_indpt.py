@@ -3,9 +3,9 @@ import numpy as np
 import pandas as pd
 import random
 from scipy.stats import kstest
-from statsmodels.stats.multitest import multipletests
 from scipy.sparse import csr_matrix, save_npz, load_npz
 from scipy.spatial.distance import cdist
+import pval_corr
 
 def get_highest_column_numbers(matrix, n):
     sorted_indices = np.argsort(matrix, axis=1)[:, ::-1]
@@ -185,7 +185,14 @@ def get_pvalues(adata_ext_h,k,prop_cells,condition="Healthy",filter_samples=Fals
                 cdf=query_sample_results.values,
                 alternative="less",
             )
-    neighborhood_stats["pvalue_corr"] = multipletests(neighborhood_stats.pvalue.values, method="fdr_bh")[1]
-
+    # perform weighted p-value correction
+    # determine weights based on overlap between neighborhoods (the more 
+    # overlap, the lower the weight)
+    nhood_weights = pval_corr.calculate_neighborhood_weights(neighbors_idc, tmp_adata.n_obs) 
+    neighborhood_stats["nhood_weight"] = nhood_weights
+    # calculate weighted fdr-corrected pvalues
+    neighborhood_stats["pvalue_corr"] = pval_corr.weighted_fdr_corr_pvals(
+            neighborhood_stats.pvalue.values, weights=nhood_weights
+        )
 
     return res_healthy,neighborhood_stats
