@@ -161,9 +161,14 @@ def get_pvalues(
     print(f"Sample {n_cells_to_sample} cells")
 
     cell_subset_idc = random.sample(range(n_cells_query), k=n_cells_to_sample)
-    cell_subset_barcodes = tmp_adata.obs.iloc[
-        cell_subset_idc, :
-    ].index  # contains only query now
+    cell_subset_barcodes = (
+        tmp_adata.obs[
+            tmp_adata.obs.core_or_extension
+            == "extension"  # TODO: expand to include different labels
+        ]
+        .iloc[cell_subset_idc, :]
+        .index
+    )  # contains only query now
 
     # Euclidean distances w scipy
 
