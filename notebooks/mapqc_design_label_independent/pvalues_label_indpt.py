@@ -177,7 +177,7 @@ def get_pvalues(
 
     # get distances
     # dist_ext_subset = tmp_adata.obsp["distances"][cell_subset_idc, :]
-    dist_ext_subset = cdist(tmp_adata[cell_subset_idc, :].X, tmp_adata.X)
+    dist_ext_subset = cdist(tmp_adata[cell_subset_barcodes].X, tmp_adata.X)
     dist_ext_subset = keep_k_smallest_distances(
         distances=dist_ext_subset,
         n_neighbors=k,
