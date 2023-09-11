@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def calculate_neighborhood_weights(neighbor_idc_of_sampled_cells, n_obs):
     """calculate the weight for each index cell's neighborhood, depending on
     the number of times the cells in the Nhood are also present in other
@@ -117,5 +118,10 @@ def weighted_fdr_corr_pvals(pvals_unsorted, weights=None):
     # in the same order as they were given to us
     pvals_corr_unsorted = np.empty_like(pvals_corr)
     pvals_corr_unsorted[pvals_sortind] = pvals_corr
+
+    # I don't understand the purpose of line 119.
+    # Wouldn't `pvals_corr_unsorted = np.empty_like(pvals_corr)[pvals_sortind]`
+    # achieve the same result, more concisely?
+
     # return corrected pvalues (also named q-values)
     return pvals_corr_unsorted
