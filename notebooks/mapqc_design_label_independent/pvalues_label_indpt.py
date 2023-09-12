@@ -147,11 +147,11 @@ def get_pvalues(
             f"`k` ({k}) cannot be greater than the number of observations ({len(tmp_adata)})."
         )
 
+    # TODO: expand to include different labels
+    query_adata = tmp_adata[tmp_adata.obs.core_or_extension == "extension"].copy()
+
     # Subsample center cells from query
-    n_cells_query = tmp_adata[
-        tmp_adata.obs.core_or_extension
-        == "extension"  # TODO: expand to include different labels
-    ].shape[0]
+    n_cells_query = query_adata.shape[0]
     print(f"Number of cells:", n_cells_query)
     if n_cells_query < prop_cells:
         raise ValueError(
@@ -161,7 +161,7 @@ def get_pvalues(
     print(f"Sample {n_cells_to_sample} cells")
 
     cell_subset_idc = random.sample(range(n_cells_query), k=n_cells_to_sample)
-    cell_subset_barcodes = tmp_adata.obs.iloc[
+    cell_subset_barcodes = query_adata.iloc[
         cell_subset_idc, :
     ].index  # contains only query now
 
@@ -172,7 +172,7 @@ def get_pvalues(
 
     # get distances
     # dist_ext_subset = tmp_adata.obsp["distances"][cell_subset_idc, :]
-    dist_ext_subset = cdist(tmp_adata[cell_subset_idc, :].X, tmp_adata.X)
+    dist_ext_subset = cdist(tmp_adata[cell_subset_barcodes].X, tmp_adata.X)
     dist_ext_subset = keep_k_smallest_distances(
         distances=dist_ext_subset,
         n_neighbors=k,
