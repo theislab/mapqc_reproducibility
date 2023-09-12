@@ -161,7 +161,7 @@ def get_pvalues(
     print(f"Sample {n_cells_to_sample} cells")
 
     cell_subset_idc = random.sample(range(n_cells_query), k=n_cells_to_sample)
-    cell_subset_barcodes = query_adata.iloc[
+    cell_subset_barcodes = query_adata.obs.iloc[
         cell_subset_idc, :
     ].index  # contains only query now
 
