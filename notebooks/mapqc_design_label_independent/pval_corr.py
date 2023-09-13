@@ -52,7 +52,7 @@ def calculate_neighborhood_weights(neighbor_idc_of_sampled_cells, n_obs):
     return nhood_weights
 
 
-def weighted_fdr_corr_pvals(pvals_unsorted, weights=None):
+def weighted_fdr_corr_pvals(pvals_unsorted, weights_unsorted=None):
     """Calculate FDR-corrected p-values (a.k.a. q-values) based on a list of
     uncorrected p-values. If wanted, weights can be incorporated that
     indicate how heavily each observation sthould be weighed.
@@ -75,6 +75,7 @@ def weighted_fdr_corr_pvals(pvals_unsorted, weights=None):
     # sort pvals from small to large:
     pvals_sortind = np.argsort(pvals_unsorted)
     pvals = pvals_unsorted[pvals_sortind]
+    weights = weights_unsorted[pvals_sortind]
     # calculate the expected p-value if H0 were true, for observations 1-k
     # sorted by p-value. This is the same as the cumulative density function
     # of a uniform distribution from 0 to 1 summing up to 1.

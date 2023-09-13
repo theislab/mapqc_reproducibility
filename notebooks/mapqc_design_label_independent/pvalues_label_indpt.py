@@ -320,7 +320,7 @@ def get_pvalues(
     neighborhood_stats["nhood_weight"] = nhood_weights
     # calculate weighted fdr-corrected pvalues
     neighborhood_stats["pvalue_corr"] = pval_corr.weighted_fdr_corr_pvals(
-        neighborhood_stats.pvalue.values, weights=nhood_weights
+        neighborhood_stats.pvalue.values, weights_unsorted=nhood_weights
     )
 
     return res_healthy, neighborhood_stats
