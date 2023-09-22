@@ -7,6 +7,38 @@ from anndata import AnnData
 
 
 class mapQC_results:
+    """
+    mapQC results class. Enables calculation of mapQC statistics for a given query
+    to reference mapping and plotting using the plotting module.
+
+    Parameters
+    ---------
+    adata
+        AnnData object containing the data of both the reference and query
+    center cells
+        1-dimensional array containing the barcodes of the query cells for which
+        the neighborhoods will be used for calculating the mapQC results
+    k
+        Number of neighbors to include per neighborhood
+    emb_key
+        Location of the integrated embedding to which the query was mapped.
+        If set to "X", adata.X will be used. Otherwise, a key in obsm should
+        be specified.
+    ref_q_key
+        The adata.obs column in which is specified for each cell whether it is
+        from the reference or the query
+    ref_cat
+        Name of the reference category in adata.obs[ref_q_key]
+    query_cat
+        Name of the query category in adata.obs[ref_q_key]
+    sample_key
+        Name of the adata.obs column in which sample names can be found
+
+
+    TO DO: add filter settings as parameters with defaults here (now only
+    in nhood class I think)
+    """
+
     def __init__(
         self,
         adata: AnnData,
@@ -18,38 +50,6 @@ class mapQC_results:
         query_cat: str = "query",
         sample_key: str = "sample",
     ):
-        """
-        mapQC results class. Enables calculation of mapQC statistics for a given query
-        to reference mapping and plotting using the plotting module.
-
-        Parameters
-        ---------
-        adata
-            AnnData object containing the data of both the reference and query
-        center cells
-            1-dimensional array containing the barcodes of the query cells for which
-            the neighborhoods will be used for calculating the mapQC results
-        k
-            Number of neighbors to include per neighborhood
-        emb_key
-            Location of the integrated embedding to which the query was mapped.
-            If set to "X", adata.X will be used. Otherwise, a key in obsm should
-            be specified.
-        ref_q_key
-            The adata.obs column in which is specified for each cell whether it is
-            from the reference or the query
-        ref_cat
-            Name of the reference category in adata.obs[ref_q_key]
-        query_cat
-            Name of the query category in adata.obs[ref_q_key]
-        sample_key
-            Name of the adata.obs column in which sample names can be found
-
-
-        TO DO: add filter settings as parameters with defaults here (now only
-        in nhood class I think)
-
-        """
         # TO DO: build in sanity checks for all parameters here
         self.adata = adata
         self.center_cells = center_cells
