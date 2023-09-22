@@ -1,0 +1,11 @@
+name: mapqc_basic
+
+channels:
+  - conda-forge
+  - anaconda
+dependencies:
+  - conda-forge::python==3.9
+  - conda-forge::scanpy=1.9.3
+  - conda-forge::jupyterlab
+  - anaconda::pandas<2 # or can we move to 2?
+  - anaconda::pip # will probably need later
