@@ -2,27 +2,80 @@ from scipy.spatial.distance import cdist
 from sklearn.metrics import pairwise_distances
 import pandas as pd
 import numpy as np
+from anndata import AnnData
+from typing import Literal
 
 
-class Neighborhood:  
+class Neighborhood:
+    """
+    Class to calculate a neighborhood for a given center cell, and calculate
+    statistics on that neighborhood to be used for mapQC.
+
+    Parameters
+    ----------
+    adata
+        AnnData object that contains both query and reference cells
+    index_cell
+        Barcode of the center cell for the neighborhood to be calculated
+        (should be a row name in adata.obs)
+    k
+        Number of neighbors to be included in the neighborhood (including
+        index cell itself)
+    emb_key
+        Location of the integrated embedding into which the query was mapped.
+        If set to "X", adata.X will be used. Otherwise, set to a key in
+        adata.obsm
+    sample_key
+        adata.obs column name in which sample names are specified for each cell
+    ref_q_key
+        adata.obs column name in which is specified whether a cell is part of
+        the reference or the query
+    ref_cat
+        Category name of reference cells in adata.obs[ref_q_key]
+    query_cat
+        Category name of query cells in adata.obs[ref_q_key]
+    min_n_cells_per_sample
+        Minimum number of cells of a given sample present in a neighborhood,
+        for that sample to be considered present.
+    min_n_samples_ref_or_q
+        Minimum number of reference samples and of query samples (with at least
+        min_n_cells_per_sample) present in a neighborhood for that neighborhood
+        to pass filtering and be included in the statistics calculation later
+        on.
+
+
+    Returns
+    -------
+    By default, determines k nearest neighbors and stores them under self.cell_idc
+    (anndata row numbers of nearest neighbors) and self.barcodes (anndata row names
+    of nearest neighbors). Index cell itself is included in neighbors. Also
+    calculates pairwise distances between cells in neighborhood and stores them under
+    self.dists.
+    Further stats are calculated using class functions.
+    """
+
     def __init__(
         self,
-        adata,
-        index_cell,
-        k,
-        emb_key="X",
-        sample_key="sample",
-        ref_q_key="reference_or_query",
-        ref_cat="reference",
-        query_cat="query",
-        min_n_cells_per_sample=5,
-        min_n_samples_ref_or_q=3,
+        adata: AnnData,
+        index_cell: str,
+        k: int,
+        emb_key: str = "X",
+        sample_key: str = "sample",
+        ref_q_key: str = "reference_or_query",
+        ref_cat: str = "reference",
+        query_cat: str = "query",
+        min_n_cells_per_sample: int = 5,
+        min_n_samples_ref_or_q: int = 3,
     ):
         # store embedding as separate attribute
         if emb_key == "X":
             self.adata_emb = adata.X
         elif emb_key in adata.obsm.keys():
             self.adata_emb = adata.obsm["emb_key"]
+        else:
+            raise ValueError(
+                "emb_key should be set to either 'X' or a key in adata.obsm"
+            )
         # store parameters as attributes (add sanity checks here too?)
         self.min_n_cells_per_sample = min_n_cells_per_sample
         self.min_n_samples_ref_or_q = min_n_samples_ref_or_q
@@ -60,7 +113,16 @@ class Neighborhood:
         self.dists = pairwise_distances(self.emb)
 
     def _get_nearest_neighbors(self):
-        """get k nearest neighbors of a given index cell"""
+        """
+        Get k nearest neighbors of a given index cell, including index cell itself.
+
+        Returns:
+        -------
+        np.array of the indices (row numbers) in adata of the index cell's k nearest
+        neighbors, ordered from closest to furtheset away (index cell itself should i
+        therefore be first).
+
+        """
         dists_to_center_cell = cdist(
             self.adata_emb[self.index_cell_idx, :].reshape(
                 (1, self.adata_emb.shape[1])
@@ -71,11 +133,23 @@ class Neighborhood:
         sorted_indices = np.argsort(dists_to_center_cell)  # , axis=1)
         # get column numbers for the columns with the k lowest values, i.e.
         # the k nearest neighbors (including the index cell itself)
-        return sorted_indices[:self.k]
+        return sorted_indices[: self.k]
 
-    def _filter_samples(self, ref_or_q):
-        """Filter samples based on the number of cells they have in the current
-        neighborhood. Do this for either the reference or the query samples."""
+    def _filter_samples(self, ref_or_q: Literal["reference", "query"]):
+        """
+        Filters samples based on the number of cells of the sample that are present
+        in the neighborhood. Does this for either the reference or the query samples.
+
+        Parameters
+        ----------
+        ref_or_q
+            Whether to filter reference samples or query samples
+
+        Returns
+        -------
+        List of sample names that passed filtering
+
+        """
         if ref_or_q not in ["reference", "query"]:
             raise ValueError("ref_or_q should be set to either 'reference' or 'query'.")
         sample_cell_counts = self.samples[self.ref_or_q == ref_or_q].value_counts()
@@ -84,7 +158,24 @@ class Neighborhood:
         ].tolist()
         return sample_set_filtered
 
-    def _calculate_sample_pair_mean_distances(self, sample_1, sample_2):
+    def _calculate_sample_pair_mean_distances(self, sample_1: str, sample_2: str):
+        """
+        Calculate mean distance between all cells of one sample and all
+        cells of another sample, based on previously calculated cell-cell
+        distances for all cells in the neighborhood.
+
+        Parameters
+        ----------
+        sample_1
+            Name of first sample in sample pair for which to calculate mean distance
+        sample_2
+            Name of second sample in sample pair
+
+        Returns
+        -------
+        Mean distance (float) between cells of sample_1 and cells of sample_2
+
+        """
         # check which cells in the neigbhorhood belong to each sample
         sample_1_cells = np.where(self.samples == sample_1)[0]
         sample_2_cells = np.where(self.samples == sample_2)[0]
@@ -93,6 +184,21 @@ class Neighborhood:
         return np.mean(pair_specific_dists)
 
     def get_pairwise_sample_dists(self):
+        """
+        Calculate mean distances between all sample pairs in the neighborhood.
+        Include filtering of samples with too few cells. Distances are
+        Euclidean and calculated in the integrated embedding space in which
+        the query was mapped. For each sample pair, the mean distance between
+        the cells from the first sample and those from the second sample are
+        calculated and considered the inter-sample distance for that pair.
+
+        Returns
+        -------
+        pandas.DataFrame with ref samples as rows and all samples (reference
+        and query) as columns, with the intersample distance specified for
+        each pair. Distance to the same sample are set to np.nan.
+
+        """
         # check which samples have sufficient cells in the neighborhood
         ref_samples = self._filter_samples("reference")
         q_samples = self._filter_samples("query")

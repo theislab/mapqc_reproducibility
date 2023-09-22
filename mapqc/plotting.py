@@ -3,8 +3,28 @@ import numpy as np
 import scanpy as sc
 import matplotlib.pyplot as plt
 import seaborn as sns
+from mapqc import mapQC_results
 
-def plot_ref_vs_q_dists_per_nhood(mapqc_results):
+
+def plot_boxplot_of_ref_vs_q_dists_per_nhood(mapqc_results: mapQC_results):
+    """
+    Plot a split boxplot of, for each neighborhood, reference sample mean distances
+    to all other reference samples, and query sample mean distances to all reference
+    samples.
+
+    Parameters
+    ----------
+    mapQC_results
+        Instance of mapQC results class for which sample distance to reference samples
+        have already been calculated using mapQC_results.calculate_sample_dists_to_ref_samples().
+
+    Returns
+    -------
+    Plots boxplot.
+
+    TO DO:
+    add option to return figure as variable, add other plotting options.
+    """
     if not mapqc_results._sample_dists_to_ref_calculated:
         return ValueError(
             "Plot can only be generated after running calculate_sample_dists_to_ref_samples()."
@@ -39,7 +59,40 @@ def plot_ref_vs_q_dists_per_nhood(mapqc_results):
     ax.tick_params(axis="x", rotation=90)
 
 
-def plot_umap_significance(mapqc_results, title="neighborhood significance"):
+def plot_umap_significance(
+    mapqc_results: mapQC_results, title: str = "neighborhood significance"
+):
+    """
+    Plot UMAP of adata in mapqc_results instance, colored grey for all non-index
+    cells (i.e. all cells that were not the center of a tested neighborhood),
+    white and large for all index cells that passed filtering and for which
+    reference-to-reference sample distances were not smaller than reference-
+    to-query sample distances, and red for index cells for which reference-
+    to-reference distances were significantly smaller than reference-to-query
+    samples.
+
+    Parameters
+    ---------
+    mapqc_results
+        Instance of mapQC_results class, for which the adata has a UMAP pre-calculated
+        and for which mapQC statistics have been calculated using
+        mapQC_results.calculate_nhood_statistics
+
+    title
+        Title for UMAP.
+
+    Returns
+    -------
+    Plots UMAP.
+
+    TO DO: add option to return figure as variable and more plotting options.
+    """
+    if not "X_umap" in mapqc_results.adata.obsm.keys():
+        raise ValueError("No UMAP calculated for this AnnData object.")
+    if not mapqc_results._nhood_stats_calculated:
+        raise ValueError(
+            "Results have not yet been calculated, run mapqc_results.calculate_nhood_statistics first."
+        )
     if not mapqc_results._adata_prepped_for_plotting:
         _prepare_adata_for_plotting(mapqc_results)
         sc.set_figure_params(figsize=(5, 5))
@@ -55,9 +108,26 @@ def plot_umap_significance(mapqc_results, title="neighborhood significance"):
     )
 
 
-def _convert_nhood_dists_to_plottable_dataframe(mapqc_results):
-    """Creates a DataFrame of with ... and ... as multi-level index, and
-    ... as columns."""
+def _convert_nhood_dists_to_plottable_dataframe(mapqc_results: mapQC_results):
+    """Creates a DataFrame of intersample distances per neighborhood to be used
+    for split boxplot.
+
+    Parameters
+    ----------
+    mapqc_results
+        Instance of mapQC_results class for which intersample distances have
+        been calculated.
+
+    Returns
+    -------
+    pandas.DataFrame stored under mapqc_results._boxplot_df_mean_sample_dists_to_ref
+    with multiple rows per neighborhood (neighborhood name, i.e.
+    center cell barcode, specified in the dataframe), with each neighborhood row
+    representing a single sample in the neighborhood that passed filtering, for
+    which its mean distance to the reference samples in that neighborhood can be
+    found under 'mean_dist_to_ref'. sample_ref_or_q specifies whether the sample
+    is from the reference or the query.
+    """
     # convert to pandas dataframe
     mean_s2ref_dist_per_nhood_df_for_boxplot = (
         pd.DataFrame(
@@ -91,7 +161,30 @@ def _convert_nhood_dists_to_plottable_dataframe(mapqc_results):
     )
 
 
-def _prepare_adata_for_plotting(mapqc_results, scale=1):
+def _prepare_adata_for_plotting(mapqc_results: mapQC_results, scale: int = 1):
+    """
+    Prepares AnnData of mapqc_results for plotting by adding the calculated
+    statistics to the mapQC_results.adata instance, calculating the dot size
+    such that neighborhood center cells are plotted bigger than the other cells,
+    and orders cells such that center cells are plotted on top.
+
+    Parameters
+    ----------
+    mapqc_results
+        Instance of mapQC_results class for which neighborhood statistics have
+        already been calculated using the mapQC_results.calculate_nhood_statistics
+        function
+    scale
+        Scale with which to change overall dot size in UMAP.
+
+    Returns
+    -------
+    Adds statistics to mapqc_results.adata, and creates a mapqc_results._adata_ordered
+    to which statistics have also been added and which has been ordered such
+    that neighborhood center cells are plotted on top.
+    The information added to the adata object is stored under columns whose name
+    starts with "mapqc", e.g. "mapqc_nhood_weight" or "mapqc_dotsize".
+    """
     if not mapqc_results._nhood_stats_calculated:
         raise ValueError(
             "Calculate result statistics first using the 'calculate_nhood_statistics' function."

@@ -1,4 +1,5 @@
 # MapQC: an automated piepeline for validating query-to-reference mapping onto a reference-atlas
+TO BE UPDATED
 
 The goal of MapQC is to automatically determine whether or not a query-to-reference mapping was successful or not. There are two ways in which a mapping can fail: either the mapping removed too much variation from the query (biological variance removed —> “over-integration”), or it removed too little variation (batch effects retained —> “under-integration”).
 

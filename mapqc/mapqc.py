@@ -3,21 +3,54 @@ import numpy as np
 import pandas as pd
 from scipy.stats import kstest
 import pval_corr
+from anndata import AnnData
 
 
 class mapQC_results:
     def __init__(
         self,
-        adata,
-        center_cells,
-        k,
-        emb_key="X",
-        ref_q_key="reference_or_query",
-        ref_cat="reference",
-        query_cat="query",
-        sample_key="sample",
+        adata: AnnData,
+        center_cells: np.ndarray,
+        k: int,
+        emb_key: str = "X",
+        ref_q_key: str = "reference_or_query",
+        ref_cat: str = "reference",
+        query_cat: str = "query",
+        sample_key: str = "sample",
     ):
-        # TO DO: build in sanity checks here
+        """
+        mapQC results class. Enables calculation of mapQC statistics for a given query
+        to reference mapping and plotting using the plotting module.
+
+        Parameters
+        ---------
+        adata
+            AnnData object containing the data of both the reference and query
+        center cells
+            1-dimensional array containing the barcodes of the query cells for which
+            the neighborhoods will be used for calculating the mapQC results
+        k
+            Number of neighbors to include per neighborhood
+        emb_key
+            Location of the integrated embedding to which the query was mapped.
+            If set to "X", adata.X will be used. Otherwise, a key in obsm should
+            be specified.
+        ref_q_key
+            The adata.obs column in which is specified for each cell whether it is
+            from the reference or the query
+        ref_cat
+            Name of the reference category in adata.obs[ref_q_key]
+        query_cat
+            Name of the query category in adata.obs[ref_q_key]
+        sample_key
+            Name of the adata.obs column in which sample names can be found
+
+
+        TO DO: add filter settings as parameters with defaults here (now only
+        in nhood class I think)
+
+        """
+        # TO DO: build in sanity checks for all parameters here
         self.adata = adata
         self.center_cells = center_cells
         self.k = k
@@ -26,7 +59,6 @@ class mapQC_results:
         self.query_cat = query_cat
         self.ref_cat = ref_cat
         self.sample_key = sample_key
-        # self.intersample_distances = np.nan
         # set parameters specifying if specific functions were run or not
         # (TO DO: complete this further)
         self._adata_prepped_for_plotting = False
@@ -35,6 +67,19 @@ class mapQC_results:
         self._sample_dists_to_ref_calculated = False
 
     def _calculate_intersample_distances(self):
+        """
+        For each pair of samples (one from the reference, one from either reference
+        or query) calculate the mean pairwise Euclidean distance in the integrated
+        embedding space between cells from the one sample and cells from the other.
+
+        Returns
+        ------
+        Adds array self.intersample_distances to class instance. The array is of shape
+        (n_reference_samples x n_total_samples x n_neighborhoods) and contains
+        mean intersample distances for each sample pair in each neighborhood.
+        Samples that were not observed in a given neighborhood are set to np.nan
+        across that neighborhood.
+        """
         # generate empty results dataframe
         self.ref_samples_all = np.array(
             sorted(
@@ -97,52 +142,36 @@ class mapQC_results:
         self.intersample_distances = mean_s2s_dist_per_nhood
 
     def calculate_sample_dists_to_ref_samples(self):
-        """Based on intersample distances, calculate the mean distance to
-        reference samples for each sample in each neighborhood.
+        """
+        Calculate the mean distance to all reference samples for each
+        sample in each neighborhood.
+        Distances for a given pair of samples are calculated as the mean
+        distance between the cells from each sample. Distances are
+        Euclidean and calculaten in the integrated embedding space.
 
-        Result:
-        np.array of size (n_samples x n_nhoods)
+        Returns
+        ------
+        Adds np.array of size (n_total_samples x n_nhoods) as
+        self.mean_sample_dists_to_ref to class, containing mean distances
+        between each sample and all reference samples.
         """
         self._calculate_intersample_distances()
         self.mean_sample_dists_to_ref = np.nanmean(self.intersample_distances, axis=0)
         self._sample_dists_to_ref_calculated = True
 
-#    def _convert_nhood_dists_to_plottable_dataframe(self):
-#        """Creates a DataFrame of with ... and ... as multi-level index, and
-#        ... as columns."""
-#        # convert to pandas dataframe
-#        mean_s2ref_dist_per_nhood_df_for_boxplot = (
-#            pd.DataFrame(
-#                self.mean_sample_dists_to_ref,
-#                index=self.ref_q_samples_all,
-#                columns=self.center_cells,
-#            )
-#            .unstack()
-#            .reset_index()
-#            .rename(
-#                columns={"level_0": "nhood", "level_1": "sample", 0: "mean_dist_to_ref"}
-#            )
-#        )
-#        # remove rows with nans
-#        mean_s2ref_dist_per_nhood_df_for_boxplot.dropna(how="any", axis=0, inplace=True)
-#        # add info on whether sample is from ref or query
-#        sample_from_r_or_q_df = self.adata.obs.groupby(self.sample_key).agg(
-#            {self.ref_q_key: "first"}
-#        )
-#        sample_from_r_or_q_dict = {
-#            s: rvsq
-#            for s, rvsq in zip(
-#                sample_from_r_or_q_df.index, sample_from_r_or_q_df[ref_q_key]
-#            )
-#        }
-#        mean_s2ref_dist_per_nhood_df_for_boxplot[
-#            "sample_r_or_q"
-#        ] = mean_s2ref_dist_per_nhood_df_for_boxplot["sample"].map(
-#            sample_from_r_or_q_dict
-#        )
-#        return mean_s2ref_dist_per_nhood_df_for_boxplot
-
     def calculate_nhood_statistics(self, alpha=0.05, verbose=True):
+        """
+        Calculates the statistics for testing whether reference-to-reference
+        sample distances are smaller than refererence-to-query sample distances.
+        Includes FDR-based p-value correction that is weighted based on the overlap
+        between neighborhoods, weighing neighborhoods with a lot of overlap less heavily.
+
+        Returns
+        -------
+        Adds self.nhood_stats to class instance, a pandas.DataFrame with statistics
+        per neighborhood. Neighborhoods that did not pass filtering (i.e. did not
+        have enough query or reference samples) are left out.
+        """
         self.nhood_stats = pd.DataFrame(
             index=self.center_cells, columns=["ks_stat", "pval"]
         )
@@ -181,6 +210,16 @@ class mapQC_results:
         self._nhood_stats_calculated = True
 
     def _calculate_nhood_ks_statistics(self):
+        """
+        Calculate Kolmogorov-Smirnov statistic and p-value for all neighborhoods,
+        testing whether query sample distances to reference samples are larger
+        than reference sample distances to reference samples.
+
+        Returns
+        -------
+        Adds KS test statistic and p-value for each neighborhood to
+        self.nhood_stats dataframe.
+        """
         for nhood_number, nhood in enumerate(self.center_cells):
             # slice distances to ref samples for the current neighborhood, and
             # for the ref samples
@@ -203,80 +242,3 @@ class mapQC_results:
             self.nhood_stats.loc[nhood] = kstest(
                 rvs=r2r_dists, cdf=r2q_dists, alternative="greater"
             )[:2]
-
-    # def plot_ref_vs_q_dists_per_nhood(self):
-    #     if isinstance(self.mean_sample_dists_to_ref, type(np.nan)):
-    #         return ValueError(
-    #             "Plot can only be generated after running calculate_sample_dists_to_ref_samples()."
-    #         )
-    #     fig = plt.figure(figsize=(24, 8))
-    #     ax = fig.add_subplot()
-    #     nhood_order = self.nhood_stats.sort_values(by="pval_corr").index.tolist()
-    #     df_for_boxplot = self._convert_nhood_dists_to_plottable_dataframe()
-    #     y = "mean_dist_to_ref"
-    #     hue = "sample_r_or_q"
-    #     sns.boxplot(
-    #         df_for_boxplot,
-    #         x="nhood",
-    #         y=y,
-    #         order=nhood_order,
-    #         hue=hue,
-    #         ax=ax,
-    #         saturation=0.2,
-    #     )
-    #     sns.stripplot(
-    #         df_for_boxplot,
-    #         x="nhood",
-    #         y=y,
-    #         order=nhood_order,
-    #         hue=hue,
-    #         dodge=True,
-    #         ax=ax,
-    #         size=1,
-    #         palette="dark:black",
-    #     )
-    #     ax.tick_params(axis="x", rotation=90)
-
-    # def _prepare_adata_for_plotting(self, scale=1):
-    #     if not self._nhood_stats_calculated:
-    #         raise ValueError(
-    #             "Calculate result statistics first using the 'calculate_nhood_statistics' function."
-    #         )
-    #     for stat_to_copy in ["nhood_weight", "pval_corr", "sign"]:
-    #         self.adata.obs[f"mapqc_{stat_to_copy}"] = np.nan
-    #         self.adata.obs.loc[
-    #             self.nhood_stats.index, f"mapqc_{stat_to_copy}"
-    #         ] = self.nhood_stats[stat_to_copy]
-    #     # set sizes for plotting:
-    #     self.adata.obs["mapqc_dotsize"] = scale * 1
-    #     self.adata.obs.loc[self.nhood_stats.index, "mapqc_dotsize"] = scale * 20
-    #     # order cells so that index cells are plotted on top
-    #     cells_ordered = (
-    #         self.adata.obs.index[
-    #             ~self.adata.obs.index.isin(self.nhood_stats.index)
-    #         ].tolist()
-    #         + self.nhood_stats.index.tolist()
-    #     )
-    #     # store ordered version of adata
-    #     # TO DO: we're storing adata twice now, which is very memory inefficient
-    #     # but I don't want to re-order the original AnnData (it will mess
-    #     # with all the code above which relies on the adata row order). Think
-    #     # of a better alternative here...
-    #     self._adata_ordered = self.adata[cells_ordered, :].copy()
-    #     # remember that adata has been prepped for plotting:
-    #     self._adata_prepped_for_plotting = True
-
-    # def plot_umap_significance(self, title="neighborhood significance"):
-    #     if not self._adata_prepped_for_plotting:
-    #         self._prepare_adata_for_plotting()
-    #         sc.set_figure_params(figsize=(5, 5))
-    #     sc.pl.umap(
-    #         self._adata_ordered,
-    #         color="mapqc_sign",
-    #         size=self._adata_ordered.obs.mapqc_dotsize,
-    #         cmap="Reds",
-    #         sort_order=False,
-    #         title=title,
-    #         vmin=0,
-    #         vmax=1,
-    #     )
