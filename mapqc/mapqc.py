@@ -75,8 +75,8 @@ class mapQC_results:
         Returns
         ------
         Adds array self.intersample_distances to class instance. The array is of shape
-        (n_reference_samples x n_total_samples x n_neighborhoods) and contains
-        mean intersample distances for each sample pair in each neighborhood.
+        (n_reference_samples x n_total_samples (with ref_samples first) x n_neighborhoods) 
+        and contains mean intersample distances for each sample pair in each neighborhood.
         Samples that were not observed in a given neighborhood are set to np.nan
         across that neighborhood.
         """
@@ -151,12 +151,33 @@ class mapQC_results:
 
         Returns
         ------
-        Adds np.array of size (n_total_samples x n_nhoods) as
-        self.mean_sample_dists_to_ref to class, containing mean distances
-        between each sample and all reference samples.
+        Adds np.array of size (n_total_samples(with ref_samples first) x n_nhoods) as
+        self.mean_sample_dists_to_ref to class, containing mean distances between each 
+        sample and all reference samples.
+        Also adds np.array of the same size as self.mean_sample_dists_to_ref_zscored,
+        containing the zscored distances to the reference. For zscoring, the mean
+        distance and standard deviation of reference samples to reference are used,
+        calculated per neighborhood.
         """
         self._calculate_intersample_distances()
         self.mean_sample_dists_to_ref = np.nanmean(self.intersample_distances, axis=0)
+        # add z-scored distances to reference, setting the mean of the reference
+        # sample distances to reference as 0, and their standard deviation to 1.
+        # first, calculate mean dist to ref among ref samples (1 per nhood)
+        nhood_ref_mean_dists = nhood_ref_mean = np.nanmean(
+                    self.mean_sample_dists_to_ref[: len(self.ref_samples_all),],
+                    axis=0,
+                )
+        # calculate standard deviations of ref dist to ref samples (1 per nhood)
+        nhood_ref_stdev = np.nanstd(
+            self.mean_sample_dists_to_ref[: len(self.ref_samples_all),],
+            axis=0,
+        )
+        # now zscore all distances and store
+        self.mean_sample_dists_to_ref_zscored = (
+            self.mean_sample_dists_to_ref - nhood_ref_mean
+        ) / nhood_ref_stdev
+        # store that this function has been run:
         self._sample_dists_to_ref_calculated = True
 
     def calculate_nhood_statistics(self, alpha=0.05, verbose=True):
@@ -206,6 +227,16 @@ class mapQC_results:
             print(
                 f"{perc_of_nhoods_sign}% of neighborhoods that passed filtering are below the significance threshold alpha={alpha}."
             )
+        # calculate the mean zscored distance of query samples to reference
+        # for each neighborhood:
+        mean_zscored_q_dist_to_ref = np.nanmean(
+            self.mean_sample_dists_to_ref_zscored[
+                len(self.ref_samples_all) :, :
+            ],
+            axis=0,
+        )
+        # take only the nhoods that passed filtering:
+        self.nhood_stats["mean_zscored_q_dist_to_ref"] = mean_zscored_q_dist_to_ref[self.nhood_stats.nhood_number]
         # remember that this function has been successfully run:
         self._nhood_stats_calculated = True
 

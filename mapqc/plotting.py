@@ -6,8 +6,9 @@ import seaborn as sns
 from mapqc import mapQC_results
 
 
-def plot_boxplot_of_ref_vs_q_dists_per_nhood(mapqc_results: mapQC_results):
+def plot_boxplot_of_ref_vs_q_dists_per_nhood(mapqc_results: mapQC_results, use_zscored_dists: bool = False):
     """
+    TO DO: UPDATE TO ZSCORED DOC 
     Plot a split boxplot of, for each neighborhood, reference sample mean distances
     to all other reference samples, and query sample mean distances to all reference
     samples.
@@ -34,19 +35,27 @@ def plot_boxplot_of_ref_vs_q_dists_per_nhood(mapqc_results: mapQC_results):
     fig = plt.figure(figsize=(24, 8))
     ax = fig.add_subplot()
     nhood_order = mapqc_results.nhood_stats.sort_values(by="pval_corr").index.tolist()
-    y = "mean_dist_to_ref"
+    if use_zscored_dists:
+        plotting_df = mapqc_results._boxplot_df_mean_sample_zscored_dists_to_ref
+        y = "mean_zscored_dist_to_ref" 
+    else:
+        plotting_df = mapqc_results._boxplot_df_mean_sample_dists_to_ref
+        y = "mean_dist_to_ref"
     hue = "sample_r_or_q"
+    # palette
+    palette = {mapqc_results.ref_cat:"lightsteelblue", mapqc_results.query_cat:"blue"}
     sns.boxplot(
-        mapqc_results._boxplot_df_mean_sample_dists_to_ref,
+        plotting_df,
         x="nhood",
         y=y,
         order=nhood_order,
         hue=hue,
         ax=ax,
         saturation=0.2,
+        palette=palette
     )
     sns.stripplot(
-        mapqc_results._boxplot_df_mean_sample_dists_to_ref,
+        plotting_df,
         x="nhood",
         y=y,
         order=nhood_order,
@@ -96,20 +105,134 @@ def plot_umap_significance(
     if not mapqc_results._adata_prepped_for_plotting:
         _prepare_adata_for_plotting(mapqc_results)
         sc.set_figure_params(figsize=(5, 5))
+    # prepare color palette:
+    palette = {"significant":"red","not significant":"antiquewhite","excluded":"black"}
+    # plot
     sc.pl.umap(
         mapqc_results._adata_ordered,
         color="mapqc_sign",
         size=mapqc_results._adata_ordered.obs.mapqc_dotsize,
-        cmap="Reds",
+        palette=palette,
         sort_order=False,
         title=title,
-        vmin=0,
-        vmax=1,
+        na_color="darkgrey"
+    )
+
+def plot_umap_zscored_q_dist_to_ref(
+    mapqc_results: mapQC_results, title: str = None, scale: int = 1
+):
+    """
+    Plot UMAP of adata in mapqc_results instance, coloring neighborhoods
+    by the mean zscored query sample distance to reference sample distance
+    (zscoring using the mean and standard deviation of the ref sample 
+    distance to the reference)
+
+    Parameters
+    ---------
+    mapqc_results
+        Instance of mapQC_results class, for which the adata has a UMAP pre-calculated
+        and for which mapQC statistics have been calculated using
+        mapQC_results.calculate_nhood_statistics
+
+    scale
+        scaling of UMAP dot size
+
+    title
+        Title for UMAP.
+
+    Returns
+    -------
+    Plots UMAP.
+
+    TO DO: add option to return figure as variable and more plotting options.
+    """
+    if not "X_umap" in mapqc_results.adata.obsm.keys():
+        raise ValueError("No UMAP calculated for this AnnData object.")
+    if not mapqc_results._nhood_stats_calculated:
+        raise ValueError(
+            "Results have not yet been calculated, run mapqc_results.calculate_nhood_statistics first."
+        )
+    if not mapqc_results._adata_prepped_for_plotting:
+        _prepare_adata_for_plotting(mapqc_results)
+        sc.set_figure_params(figsize=(5, 5))
+    if isinstance(title, type(None)):
+        title = f"Mean Z-scored distance of query samples to reference samples"
+    # plot
+    sc.pl.umap(
+        mapqc_results._adata_ordered,
+        color="mapqc_mean_zscored_q_dist_to_ref",
+        size=mapqc_results._adata_ordered.obs.mapqc_dotsize,
+        sort_order=False,
+        cmap="coolwarm",
+        title=title,
+        vmin=-3,
+        vmax=3
+    )
+
+
+def plot_umap_neighborhood(
+    mapqc_results: mapQC_results, neighborhood: str, title: str = None, scale: int = 1
+):
+    """
+    Plot UMAP of adata in mapqc_results instance, coloring the cells
+    from a specific neighborhood
+
+    Parameters
+    ---------
+    mapqc_results
+        Instance of mapQC_results class, for which the adata has a UMAP pre-calculated
+        and for which mapQC statistics have been calculated using
+        mapQC_results.calculate_nhood_statistics
+
+    neighborhood
+        name of the neighborhood (i.e. its center cell)
+
+    scale
+        scaling of UMAP dot size
+
+    title
+        Title for UMAP.
+
+    Returns
+    -------
+    Plots UMAP.
+
+    TO DO: add option to return figure as variable and more plotting options.
+    """
+    if not "X_umap" in mapqc_results.adata.obsm.keys():
+        raise ValueError("No UMAP calculated for this AnnData object.")
+    if not mapqc_results._sample_dists_to_ref_calculated == True:
+        raise ValueError(
+            "Center cell neighbors have not yet been calculated, run mapqc_results.calculate_sample_dists_to_ref_samples first."
+        )
+    if not mapqc_results._adata_prepped_for_plotting:
+        _prepare_adata_for_plotting(mapqc_results)
+        sc.set_figure_params(figsize=(5, 5))
+    # add neighborhood info to adata object
+    nhood_idx = np.where(mapqc_results.center_cells == neighborhood)[0]
+    if len(nhood_idx) == 0:
+        raise ValueError(f"Neighborhood center cell {neighborhood} not found in adata. Check your neighborhood argument setting for typos.")
+    mapqc_results.adata.obs[f'mapqc_nhood_cells_{neighborhood}'] = "Other"
+    mapqc_results.adata.obs[f'mapqc_nhood_cells_{neighborhood}'].iloc[mapqc_results.nhood_cells[nhood_idx[0]]] = neighborhood
+    if isinstance(title, type(None)):
+        title = f"Cells from neighborhood {neighborhood}"
+    palette = {"Other":"lightgrey",neighborhood:'black'}
+    dotsizes = mapqc_results.adata.obs[f'mapqc_nhood_cells_{neighborhood}'].map({"Other":scale, neighborhood:scale*3})
+    # prepare color palette:
+    sc.pl.umap(
+        mapqc_results.adata,
+        color=f'mapqc_nhood_cells_{neighborhood}',
+        size=dotsizes,
+        palette=palette,
+        sort_order=False,
+        title=title
     )
 
 
 def _convert_nhood_dists_to_plottable_dataframe(mapqc_results: mapQC_results):
-    """Creates a DataFrame of intersample distances per neighborhood to be used
+    """
+    TO DO: UPDATE DOC WITH ZSCORE INFO
+    Creates a DataFrame of intersample distances per neighborhood to be used
     for split boxplot.
 
     Parameters
@@ -129,20 +252,35 @@ def _convert_nhood_dists_to_plottable_dataframe(mapqc_results: mapQC_results):
     is from the reference or the query.
     """
     # convert to pandas dataframe
+    # normal distances
     mean_s2ref_dist_per_nhood_df_for_boxplot = (
         pd.DataFrame(
-            mapqc_results.mean_sample_dists_to_ref,
+            mapqc_results.mean_sample_dists_to_ref, # mean_sample_dists_to_ref_zscored,
             index=mapqc_results.ref_q_samples_all,
             columns=mapqc_results.center_cells,
         )
         .unstack()
         .reset_index()
         .rename(
-            columns={"level_0": "nhood", "level_1": "sample", 0: "mean_dist_to_ref"}
+            columns={"level_0": "nhood", "level_1": "sample", 0: "mean_dist_to_ref"} # "mean_dist_to_ref"}
+        )
+    )
+    # zscored distances:
+    mean_s2ref_zscored_dist_per_nhood_df_for_boxplot = (
+        pd.DataFrame(
+            mapqc_results.mean_sample_dists_to_ref_zscored,
+            index=mapqc_results.ref_q_samples_all,
+            columns=mapqc_results.center_cells,
+        )
+        .unstack()
+        .reset_index()
+        .rename(
+            columns={"level_0": "nhood", "level_1": "sample", 0: "mean_zscored_dist_to_ref"} # "mean_dist_to_ref"}
         )
     )
     # remove rows with nans
     mean_s2ref_dist_per_nhood_df_for_boxplot.dropna(how="any", axis=0, inplace=True)
+    mean_s2ref_zscored_dist_per_nhood_df_for_boxplot.dropna(how="any", axis=0, inplace=True)
     # add info on whether sample is from ref or query
     sample_from_r_or_q_df = mapqc_results.adata.obs.groupby(
         mapqc_results.sample_key
@@ -156,9 +294,13 @@ def _convert_nhood_dists_to_plottable_dataframe(mapqc_results: mapQC_results):
     mean_s2ref_dist_per_nhood_df_for_boxplot[
         "sample_r_or_q"
     ] = mean_s2ref_dist_per_nhood_df_for_boxplot["sample"].map(sample_from_r_or_q_dict)
+    mean_s2ref_zscored_dist_per_nhood_df_for_boxplot[
+        "sample_r_or_q"
+    ] = mean_s2ref_zscored_dist_per_nhood_df_for_boxplot["sample"].map(sample_from_r_or_q_dict)
     mapqc_results._boxplot_df_mean_sample_dists_to_ref = (
         mean_s2ref_dist_per_nhood_df_for_boxplot
     )
+    mapqc_results._boxplot_df_mean_sample_zscored_dists_to_ref = mean_s2ref_zscored_dist_per_nhood_df_for_boxplot
 
 
 def _prepare_adata_for_plotting(mapqc_results: mapQC_results, scale: int = 1):
@@ -189,22 +331,30 @@ def _prepare_adata_for_plotting(mapqc_results: mapQC_results, scale: int = 1):
         raise ValueError(
             "Calculate result statistics first using the 'calculate_nhood_statistics' function."
         )
-    for stat_to_copy in ["nhood_weight", "pval_corr", "sign"]:
+    for stat_to_copy in ["nhood_weight", "pval_corr", "mean_zscored_q_dist_to_ref"]:
         mapqc_results.adata.obs[f"mapqc_{stat_to_copy}"] = np.nan
         mapqc_results.adata.obs.loc[
             mapqc_results.nhood_stats.index, f"mapqc_{stat_to_copy}"
         ] = mapqc_results.nhood_stats[stat_to_copy]
+    # include filtered out nhood information in "mapqc_sign" column:
+    mapqc_results.adata.obs['mapqc_sign'] = np.nan
+    sign_nhoods = mapqc_results.nhood_stats.loc[mapqc_results.nhood_stats.sign,:].index
+    non_sign_nhoods = mapqc_results.nhood_stats.loc[~mapqc_results.nhood_stats.sign, :].index
+    filtered_nhoods = [nhood for nhood in mapqc_results.center_cells if nhood not in mapqc_results.nhood_stats.index]
+    mapqc_results.adata.obs.loc[sign_nhoods,"mapqc_sign"] = "significant"
+    mapqc_results.adata.obs.loc[non_sign_nhoods,"mapqc_sign"] = "not significant"
+    mapqc_results.adata.obs.loc[filtered_nhoods,"mapqc_sign"] = "excluded"
     # set sizes for plotting:
     mapqc_results.adata.obs["mapqc_dotsize"] = scale * 1
-    mapqc_results.adata.obs.loc[mapqc_results.nhood_stats.index, "mapqc_dotsize"] = (
-        scale * 20
+    mapqc_results.adata.obs.loc[mapqc_results.center_cells, "mapqc_dotsize"] = (
+        scale * 30
     )
     # order cells so that index cells are plotted on top
     cells_ordered = (
         mapqc_results.adata.obs.index[
-            ~mapqc_results.adata.obs.index.isin(mapqc_results.nhood_stats.index)
+            ~mapqc_results.adata.obs.index.isin(mapqc_results.center_cells)
         ].tolist()
-        + mapqc_results.nhood_stats.index.tolist()
+        + mapqc_results.center_cells.tolist()
     )
     # store ordered version of adata
     # TO DO: we're storing adata twice now, which is very memory inefficient
