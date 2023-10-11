@@ -33,6 +33,10 @@ class mapQC_results:
         Name of the query category in adata.obs[ref_q_key]
     sample_key
         Name of the adata.obs column in which sample names can be found
+    exclude_same_batch_for_ref_samples
+        TO DO
+    batch_key
+        TO DO (only needed if exclude_same_batch_for_ref_samples set to True)
 
 
     TO DO: add filter settings as parameters with defaults here (now only
@@ -49,6 +53,8 @@ class mapQC_results:
         ref_cat: str = "reference",
         query_cat: str = "query",
         sample_key: str = "sample",
+        batch_key: str = None,
+        exclude_same_batch_for_ref_samples: bool = True,
     ):
         # TO DO: build in sanity checks for all parameters here
         self.adata = adata
@@ -59,6 +65,15 @@ class mapQC_results:
         self.query_cat = query_cat
         self.ref_cat = ref_cat
         self.sample_key = sample_key
+        self.exclude_same_batch_for_ref_samples = exclude_same_batch_for_ref_samples
+        if exclude_same_batch_for_ref_samples:
+            if isinstance(batch_key, type(None)):
+                raise ValueError(
+                    "No argument provided for batch_key, even though exclude_same_batch_for_ref_samples is set to true."
+                )
+            elif batch_key not in adata.obs.columns:
+                raise ValueError("batch_key not found in adata.obs columns.")
+            self.batch_key = batch_key
         # set parameters specifying if specific functions were run or not
         # (TO DO: complete this further)
         self._adata_prepped_for_plotting = False
@@ -75,7 +90,7 @@ class mapQC_results:
         Returns
         ------
         Adds array self.intersample_distances to class instance. The array is of shape
-        (n_reference_samples x n_total_samples (with ref_samples first) x n_neighborhoods) 
+        (n_reference_samples x n_total_samples (with ref_samples first) x n_neighborhoods)
         and contains mean intersample distances for each sample pair in each neighborhood.
         Samples that were not observed in a given neighborhood are set to np.nan
         across that neighborhood.
@@ -123,6 +138,8 @@ class mapQC_results:
                 ref_q_key=self.ref_q_key,
                 ref_cat=self.ref_cat,
                 query_cat=self.query_cat,
+                batch_key=self.batch_key,
+                exclude_same_batch_for_ref_samples=self.exclude_same_batch_for_ref_samples,
             )
             nhood_results = nhood.get_pairwise_sample_dists()
             self.nhood_cells[nhood_count] = nhood.cell_idc
@@ -152,8 +169,8 @@ class mapQC_results:
         Returns
         ------
         Adds np.array of size (n_total_samples(with ref_samples first) x n_nhoods) as
-        self.mean_sample_dists_to_ref to class, containing mean distances between each 
-        sample and all reference samples.
+        self.mean_sample_dists_to_ref to class instance, containing mean distances between
+        each sample and all reference samples.
         Also adds np.array of the same size as self.mean_sample_dists_to_ref_zscored,
         containing the zscored distances to the reference. For zscoring, the mean
         distance and standard deviation of reference samples to reference are used,
@@ -164,10 +181,10 @@ class mapQC_results:
         # add z-scored distances to reference, setting the mean of the reference
         # sample distances to reference as 0, and their standard deviation to 1.
         # first, calculate mean dist to ref among ref samples (1 per nhood)
-        nhood_ref_mean_dists = nhood_ref_mean = np.nanmean(
-                    self.mean_sample_dists_to_ref[: len(self.ref_samples_all),],
-                    axis=0,
-                )
+        nhood_ref_mean_dists = np.nanmean(
+            self.mean_sample_dists_to_ref[: len(self.ref_samples_all),],
+            axis=0,
+        )
         # calculate standard deviations of ref dist to ref samples (1 per nhood)
         nhood_ref_stdev = np.nanstd(
             self.mean_sample_dists_to_ref[: len(self.ref_samples_all),],
@@ -175,7 +192,7 @@ class mapQC_results:
         )
         # now zscore all distances and store
         self.mean_sample_dists_to_ref_zscored = (
-            self.mean_sample_dists_to_ref - nhood_ref_mean
+            self.mean_sample_dists_to_ref - nhood_ref_mean_dists
         ) / nhood_ref_stdev
         # store that this function has been run:
         self._sample_dists_to_ref_calculated = True
@@ -230,13 +247,13 @@ class mapQC_results:
         # calculate the mean zscored distance of query samples to reference
         # for each neighborhood:
         mean_zscored_q_dist_to_ref = np.nanmean(
-            self.mean_sample_dists_to_ref_zscored[
-                len(self.ref_samples_all) :, :
-            ],
+            self.mean_sample_dists_to_ref_zscored[len(self.ref_samples_all) :, :],
             axis=0,
         )
         # take only the nhoods that passed filtering:
-        self.nhood_stats["mean_zscored_q_dist_to_ref"] = mean_zscored_q_dist_to_ref[self.nhood_stats.nhood_number]
+        self.nhood_stats["mean_zscored_q_dist_to_ref"] = mean_zscored_q_dist_to_ref[
+            self.nhood_stats.nhood_number
+        ]
         # remember that this function has been successfully run:
         self._nhood_stats_calculated = True
 

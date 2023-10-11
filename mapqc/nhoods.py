@@ -42,6 +42,10 @@ class Neighborhood:
         min_n_cells_per_sample) present in a neighborhood for that neighborhood
         to pass filtering and be included in the statistics calculation later
         on.
+    exclude_same_batch_for_ref_samples
+        TO DO
+    batch_key
+        TO DO (only needed if exclude_same_batch_for_ref_samples set to True)
 
 
     Returns
@@ -64,8 +68,10 @@ class Neighborhood:
         ref_q_key: str = "reference_or_query",
         ref_cat: str = "reference",
         query_cat: str = "query",
+        batch_key: str = None,
         min_n_cells_per_sample: int = 5,
         min_n_samples_ref_or_q: int = 3,
+        exclude_same_batch_for_ref_samples: bool = True,
     ):
         # store embedding as separate attribute
         if emb_key == "X":
@@ -80,6 +86,9 @@ class Neighborhood:
         self.min_n_cells_per_sample = min_n_cells_per_sample
         self.min_n_samples_ref_or_q = min_n_samples_ref_or_q
         self.k = k
+        self.exclude_same_batch_for_ref_samples = exclude_same_batch_for_ref_samples
+        # store adata as attribute (might not be necessary, not sure if an issue)
+        self.adata = adata
         # check if index cell in adata
         if index_cell not in adata.obs.index:
             raise ValueError("Your index cell is not found in adata.obs.index.")
@@ -91,7 +100,10 @@ class Neighborhood:
         # get sample names of cells in neighborhoods
         if sample_key not in adata.obs.columns:
             raise ValueError("Your sample key is not present in adata.obs.columns.")
+        self.sample_key = sample_key
         self.samples = adata.obs.loc[self.barcodes, sample_key].values
+        # store batch key:
+        self.batch_key = batch_key
         # store whether cell came from reference or query, and map to standard
         # terminology (i.e. use terms 'reference' and 'query')
         if ref_q_key not in adata.obs.columns:
@@ -208,13 +220,48 @@ class Neighborhood:
             or len(q_samples) < self.min_n_samples_ref_or_q
         ):
             return np.nan
+        # if samples from the same reference batch should be excluded for
+        # ref-to-ref distance calculations, check if enough reference
+        # samples are present that fulfill the min_n_samples criterion
+        # after removing samples from the same batch:
+        if self.exclude_same_batch_for_ref_samples:
+            # get info on which batch each sample came from
+            sample_to_batch = self.adata.obs.groupby(self.sample_key).agg(
+                {self.batch_key: "first"}
+            )
+            ref_sample_batches = sample_to_batch.loc[ref_samples, self.batch_key].values
+            # check per ref sample if enough other ref samples are present
+            # to calculate ref to ref distances
+            n_passed_filter = 0
+            sufficient_ref_samples = False
+            for s, s_batch in zip(ref_samples, ref_sample_batches):
+                if n_passed_filter < self.min_n_samples_ref_or_q:
+                    n_samples_outside_batch = (ref_sample_batches != s_batch).sum()
+                    # could make the below condition less strict, e.g. consider
+                    # only a single sample outside of batch sufficient per ref
+                    # sample
+                    if n_samples_outside_batch > (self.min_n_samples_ref_or_q - 1):
+                        n_passed_filter += 1
+                else:
+                    sufficient_ref_samples = True
+            if not sufficient_ref_samples:
+                return np.nan
         # create empty dataframe in which to store pairwise distances
         sample_dists = pd.DataFrame(index=ref_samples, columns=ref_samples + q_samples)
+
         # loop through all ref samples (and count in which loop we are)
         for ref_sample_count, sample_1 in enumerate(ref_samples):
             # loop through all reference samples that that we haven't looped
             # through in the first loop yet, plus all query samples:
             for sample_2 in (ref_samples + q_samples)[ref_sample_count + 1 :]:
+                if self.exclude_same_batch_for_ref_samples:
+                    if (
+                        sample_to_batch.loc[sample_1, self.batch_key]
+                        == sample_to_batch.loc[sample_2, self.batch_key]
+                    ):
+                        # do not include distances to samples from same batch for
+                        # reference samples
+                        continue
                 mean_intersample_dist = self._calculate_sample_pair_mean_distances(
                     sample_1, sample_2
                 )
