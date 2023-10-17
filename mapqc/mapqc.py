@@ -2,8 +2,11 @@ import nhoods
 import numpy as np
 import pandas as pd
 from scipy.stats import kstest
+from scipy.sparse import csr_matrix
 import pval_corr
 from anndata import AnnData
+from typing import Literal
+from tqdm import tqdm
 
 
 class mapQC_results:
@@ -24,6 +27,10 @@ class mapQC_results:
         Location of the integrated embedding to which the query was mapped.
         If set to "X", adata.X will be used. Otherwise, a key in obsm should
         be specified.
+    distance_type
+        Whether to use main pairwise (cell-cell) euclidean distance to quantify
+        distance between a pair of samples, or sinkhorn divergence (approximation
+        of Wasserstein distance).
     ref_q_key
         The adata.obs column in which is specified for each cell whether it is
         from the reference or the query
@@ -34,13 +41,21 @@ class mapQC_results:
     sample_key
         Name of the adata.obs column in which sample names can be found
     exclude_same_batch_for_ref_samples
-        TO DO
+        Whether or not to exclude samples from the same batch, when calculating
+        inter-sample distances for the reference itself.
     batch_key
-        TO DO (only needed if exclude_same_batch_for_ref_samples set to True)
-
-
-    TO DO: add filter settings as parameters with defaults here (now only
-    in nhood class I think)
+        name of column containing batch information. This only needs to be set
+        if exclude_same_batch_for_ref_samples is set to True
+    min_n_cells_per_sample
+        Minimum number of cells of a given sample present in a neighborhood,
+        for that sample to be considered present.
+    min_n_samples_ref
+        Minimum number of reference samples (with at least
+        min_n_cells_per_sample) present in a neighborhood for that neighborhood
+        to pass filtering and be included in the statistics calculation later
+        on.
+    min_n_samples_q
+        As min_n_samples_ref, but now for query samples
     """
 
     def __init__(
@@ -48,13 +63,17 @@ class mapQC_results:
         adata: AnnData,
         center_cells: np.ndarray,
         k: int,
-        emb_key: str = "X",
+        emb_key: str,
+        distance_type: Literal["pairwise_euclidean", "sinkhorn"] = "pairwise_euclidean",
         ref_q_key: str = "reference_or_query",
         ref_cat: str = "reference",
         query_cat: str = "query",
         sample_key: str = "sample",
         batch_key: str = None,
         exclude_same_batch_for_ref_samples: bool = True,
+        min_n_cells_per_sample: int = 5,
+        min_n_samples_ref: int = 3,
+        min_n_samples_q: int = 3,
     ):
         # TO DO: build in sanity checks for all parameters here
         self.adata = adata
@@ -66,6 +85,16 @@ class mapQC_results:
         self.ref_cat = ref_cat
         self.sample_key = sample_key
         self.exclude_same_batch_for_ref_samples = exclude_same_batch_for_ref_samples
+        self.min_n_cells_per_sample = min_n_cells_per_sample
+        self.min_n_samples_ref = min_n_samples_ref
+        self.min_n_samples_q = min_n_samples_q
+        # Sanity checks:
+        # check if adata.obs.index unique:
+        if not adata.shape[0] == len(set(adata.obs.index)):
+            raise ValueError(
+                "Indices of adata.obs are not unique. To make indices unique, run adata.obs_names_make_unique()."
+            )
+        # exclude_same_batch_for_ref_samples
         if exclude_same_batch_for_ref_samples:
             if isinstance(batch_key, type(None)):
                 raise ValueError(
@@ -73,13 +102,39 @@ class mapQC_results:
                 )
             elif batch_key not in adata.obs.columns:
                 raise ValueError("batch_key not found in adata.obs columns.")
-            self.batch_key = batch_key
+        self.batch_key = batch_key
+        # sample_key
+        if sample_key not in adata.obs.columns:
+            raise ValueError("Your sample key is not present in adata.obs.columns.")
+        if not isinstance(self.adata.obs[sample_key].values, pd.Categorical):
+            self.adata.obs[sample_key] = pd.Categorical(self.adata.obs[sample_key])
+        # distance_type
+        if distance_type not in ["pairwise_euclidean", "sinkhorn"]:
+            raise ValueError(
+                "Argument 'distance_type' should be set to either 'pairwise_euclidiean' or 'sinkhorn'."
+            )
+        self.distance_type = distance_type
+        # embedding key:
+        if emb_key != "X" and (emb_key not in adata.obsm.keys()):
+            raise ValueError(
+                "emb_key should be set to either 'X' or a key in adata.obsm"
+            )
+        # convert sparse to dense array if embedding is sparse array
+        else:
+            if emb_key == "X":
+                if isinstance(self.adata.X, csr_matrix):
+                    self.adata.X = self.adata.X.toarray()
+            elif isinstance(self.adata.obsm[emb_key], csr_matrix):
+                self.adata.obsm[emb_key] = self.adata.obsm[emb_key].toarray
         # set parameters specifying if specific functions were run or not
         # (TO DO: complete this further)
         self._adata_prepped_for_plotting = False
         self._results_prepped_for_boxplot = False
         self._nhood_stats_calculated = False
         self._sample_dists_to_ref_calculated = False
+        # initiate Series specifying whether or not a neighborhood passed
+        # filtering (including exclusion reason if excluded)
+        self._nhood_filtered = pd.Series(index=self.center_cells)
 
     def _calculate_intersample_distances(self):
         """
@@ -109,7 +164,8 @@ class mapQC_results:
                 np.array(
                     sorted(
                         self.adata.obs.loc[
-                            self.adata.obs[self.ref_q_key] == self.query_cat, "sample"
+                            self.adata.obs[self.ref_q_key] == self.query_cat,
+                            self.sample_key,
                         ].unique()
                     )
                 ),
@@ -128,11 +184,14 @@ class mapQC_results:
         self.nhood_cells = np.zeros((len(self.center_cells), self.k), dtype=int)
         # now loop through neighborhoods and calculate mean inter-sample
         # distances per nhood
-        for nhood_count, center_cell in enumerate(self.center_cells):
+        for nhood_count, center_cell in tqdm(enumerate(self.center_cells)):
             nhood = nhoods.Neighborhood(
                 adata=self.adata,
                 index_cell=center_cell,
                 k=self.k,
+                min_n_cells_per_sample=self.min_n_cells_per_sample,
+                min_n_samples_ref=self.min_n_samples_ref,
+                min_n_samples_q=self.min_n_samples_q,
                 emb_key=self.emb_key,
                 sample_key=self.sample_key,
                 ref_q_key=self.ref_q_key,
@@ -140,9 +199,12 @@ class mapQC_results:
                 query_cat=self.query_cat,
                 batch_key=self.batch_key,
                 exclude_same_batch_for_ref_samples=self.exclude_same_batch_for_ref_samples,
+                distance_type=self.distance_type,
             )
             nhood_results = nhood.get_pairwise_sample_dists()
             self.nhood_cells[nhood_count] = nhood.cell_idc
+            # store whether or not neighborhood passed sample number filtering
+            self._nhood_filtered.loc[center_cell] = nhood._filter_info
             # add results to overall tensor
             if not isinstance(nhood_results, type(np.nan)):
                 row_idc_for_nhood_ref_samples = np.where(
