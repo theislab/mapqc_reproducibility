@@ -19,3 +19,4 @@ dependencies:
   - conda-forge::r-caret
   - conda-forge::r-seuratdisk
   - conda-forge::r-devtools
+  - conda-forge::r-yaml

@@ -9,3 +9,4 @@ dependencies:
   - r-irkernel
   - r-caret
   - r-seuratdisk
+  - r-yaml
