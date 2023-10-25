@@ -1,0 +1,13 @@
+reference_path: "data/hypomap/hypoMap.rds"
+query_path: "data/Huisman_2022/huisman_query_pp.rds"
+runs_dir: "runs/"
+scripts_dir: "notebooks/hypomap/"
+
+# Anchors filter config
+anchor_filter: "default"
+
+# Sybset Highly variable genes 
+subset_hvg: FALSE
+
+# Set seed
+seed: 48
