@@ -1,5 +1,5 @@
 reference_path: "data/hypomap/hypoMap.rds"
-query_path: "data/Huisman_2022/huisman_query_pp.rds"
+query_path: "data/Huisman_2022/huisman_query_pp.rds" # replace with query path
 runs_dir: "runs/"
 scripts_dir: "notebooks/hypomap/"
 
