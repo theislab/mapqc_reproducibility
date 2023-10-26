@@ -55,12 +55,26 @@ class Neighborhood:
         Whether to use main pairwise (cell-cell) euclidean distance to quantify
         distance between a pair of samples, or sinkhorn divergence (approximation
         of Wasserstein distance).
+    use_adaptive_k
+        If set to True, increases the k for a specific neighborhood if that
+        neighborhood does not include sufficient reference samples with the default
+        k (k argument above) to pass filtering, until sufficient reference samples
+        are present in the neighborhood. For more details, see max_k and
+        adaptive_k_margin arguments.
+    max_k
+        Maximum k to which a neighborhood's size can be increased, if with the
+        default k not enough reference samples are found in the neighborhood and
+        if use_adaptive_k is set to True.
+    adaptive_k_margin
+        Given the lowest possible k (minimum k) for a neighborhood to pass filtering,
+        a k of adaptive_k_margin * minimum_k will be used as the final k for the
+        neighborhood, if use_adaptive_k is set to True.
 
 
     Returns
     -------
-    By default, determines k nearest neighbors and stores them under self.cell_idc
-    (anndata row numbers of nearest neighbors) and self.barcodes (anndata row names
+    By default, determines k nearest neighbors and stores them under self.knn_idc
+    (anndata row numbers of nearest neighbors) and self.knn_barcodes (anndata row names
     of nearest neighbors). Index cell itself is included in neighbors.
     Further stats are calculated using class functions.
     """
@@ -81,6 +95,9 @@ class Neighborhood:
         query_cat: str = "query",
         batch_key: str = None,
         exclude_same_batch_for_ref_samples: bool = True,
+        use_adaptive_k: bool = True,
+        max_k: int = None,
+        adaptive_k_margin: float = 1.1,
     ):
         # store embedding as separate attribute
         if emb_key == "X":
@@ -100,24 +117,17 @@ class Neighborhood:
         self.min_n_cells_per_sample = min_n_cells_per_sample
         self.min_n_samples_ref = min_n_samples_ref
         self.min_n_samples_q = min_n_samples_q
-        self.k = k
+        self.min_k = k
         self.exclude_same_batch_for_ref_samples = exclude_same_batch_for_ref_samples
+        self.sample_key = sample_key
+        self.batch_key = batch_key
+        self.ref_q_key = ref_q_key
+        self.ref_cat = ref_cat
+        self.use_adaptive_k = use_adaptive_k
+        self.max_k = max_k
+        self.adaptive_k_margin = adaptive_k_margin
         # store adata as attribute (might not be necessary, not sure if an issue)
         self.adata = adata
-        # check if index cell in adata
-        if index_cell not in adata.obs.index:
-            raise ValueError("Your index cell is not found in adata.obs.index.")
-        # get row number in adata that has the index cell
-        self.index_cell = index_cell
-        self.index_cell_idx = np.where(adata.obs.index == index_cell)[0][0]
-        # get nearest neighbors of index cell, i.e. the cells in this nhood:
-        self.cell_idc = self._get_nearest_neighbors()
-        self.barcodes = adata.obs.iloc[self.cell_idc, :].index
-        # get sample names of cells in neighborhoods
-        self.sample_key = sample_key
-        self.samples = adata.obs.loc[self.barcodes, sample_key].values
-        # store batch key:
-        self.batch_key = batch_key
         # store whether cell came from reference or query, and map to standard
         # terminology (i.e. use terms 'reference' and 'query')
         if ref_q_key not in adata.obs.columns:
@@ -130,13 +140,270 @@ class Neighborhood:
                 "Your ref_cat and query_cat should be values in your adata.obs ref_q_key column."
             )
         ref_q_harmonizer = {ref_cat: "reference", query_cat: "query"}
-        self.ref_or_q = (
-            adata.obs.loc[self.barcodes, ref_q_key].map(ref_q_harmonizer).values
+        self.adata.obs["mapqc_ref_or_q"] = (
+            adata.obs[ref_q_key].map(ref_q_harmonizer).values
         )
-        # store embedding of cells in nhood:
-        self.emb = self.adata_emb[self.cell_idc, :]
+        # check if index cell in adata
+        if index_cell not in adata.obs.index:
+            raise ValueError("Your index cell is not found in adata.obs.index.")
+        # get row number in adata that has the index cell
+        self.index_cell = index_cell
+        self.index_cell_idx = np.where(adata.obs.index == index_cell)[0][0]
+        # calculate distances of all cells to the index cell:
+        self._dists_all_cells_to_center_cell = cdist(
+            self.adata_emb[self.index_cell_idx, :].reshape(
+                (1, self.adata_emb.shape[1])
+            ),
+            self.adata_emb,
+        )[0]
+        # get indices of columns (cell indices) sorted from small to large distance
+        # to index cell (cell itself should therefore be first)
+        self._cell_indices_sorted_by_dist = np.argsort(
+            self._dists_all_cells_to_center_cell
+        )
+        # set the k
+        if not use_adaptive_k:
+            self.max_k = k
+        self._ref_filter_info, self.final_k = self._calculate_adaptive_nhood_k()
+        # store information about k nearest neighbors of index cell
+        self._store_neighbor_info(self.final_k)
 
-    def _get_nearest_neighbors(self):
+    def get_pairwise_sample_dists(self):
+        """
+        Calculate mean distances between all sample pairs in the neighborhood.
+        Include filtering of samples with too few cells. Distances are
+        Euclidean and calculated in the integrated embedding space in which
+        the query was mapped. For each sample pair, the mean distance between
+        the cells from the first sample and those from the second sample are
+        calculated and considered the inter-sample distance for that pair.
+
+        Returns
+        -------
+        pandas.DataFrame with ref samples as rows and all samples (reference
+        and query) as columns, with the intersample distance specified for
+        each pair. Distance to the same sample are set to np.nan. For
+        neighborhoods that do not have enough reference or query samples
+        (see filtering parameters in class), np.nan is returned.
+
+        """
+        # check which samples have sufficient cells in the neighborhood
+        ref_samples = self._filter_samples("reference")
+        q_samples = self._filter_samples("query")
+        # check if nhood passes min_n_samples_ref filter
+        # either precalculated when calculating the adaptive k:
+        if not self._ref_filter_info == "pass":
+            self._filter_info = self._ref_filter_info
+            return np.nan
+        # check if enough samples from query are present in nhood:
+        if len(q_samples) < self.min_n_samples_q:
+            self._filter_info = "too few query samples"
+            return np.nan
+        self._filter_info = "pass"
+        # create empty dataframe in which to store pairwise distances
+        sample_dists = pd.DataFrame(index=ref_samples, columns=ref_samples + q_samples)
+        # store sample to batch mapping if batch needs to be taken into account
+        if self.exclude_same_batch_for_ref_samples:
+            sample_to_batch = self.adata.obs.groupby(self.sample_key).agg(
+                {self.batch_key: "first"}
+            )
+        # loop through all ref samples (and count in which loop we are)
+        for ref_sample_count, sample_1 in enumerate(ref_samples):
+            # loop through all reference samples that that we haven't looped
+            # through in the first loop yet, plus all query samples:
+            for sample_2 in (ref_samples + q_samples)[ref_sample_count + 1 :]:
+                if self.exclude_same_batch_for_ref_samples:
+                    if (
+                        sample_to_batch.loc[sample_1, self.batch_key]
+                        == sample_to_batch.loc[sample_2, self.batch_key]
+                    ):
+                        # do not include distances to samples from same batch for
+                        # reference samples
+                        continue
+                intersample_dist = self._calculate_sample_pair_distance(
+                    sample_1, sample_2
+                )
+                sample_dists.loc[sample_1, sample_2] = intersample_dist
+                if sample_2 in ref_samples:
+                    sample_dists.loc[sample_2, sample_1] = intersample_dist
+        return sample_dists
+
+    def _calculate_adaptive_nhood_k(self):
+        """
+        Calculate the k needed to fulfill "diversity/number requirements", i.e.
+        given the neighborhood's minimum number of reference samples and the minimum
+        number of cells per sample, check how large k needs to be to reach these
+        minimums.
+
+        Parameters
+        ----------
+        nhood:
+            instance of selfs.Neighborhood class
+
+        Returns
+        -------
+        A tuple (filtering_info, adapted_k) specifying whether or not the self passed
+        filtering given the max_k, and what the final adapted k is (np.nan if filtering
+        not passed). Filtering info is either ..........The lowest value (integer) of k for which all filtering criteria are passed.
+        If no value below max_k passes filtering, np.nan is returned.
+        """
+        # store some sample information (which batch it came from, and whether or not it
+        # is from the reference) that we will need further down:
+        if self.exclude_same_batch_for_ref_samples:
+            sample_info = self.adata.obs.groupby(self.sample_key).agg(
+                {self.batch_key: "first", self.ref_q_key: "first"}
+            )
+        else:
+            sample_info = self.adata.obs.groupby(self.sample_key).agg(
+                {self.ref_q_key: "first"}
+            )
+        # check if sufficient reference samples in the neighborhod of default size k.
+        # code here should be much faster than for adaptive k, hence we use this
+        # whenever possible
+        knn_samples = (
+            self.adata.obs[self.sample_key]
+            .iloc[self._cell_indices_sorted_by_dist[: self.min_k]]
+            .value_counts()
+        )
+        knn_sample_set_suff_cells = knn_samples.loc[
+            knn_samples >= self.min_n_cells_per_sample
+        ].index
+        (
+            filter_info,
+            suff_ref_samples_in_k_neighbors,
+        ) = self._check_if_sufficient_ref_samples(
+            knn_sample_set_suff_cells, sample_info
+        )
+        if (not self.use_adaptive_k) or suff_ref_samples_in_k_neighbors:
+            return (filter_info, self.min_k)
+        else:
+            # for each sample, calculate at which neighbor (ordered by distance from the index
+            # cell) its nth cell shows up, with n being the min_n_cells per sample. This will
+            # help us in calculating how many samples are "sufficiently present" (i.e. have at
+            # least min_n_cells_per_sample cells) at a given k.
+            def _get_nth_idx(list, value, n):
+                nth_inst_idx = [idx for idx, x in enumerate(list) if x == value][n]
+                return nth_inst_idx
+
+            # first, get sample names for all cells in adata, ordered by ascending distance from
+            # index cell.
+            samples_ordered = (
+                self.adata.obs[self.sample_key]
+                .iloc[self._cell_indices_sorted_by_dist]
+                .values
+            )
+            # now, for each sample calculate at which neighbor number it sees its nth instance, and
+            # order the output by closest to furthest sample
+            sample_nth_inst_idc = pd.Series(
+                {
+                    sample: _get_nth_idx(
+                        samples_ordered, sample, self.min_n_cells_per_sample
+                    )
+                    for sample in set(samples_ordered)
+                }
+            ).sort_values()
+            # loop through sample sets of increasing size (given nearest neighbors' samples)
+            # and check if they pass our min_n_sample criteria. Stop once we have found
+            # a set of samples that fulfills filtering criteria, or once we have passed our
+            # maximum k
+            suff_ref_samples_with_increased_k = False
+            sample_to_check_idx = len(knn_sample_set_suff_cells) + 1
+            while (not suff_ref_samples_with_increased_k) and round(
+                sample_nth_inst_idc.iloc[sample_to_check_idx] * self.adaptive_k_margin
+            ) <= self.max_k:
+                (
+                    filter_info,
+                    suff_ref_samples_with_increased_k,
+                ) = self._check_if_sufficient_ref_samples(
+                    sample_nth_inst_idc.index[:sample_to_check_idx],
+                    sample_info,
+                )
+                sample_to_check_idx += 1
+            if suff_ref_samples_with_increased_k:
+                # return filtering info (passed filtering), and the neighbor index at which
+                # this sample has min_n_cells_per_sample, i.e. the suggested minimum k
+                return (
+                    "pass",
+                    round(
+                        sample_nth_inst_idc.iloc[sample_to_check_idx]
+                        * self.adaptive_k_margin
+                    ),
+                )
+            else:
+                # if not sufficient samples were found under max_k, return np.nan
+                return (filter_info, np.nan)
+
+    def _check_if_sufficient_ref_samples(
+        self,
+        sample_set: list,
+        sample_info_df: pd.DataFrame,
+    ):
+        """
+        Checks if a given set of samples present in a neighborhood fulfills the minimum
+        requirements for the number of reference samples in a neighborhood.
+
+        Parameters
+        ----------
+        sample_set
+            List of samples present in a neighborhood, already filtered based on minimum
+            number of cells per sample (i.e. samples with fewer cells in the nhood are not
+            included in this list
+        sample_info_df
+            DataFrame with samples as index, specifying whether a sample came from the
+            reference or query, and (if self.exclude_same_batch_for_ref_samples is True)
+            which batch the sample came from.
+
+        Returns
+        -------
+        A tuple with a string with filtering information, and a boolean specifying whether
+        or not the neighborhood (sample set) passed filtering.
+        """
+        # subset to reference samples:
+        sample_set_ref_only = [
+            sample
+            for sample in sample_set
+            if sample_info_df.loc[sample, self.ref_q_key] == self.ref_cat
+        ]
+        if len(sample_set_ref_only) < self.min_n_samples_ref:
+            return ("too few reference samples", False)
+        ref_sample_batches = sample_info_df.loc[
+            sample_set_ref_only, self.batch_key
+        ].values
+        # check per ref sample if enough ref samples from other batches are present
+        # to calculate ref to ref distances
+        n_passed_filter = 0
+        sufficient_ref_samples = False
+        for s, s_batch in zip(sample_set_ref_only, ref_sample_batches):
+            if n_passed_filter < self.min_n_samples_ref:
+                n_samples_outside_batch = (ref_sample_batches != s_batch).sum()
+                # could make the below condition less strict, e.g. consider
+                # only a single sample outside of batch sufficient per ref
+                # sample
+                if n_samples_outside_batch > (self.min_n_samples_ref - 1):
+                    n_passed_filter += 1
+            else:
+                return ("pass", True)
+        return ("too few reference samples from different batches", False)
+
+    def _store_neighbor_info(self, k):
+        """
+        Store information about the k nearest neighbors of the neighborhoods
+        index cell (including index cell itself).
+        """
+        # get nearest neighbors of index cell, i.e. the cells in this nhood:
+        self.knn_idc = self._get_nearest_neighbors(k)
+        self.knn_barcodes = self.adata.obs.iloc[self.knn_idc, :].index
+        # get sample names of cells in neighborhoods
+        self.knn_samples = self.adata.obs.loc[self.knn_barcodes, self.sample_key].values
+        self.knn_ref_or_q = self.adata.obs.loc[
+            self.knn_barcodes, "mapqc_ref_or_q"
+        ].values
+        # store embedding of cells in nhood:
+        self.knn_emb = self.adata_emb[self.knn_idc, :]
+        if self.distance_type == "pairwise_euclidean":
+            # calculate pairwise distances between cells in nhood:
+            self.dists = pairwise_distances(self.knn_emb)
+
+    def _get_nearest_neighbors(self, k):
         """
         Get k nearest neighbors of a given index cell, including index cell itself.
 
@@ -147,17 +414,9 @@ class Neighborhood:
         therefore be first).
 
         """
-        dists_to_center_cell = cdist(
-            self.adata_emb[self.index_cell_idx, :].reshape(
-                (1, self.adata_emb.shape[1])
-            ),
-            self.adata_emb,
-        )[0]
-        # get indices of columns (cell indices) sorted from small to large
-        sorted_indices = np.argsort(dists_to_center_cell)  # , axis=1)
         # get column numbers for the columns with the k lowest values, i.e.
         # the k nearest neighbors (including the index cell itself)
-        return sorted_indices[: self.k]
+        return self._cell_indices_sorted_by_dist[:k]
 
     def _filter_samples(self, ref_or_q: Literal["reference", "query"]):
         """
@@ -176,7 +435,9 @@ class Neighborhood:
         """
         if ref_or_q not in ["reference", "query"]:
             raise ValueError("ref_or_q should be set to either 'reference' or 'query'.")
-        sample_cell_counts = self.samples[self.ref_or_q == ref_or_q].value_counts()
+        sample_cell_counts = self.knn_samples[
+            self.knn_ref_or_q == ref_or_q
+        ].value_counts()
         sample_set_filtered = sample_cell_counts.index[
             sample_cell_counts >= self.min_n_cells_per_sample
         ].tolist()
@@ -201,18 +462,19 @@ class Neighborhood:
 
         """
         # check which cells in the neigbhorhood belong to each sample
-        sample_1_cells = np.where(self.samples == sample_1)[0]
-        sample_2_cells = np.where(self.samples == sample_2)[0]
+        sample_1_cells = np.where(self.knn_samples == sample_1)[0]
+        sample_2_cells = np.where(self.knn_samples == sample_2)[0]
         if self.distance_type == "pairwise_euclidean":
             # subset nhood's distance matrix to cells from the two samples
             pair_specific_dists = self.dists[sample_1_cells][:, sample_2_cells]
             return np.mean(pair_specific_dists)
-        # TO DO: ASK DOMINIK WHY THEY DON'T USE THE TUTORIAL IMPLEMENTATION
+        # TO DO: USE MOSCOT IMPLEMENTATION INSTEAD OF TUTORIAL IMPLEMENTATION!
         # (their output.divergence is different from our output.kl_reg_cost)
-        # also: this code is waaaayyyy too slow
+        # also: this code is waaaayyyy too slow; TO DO: PARALLELIZE CALCULATION
+        # ACROSS SAMPLE PAIRS!
         elif self.distance_type == "sinkhorn":
-            sample_1_cell_coords = self.emb[sample_1_cells, :]
-            sample_2_cell_coords = self.emb[sample_2_cells, :]
+            sample_1_cell_coords = self.knn_emb[sample_1_cells, :]
+            sample_2_cell_coords = self.knn_emb[sample_2_cells, :]
             geom = pointcloud.PointCloud(
                 sample_1_cell_coords, sample_2_cell_coords, epsilon=10
             )
@@ -224,86 +486,3 @@ class Neighborhood:
                     f"Warning: sinkhorn solver did not converge for {self.index_cell}, sample {sample_1} and sample {sample_2}."
                 )
             return sinkhorn_out.kl_reg_cost
-
-    def get_pairwise_sample_dists(self):
-        """
-        Calculate mean distances between all sample pairs in the neighborhood.
-        Include filtering of samples with too few cells. Distances are
-        Euclidean and calculated in the integrated embedding space in which
-        the query was mapped. For each sample pair, the mean distance between
-        the cells from the first sample and those from the second sample are
-        calculated and considered the inter-sample distance for that pair.
-
-        Returns
-        -------
-        pandas.DataFrame with ref samples as rows and all samples (reference
-        and query) as columns, with the intersample distance specified for
-        each pair. Distance to the same sample are set to np.nan. For
-        neighborhoods that do not have enough reference or query samples
-        (see filtering parameters in class), np.nan is returned.
-
-        """
-        if self.distance_type == "pairwise_euclidean":
-            # calculate pairwise distances between cells in nhood:
-            self.dists = pairwise_distances(self.emb)
-        # check which samples have sufficient cells in the neighborhood
-        ref_samples = self._filter_samples("reference")
-        q_samples = self._filter_samples("query")
-        # check if enough samples from ref and query are present in nhood:
-        if len(ref_samples) < self.min_n_samples_ref:
-            self._filter_info = "too few reference samples"
-            return np.nan
-        if len(q_samples) < self.min_n_samples_q:
-            self._filter_info = "too few query samples"
-            return np.nan
-        # if samples from the same reference batch should be excluded for
-        # ref-to-ref distance calculations, check if enough reference
-        # samples are present that fulfill the min_n_samples criterion
-        # after removing samples from the same batch:
-        if self.exclude_same_batch_for_ref_samples:
-            # get info on which batch each sample came from
-            sample_to_batch = self.adata.obs.groupby(self.sample_key).agg(
-                {self.batch_key: "first"}
-            )
-            ref_sample_batches = sample_to_batch.loc[ref_samples, self.batch_key].values
-            # check per ref sample if enough other ref samples are present
-            # to calculate ref to ref distances
-            n_passed_filter = 0
-            sufficient_ref_samples = False
-            for s, s_batch in zip(ref_samples, ref_sample_batches):
-                if n_passed_filter < self.min_n_samples_ref:
-                    n_samples_outside_batch = (ref_sample_batches != s_batch).sum()
-                    # could make the below condition less strict, e.g. consider
-                    # only a single sample outside of batch sufficient per ref
-                    # sample
-                    if n_samples_outside_batch > (self.min_n_samples_ref - 1):
-                        n_passed_filter += 1
-                else:
-                    sufficient_ref_samples = True
-            if not sufficient_ref_samples:
-                self._filter_info = "too few reference samples from different batches"
-                return np.nan
-        # store that nhood passed filtering:
-        self._filter_info = "pass"
-        # create empty dataframe in which to store pairwise distances
-        sample_dists = pd.DataFrame(index=ref_samples, columns=ref_samples + q_samples)
-        # loop through all ref samples (and count in which loop we are)
-        for ref_sample_count, sample_1 in enumerate(ref_samples):
-            # loop through all reference samples that that we haven't looped
-            # through in the first loop yet, plus all query samples:
-            for sample_2 in (ref_samples + q_samples)[ref_sample_count + 1 :]:
-                if self.exclude_same_batch_for_ref_samples:
-                    if (
-                        sample_to_batch.loc[sample_1, self.batch_key]
-                        == sample_to_batch.loc[sample_2, self.batch_key]
-                    ):
-                        # do not include distances to samples from same batch for
-                        # reference samples
-                        continue
-                intersample_dist = self._calculate_sample_pair_distance(
-                    sample_1, sample_2
-                )
-                sample_dists.loc[sample_1, sample_2] = intersample_dist
-                if sample_2 in ref_samples:
-                    sample_dists.loc[sample_2, sample_1] = intersample_dist
-        return sample_dists

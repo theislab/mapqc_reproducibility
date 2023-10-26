@@ -117,7 +117,10 @@ def plot_boxplot_of_ref_vs_q_dists_per_nhood(
 
 
 def plot_umap_significance(
-    mapqc_results: mapQC_results, title: str = "neighborhood significance"
+    mapqc_results: mapQC_results,
+    title: str = "neighborhood significance",
+    scale_size_by_nhood_weight: bool = True,
+    scale: float = 1,
 ):
     """
     Plot UMAP of adata in mapqc_results instance, colored grey for all non-index
@@ -135,9 +138,15 @@ def plot_umap_significance(
         Instance of mapQC_results class, for which the adata has a UMAP pre-calculated
         and for which mapQC statistics have been calculated using
         mapQC_results.calculate_nhood_statistics
-
     title
         Title for UMAP.
+    scale_size_by_nhood_weight
+        Whether to scale dotsize of neighborhood centers by neighborhood weight, or to
+        give all neighborhoods equal size. Neighborhood weight depends on the size of
+        the neighborhoods, as well as on in how many other neighborhoods each cell in
+        a given neighborhood appears.
+    scale
+        scalar to increase or decrease umap dot size
 
     Returns
     -------
@@ -160,11 +169,16 @@ def plot_umap_significance(
         "not significant": "antiquewhite",
         "excluded": "black",
     }
+    # set dotsize:
+    if scale_size_by_nhood_weight:
+        size_col = "mapqc_dotsize_by_nhood_weight"
+    else:
+        size_col = "mapqc_dotsize"
     # plot
     sc.pl.umap(
         mapqc_results._adata_ordered,
         color="mapqc_sign",
-        size=mapqc_results._adata_ordered.obs.mapqc_dotsize,
+        size=scale * mapqc_results._adata_ordered.obs[size_col],
         palette=palette,
         sort_order=False,
         title=title,
@@ -604,6 +618,18 @@ def _prepare_adata_for_plotting(mapqc_results: mapQC_results, scale: int = 1):
     mapqc_results.adata.obs["mapqc_dotsize"] = scale * 1
     mapqc_results.adata.obs.loc[mapqc_results.center_cells, "mapqc_dotsize"] = (
         scale * 30
+    )
+    # set sizes for plotting, but proportional to neighborhood weight now
+    mapqc_results.adata.obs[
+        "mapqc_dotsize_by_nhood_weight"
+    ] = mapqc_results.adata.obs.mapqc_dotsize
+    mapqc_results.adata.obs.loc[
+        mapqc_results.center_cells, "mapqc_dotsize_by_nhood_weight"
+    ] = (
+        mapqc_results.adata.obs.loc[
+            mapqc_results.nhood_stats.index, "mapqc_dotsize_by_nhood_weight"
+        ]
+        * mapqc_results.nhood_stats.nhood_weight
     )
     # order cells so that index cells are plotted on top
     cells_ordered = (

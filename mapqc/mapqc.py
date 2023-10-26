@@ -56,6 +56,22 @@ class mapQC_results:
         on.
     min_n_samples_q
         As min_n_samples_ref, but now for query samples
+    use_adaptive_k
+        If set to True, increases the k for a specific neighborhood if that
+        neighborhood does not include sufficient reference samples with the default
+        k (k argument above) to pass filtering, until sufficient reference samples
+        are present in the neighborhood. For more details, see max_k and
+        adaptive_k_margin arguments.
+    max_k
+        Maximum k to which a neighborhood's size can be increased, if with the
+        default k not enough reference samples are found in the neighborhood and
+        if use_adaptive_k is set to True.
+    adaptive_k_margin
+        Given the lowest possible k (minimum k) for a neighborhood to pass filtering,
+        a k of adaptive_k_margin * minimum_k will be used as the final k for the
+        neighborhood, if use_adaptive_k is set to True.
+
+    TO DO: ADD DOCUMENTATION FOR ADAPTIVE K PARAMETERS
     """
 
     def __init__(
@@ -74,6 +90,9 @@ class mapQC_results:
         min_n_cells_per_sample: int = 5,
         min_n_samples_ref: int = 3,
         min_n_samples_q: int = 3,
+        use_adaptive_k: bool = True,
+        max_k: int = None,
+        adaptive_k_margin: float = 1.1,
     ):
         # TO DO: build in sanity checks for all parameters here
         self.adata = adata
@@ -103,6 +122,19 @@ class mapQC_results:
             elif batch_key not in adata.obs.columns:
                 raise ValueError("batch_key not found in adata.obs columns.")
         self.batch_key = batch_key
+        # adaptive_k:
+        if use_adaptive_k:
+            if isinstance(max_k, type(None)):
+                raise ValueError(
+                    "max_k has to be specified when use_adaptive_k is set to true."
+                )
+            if adaptive_k_margin < 1:
+                raise ValueError(
+                    "adaptive_k_margin should be set to a value of at least 1."
+                )
+        self.use_adaptive_k = use_adaptive_k
+        self.max_k = max_k
+        self.adaptive_k_margin = adaptive_k_margin
         # sample_key
         if sample_key not in adata.obs.columns:
             raise ValueError("Your sample key is not present in adata.obs.columns.")
@@ -134,91 +166,9 @@ class mapQC_results:
         self._sample_dists_to_ref_calculated = False
         # initiate Series specifying whether or not a neighborhood passed
         # filtering (including exclusion reason if excluded)
-        self._nhood_filtered = pd.Series(index=self.center_cells)
-
-    def _calculate_intersample_distances(self):
-        """
-        For each pair of samples (one from the reference, one from either reference
-        or query) calculate the mean pairwise Euclidean distance in the integrated
-        embedding space between cells from the one sample and cells from the other.
-
-        Returns
-        ------
-        Adds array self.intersample_distances to class instance. The array is of shape
-        (n_reference_samples x n_total_samples (with ref_samples first) x n_neighborhoods)
-        and contains mean intersample distances for each sample pair in each neighborhood.
-        Samples that were not observed in a given neighborhood are set to np.nan
-        across that neighborhood.
-        """
-        # generate empty results dataframe
-        self.ref_samples_all = np.array(
-            sorted(
-                self.adata.obs.loc[
-                    self.adata.obs[self.ref_q_key] == self.ref_cat, self.sample_key
-                ].unique()
-            )
-        )
-        self.ref_q_samples_all = np.concatenate(
-            (
-                self.ref_samples_all,
-                np.array(
-                    sorted(
-                        self.adata.obs.loc[
-                            self.adata.obs[self.ref_q_key] == self.query_cat,
-                            self.sample_key,
-                        ].unique()
-                    )
-                ),
-            )
-        )
-        mean_s2s_dist_per_nhood = np.empty(
-            (
-                len(self.ref_samples_all),
-                len(self.ref_q_samples_all),
-                len(self.center_cells),
-            )
-        )
-        mean_s2s_dist_per_nhood[:] = np.nan
-        # generate empty array in which to store each nhoods cells (i.e.
-        # the k nearest neighbors of each index cell, including itself)
-        self.nhood_cells = np.zeros((len(self.center_cells), self.k), dtype=int)
-        # now loop through neighborhoods and calculate mean inter-sample
-        # distances per nhood
-        for nhood_count, center_cell in tqdm(enumerate(self.center_cells)):
-            nhood = nhoods.Neighborhood(
-                adata=self.adata,
-                index_cell=center_cell,
-                k=self.k,
-                min_n_cells_per_sample=self.min_n_cells_per_sample,
-                min_n_samples_ref=self.min_n_samples_ref,
-                min_n_samples_q=self.min_n_samples_q,
-                emb_key=self.emb_key,
-                sample_key=self.sample_key,
-                ref_q_key=self.ref_q_key,
-                ref_cat=self.ref_cat,
-                query_cat=self.query_cat,
-                batch_key=self.batch_key,
-                exclude_same_batch_for_ref_samples=self.exclude_same_batch_for_ref_samples,
-                distance_type=self.distance_type,
-            )
-            nhood_results = nhood.get_pairwise_sample_dists()
-            self.nhood_cells[nhood_count] = nhood.cell_idc
-            # store whether or not neighborhood passed sample number filtering
-            self._nhood_filtered.loc[center_cell] = nhood._filter_info
-            # add results to overall tensor
-            if not isinstance(nhood_results, type(np.nan)):
-                row_idc_for_nhood_ref_samples = np.where(
-                    np.isin(self.ref_samples_all, nhood_results.index)
-                )[0]
-                col_idc_for_nhood_all_samples = np.where(
-                    np.isin(self.ref_q_samples_all, nhood_results.columns)
-                )[0]
-                mean_s2s_dist_per_nhood[
-                    row_idc_for_nhood_ref_samples[:, np.newaxis, np.newaxis],
-                    col_idc_for_nhood_all_samples[np.newaxis, :, np.newaxis],
-                    np.array([nhood_count])[np.newaxis, np.newaxis, :],
-                ] = nhood_results.values[:, :, np.newaxis]
-        self.intersample_distances = mean_s2s_dist_per_nhood
+        self._nhood_filtered = pd.Series(index=self.center_cells, dtype="object")
+        # and same for final k used:
+        self._nhood_k = pd.Series(index=self.center_cells, dtype="int")
 
     def calculate_sample_dists_to_ref_samples(self):
         """
@@ -287,6 +237,8 @@ class mapQC_results:
             print(
                 f"{self.perc_of_nhoods_passed_filter}% of neighborhoods passed filtering."
             )
+        # store neighborhood k
+        self.nhood_stats["k"] = self._nhood_k.loc[self.nhood_stats.index]
         # calculate weight per neighborhood based on its overlap with other
         # nhoods
         self.nhood_stats["nhood_weight"] = pval_corr.calculate_neighborhood_weights(
@@ -319,6 +271,96 @@ class mapQC_results:
         # remember that this function has been successfully run:
         self._nhood_stats_calculated = True
 
+    def _calculate_intersample_distances(self):
+        """
+        For each pair of samples (one from the reference, one from either reference
+        or query) calculate the mean pairwise Euclidean distance in the integrated
+        embedding space between cells from the one sample and cells from the other.
+
+        Returns
+        ------
+        Adds array self.intersample_distances to class instance. The array is of shape
+        (n_reference_samples x n_total_samples (with ref_samples first) x n_neighborhoods)
+        and contains mean intersample distances for each sample pair in each neighborhood.
+        Samples that were not observed in a given neighborhood are set to np.nan
+        across that neighborhood.
+        """
+        # generate empty results dataframe
+        self.ref_samples_all = np.array(
+            sorted(
+                self.adata.obs.loc[
+                    self.adata.obs[self.ref_q_key] == self.ref_cat, self.sample_key
+                ].unique()
+            )
+        )
+        self.ref_q_samples_all = np.concatenate(
+            (
+                self.ref_samples_all,
+                np.array(
+                    sorted(
+                        self.adata.obs.loc[
+                            self.adata.obs[self.ref_q_key] == self.query_cat,
+                            self.sample_key,
+                        ].unique()
+                    )
+                ),
+            )
+        )
+        mean_s2s_dist_per_nhood = np.empty(
+            (
+                len(self.ref_samples_all),
+                len(self.ref_q_samples_all),
+                len(self.center_cells),
+            )
+        )
+        mean_s2s_dist_per_nhood[:] = np.nan
+        # generate array with nans in which to store each nhoods cells (i.e.
+        # the k nearest neighbors of each index cell, including itself)
+        self.nhood_cells = np.zeros((len(self.center_cells), self.max_k))
+        self.nhood_cells[:] = np.nan
+        # now loop through neighborhoods and calculate mean inter-sample
+        # distances per nhood
+        for nhood_count, center_cell in tqdm(enumerate(self.center_cells)):
+            nhood = nhoods.Neighborhood(
+                adata=self.adata,
+                index_cell=center_cell,
+                k=self.k,
+                min_n_cells_per_sample=self.min_n_cells_per_sample,
+                min_n_samples_ref=self.min_n_samples_ref,
+                min_n_samples_q=self.min_n_samples_q,
+                emb_key=self.emb_key,
+                sample_key=self.sample_key,
+                ref_q_key=self.ref_q_key,
+                ref_cat=self.ref_cat,
+                query_cat=self.query_cat,
+                batch_key=self.batch_key,
+                exclude_same_batch_for_ref_samples=self.exclude_same_batch_for_ref_samples,
+                distance_type=self.distance_type,
+                use_adaptive_k=self.use_adaptive_k,
+                max_k=self.max_k,
+                adaptive_k_margin=self.adaptive_k_margin,
+            )
+            nhood_results = nhood.get_pairwise_sample_dists()
+            self.nhood_cells[nhood_count, : nhood.final_k] = nhood.knn_idc
+            # store whether or not neighborhood passed sample number filtering
+            self._nhood_filtered.loc[center_cell] = nhood._filter_info
+            # store final k:
+            self._nhood_k.loc[center_cell] = nhood.final_k
+            # add results to overall tensor
+            if not isinstance(nhood_results, type(np.nan)):
+                row_idc_for_nhood_ref_samples = np.where(
+                    np.isin(self.ref_samples_all, nhood_results.index)
+                )[0]
+                col_idc_for_nhood_all_samples = np.where(
+                    np.isin(self.ref_q_samples_all, nhood_results.columns)
+                )[0]
+                mean_s2s_dist_per_nhood[
+                    row_idc_for_nhood_ref_samples[:, np.newaxis, np.newaxis],
+                    col_idc_for_nhood_all_samples[np.newaxis, :, np.newaxis],
+                    np.array([nhood_count])[np.newaxis, np.newaxis, :],
+                ] = nhood_results.values[:, :, np.newaxis]
+        self.intersample_distances = mean_s2s_dist_per_nhood
+
     def _calculate_nhood_ks_statistics(self):
         """
         Calculate Kolmogorov-Smirnov statistic and p-value for all neighborhoods,
@@ -349,6 +391,6 @@ class mapQC_results:
             r2r_dists = r2r_dists[~np.isnan(r2r_dists)]
             r2q_dists = r2q_dists[~np.isnan(r2q_dists)]
             # perform KS test
-            self.nhood_stats.loc[nhood] = kstest(
+            self.nhood_stats.loc[nhood, ["ks_stat", "pval"]] = kstest(
                 rvs=r2r_dists, cdf=r2q_dists, alternative="greater"
             )[:2]
