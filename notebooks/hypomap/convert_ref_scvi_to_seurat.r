@@ -6,6 +6,7 @@ library(Seurat)
 library(ggplot2)
 
 # Load external utility functions
+source(paste0(config$scripts_dir, "config.r"))
 source(paste0(config$scripts_dir, "mapping_utils.r"))
 
 # ------------------------------------------------------------------------------
@@ -13,12 +14,15 @@ source(paste0(config$scripts_dir, "mapping_utils.r"))
 # Description: Loads a Seurat object from a file, processes it, runs SPCA and UMAP
 #              reductions, and either returns the full object or a new object with 
 #              only the reductions.
-# Parameters: path (character) - The path to the Seurat object file.
+# Parameters: path_unpp_ref (character) - The path to the (unprocessed) Seurat object file.
 #             metadata_field (character) - The metadata field used for subsetting [default: "field"].
 #             subset_key (character) - The key used for subsetting [default: "key"].
 # Returns: ref (Seurat object) - The full or reduced Seurat object.
 # ------------------------------------------------------------------------------
-get_reference_reductions <- function(ref, metadata_field = "field", subset_key = "key", save = TRUE) {
+get_reference_reductions <- function(path_unpp_ref, metadata_field = "field", subset_key = "key", save = TRUE) {
+  
+  ref <- readRDS(path_unpp_ref)
+
   # Subset the Seurat object based on metadata_field and subset_key, if provided
   if (!is.null(subset_key) && metadata_field %in% colnames(ref@meta.data)) {
     ref <- ref[, ref@meta.data[[metadata_field]] == subset_key]
@@ -31,7 +35,7 @@ get_reference_reductions <- function(ref, metadata_field = "field", subset_key =
   ref <- RunSPCA(ref, graph = "wsnn", verbose = TRUE)
   ref <- RunUMAP(ref, reduction = "spca", dims = 1:50, reduction.name = "umap_spca", return.model = TRUE)
 
-  cat("Reducing reference object size...", "\n")
+  cat("Removing raw counts in reference...", "\n")
   size_init <- object.size(ref)
 
   # Streamline object
@@ -52,13 +56,7 @@ get_reference_reductions <- function(ref, metadata_field = "field", subset_key =
   cat("Object size reduced by ", (size_final / size_init) * 100, "(%)", "\n")
 
   if (save) {
-    saveRDS(
-      ref, file = file.path(
-        config$reference_path, 
-        paste0(config$anchor_filter, "_ref_pp.rds")
-        )
-      )
+    save_to_file(ref, "ref_pp", config$reference_path, filter_config = "")
   }
-  
   return(ref)
 }
