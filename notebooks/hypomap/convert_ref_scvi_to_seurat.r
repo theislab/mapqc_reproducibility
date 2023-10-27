@@ -18,7 +18,7 @@ source(paste0(config$scripts_dir, "mapping_utils.r"))
 #             subset_key (character) - The key used for subsetting [default: "key"].
 # Returns: ref (Seurat object) - The full or reduced Seurat object.
 # ------------------------------------------------------------------------------
-get_reference_reductions <- function(ref, metadata_field = "field", subset_key = "key") {
+get_reference_reductions <- function(ref, metadata_field = "field", subset_key = "key", save = TRUE) {
   # Subset the Seurat object based on metadata_field and subset_key, if provided
   if (!is.null(subset_key) && metadata_field %in% colnames(ref@meta.data)) {
     ref <- ref[, ref@meta.data[[metadata_field]] == subset_key]
@@ -50,6 +50,15 @@ get_reference_reductions <- function(ref, metadata_field = "field", subset_key =
   # Print downsizing ratio
   size_final <- object.size(ref)
   cat("Object size reduced by ", (size_final / size_init) * 100, "(%)", "\n")
+
+  if (save) {
+    saveRDS(
+      ref, file = file.path(
+        config$reference_path, 
+        paste0(config$anchor_filter, "_ref_pp.rds")
+        )
+      )
+  }
   
   return(ref)
 }
