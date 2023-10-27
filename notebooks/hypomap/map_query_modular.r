@@ -47,11 +47,12 @@ get_integrated_embedding <- function(
   run_dir <- create_run_dir(runs_dir, filter_config, job_id)
   
   # Load data
-  ref <- readRDS(file = reference_path)
+  ref <- readRDS(file = file.path(
+    config$reference_path, paste0(config$anchor_filter, "_ref_pp.rds"))
+  )
   query <- readRDS(file = query_path)
 
-  # Process data
-  ref <- get_reference_reductions(ref, metadata_field = "Diet", subset_key = "Normal chow")
+  # Process query data
   query <- process_data(query, is_reference = FALSE)
 
   # Set default parameters for FindTransferAnchors if not provided
