@@ -91,7 +91,7 @@ save_anchors <- function(anchors, run_dir, config) {
 #             ref (Seurat object) - The reference dataset.
 # Returns: query (Seurat object) - The mapped query dataset.
 # ------------------------------------------------------------------------------
-map_query_data <- function(anchors, query, ref) {
+map_query_data <- function(anchors, query, ref, save_full_object = FALSE) {
   query <- MapQuery(
     anchorset = anchors,
     query = query,
@@ -100,27 +100,40 @@ map_query_data <- function(anchors, query, ref) {
     reduction.model = "umap_spca"
   )
 
-  cat("Reducing query object size...", "\n")
-  size_init <- object.size(query)
+  if (save_full_object) {
+    cat("Removing raw counts in query...", "\n")
+    size_init <- object.size(query)
 
-  # Streamline object
-  query <- DietSeurat(
-    query,
-    counts = FALSE,
-    data = TRUE,
-    scale.data = TRUE,
-    features = NULL,
-    assays = 'RNA',
-    dimreducs = 'ref.spca',
-    graphs = NULL,
-    misc = TRUE
-  )
+    # Streamline object
+    query <- DietSeurat(
+      query,
+      counts = FALSE,
+      data = TRUE,
+      scale.data = TRUE,
+      features = NULL,
+      assays = 'RNA',
+      dimreducs = 'ref.spca',
+      graphs = NULL,
+      misc = TRUE
+    )
+    
+    # Print downsizing ratio
+    size_final <- object.size(query)
+    cat("Object size reduced by ", (size_final / size_init) * 100, "(%)", "\n")
+
+    return(query)
+  } else {
+    ref_spca <- ref[["spca"]]@cell.embeddings
+    query_spca <- query[["ref.spca"]]@cell.embeddings
   
-  # Print downsizing ratio
-  size_final <- object.size(query)
-  cat("Object size reduced by ", (size_final / size_init) * 100, "(%)", "\n")
-
-  return(query)
+    rownames(ref_spca) <- paste0("ref_", rownames(ref_spca))
+    rownames(query_spca) <- paste0("query_", rownames(query_spca))
+    
+    # Merge the embeddings
+    merged_spca <- rbind(ref_spca, query_spca)
+    
+    return(merged_spca)
+  }
 }
 
 # ------------------------------------------------------------------------------
