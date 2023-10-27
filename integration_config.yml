@@ -1,13 +1,24 @@
-reference_path: "data/hypomap/hypoMap.rds"
-query_path: "data/Huisman_2022/huisman_query_pp.rds" # replace with query path
+# Reference paths
+reference_path: "data/hypomap/"
+ref_filename: "hypoMap.rds"
+
+# Query paths
+query_path: "data/Huisman_2022/huisman_query_pp.rds"
+
+# Path to runs dir
 runs_dir: "runs/"
+
+# Path to scripts
 scripts_dir: "notebooks/hypomap/"
 
 # Anchors filter config
 anchor_filter: "default"
 
-# Sybset Highly variable genes 
+# Subset Highly variable genes 
 subset_hvg: FALSE
+
+# Save full object
+save_full_object: FALSE
 
 # Set seed
 seed: 48
