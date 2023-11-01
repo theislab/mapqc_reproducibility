@@ -38,7 +38,8 @@ get_reference_reductions <- function(path_unpp_ref, metadata_field = "field", su
   cat("Removing raw counts in reference...", "\n")
   size_init <- object.size(ref)
 
-  # Streamline object
+  # `DietSeurat` reduces the memory footprint 
+  # of `ref` by removing the row count matrix 
   ref <- DietSeurat(
     ref,
     counts = FALSE,
@@ -51,7 +52,7 @@ get_reference_reductions <- function(path_unpp_ref, metadata_field = "field", su
     misc = TRUE
   )
   
-  # Print downsizing ratio
+  # Downsizing ratio is ~60 %
   size_final <- object.size(ref)
   cat("Object size reduced by ", (size_final / size_init) * 100, "(%)", "\n")
 
