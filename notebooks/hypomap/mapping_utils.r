@@ -104,7 +104,8 @@ map_query_data <- function(anchors, query, ref, save_full_object = FALSE) {
     cat("Removing raw counts in query...", "\n")
     size_init <- object.size(query)
 
-    # Streamline object
+    # `DietSeurat` reduces the memory footprint 
+    # of `ref` by removing the row count matrix
     query <- DietSeurat(
       query,
       counts = FALSE,
