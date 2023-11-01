@@ -15,6 +15,7 @@ scripts_dir: "notebooks/hypomap/"
 anchor_filter: "default"
 
 # Subset Highly variable genes 
+# Optional in line 137 of `mapping_utils.r`
 subset_hvg: FALSE
 
 # Save full object
