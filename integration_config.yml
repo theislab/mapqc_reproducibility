@@ -14,8 +14,8 @@ scripts_dir: "notebooks/hypomap/"
 # Anchors filter config
 anchor_filter: "default"
 
-# Subset Highly variable genes 
-# Optional in line 137 of `mapping_utils.r`
+# When merging and saving reference and query after mapping,
+# whether to subset each to their respective HVGs.
 subset_hvg: FALSE
 
 # Save full object
