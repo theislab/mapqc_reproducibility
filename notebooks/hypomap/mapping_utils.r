@@ -86,6 +86,9 @@ save_anchors <- function(anchors, run_dir, config) {
 # ------------------------------------------------------------------------------
 # Function: map_query_data
 # Description: Maps the query data to the reference data using the transfer anchors.
+#              The feature set for mapping the query to the reference is set to the
+#              intersection of reference HVG and all query features in the step 
+#              preceding the mapping (i.e. `find_anchors()`).
 # Parameters: anchors (list) - The list of transfer anchors.
 #             query (Seurat object) - The query dataset.
 #             ref (Seurat object) - The reference dataset.
