@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import rgb2hex
 import seaborn as sns
 from mapqc import mapQC_results
+from typing import Literal
 
 
 def plot_boxplot_of_ref_vs_q_dists_per_nhood(
@@ -53,14 +54,13 @@ def plot_boxplot_of_ref_vs_q_dists_per_nhood(
     if not isinstance(neighborhood, type(None)):
         if not neighborhood in mapqc_results.center_cells:
             raise ValueError("Your neighborhood is not part of the center cells.")
-    if not mapqc_results._results_prepped_for_boxplot:
-        _convert_nhood_dists_to_plottable_dataframe(mapqc_results)
-
+    # if not mapqc_results._results_prepped_for_boxplot:
+    # _convert_nhood_dists_to_plottable_dataframe(mapqc_results)
     if use_zscored_dists:
-        plotting_df = mapqc_results._boxplot_df_mean_sample_zscored_dists_to_ref
+        plotting_df = mapqc_results.mean_s2ref_dist_per_nhood_zscored_df
         y = "mean_zscored_dist_to_ref"
     else:
-        plotting_df = mapqc_results._boxplot_df_mean_sample_dists_to_ref
+        plotting_df = mapqc_results.mean_s2ref_dist_per_nhood_df
         y = "mean_dist_to_ref"
     # check if only results for a specific neighborhood should be plotted and subset if so:
     if not isinstance(neighborhood, type(None)):
@@ -74,15 +74,24 @@ def plot_boxplot_of_ref_vs_q_dists_per_nhood(
             random_nhoods = random.sample(
                 mapqc_results.nhood_stats.index.tolist(), k=max_neighborhoods_to_plot
             )
+        else:
+            random_nhoods = mapqc_results.nhood_stats.index.tolist()
+        if use_zscored_dists:
+            # nhoods_ordered_by_zscore = mapqc_results.nhood_stats.sort_values(by='median_zscored_q_dist_to_ref',ascending=False).index
+            # nhood_order = [nhood for nhood in nhoods_ordered_by_zscore if nhood in random_nhoods]
+            nhood_order = (
+                mapqc_results.nhood_stats.loc[random_nhoods, :]
+                .sort_values(
+                    by=f"perc{mapqc_results.q}_zscored_q_dist_to_ref", ascending=False
+                )
+                .index.tolist()
+            )
+        else:
             nhood_order = (
                 mapqc_results.nhood_stats.loc[random_nhoods, :]
                 .sort_values(by="pval_corr")
                 .index.tolist()
             )
-        else:
-            nhood_order = mapqc_results.nhood_stats.sort_values(
-                by="pval_corr"
-            ).index.tolist()
         figsize = (24, 8)
     hue = "sample_r_or_q"
     # palette
@@ -113,6 +122,27 @@ def plot_boxplot_of_ref_vs_q_dists_per_nhood(
     )
     leg = plt.legend(loc=(1.01, 0.4), frameon=False, title="")
     leg._legend_box.align = "left"
+    if use_zscored_dists:
+        ax.set_xticklabels(
+            [
+                round(
+                    mapqc_results.nhood_stats.loc[
+                        nhood, f"perc{mapqc_results.q}_zscored_q_dist_to_ref"
+                    ],
+                    2,
+                )
+                for nhood in nhood_order
+            ]
+        )
+        ax.set_xlabel(f"nhood (query zscore, {mapqc_results.q}th percentile)")
+    else:
+        ax.set_xticklabels(
+            [
+                round(mapqc_results.nhood_stats.loc[nhood, "pval_corr"], 4)
+                for nhood in nhood_order
+            ]
+        )
+        ax.set_xlabel("nhood (corr. pval)")
     ax.tick_params(axis="x", rotation=90)
 
 
@@ -243,7 +273,13 @@ def plot_umap_filtering_info(
 
 
 def plot_umap_zscored_q_dist_to_ref(
-    mapqc_results: mapQC_results, title: str = None, scale: int = 1
+    mapqc_results: mapQC_results,
+    color_by: Literal[
+        "mean_zscore", "mean_zscore>2", "median_zscore>2", "percq_zscore>2"
+    ] = "mean_zscore",
+    title: str = None,
+    scale: int = 1,
+    samples_to_exclude: list = None,
 ):
     """
     Plot UMAP of adata in mapqc_results instance, coloring neighborhoods
@@ -264,6 +300,10 @@ def plot_umap_zscored_q_dist_to_ref(
     title
         Title for UMAP.
 
+    color_by
+        what to color the umap by. Either mean z-score, or a binary specifying whether
+        the mean/median/qth percentile zscore across query samples passes 2.
+
     Returns
     -------
     Plots UMAP.
@@ -279,20 +319,197 @@ def plot_umap_zscored_q_dist_to_ref(
     if not mapqc_results._adata_prepped_for_plotting:
         _prepare_adata_for_plotting(mapqc_results)
         sc.set_figure_params(figsize=(5, 5))
-    if isinstance(title, type(None)):
-        title = f"Mean Z-scored distance of query samples to reference samples"
+    if not isinstance(samples_to_exclude, type(None)):
+        # check if samples exist:
+        if (
+            np.sum(
+                [s not in mapqc_results.query_samples_all for s in samples_to_exclude]
+            )
+            > 0
+        ):
+            raise ValueError(
+                "One or more of the samples in samples_to_exlclude are not found among the query samples."
+            )
+        samples_to_include_boolean = [
+            (sample in mapqc_results.query_samples_all)
+            and (sample not in samples_to_exclude)
+            for sample in mapqc_results.ref_q_samples_all
+        ]
+        samples_to_exclude_string = "_".join(samples_to_exclude)
+    if color_by == "mean_zscore":
+        if isinstance(samples_to_exclude, type(None)):
+            color_cat = "mapqc_mean_zscored_q_dist_to_ref"
+            palette = None
+            if isinstance(title, type(None)):
+                title = f"Mean Z-scored distance of query samples to reference samples"
+        else:
+            # recalculate mean zscore, but excluding samples
+            mean_zscored_q_dist_to_ref = np.nanmean(
+                mapqc_results.mean_sample_dists_to_ref_zscored[
+                    samples_to_include_boolean, :
+                ],
+                axis=0,
+            )
+            color_cat = (
+                f"mapqc_{color_by}_excluding_samples_{samples_to_exclude_string}"
+            )
+            mapqc_results._adata_ordered.obs[color_cat] = np.nan
+            mapqc_results._adata_ordered.obs.loc[
+                mapqc_results.center_cells, color_cat
+            ] = mean_zscored_q_dist_to_ref
+    elif color_by in ["mean_zscore>2", "median_zscore>2", "percq_zscore>2"]:
+        if isinstance(samples_to_exclude, type(None)):
+            color_cat = "mapqc_" + color_by
+        if color_by == "percq_zscore>2":
+            color_cat = "mapqc_" + f"perc{mapqc_results.q}_zscore>2"
+        else:
+            color_cat = (
+                f"mapqc_{color_by}_excluding_samples_{samples_to_exclude_string}"
+            )
+            # recalculate metric excluding samples in samples_to_exclude list
+            if color_by == "mean_zscore>2":
+                mean_zscored_q_dist_to_ref = np.nanmean(
+                    mapqc_results.mean_sample_dists_to_ref_zscored[
+                        samples_to_include_boolean, :
+                    ],
+                    axis=0,
+                )
+                mapqc_results._adata_ordered.obs[color_cat] = np.nan
+                mapqc_results._adata_ordered.obs.loc[
+                    mapqc_results.center_cells, color_cat
+                ] = (mean_zscored_q_dist_to_ref > 2)
+            elif color_by == "median_zscore>2":
+                median_zscored_q_dist_to_ref = np.nanmedian(
+                    mapqc_results.mean_sample_dists_to_ref_zscored[
+                        samples_to_include_boolean, :
+                    ],
+                    axis=0,
+                )
+                mapqc_results._adata_ordered.obs[color_cat] = np.nan
+                mapqc_results._adata_ordered.obs.loc[
+                    mapqc_results.center_cells, color_cat
+                ] = (median_zscored_q_dist_to_ref > 2)
+            elif color_by == "percq_zscore>2":
+                percq_zscored_q_dist_to_ref = np.nanpercentile(
+                    mapqc_results.mean_sample_dists_to_ref_zscored[
+                        samples_to_include_boolean, :
+                    ],
+                    q=mapqc_results.q,
+                    axis=0,
+                )
+                color_cat = f"mapqc_perc{mapqc_results.q}_zscore>2"
+                mapqc_results._adata_ordered.obs[color_cat] = np.nan
+                mapqc_results._adata_ordered.obs.loc[
+                    mapqc_results.center_cells, color_cat
+                ] = (percq_zscored_q_dist_to_ref > 2)
+            # map boolean to strings:
+            mapqc_results._adata_ordered.obs[
+                color_cat
+            ] = mapqc_results._adata_ordered.obs[color_cat].map(
+                {True: ">2 stdev above mean", False: "<=2 stdev above mean"}
+            )
+            # set excluded neighborhoods as such
+            mapqc_results._adata_ordered.obs.loc[
+                mapqc_results._nhood_filtered.index[
+                    mapqc_results._nhood_filtered != "pass"
+                ],
+                color_cat,
+            ] = "excluded"
+        palette = {
+            ">2 stdev above mean": "red",
+            "<=2 stdev above mean": "antiquewhite",
+            "excluded": "black",
+        }
+        if isinstance(title, type(None)):
+            title_prefix = color_cat.split(">")[0]
+            title = f"{title_prefix}d distance of query to ref, thresholded"
+            if not isinstance(samples_to_exclude, type(None)):
+                title = title + f"\n(excluding samples {samples_to_exclude}"
+    else:
+        raise ValueError(
+            "color_by can only be set to 'mean_zscore', 'mean_zscore>2','median_zscore>2', or 'percq_zscore>2'."
+        )
     # plot
     sc.pl.umap(
         mapqc_results._adata_ordered,
-        color="mapqc_mean_zscored_q_dist_to_ref",
+        color=color_cat,
         size=mapqc_results._adata_ordered.obs.mapqc_dotsize,
         sort_order=False,
         cmap="coolwarm",
+        palette=palette,
         title=title,
         vmin=-3,
         vmax=3,
         na_color="grey",
         frameon=False,
+    )
+
+
+def plot_umap_sample_specific_zscored_q_dist_to_ref(
+    mapqc_results,
+    sample_name: str,
+    color_by: Literal["zscore", "zscore>2"] = "zscore",
+    size: float = 1,
+):
+    """
+    TO DO: ADD DOCUMENTATION
+    """
+    if sample_name not in mapqc_results.ref_q_samples_all:
+        raise ValueError(
+            f"sample_name {sample_name} is not part of the samples in your data."
+        )
+    if not "X_umap" in mapqc_results.adata.obsm.keys():
+        raise ValueError("No UMAP found under .obsm['X_umap'] for this AnnData object.")
+    if not mapqc_results._nhood_stats_calculated:
+        raise ValueError(
+            "Results have not yet been calculated, run mapqc_results.calculate_nhood_statistics first."
+        )
+    if not mapqc_results._adata_prepped_for_plotting:
+        _prepare_adata_for_plotting(mapqc_results)
+
+    # extract sample-specific results:
+    sample_zscores = mapqc_results.mean_s2ref_dist_per_nhood_zscored_df.loc[
+        mapqc_results.mean_s2ref_dist_per_nhood_zscored_df[mapqc_results.sample_key]
+        == sample_name,
+        ["nhood", "mean_zscored_dist_to_ref"],
+    ]
+    # check if results exist:
+    if sample_zscores.shape[0] == 0:
+        print(
+            f"No results were calculated for sample {sample_name}, possibly because it had too few cells or you sampled too few neighborhoods."
+        )
+        return None
+    # add sample-specific results to adata:
+    mapqc_results._adata_ordered.obs[f"{sample_name}_zscore"] = np.nan
+    mapqc_results._adata_ordered.obs.loc[
+        sample_zscores.nhood, f"{sample_name}_zscore"
+    ] = sample_zscores.mean_zscored_dist_to_ref.values
+    # set size:
+    dotsizes = [
+        size * 1 if np.isnan(zscore) else size * 30
+        for zscore in mapqc_results._adata_ordered.obs[f"{sample_name}_zscore"]
+    ]
+    # if thresholded color_by, add this to adata:
+    palette = None
+    if color_by == "zscore>2":
+        mapqc_results._adata_ordered.obs[f"{sample_name}_zscore>2"] = [
+            ">2 stdev above mean" if zscore > 2 else "<=2 stdev above mean"
+            for zscore in mapqc_results._adata_ordered.obs[f"{sample_name}_zscore"]
+        ]
+        mapqc_results._adata_ordered.obs.loc[
+            np.isnan(mapqc_results._adata_ordered.obs[f"{sample_name}_zscore"]),
+            f"{sample_name}_zscore>2",
+        ] = np.nan
+        palette = {">2 stdev above mean": "red", "<=2 stdev above mean": "antiquewhite"}
+    # plot UMAP
+    sc.pl.umap(
+        mapqc_results._adata_ordered,
+        color=f"{sample_name}_{color_by}",
+        frameon=False,
+        size=dotsizes,
+        cmap="Reds",
+        vmin=0,
+        palette=palette,
     )
 
 
@@ -474,92 +691,69 @@ def plot_umap_q_ref_sample_shaded(
     )
 
 
-def _convert_nhood_dists_to_plottable_dataframe(mapqc_results: mapQC_results):
+def plot_umap_cell_level_results(mapqc_results, size=None):
     """
-    TO DO: UPDATE DOC WITH ZSCORE INFO
-    Creates a DataFrame of intersample distances per neighborhood to be used
-    for split boxplot.
-
-    Parameters
-    ----------
-    mapqc_results
-        Instance of mapQC_results class for which intersample distances have
-        been calculated.
-
-    Returns
-    -------
-    pandas.DataFrame stored under mapqc_results._boxplot_df_mean_sample_dists_to_ref
-    with multiple rows per neighborhood (neighborhood name, i.e.
-    center cell barcode, specified in the dataframe), with each neighborhood row
-    representing a single sample in the neighborhood that passed filtering, for
-    which its mean distance to the reference samples in that neighborhood can be
-    found under 'mean_dist_to_ref'. sample_ref_or_q specifies whether the sample
-    is from the reference or the query.
+    TO DO: add documentation
+    TO DO: give specific color to filtered out or unsampled query cells
     """
-    # convert to pandas dataframe
-    # normal distances
-    mean_s2ref_dist_per_nhood_df_for_boxplot = (
-        pd.DataFrame(
-            mapqc_results.mean_sample_dists_to_ref,  # mean_sample_dists_to_ref_zscored,
-            index=mapqc_results.ref_q_samples_all,
-            columns=mapqc_results.center_cells,
+    if not mapqc_results._cell_level_stats_calculated:
+        raise ValueError(
+            "Cell level results were not yet calculated. Run [mapqc_object].calculate_cell_statistics_from_nhoods() first."
         )
-        .unstack()
-        .reset_index()
-        .rename(
-            columns={
-                "level_0": "nhood",
-                "level_1": "sample",
-                0: "mean_dist_to_ref",
-            }  # "mean_dist_to_ref"}
-        )
+    if not mapqc_results._adata_prepped_for_cell_level_res_plotting:
+        _prepare_adata_for_cell_level_res_plotting(mapqc_results)
+    sc.pl.umap(
+        mapqc_results.adata,
+        color=f"mapqc_perc{mapqc_results.q}_zscored_q_dist_to_ref>2_across_cells_nhoods",
+        palette={">2": "red", "<=2": "antiquewhite"},
+        frameon=False,
+        na_color="gray",
+        size=size,
     )
-    # zscored distances:
-    mean_s2ref_zscored_dist_per_nhood_df_for_boxplot = (
-        pd.DataFrame(
-            mapqc_results.mean_sample_dists_to_ref_zscored,
-            index=mapqc_results.ref_q_samples_all,
-            columns=mapqc_results.center_cells,
-        )
-        .unstack()
-        .reset_index()
-        .rename(
-            columns={
-                "level_0": "nhood",
-                "level_1": "sample",
-                0: "mean_zscored_dist_to_ref",
-            }  # "mean_dist_to_ref"}
-        )
+
+
+def plot_sample_distances_to_reference(mapqc_results):
+    """
+    TO DO: add documentation
+    """
+    fig = plt.figure(figsize=(10, 4))
+    ax = fig.add_subplot(1, 1, 1)
+    per_sample_meandists_query = mapqc_results.mean_s2ref_dist_per_nhood_zscored_df.loc[
+        mapqc_results.mean_s2ref_dist_per_nhood_zscored_df.sample_r_or_q
+        == mapqc_results.query_cat,
+        :,
+    ]
+    sample_medians = (
+        per_sample_meandists_query.groupby("sample")
+        .agg({"mean_zscored_dist_to_ref": "median"})
+        .sort_values(by="mean_zscored_dist_to_ref")
     )
-    # remove rows with nans
-    mean_s2ref_dist_per_nhood_df_for_boxplot.dropna(how="any", axis=0, inplace=True)
-    mean_s2ref_zscored_dist_per_nhood_df_for_boxplot.dropna(
-        how="any", axis=0, inplace=True
-    )
-    # add info on whether sample is from ref or query
-    sample_from_r_or_q_df = mapqc_results.adata.obs.groupby(
-        mapqc_results.sample_key
-    ).agg({mapqc_results.ref_q_key: "first"})
-    sample_from_r_or_q_dict = {
-        s: rvsq
-        for s, rvsq in zip(
-            sample_from_r_or_q_df.index, sample_from_r_or_q_df[mapqc_results.ref_q_key]
+    palette = {
+        sample: "grey" if zscore < 2 else "red"
+        for sample, zscore in zip(
+            sample_medians.index, sample_medians.mean_zscored_dist_to_ref
         )
     }
-    mean_s2ref_dist_per_nhood_df_for_boxplot[
-        "sample_r_or_q"
-    ] = mean_s2ref_dist_per_nhood_df_for_boxplot["sample"].map(sample_from_r_or_q_dict)
-    mean_s2ref_zscored_dist_per_nhood_df_for_boxplot[
-        "sample_r_or_q"
-    ] = mean_s2ref_zscored_dist_per_nhood_df_for_boxplot["sample"].map(
-        sample_from_r_or_q_dict
+    sns.boxplot(
+        per_sample_meandists_query,
+        x="sample",
+        y="mean_zscored_dist_to_ref",
+        palette=palette,
+        order=sample_medians.index,
+        ax=ax,
     )
-    mapqc_results._boxplot_df_mean_sample_dists_to_ref = (
-        mean_s2ref_dist_per_nhood_df_for_boxplot
+    sns.stripplot(
+        per_sample_meandists_query,
+        x="sample",
+        y="mean_zscored_dist_to_ref",
+        color="black",
+        order=sample_medians.index,
+        size=1,
+        ax=ax,
     )
-    mapqc_results._boxplot_df_mean_sample_zscored_dists_to_ref = (
-        mean_s2ref_zscored_dist_per_nhood_df_for_boxplot
-    )
+    ax.tick_params(axis="x", rotation=90)
+    plt.axhline(y=2, linestyle="--")
+    plt.tight_layout()
 
 
 def _prepare_adata_for_plotting(mapqc_results: mapQC_results, scale: int = 1):
@@ -590,7 +784,14 @@ def _prepare_adata_for_plotting(mapqc_results: mapQC_results, scale: int = 1):
         raise ValueError(
             "Calculate result statistics first using the 'calculate_nhood_statistics' function."
         )
-    for stat_to_copy in ["nhood_weight", "pval_corr", "mean_zscored_q_dist_to_ref"]:
+    for stat_to_copy in [
+        "nhood_weight",
+        "pval_corr",
+        "mean_zscored_q_dist_to_ref",
+        "mean_zscore>2",
+        "median_zscore>2",
+        f"perc{mapqc_results.q}_zscore>2",
+    ]:
         mapqc_results.adata.obs[f"mapqc_{stat_to_copy}"] = np.nan
         mapqc_results.adata.obs.loc[
             mapqc_results.nhood_stats.index, f"mapqc_{stat_to_copy}"
@@ -609,6 +810,14 @@ def _prepare_adata_for_plotting(mapqc_results: mapQC_results, scale: int = 1):
     mapqc_results.adata.obs.loc[sign_nhoods, "mapqc_sign"] = "significant"
     mapqc_results.adata.obs.loc[non_sign_nhoods, "mapqc_sign"] = "not significant"
     mapqc_results.adata.obs.loc[filtered_nhoods, "mapqc_sign"] = "excluded"
+    # include info on which neighborhoods were excluded in other columns too, and
+    # convert boolean too informative string:
+    for stat in ["mean_zscore>2", "median_zscore>2", f"perc{mapqc_results.q}_zscore>2"]:
+        bool_to_string = {True: ">2 stdev above mean", False: "<=2 stdev above mean"}
+        mapqc_results.adata.obs["mapqc_" + stat] = mapqc_results.adata.obs[
+            "mapqc_" + stat
+        ].map(bool_to_string)
+        mapqc_results.adata.obs.loc[filtered_nhoods, "mapqc_" + stat] = "excluded"
     # store filtering info:
     mapqc_results.adata.obs["mapqc_filter_info"] = np.nan
     mapqc_results.adata.obs.loc[
@@ -624,7 +833,7 @@ def _prepare_adata_for_plotting(mapqc_results: mapQC_results, scale: int = 1):
         "mapqc_dotsize_by_nhood_weight"
     ] = mapqc_results.adata.obs.mapqc_dotsize
     mapqc_results.adata.obs.loc[
-        mapqc_results.center_cells, "mapqc_dotsize_by_nhood_weight"
+        mapqc_results.nhood_stats.index, "mapqc_dotsize_by_nhood_weight"
     ] = (
         mapqc_results.adata.obs.loc[
             mapqc_results.nhood_stats.index, "mapqc_dotsize_by_nhood_weight"
@@ -646,3 +855,13 @@ def _prepare_adata_for_plotting(mapqc_results: mapQC_results, scale: int = 1):
     mapqc_results._adata_ordered = mapqc_results.adata[cells_ordered, :].copy()
     # remember that adata has been prepped for plotting:
     mapqc_results._adata_prepped_for_plotting = True
+
+
+def _prepare_adata_for_cell_level_res_plotting(mapqc_results):
+    for stat in [
+        f"mapqc_perc{mapqc_results.q}_zscored_q_dist_to_ref>2_across_cells_nhoods"
+    ]:
+        mapqc_results.adata.obs[stat] = np.nan
+        mapqc_results.adata.obs.loc[
+            mapqc_results.cell_results.index, stat
+        ] = mapqc_results.cell_results[stat]

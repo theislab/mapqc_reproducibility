@@ -166,7 +166,8 @@ class Neighborhood:
             self.max_k = k
         self._ref_filter_info, self.final_k = self._calculate_adaptive_nhood_k()
         # store information about k nearest neighbors of index cell
-        self._store_neighbor_info(self.final_k)
+        if not np.isnan(self.final_k):
+            self._store_neighbor_info(self.final_k)
 
     def get_pairwise_sample_dists(self):
         """
@@ -186,14 +187,14 @@ class Neighborhood:
         (see filtering parameters in class), np.nan is returned.
 
         """
-        # check which samples have sufficient cells in the neighborhood
-        ref_samples = self._filter_samples("reference")
-        q_samples = self._filter_samples("query")
         # check if nhood passes min_n_samples_ref filter
-        # either precalculated when calculating the adaptive k:
+        # precalculated when calculating the adaptive k:
         if not self._ref_filter_info == "pass":
             self._filter_info = self._ref_filter_info
             return np.nan
+        # check which samples have sufficient cells in the neighborhood
+        ref_samples = self._filter_samples("reference")
+        q_samples = self._filter_samples("query")
         # check if enough samples from query are present in nhood:
         if len(q_samples) < self.min_n_samples_q:
             self._filter_info = "too few query samples"
@@ -278,11 +279,17 @@ class Neighborhood:
         else:
             # for each sample, calculate at which neighbor (ordered by distance from the index
             # cell) its nth cell shows up, with n being the min_n_cells per sample. This will
-            # help us in calculating how many samples are "sufficiently present" (i.e. have at
+            # help us calculate how many samples are "sufficiently present" (i.e. have at
             # least min_n_cells_per_sample cells) at a given k.
             def _get_nth_idx(list, value, n):
-                nth_inst_idx = [idx for idx, x in enumerate(list) if x == value][n]
-                return nth_inst_idx
+                inst_idc = [idx for idx, x in enumerate(list) if x == value]
+                if len(inst_idc) < n:
+                    return len(
+                        list
+                    )  # as if only the last cell is the nth instance of the sample
+                else:
+                    nth_inst_idx = inst_idc[n]
+                    return nth_inst_idx
 
             # first, get sample names for all cells in adata, ordered by ascending distance from
             # index cell.
@@ -317,15 +324,18 @@ class Neighborhood:
                     sample_nth_inst_idc.index[:sample_to_check_idx],
                     sample_info,
                 )
-                sample_to_check_idx += 1
+                if not suff_ref_samples_with_increased_k:
+                    sample_to_check_idx += 1
             if suff_ref_samples_with_increased_k:
                 # return filtering info (passed filtering), and the neighbor index at which
                 # this sample has min_n_cells_per_sample, i.e. the suggested minimum k
                 return (
                     "pass",
-                    round(
-                        sample_nth_inst_idc.iloc[sample_to_check_idx]
-                        * self.adaptive_k_margin
+                    int(
+                        round(
+                            sample_nth_inst_idc.iloc[sample_to_check_idx]
+                            * self.adaptive_k_margin
+                        )
                     ),
                 )
             else:
@@ -384,7 +394,7 @@ class Neighborhood:
                 return ("pass", True)
         return ("too few reference samples from different batches", False)
 
-    def _store_neighbor_info(self, k):
+    def _store_neighbor_info(self, k: int):
         """
         Store information about the k nearest neighbors of the neighborhoods
         index cell (including index cell itself).
@@ -403,7 +413,7 @@ class Neighborhood:
             # calculate pairwise distances between cells in nhood:
             self.dists = pairwise_distances(self.knn_emb)
 
-    def _get_nearest_neighbors(self, k):
+    def _get_nearest_neighbors(self, k: int):
         """
         Get k nearest neighbors of a given index cell, including index cell itself.
 

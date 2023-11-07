@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def calculate_neighborhood_weights(neighbor_idc_of_nhoods, n_obs):
+def calculate_cell_and_neighborhood_weights(neighbor_idc_of_nhoods, n_obs):
     """calculate the weight for each index cell's neighborhood, depending on
     the number of times the cells in the Nhood are also present in other
     Nhoods. Specifically, each cell is weighed as
@@ -40,7 +40,7 @@ def calculate_neighborhood_weights(neighbor_idc_of_nhoods, n_obs):
     )  # +1 for imaginary cell
     # set nans to imaginary cell column number:
     neighbor_idc_of_nhoods_nans_replaced = np.nan_to_num(
-        neighbor_idc_of_nhoods, imaginary_cell_column
+        neighbor_idc_of_nhoods, nan=imaginary_cell_column
     ).astype(int)
     # now for each sampled cell, set cells in its neighborhood to 1, and set
     # imaginary column to 1 if nans are present in the original idc matrix
@@ -79,7 +79,9 @@ def calculate_neighborhood_weights(neighbor_idc_of_nhoods, n_obs):
     nhood_weights = neighbor_matrix @ cell_weights
     # note that if all cells in a neighborhood are unique, the neighborhood's
     # weight should be 1!
-    return nhood_weights
+    # return the nhood weights, and the cell weights. The latter will be used
+    # for calculating the per-cell statistics later on
+    return nhood_weights, neighbor_matrix
 
 
 def weighted_fdr_corr_pvals(pvals_unsorted, weights_unsorted=None):
