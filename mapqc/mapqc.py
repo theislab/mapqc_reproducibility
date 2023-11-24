@@ -107,6 +107,7 @@ class mapQC_results:
         self.min_n_cells_per_sample = min_n_cells_per_sample
         self.min_n_samples_ref = min_n_samples_ref
         self.min_n_samples_q = min_n_samples_q
+        self.q = None
         # Sanity checks:
         # check if adata.obs.index unique:
         if not adata.shape[0] == len(set(adata.obs.index)):
@@ -161,10 +162,12 @@ class mapQC_results:
         # set parameters specifying if specific functions were run or not
         # (TO DO: complete this further)
         self._adata_prepped_for_plotting = False
-        self._adata_prepped_for_cell_level_res_plotting = False
+        self._adata_prepped_for_cell_level_res_plotting_sample_based = False
+        self._adata_prepped_for_cell_level_res_plotting_nhood_only_based = False
         self._results_prepped_for_boxplot = False
         self._nhood_stats_calculated = False
-        self._cell_level_stats_calculated = False
+        self._cell_level_stats_nhood_only_based_calculated = False
+        self._cell_level_stats_sample_based_calculated = False
         self._sample_dists_to_ref_calculated = False
         # initiate Series specifying whether or not a neighborhood passed
         # filtering (including exclusion reason if excluded)
@@ -292,6 +295,13 @@ class mapQC_results:
             raise ValueError(
                 "None of the neighborhoods passed filtering, and so no results can be calculated."
             )
+        # check if q was set previously, and if it is now changing:
+        if not isinstance(self.q, type(None)):
+            if self.q != q:
+                # make sure that plotting stats will be recalculated (if already calculated)
+                # for this new q:
+                self._adata_prepped_for_plotting = False
+                self._adata_prepped_for_cell_level_res_plotting = False
         self.q = q
         self.nhood_stats = pd.DataFrame(
             index=self.center_cells, columns=["ks_stat", "pval"]
@@ -400,7 +410,16 @@ class mapQC_results:
         # remember that this function has been successfully run:
         self._nhood_stats_calculated = True
 
-    def calculate_cell_statistics_from_nhoods(self):
+    def calculate_cell_statistics_from_nhoods_using_nhood_stats(self):
+        """
+        Calculate for each query cell sampled in one or more neighborhoods
+        the mean overall query statistic across its neighborhoods. Statistics
+        to calculate:
+        - mean zscored query distance to reference in nhood(s)
+        - median zscored query distance to reference in nhood(s)
+        - qth percentile of nhood's query sample distances to reference
+        (mean qth percentile across nhoods)
+        """
         if not self._nhood_stats_calculated:
             raise ValueError(
                 "Neighborhood statistics need to be calculated first. Run .calculate_nhood_statistics."
@@ -411,9 +430,13 @@ class mapQC_results:
             "median_zscored_q_dist_to_ref",
             f"perc{self.q}_zscored_q_dist_to_ref",
         ]:
-            stat_res_per_nhood = np.empty(shape=(1, self.center_cells.shape[0]))
+            stat_res_per_nhood = np.empty(
+                shape=(1, self.nhood_stats.shape[0])
+            )  # self.center_cells.shape[0]))
             stat_res_per_nhood[:] = np.nan
-            stat_res_per_nhood[:, self.nhood_stats.nhood_number] = self.nhood_stats[
+            stat_res_per_nhood[
+                :
+            ] = self.nhood_stats[  # self.nhood_stats.nhood_number] = self.nhood_stats[
                 stat
             ]
             with np.errstate(invalid="ignore"):
@@ -423,20 +446,20 @@ class mapQC_results:
                     / self._neighbor_matrix.sum(axis=0)
                 )
             # add to cell_results dataframe
-            cell_results[f"mapqc_{stat}_across_cells_nhoods"] = stat_per_cell[0, :]
+            cell_results[f"mapqc_per_cell_{stat}_nhood_based"] = stat_per_cell[0, :]
             # specify whether cells pass threshold of Zscore >2 for each statistic
-            cell_results[f"mapqc_{stat}>2_across_cells_nhoods"] = (
-                cell_results[f"mapqc_{stat}_across_cells_nhoods"] > 2
+            cell_results[f"mapqc_per_cell_{stat}>2_nhood_based"] = (
+                cell_results[f"mapqc_per_cell_{stat}_nhood_based"] > 2
             )
             # map to categoricals for plotting
-            cell_results[f"mapqc_{stat}>2_across_cells_nhoods"] = cell_results[
-                f"mapqc_{stat}>2_across_cells_nhoods"
+            cell_results[f"mapqc_per_cell_{stat}>2_nhood_based"] = cell_results[
+                f"mapqc_per_cell_{stat}>2_nhood_based"
             ].map({True: f">2", False: f"<=2"})
             # set cells without results (i.e. that were not in any neighborhood that passed
             # filtering) to nan:
             cell_results.loc[
-                np.isnan(cell_results[f"mapqc_{stat}_across_cells_nhoods"]),
-                f"mapqc_{stat}>2_across_cells_nhoods",
+                np.isnan(cell_results[f"mapqc_per_cell_{stat}_nhood_based"]),
+                f"mapqc_per_cell_{stat}>2_nhood_based",
             ] = np.nan
         # keep only cells from query:
         cell_results = cell_results.loc[
@@ -447,7 +470,7 @@ class mapQC_results:
         perc_cells_percq_zscored_q_dist_to_ref_over_2 = round(
             np.sum(
                 cell_results[
-                    f"mapqc_perc{self.q}_zscored_q_dist_to_ref>2_across_cells_nhoods"
+                    f"mapqc_per_cell_perc{self.q}_zscored_q_dist_to_ref>2_nhood_based"
                 ]
                 == ">2"
             )
@@ -458,10 +481,76 @@ class mapQC_results:
         print(
             f"Percentage of query cells in low-mixing neighborhoods: {perc_cells_percq_zscored_q_dist_to_ref_over_2} (cutoff percentile: {self.q})."
         )
-        # remember that these stats were calculated:
-        self._cell_level_stats_calculated = True
         # store
-        self.cell_results = cell_results
+        self.cell_results_nhood_based = cell_results
+        # remember that these stats were calculated:
+        self._cell_level_stats_nhood_only_based_calculated = True
+
+    def calculate_cell_statistics_using_sample_level_results_per_nhood(self):
+        """
+        TO DO
+        """
+        if not self._nhood_stats_calculated:
+            raise ValueError(
+                "Neighborhood statistics need to be calculated first. Run .calculate_nhood_statistics."
+            )
+        query_cells = self.adata.obs.loc[
+            self.adata.obs[self.ref_q_key] == self.query_cat, :
+        ].index
+        cell_results = pd.DataFrame(
+            index=query_cells, columns=["mean_zscored_dist_to_ref"]
+        )
+        for cell_idx, cell in enumerate(self.adata.obs.index):
+            if cell in query_cells:
+                cell_nhoods_binary = self._neighbor_matrix[:, cell_idx]
+                # check if cell was in any nhoods:
+                if cell_nhoods_binary.sum() > 0:
+                    query_cell_nhoods = self.nhood_stats.iloc[
+                        cell_nhoods_binary.astype(bool), :
+                    ].index.tolist()
+                    query_cell_sample = self.adata.obs.loc[cell, self.sample_key]
+                    rows_with_nhood_results_for_query_sample = (
+                        self.mean_s2ref_dist_per_nhood_zscored_df.nhood.isin(
+                            query_cell_nhoods
+                        )
+                    ) & (
+                        self.mean_s2ref_dist_per_nhood_zscored_df["sample"].values
+                        == query_cell_sample
+                    )
+                    cell_results.loc[
+                        cell, "mean_zscored_dist_to_ref"
+                    ] = self.mean_s2ref_dist_per_nhood_zscored_df.mean_zscored_dist_to_ref[
+                        rows_with_nhood_results_for_query_sample
+                    ].mean()
+                else:
+                    # TO DO: check if query cell was excluded due to filtering, or
+                    # just not sampled....
+                    continue
+        cell_results["mean_zscored_dist_to_ref>2"] = (
+            cell_results.mean_zscored_dist_to_ref > 2
+        )
+        # keep nans, they are set to False with the above code
+        cell_results.loc[
+            cell_results.mean_zscored_dist_to_ref.isna(), "mean_zscored_dist_to_ref>2"
+        ] = np.nan
+        cell_results["mean_zscored_dist_to_ref>2"] = cell_results[
+            "mean_zscored_dist_to_ref>2"
+        ].map({True: f">2", False: f"<=2"})
+        # print results:
+        total_n_cells_with_results = np.sum(
+            ~cell_results.mean_zscored_dist_to_ref.isna()
+        )
+        perc_cells_percq_zscored_q_dist_to_ref_over_2 = round(
+            np.sum(cell_results["mean_zscored_dist_to_ref>2"] == ">2")
+            / total_n_cells_with_results
+            * 100,
+            2,
+        )
+        print(
+            f"Percentage of query cells showing low sample-mixing: {perc_cells_percq_zscored_q_dist_to_ref_over_2}."
+        )
+        self.cell_results_nhood_sample_based = cell_results
+        self._cell_level_stats_sample_based_calculated = True
 
     def _calculate_intersample_distances(self):
         """

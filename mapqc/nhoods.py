@@ -249,14 +249,9 @@ class Neighborhood:
         """
         # store some sample information (which batch it came from, and whether or not it
         # is from the reference) that we will need further down:
-        if self.exclude_same_batch_for_ref_samples:
-            sample_info = self.adata.obs.groupby(self.sample_key).agg(
-                {self.batch_key: "first", self.ref_q_key: "first"}
-            )
-        else:
-            sample_info = self.adata.obs.groupby(self.sample_key).agg(
-                {self.ref_q_key: "first"}
-            )
+        sample_info = self.adata.obs.groupby(self.sample_key).agg(
+            {self.batch_key: "first", self.ref_q_key: "first"}
+        )
         # check if sufficient reference samples in the neighborhod of default size k.
         # code here should be much faster than for adaptive k, hence we use this
         # whenever possible
