@@ -165,9 +165,15 @@ class Neighborhood:
         if not use_adaptive_k:
             self.max_k = k
         self._ref_filter_info, self.final_k = self._calculate_adaptive_nhood_k()
-        # store information about k nearest neighbors of index cell
+        # if a k was found, store information about k nearest neighbors of index cell
         if not np.isnan(self.final_k):
             self._store_neighbor_info(self.final_k)
+        # otherwise, store only the idc of the cell's nearest neighbors for later
+        # analysis of filtering at cell level
+        else:
+            # store embedding of cells in nhood with default k:
+            self.knn_idc = self._get_nearest_neighbors(k)
+    
 
     def get_pairwise_sample_dists(self):
         """
@@ -281,9 +287,9 @@ class Neighborhood:
                 if len(inst_idc) < n:
                     return len(
                         list
-                    )  # as if only the last cell is the nth instance of the sample
+                    ) - 1 # as if only the last cell is the nth instance of the sample
                 else:
-                    nth_inst_idx = inst_idc[n]
+                    nth_inst_idx = inst_idc[n - 1] # -1 because of python indexing: 1st cell is at index 0
                     return nth_inst_idx
 
             # first, get sample names for all cells in adata, ordered by ascending distance from
@@ -373,21 +379,24 @@ class Neighborhood:
         ref_sample_batches = sample_info_df.loc[
             sample_set_ref_only, self.batch_key
         ].values
-        # check per ref sample if enough ref samples from other batches are present
-        # to calculate ref to ref distances
-        n_passed_filter = 0
-        sufficient_ref_samples = False
-        for s, s_batch in zip(sample_set_ref_only, ref_sample_batches):
-            if n_passed_filter < self.min_n_samples_ref:
-                n_samples_outside_batch = (ref_sample_batches != s_batch).sum()
-                # could make the below condition less strict, e.g. consider
-                # only a single sample outside of batch sufficient per ref
-                # sample
-                if n_samples_outside_batch > (self.min_n_samples_ref - 1):
-                    n_passed_filter += 1
-            else:
-                return ("pass", True)
-        return ("too few reference samples from different batches", False)
+        if self.exclude_same_batch_for_ref_samples:
+            # check per ref sample if enough ref samples from other batches are present
+            # to calculate ref to ref distances
+            n_passed_filter = 0
+            sufficient_ref_samples = False
+            for s, s_batch in zip(sample_set_ref_only, ref_sample_batches):
+                if n_passed_filter < self.min_n_samples_ref:
+                    n_samples_outside_batch = (ref_sample_batches != s_batch).sum()
+                    # could make the below condition less strict, e.g. consider
+                    # only a single sample outside of batch sufficient per ref
+                    # sample
+                    if n_samples_outside_batch > (self.min_n_samples_ref - 1):
+                        n_passed_filter += 1
+                else:
+                    return ("pass", True)
+            return ("too few reference samples from different batches", False)
+        else:
+            return ("pass", True)
 
     def _store_neighbor_info(self, k: int):
         """

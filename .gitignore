@@ -3,4 +3,4 @@ __pycache__
 data
 results
 draft_analyses
-./envs/mapqc_ot.yml
+envs/mapqc_ot.yml

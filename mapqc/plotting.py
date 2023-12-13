@@ -516,7 +516,7 @@ def plot_umap_sample_specific_zscored_q_dist_to_ref(
 
 
 def plot_umap_neighborhood(
-    mapqc_results: mapQC_results, neighborhood: str, title: str = None, scale: int = 1
+    mapqc_results: mapQC_results, neighborhood: str, title: str = None, scale: int = 1, color_by=None
 ):
     """
     Plot UMAP of adata in mapqc_results instance, coloring the cells
@@ -537,6 +537,10 @@ def plot_umap_neighborhood(
 
     title
         Title for UMAP.
+
+    color_by 
+        Color by a specific adata.obs. If left to None, neighborhood cells will be 
+        plotted in black
 
     Returns
     -------
@@ -563,14 +567,26 @@ def plot_umap_neighborhood(
     nhood_cells = mapqc_results.nhood_cells[nhood_idx[0]]
     nhood_cells = nhood_cells[~np.isnan(nhood_cells)].astype(int)
     mapqc_results.adata.obs[f"mapqc_nhood_cells_{neighborhood}"].iloc[
-        nhood_cells
-    ] = neighborhood
+            nhood_cells
+        ] = neighborhood
+    
     if isinstance(title, type(None)):
         title = f"Neighborhood (k={mapqc_results.k})"
-    palette = {"Other": "lightgrey", neighborhood: "black"}
-    dotsizes = mapqc_results.adata.obs[f"mapqc_nhood_cells_{neighborhood}"].map(
-        {"Other": scale, neighborhood: scale * 6}
-    )
+    if pd.isnull(color_by):
+        
+        palette = {"Other": "lightgrey", neighborhood: "black"}
+    elif color_by not in mapqc_results.adata.obs.columns:
+        raise ValueError("color_by argument has to be set to an existing .obs column name.")
+    else:
+        # set "Other" to np.nan so that color is automatically set to grey,
+        # and cells from neighborhood to their value in the color_by column
+        mapqc_results.adata.obs[f"mapqc_nhood_cells_{neighborhood}"] = [
+            col if val == neighborhood else np.nan for col, val in zip(
+                mapqc_results.adata.obs[color_by],
+                mapqc_results.adata.obs[f"mapqc_nhood_cells_{neighborhood}"])
+        ]
+        palette = None
+    dotsizes = [scale if ((val == "Other") or pd.isnull(val)) else scale * 6 for val in mapqc_results.adata.obs[f"mapqc_nhood_cells_{neighborhood}"]]
     # prepare color palette:
     sc.pl.umap(
         mapqc_results.adata,
@@ -704,6 +720,7 @@ def plot_umap_cell_level_results(
     color_by: Literal["zscore", "zscore>2"] = "zscore>2",
     vmin=None,
     vmax=None,
+    title=None
 ):
     """
     TO DO: add documentation
@@ -741,7 +758,7 @@ def plot_umap_cell_level_results(
     sc.pl.umap(
         mapqc_results._adata_ordered,
         color=color,
-        palette={">2": "red", "<=2": "antiquewhite"},
+        palette={">2": "red", "<=2": "antiquewhite", "filtered out":"black"},
         frameon=False,
         na_color="gray",
         size=size,
@@ -749,6 +766,7 @@ def plot_umap_cell_level_results(
         vmin=vmin,
         vmax=vmax,
         sort_order=sort_order,
+        title=title
     )
 
 
