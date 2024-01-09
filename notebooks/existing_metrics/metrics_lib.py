@@ -174,7 +174,7 @@ def calculate_cluster_preservation_score(adata_query, obsm_emb_key, original_emb
     # data is normalized and log-transformed but not sc.pp.scaled.
     sc.pp.scale(adata_query, max_value=10)
     sc.tl.pca(adata_query, n_comps=n_pc, zero_center=True)
-    sc.pp.neighbors(adata_query, n_pcs=n_pc, use_rep='X_pca')
+    sc.pp.neighbors(adata_query, n_pcs=n_pc, n_neighbors=k, use_rep='X_pca')
     # To be same as original version. we can also change to leiden. should we?
     sc.tl.louvain(adata_query, resolution=cluster_res, key_added='cluster')
 
@@ -184,7 +184,8 @@ def calculate_cluster_preservation_score(adata_query, obsm_emb_key, original_emb
         ng_shape = ng_indices.shape
         ng_labels = cluster_codes[ng_indices.flatten()].reshape(*ng_shape)    # get labels for KNNs of each cell
         px = np.apply_along_axis(np.bincount, axis=1, arr=ng_labels, minlength=np.max(ng_labels) + 1)  # Counts occurrences of each label
-        return -np.nansum(px * np.log(px + eps), axis=1)  # calculate label entropy for each cell
+        px = px / px.sum(axis=1, keepdims=True)
+        return np.nansum(px * np.log(px), axis=1)  # calculate label entropy for each cell
 
     cluster_codes = adata_query.obs['cluster'].cat.codes.to_numpy()
     int_ent = calculate_entropy(adata_query, obsm_emb_key, cluster_codes, k=k)   # Entropy in new space
