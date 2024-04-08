@@ -18,8 +18,8 @@ def calculate_neighbors(adata, obsm_emb_key, k=100, n_jobs=1, neighbor_computer=
     if neighbor_computer is not None:
         neigh_output = neighbor_computer(adata.obsm[obsm_emb_key], k)
     neigh_output = pynndescent(adata.obsm[obsm_emb_key], n_neighbors=k, random_state=0, n_jobs=n_jobs)
-    indices, distances = neigh_output.indices, neigh_output.distances
-    return indices, distances
+    #indices, distances = neigh_output.indices, neigh_output.distances
+    return neigh_output
 
 
 def get_results(per_cell_scores, adata, group_keys=None, sep_key=None, reduce='mean', after_function=None):
@@ -72,16 +72,17 @@ def calculate_asw_batch(adata, obsm_emb_key, batch_key, group_keys=None,
     return get_results(sw_per_cell, adata, group_keys)
 
 
-def calculate_lisi_batch(adata, ng_indices, ng_distances, batch_key, group_keys=None,
+def calculate_lisi_batch(adata, neighbor_results, batch_key, group_keys=None,
                          k=90, perplexity=None, rescale=True):
     # Based on https://github.com/YosefLab/scib-metrics/blob/5681f7ef6b6d4cfd04fda90d1d33fab1dbe1bb50/src/scib_metrics/_lisi.py#L40
     # Calculates lisi between query and reference (in our case batch_key should be core_or_extension)
     # Note: if perplexity is None it is initialized as np.floor(knn_idx.shape[1] / 3) in scib-metrics (check this: https://github.com/YosefLab/scib-metrics/blob/5681f7ef6b6d4cfd04fda90d1d33fab1dbe1bb50/src/scib_metrics/_lisi.py#L19).
-    sp_distances, sp_conns = sc.neighbors._compute_connectivities_umap(
-        ng_indices[:, :k], ng_distances[:, :k], adata.n_obs, n_neighbors=k
-    )
+    #sp_distances, sp_conns = sc.neighbors._compute_connectivities_umap(
+    #   ng_indices[:, :k], ng_distances[:, :k], adata.n_obs, n_neighbors=k)
+    
+    
     batch = adata.obs[batch_key].copy()
-    lisi = lisi_knn(sp_distances, batch, perplexity=perplexity)
+    lisi = lisi_knn(neighbor_results, batch, perplexity=perplexity)
 
     if rescale:
         nbatches = len(np.unique(batch))
@@ -93,22 +94,20 @@ def calculate_lisi_batch(adata, ng_indices, ng_distances, batch_key, group_keys=
     return get_results(lisi, adata, group_keys, reduce='median', after_function=after_function)
 
 
-def calculate_kbet_batch(adata, ng_indices, ng_distances, batch_key, group_keys=None,
+def calculate_kbet_batch(adata, neighbor_results, batch_key, group_keys=None,
                          k=50, alpha=0.05):
     # Uses: https://github.com/YosefLab/scib-metrics/blob/5681f7ef6b6d4cfd04fda90d1d33fab1dbe1bb50/src/scib_metrics/_kbet.py#L43
     # Calculates KBET between query and reference (in our case batch_key should be core_or_extension)
     # In original implementation they mean over cells of each label. then they mean over all labels.
     # YosefLab scib implementation with labels: https://github.com/YosefLab/scib-metrics/blob/5681f7ef6b6d4cfd04fda90d1d33fab1dbe1bb50/src/scib_metrics/_kbet.py#L98
     # Here we use kbet only as a single cell-type. But it should ligically be fine.
-    sp_distances, sp_conns = sc.neighbors._compute_connectivities_umap(
-        ng_indices[:, :k], ng_distances[:, :k], adata.n_obs, n_neighbors=k
-    )
+   
     batch = adata.obs[batch_key].copy()
     # We use p_values as we are interested in fine grained metrics
-    acceptance_rate, test_statistics, p_values = kbet(sp_distances, batch, alpha=alpha)
+    acceptance_rate, test_statistics, p_values = kbet(neighbor_results, batch, alpha=alpha)
     scores = (p_values >= alpha).astype(int)
     # Mean is the correct logic
-    return get_results(scores, adata, group_keys, reduce='mean')
+    return get_results(p_values, adata, group_keys, reduce='mean')
 
 
 
@@ -137,14 +136,14 @@ def calculate_wiq_knn_correlations(adata_query, obsm_emb_key, original_emb_key=N
     original_ad_x = ad.AnnData(adata_query.X if original_emb_key is None else adata_query.obsm[original_emb_key],
                                obs=adata_query.obs.copy())
     sc.tl.pca(original_ad_x, n_comps=n_pc, zero_center=True)
-    q_ng_indices, q_ng_distances = calculate_neighbors(original_ad_x, 'X_pca', k=k)  # N x K
+    neighbor_results = calculate_neighbors(original_ad_x, 'X_pca', k=k)  # N x K
 
     # Then we will find distances of the same KNN in the new embedded space.
     # For this we need NxK pairs of points. Each pair has (anchor, neighbor)
     # Creake (nxK, ) anchor array.
     anchor_indices = np.tile(np.arange(original_ad_x.n_obs).reshape(-1, 1), (1, k)).flatten()  # N*k (one dimentional)
     # Creake (nxK, ) neighbor array.
-    neighbor_indices = q_ng_indices.flatten()  # N*k (one dimentional)
+    neighbor_indices = neighbor_results.indices.flatten()  # N*k (one dimentional)
     # Calculate pairwise distances between anchors and neighbors
     embeded_distances = np.linalg.norm(adata_query.obsm[obsm_emb_key][anchor_indices] - adata_query.obsm[obsm_emb_key][neighbor_indices], axis=1)   # N*k (one dimentional)
     # reshape distances in new space so that it matches the shape of q_ng_distances
@@ -180,7 +179,8 @@ def calculate_cluster_preservation_score(adata_query, obsm_emb_key, original_emb
 
     # Function to calculate entropy of clsters in original space in a new space defined by obsm_key
     def calculate_entropy(adata, obsm_key, cluster_codes, k):
-        ng_indices, ng_distances = calculate_neighbors(adata, obsm_key, k=k)  # get KNN for each cell
+        neighbor_results = calculate_neighbors(adata, obsm_key, k=k)  # get KNN for each cell
+        ng_indices, ng_distances = neighbor_results.indices, neighbor_results.distances
         ng_shape = ng_indices.shape
         ng_labels = cluster_codes[ng_indices.flatten()].reshape(*ng_shape)    # get labels for KNNs of each cell
         px = np.apply_along_axis(np.bincount, axis=1, arr=ng_labels, minlength=np.max(ng_labels) + 1)  # Counts occurrences of each label
@@ -215,17 +215,17 @@ def calculate_cluster_preservation_score(adata_query, obsm_emb_key, original_emb
 def calculate_scib_metrics(adata, obsm_emb_key, batch_key, dataset_key, sample_key, dry_run=False):
     K = {'lisi': 90, 'kbet': 50}
     with log_time("scib neighbors calculation", log=not dry_run):
-        ng_indices, ng_distances = calculate_neighbors(adata, obsm_emb_key, k=max(list({'lisi': 90, 'kbet': 50}.values()))) if not dry_run else (None, None)
+         neighbor_results = calculate_neighbors(adata, obsm_emb_key, k=max(list({'lisi': 90, 'kbet': 50}.values()))) if not dry_run else (None, None)
     group_keys = {'per_dataset': dataset_key, 'per_sample': sample_key}
     results = {}
-    with log_time("asw_batch", log=not dry_run):
-        results['asw_batch'] = calculate_asw_batch(adata, obsm_emb_key, batch_key,
-                                                   group_keys=group_keys) if not dry_run else None
+    #with log_time("asw_batch", log=not dry_run):
+        #results['asw_batch'] = calculate_asw_batch(adata, obsm_emb_key, batch_key,
+                                                   #group_keys=group_keys) if not dry_run else None
     with log_time("lisi_batch", log=not dry_run):
-        results['lisi_batch'] = calculate_lisi_batch(adata, ng_indices, ng_distances, batch_key,
+        results['lisi_batch'] = calculate_lisi_batch(adata,  neighbor_results, batch_key,
                                                      group_keys=group_keys, k=K['lisi']) if not dry_run else None
     with log_time("kbet_batch", log=not dry_run):
-        results['kbet_batch'] = calculate_kbet_batch(adata, ng_indices, ng_distances, batch_key,
+        results['kbet_batch'] = calculate_kbet_batch(adata, neighbor_results, batch_key,
                                                      group_keys=group_keys, k=K['kbet']) if not dry_run else None
     return results
 
@@ -235,9 +235,9 @@ def calculate_symphony_metrics(adata, adata_query, obsm_emb_key, donor_key, data
     results = {}
     K_lisi = 30
     with log_time("symphony metrics neighbors calculation", log=not dry_run):
-        q_ng_indices, q_ng_distances = calculate_neighbors(adata_query, obsm_emb_key, k=K_lisi) if not dry_run else (None, None)
+        neighbor_results = calculate_neighbors(adata_query, obsm_emb_key, k=K_lisi) if not dry_run else (None, None)
     with log_time("lisi_query_donor", log=not dry_run):
-        results['lisi_query_donor'] = calculate_lisi_batch(adata_query, q_ng_indices, q_ng_distances, donor_key,
+        results['lisi_query_donor'] = calculate_lisi_batch(adata_query, neighbor_results, donor_key,
                                                            group_keys=group_keys, k=K_lisi) if not dry_run else None
     with log_time("wiq_knn_corr", log=not dry_run):
         results['wiq_knn_corr'] = calculate_wiq_knn_correlations(adata_query, obsm_emb_key,
