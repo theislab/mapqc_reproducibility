@@ -110,6 +110,7 @@ class mapQC_results:
         self.min_n_samples_ref = min_n_samples_ref
         self.min_n_samples_q = min_n_samples_q
         self.q = None
+        self.results = dict()
         # Sanity checks:
         # check if adata.obs.index unique:
         if not adata.shape[0] == len(set(adata.obs.index)):
@@ -197,22 +198,23 @@ class mapQC_results:
         """
         self._calculate_intersample_distances()
         self.mean_sample_dists_to_ref = np.nanmean(self.intersample_distances, axis=0)
+        # TO DO: MOVE THIS TO nhoods.py SCRIPT, I THINK
         # add z-scored distances to reference, setting the mean of the reference
         # sample distances to reference as 0, and their standard deviation to 1.
         # first, calculate mean dist to ref among ref samples (1 per nhood)
         ref_sample_dists_to_ref = self.mean_sample_dists_to_ref[: len(self.ref_samples_all),]
         # NEW: REMOVE OUTLIERS:
-        max_n_interquantile_range_from_hinge = 3.5
+        max_n_interquartile_range_from_hinge = 3.5
         nhood_ref_25percentiles = np.nanpercentile(ref_sample_dists_to_ref, q=25, axis=0)
         nhood_ref_75percentiles = np.nanpercentile(ref_sample_dists_to_ref, q=75, axis=0)
-        nhood_ref_interquantile_range = nhood_ref_75percentiles - nhood_ref_25percentiles
+        nhood_ref_interquartile_range = nhood_ref_75percentiles - nhood_ref_25percentiles
         upper_threshold_outliers = (
             nhood_ref_75percentiles
-            + max_n_interquantile_range_from_hinge * nhood_ref_interquantile_range
+            + max_n_interquartile_range_from_hinge * nhood_ref_interquartile_range
         )
         lower_threshold_outliers = (
             nhood_ref_25percentiles
-            - max_n_interquantile_range_from_hinge * nhood_ref_interquantile_range
+            - max_n_interquartile_range_from_hinge * nhood_ref_interquartile_range
         )
         upper_outliers = ref_sample_dists_to_ref > upper_threshold_outliers
         lower_outliers = ref_sample_dists_to_ref < lower_threshold_outliers
@@ -596,6 +598,8 @@ class mapQC_results:
         print(
             f"Percentage of query cells showing low sample-mixing: {perc_cells_percq_zscored_q_dist_to_ref_over_2}."
         )
+        # store percentage as result:
+        self.results['perc_non_mixing_cells'] = perc_cells_percq_zscored_q_dist_to_ref_over_2
         self.cell_results_nhood_sample_based = cell_results
         self._cell_level_stats_sample_based_calculated = True
 

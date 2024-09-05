@@ -737,7 +737,7 @@ def plot_umap_cell_level_results(
             )
         if color_by == "zscore>2":
             color = "mapqc_per_cell_mean_zscored_dist_to_ref>2_sample_based"
-            sort_order = True
+            sort_order = False # was set to True before
         else:
             color = "mapqc_per_cell_mean_zscored_dist_to_ref_sample_based"
             sort_order = False

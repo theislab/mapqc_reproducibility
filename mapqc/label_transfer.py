@@ -14,7 +14,6 @@ from sklearn.neighbors import KNeighborsTransformer
 def weighted_knn_trainer(
     train_adata: AnnData,
     train_adata_emb: str,
-    label_key: Optional[str],
     n_neighbors: int = 50,
 ):
     """
@@ -23,14 +22,10 @@ def weighted_knn_trainer(
     Parameters
     ----------
     train_adata: :class:`~anndata.AnnData`
-        Annotated dataset to be used to train KNN classifier with
-        ``label_key`` as the target variable.
+        Annotated dataset to be used to train KNN classifier
     train_adata_emb
         Name of the obsm layer to be used for calculation of neighbors.
         If set to "X", anndata.X will be used.
-    label_key
-        Name of the column to be used as target variable (e.g. cell_type)
-        in ``train_adata`` and ``query_adata``.
     n_neighbors
         Number of nearest neighbors in KNN classifier.
 
@@ -191,7 +186,6 @@ if __name__ == "__main__":
     k_neighbors_transformer = weighted_knn_trainer(
         train_adata=ref,
         train_adata_emb="X",
-        label_key="ann_level",  # this argument is not used in this function
         n_neighbors=50,
     )
 
