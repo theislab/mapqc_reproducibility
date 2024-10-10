@@ -1,201 +1,110 @@
-#!/bin/env python
-import sys
-from typing import Literal, Optional
+# This code is adapted from
+# https://github.com/openpipelines-bio/openpipeline/blob/main/src/labels_transfer/utils/helper.py
+# and
+# https://github.com/openpipelines-bio/openpipeline/blob/main/src/labels_transfer/pynndescent_knn/script.py
 
-import numpy as np
-import pandas as pd
 import scanpy as sc
-from anndata import AnnData
-from sklearn.neighbors import KNeighborsTransformer
-
-# from paths import DATA_DIR, FIG_DIR
-
-
-def weighted_knn_trainer(
-    train_adata: AnnData,
-    train_adata_emb: str,
-    n_neighbors: int = 50,
-):
-    """
-    Trains a weighted KNN classifier on `train_adata`.
-
-    Parameters
-    ----------
-    train_adata: :class:`~anndata.AnnData`
-        Annotated dataset to be used to train KNN classifier
-    train_adata_emb
-        Name of the obsm layer to be used for calculation of neighbors.
-        If set to "X", anndata.X will be used.
-    n_neighbors
-        Number of nearest neighbors in KNN classifier.
-
-    Returns
-    -------
-    Fitted k-nearest neighbor transformer.
-    """
-    print(
-        f"Weighted KNN with n_neighbors = {n_neighbors} ... ",
-        end="",
-    )
-    k_neighbors_transformer = KNeighborsTransformer(
-        n_neighbors=n_neighbors,
-        mode="distance",
-        algorithm="brute",
-        metric="euclidean",
-        n_jobs=-1,
-    )
-    if train_adata_emb == "X":
-        train_emb = train_adata.X
-    elif train_adata_emb in train_adata.obsm.keys():
-        train_emb = train_adata.obsm[train_adata_emb]
-    else:
-        raise ValueError(
-            "train_adata_emb should be set to either 'X'"
-            + "or the name of the obsm layer to be used!"
-        )
-    k_neighbors_transformer.fit(train_emb)
-    return k_neighbors_transformer
+import numpy as np
+from pynndescent import PyNNDescentTransformer
+from sklearn.neighbors import KNeighborsClassifier
 
 
-def weighted_knn_transfer(
-    query_adata: AnnData,
-    query_adata_emb: str,
-    ref_adata_obs: pd.DataFrame,
-    label_keys: Optional[str],
-    knn_model: KNeighborsTransformer,
-    threshold: float = 1.0,
-    pred_unknown: bool = False,
-    mode: Literal["paper", "package"] = "package",
-    numpy_pickle: bool = False,
-):
-    """Annotates ``query_adata`` cells with an input trained weighted KNN classifier.
-
-    Parameters
-    ----------
-    query_adata
-        Annotated dataset to be used to queryate KNN classifier. Embedding to be used.
-    query_adata_emb
-        Name of the obsm layer to be used for label transfer. If set to "X",
-        query_adata.X will be used.
-    ref_adata_obs
-        observations of reference Anndata.
-    label_keys
-        Names of the columns to be used as target variables (e.g. cell_type) in ``query_adata``.
-    knn_model
-        knn model trained on reference adata with weighted_knn_trainer function.
-    threshold: float
-        Threshold of uncertainty used to annotating cells as "Unknown". cells with
-        uncertainties higher than this value will be annotated as "Unknown".
-        Set to 1.0 to keep all predictions. This enables one to later on play
-        with thresholds.
-    pred_unknown
-        ``False`` by default. Whether to annotate any cell as "unknown" or not.
-        If `False`, ``threshold`` will not be used and each cell will be annotated
-        with the label which is the most common in its ``n_neighbors`` nearest cells.
-    mode
-        Has to be one of "paper" or "package". If mode is set to "package",
-        uncertainties will be 1 - P(pred_label), otherwise it will be 1 - P(true_label).
-    numpy_pickle
-        Whether to source from saved k neighbors after transformation.
-
-    Returns
-    -------
-    pred_labels
-        pd.DataFrame of predicted cell type labels per query observation
-    uncertainties
-        pd.DataFrame of predicted cell type label uncertainties per query observation
-    """
-    if not isinstance(knn_model, KNeighborsTransformer):
-        raise ValueError(
-            "knn_model should be of type sklearn.neighbors._graph.KNeighborsTransformer!"
-        )
-
-    if query_adata_emb == "X":
-        query_emb = query_adata.X
-    elif query_adata_emb in query_adata.obsm.keys():
-        query_emb = query_adata.obsm[query_adata_emb]
-    else:
-        raise ValueError(
-            "query_adata_emb should be set to either 'X' or the name of the obsm layer to be used!"
-        )
-
-    if not numpy_pickle:
-        top_k_distances, top_k_indices = knn_model.kneighbors(X=query_emb)
-        np.savez("top", top_k_distances, top_k_indices)
-    else:
-        print("pickle!")
-        npzfile = np.load("top.npz")
-        top_k_distances = npzfile["arr_0"]
-        top_k_indices = npzfile["arr_1"]
-
-    stds = np.std(top_k_distances, axis=1)
+def distances_to_affinities(distances):
+    # Apply Gaussian kernel to distances
+    stds = np.std(distances, axis=1)
     stds = (2.0 / stds) ** 2
     stds = stds.reshape(-1, 1)
+    distances_tilda = np.exp(-np.true_divide(distances, stds))
 
-    top_k_distances_tilda = np.exp(-np.true_divide(top_k_distances, stds))
-
-    weights = top_k_distances_tilda / np.sum(
-        top_k_distances_tilda, axis=1, keepdims=True
+    # normalize the distances_tilda
+    # if the sum of a row of the distances tilda equals 0,
+    # set normalized distances for that row to 1
+    # else divide the row values by the value of the sum of the row
+    distances_tilda_normalized = np.where(
+        np.sum(distances_tilda, axis=1, keepdims=True) == 0,
+        1,
+        distances_tilda / np.sum(distances_tilda, axis=1, keepdims=True),
     )
+    return distances_tilda_normalized
 
-    uncertainties = pd.DataFrame(columns=["uncert"], index=query_adata.obs_names)
-    pred_labels = pd.DataFrame(columns=[label_keys], index=query_adata.obs_names)
-    y_train_labels = ref_adata_obs[label_keys].values
 
-    for i, weight in enumerate(weights):
-        unique_labels = np.unique(y_train_labels[top_k_indices[i]])
-        best_label, best_prob = None, 0.0
-        for candidate_label in unique_labels:
-            candidate_prob = weight[
-                y_train_labels[top_k_indices[i]] == candidate_label
-            ].sum()
-            if best_prob < candidate_prob:
-                best_prob = candidate_prob
-                best_label = candidate_label
+def perform_label_transfer(
+    r_adata: sc.AnnData,
+    q_adata: sc.AnnData,
+    reference_obs_targets: list,
+    reference_obsm_features: str = "X",
+    query_obsm_features: str = "X",
+    k: int = 30,
+):
+    """
+    Performs label transfer from reference to query data using pynndescent knn.
+    Arguments:
+        r_adata: sc.AnnData
+            Reference data.
+        q_adata: sc.AnnData
+            Query data.
+        reference_obs_targets: list
+            List of r_adata.obs column names containing label to transfer
+            to query data.
+        reference_obsm_features: str = None
+            Features to use from reference data. Set either to "X" to use
+            r_adata.X, or to a key in r_adata.obsm.
+        query_obsm_features: str = None
+            Features to use from query data. Set either to "X" to use
+            q_adata.X, or to a key in q_adata.obsm.
+        k: int = 30
+            Number of neighbors to use for label transfer.
+    Returns:
+        q_adata: sc.AnnData
+            Query data with transferred labels under [original_label]_pred and
+            label transfer probabilities under [original_label]_prob.
+    """
+    # check input parameters:
+    if reference_obsm_features == "X":
+        print("Using .X of reference data")
+        train_X = r_adata.X
+    else:
+        print(f"Using .obsm[{reference_obsm_features}] of reference data")
+        train_X = r_adata.obsm[reference_obsm_features]
+    if query_obsm_features == "X":
+        print("Using .X of query data")
+        inference_X = q_adata.X
+    else:
+        print(f"Using .obsm[{query_obsm_features}] of query data")
+        inference_X = q_adata.obsm[query_obsm_features]
 
-        pred_label = (
-            best_label if not pred_unknown or best_prob >= threshold else "Unknown"
+    neighbors_transformer = PyNNDescentTransformer(
+        n_neighbors=k,
+        parallel_batch_queries=True,
+    )
+    neighbors_transformer.fit(train_X)
+
+    # Square sparse matrix with distances to n neighbors in reference data
+    reference_neighbors = neighbors_transformer.transform(inference_X)
+    query_neighbors = neighbors_transformer.transform(train_X)
+
+    # For each target, train a classifier and predict labels
+    for obs_tar in reference_obs_targets:
+        obs_pred = obs_tar + "_pred"
+        obs_proba = obs_tar + "_prob"
+        print(f"Predicting labels for {obs_tar}")
+
+        weights_dict = {
+            "uniform": "uniform",
+            "distance": "distance",
+            "gaussian": distances_to_affinities,
+        }
+
+        train_y = r_adata.obs[obs_tar].to_numpy()
+        classifier = KNeighborsClassifier(
+            n_neighbors=k, metric="precomputed", weights="distance"
         )
+        classifier.fit(X=query_neighbors, y=train_y)
+        predicted_labels = classifier.predict(reference_neighbors)
+        probabilities = classifier.predict_proba(reference_neighbors).max(axis=1)
 
-        if mode == "package":
-            uncertainties.iloc[i]["uncert"] = max(1 - best_prob, 0)
-        else:
-            raise Exception("Inquery Mode!")
-
-        pred_labels.iloc[i][label_keys] = pred_label
-
-    print("finished!")
-
-    return pred_labels, uncertainties
-
-
-if __name__ == "__main__":
-    query_dataset = sys.argv[1]
-    outpath = sys.argv[2]
-    full_emb = sc.read_h5ad(
-        "../data/HLCA_extended/HLCA_extended/HLCA_extended_scarches_emb.h5ad"
-    )  # FIXME: change to DATA_DIR
-    ref = full_emb[full_emb.obs.core_or_extension == "core", :].copy()
-    cts_ordered = pd.read_csv(
-        "../supporting_files/celltype_structure_and_colors/manual_anns_and_leveled_anns_ordered.csv",
-        index_col=0,
-    )  # FIXME: change to DATA_DIR
-    query = full_emb[full_emb.obs.dataset == query_dataset, :].copy()
-
-    # Fit k-NN transformer
-    k_neighbors_transformer = weighted_knn_trainer(
-        train_adata=ref,
-        train_adata_emb="X",
-        n_neighbors=50,
-    )
-
-    # Transform query data
-    labels, uncert = weighted_knn_transfer(
-        query_adata=query,
-        query_adata_emb="X",
-        label_keys="Level",
-        knn_model=k_neighbors_transformer,
-        ref_adata_obs=ref.obs.join(cts_ordered, on="manual_ann"),
-    )
-    labels.to_csv(outpath + "/" + query_dataset + "_labels.csv")
-    uncert.to_csv(outpath + "/" + query_dataset + "_uncert.csv")
+        # save_results
+        q_adata.obs[obs_pred] = predicted_labels
+        q_adata.obs[obs_proba] = probabilities
+    # return result
+    return q_adata

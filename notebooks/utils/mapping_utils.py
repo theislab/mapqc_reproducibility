@@ -4,6 +4,10 @@ import pandas as pd
 import scarches as sca
 import numpy as np
 import os
+
+import sys
+
+sys.path.append("../../utils/")
 import label_transfer
 
 
@@ -106,16 +110,19 @@ def map_data_to_HLCA_reference(
     # Save the model
     surgery_model.save(path_surgery_model_dir, overwrite=True)
     # and save the embedding
+    path_to_mapped_emb = os.path.join(path_surgery_model_dir, "query_emb.h5ad")
+    print("Saving mapped query embedding to ", path_to_mapped_emb)
     sc.AnnData(
-        surgery_model.get_latent_representation(adata_query),
-        obs=adata_query.obs.iloc[:, :0],
-    ).write(os.path.join(path_surgery_model_dir, "query_emb.h5ad"))
+        surgery_model.get_latent_representation(prepped_query_adata),
+        obs=prepped_query_adata.obs.iloc[:, :0],
+    ).write(path_to_mapped_emb)
 
 
-def create_mapping_output_adata(
+def create_and_save_mapping_output_adata(
     adata_reference: sc.AnnData,
     adata_query: sc.AnnData,
-    path_to_mapped_emb: str,
+    path_to_mapped_query_emb: str,
+    output_path_joint_emb: str,
     add_umap: bool = True,
     add_leiden: bool = True,
     perform_label_transfer: bool = True,
@@ -123,8 +130,11 @@ def create_mapping_output_adata(
     verbose: bool = True,
 ):
     # obtain latent representation of query data by passing it through the surgery model:
-    adata_query_latent = sc.read_h5ad(path_to_mapped_emb)
-    adata_query.obsm["X_scanvi_emb"] = adata_query_latent.X
+    adata_query_latent = sc.read_h5ad(path_to_mapped_query_emb)
+    adata_query.obsm[
+        "X_scanvi_emb"
+    ] = adata_query_latent.X  # do we really need this line?
+    adata_query_latent.obs["r_or_q"] = "q"
     # create anndata object of reference latent representation
     adata_ref_latent = sc.AnnData(
         adata_reference.obsm["X_scanvi_emb"],
@@ -137,7 +147,23 @@ def create_mapping_output_adata(
             ],
         ],
     )
+    adata_ref_latent.obs["r_or_q"] = "r"
 
+    # perform label transfer:
+    if perform_label_transfer:
+        if verbose:
+            print(
+                "Performing label transfer using the reference and query latent representations..."
+            )
+
+        adata_query_latent = label_transfer.perform_label_transfer(
+            r_adata=adata_ref_latent,
+            q_adata=adata_query_latent,
+            reference_obs_targets=[f"ann_level_{lev}" for lev in [1, 2, 3, 4, 5]],
+            reference_obsm_features="X",
+            query_obsm_features="X",
+            k=k,
+        )
     # join the two latent representations:
     adata_latent_combined = adata_ref_latent.concatenate(
         adata_query_latent, index_unique=None
@@ -159,40 +185,10 @@ def create_mapping_output_adata(
         if verbose:
             print("Calculating Leiden clustering...")
         sc.tl.leiden(adata_latent_combined, key_added="leiden")
-
-    # perform label transfer:
-    if perform_label_transfer:
-        if verbose:
-            print("Performing label transfer...")
-        knn_trainer = label_transfer.weighted_knn_trainer(
-            train_adata=adata_reference,
-            train_adata_emb="X_scanvi_emb",
-        )
-        for lev in [1, 2, 3, 4, 5]:
-            if verbose:
-                print(f"Transfering labels for level {lev}...")
-            (
-                transfered_labels,
-                transfer_uncertainties,
-            ) = label_transfer.weighted_knn_transfer(
-                query_adata=adata_query,
-                query_adata_emb="X_scanvi_emb",
-                ref_adata_obs=adata_reference.obs,
-                label_keys=f"ann_level_{lev}",
-                knn_model=knn_trainer,
-            )
-            obs_name = f"ann_level_{lev}_transf"
-            adata_latent_combined.obs[obs_name] = adata_latent_combined.obs[
-                f"ann_level_{lev}"
-            ].to_list()
-            adata_latent_combined.obs.loc[
-                transfered_labels.index, obs_name
-            ] = transfered_labels.values
-            adata_latent_combined.obs[f"{obs_name}_uncert"] = np.nan
-            adata_latent_combined.obs.loc[
-                transfer_uncertainties.index, f"{obs_name}_uncert"
-            ] = transfer_uncertainties.values
-
+    # save the output:
+    if verbose:
+        print(f"Saving joint embedding to {output_path_joint_emb}...")
+    adata_latent_combined.write(output_path_joint_emb)
     return adata_latent_combined
 
 
@@ -214,16 +210,3 @@ def create_joint_ref_q_counts_object(
         ):
             adata_combined.obs[col] = adata_combined.obs[col].astype(str)
     return adata_combined
-
-
-def add_mapping_info_to_counts_adata(adata_counts_combined, adata_emb_combined):
-    # order both in the same order, to be sure:
-    adata_emb_combined = adata_emb_combined[adata_counts_combined.obs.index, :]
-    for col in adata_emb_combined.obs.columns:
-        if col == "leiden" or "transf" in col:
-            adata_counts_combined.obs[col] = adata_emb.obs[col]
-    adata_counts_combined.obsm["X_umap"] = adata_emb_combined.obsm["X_umap"]
-    adata_counts_combined.obsm["X_scanvi"] = np.float32(adata_emb_combined.X)
-    adata_counts_combined.obsp = adata_emb_combined.obsp
-    # to prevent
-    return adata_counts_combined

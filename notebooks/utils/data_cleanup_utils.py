@@ -1,5 +1,6 @@
 import scanpy as sc
 import numpy as np
+import pandas as pd
 
 
 def prepare_reference_from_cellxgene_h5ad(path_to_adata: str, testrun: bool = False):
@@ -8,7 +9,7 @@ def prepare_reference_from_cellxgene_h5ad(path_to_adata: str, testrun: bool = Fa
     # Subset to the core, which is the reference to which query cells can be mapped
     if testrun:
         core_mask = adata_full.obs["core_or_extension"] == "core"
-        core_indices = np.where(core_mask)[0][:10000]
+        core_indices = np.where(core_mask)[0][:50000]
         adata_reference = adata_full[core_indices, :].to_memory()
     else:
         adata_reference = adata_full[
@@ -33,6 +34,24 @@ def prepare_reference_from_cellxgene_h5ad(path_to_adata: str, testrun: bool = Fa
     adata_reference.var = adata_reference.var.drop(columns=var_columns_to_remove)
     # Specify that this is the reference
     adata_reference.obs["r_or_q"] = "r"
+    # Specify that all cells are from controls
+    adata_reference.obs["status"] = "control"
+    # for cells that have no annotation at a level (because the maximum granularity
+    # has been reached in a lower level already), forward pass the annotation from
+    # the previous level:
+    for lev in range(2, 6):
+        adata_reference.obs[f"ann_level_{lev}"] = adata_reference.obs[
+            f"ann_level_{lev}"
+        ].tolist()
+        cells_with_no_ann = adata_reference.obs.loc[
+            adata_reference.obs[f"ann_level_{lev}"] == "None", :
+        ].index
+        adata_reference.obs.loc[
+            cells_with_no_ann, f"ann_level_{lev}"
+        ] = adata_reference.obs.loc[cells_with_no_ann, f"ann_level_{lev -1}"]
+        adata_reference.obs[f"ann_level_{lev}"] = pd.Categorical(
+            adata_reference.obs[f"ann_level_{lev}"]
+        )
     return adata_reference
 
 
@@ -81,6 +100,10 @@ def clean_Sheppard_2020_data(adata: sc.AnnData):
     adata = adata[
         adata.obs.lung_condition != "Systemic sclerosis-associated ILD", :
     ].copy()
+    # Specify which  cells are from cases
+    adata.obs.loc[adata.obs.lung_condition == "Healthy", "status"] = "control"
+    adata.obs.loc[adata.obs.lung_condition == "IPF", "status"] = "IPF"
+    # filter genes
     sc.pp.filter_genes(adata, min_cells=1)
     return adata
 
