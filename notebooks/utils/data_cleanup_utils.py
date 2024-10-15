@@ -94,6 +94,39 @@ def prepare_query_from_cellxgene_h5ad(
     adata_query.var = adata_query.var.drop(columns=var_columns_to_remove)
     return adata_query
 
+def replace_cellxgene_counts_with_Sheppard_2020_from_raw(
+        adata_prepped_from_cellxgene: sc.AnnData,
+        path_to_raw_subsetted_counts: str
+):
+    # Note that the cellxgene upload caused a number of genes to disappear,
+    # most likely due to filtering in the upload process.
+    # However, it seems like the mapping is of worse quality when using the 
+    # filtered counts. Therefore, with this function we offer the option
+    # to replace the counts in the cellxgene upload with the raw counts
+    # as used in the HLCA paper.
+    # Load the raw counts:
+    adata_raw = sc.read_h5ad(path_to_raw_subsetted_counts)
+    # reformat
+    adata_raw.var['gene_symbol'] = adata_raw.var.index
+    adata_raw.var.index = adata_raw.var.ensembl
+    adata_raw.obs.index = [f"{idx}_tsukui" for idx in adata_raw.obs.index]
+    # reorder adata_raw, such that cells and genes are in the same order 
+    # as in adata_prepped_from_cellxgene
+    adata_raw = adata_raw[adata_prepped_from_cellxgene.obs.index,adata_prepped_from_cellxgene.var.index].copy()
+    # replace counts
+    adata_prepped_from_cellxgene.layers['counts'] = adata_raw.X
+    adata_prepped_from_cellxgene.X = adata_raw.X
+    # note that these counts are the same for most genes, only not for 87 genes
+    # (88 are missing in the cellxgene object, most likely 87 of those are 
+    # the ones that are different in raw versus filtered, number 88 most likely 
+    # had 0 counts and was therefore padded with 0s, corresponding to the original
+    # counts)
+    # remove adata_raw
+    del adata_raw
+    return adata_prepped_from_cellxgene
+
+    
+
 
 def clean_Sheppard_2020_data(adata: sc.AnnData):
     # Remove cells from SCD samples:

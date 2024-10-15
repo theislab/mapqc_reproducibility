@@ -4,9 +4,9 @@ import pandas as pd
 import numpy as np
 from anndata import AnnData
 from typing import Literal
-import jax
-from ott.geometry import pointcloud
-from ott.solvers.linear import sinkhorn
+# import jax
+# from ott.geometry import pointcloud
+# from ott.solvers.linear import sinkhorn
 
 
 class Neighborhood:
@@ -49,7 +49,7 @@ class Neighborhood:
         As min_n_samples_ref, but now for query samples
     exclude_same_batch_for_ref_samples
         TO DO
-    batch_key
+    dataset_key
         TO DO (only needed if exclude_same_batch_for_ref_samples set to True)
     distance_type
         Whether to use main pairwise (cell-cell) euclidean distance to quantify
@@ -93,7 +93,7 @@ class Neighborhood:
         ref_q_key: str = "reference_or_query",
         ref_cat: str = "reference",
         query_cat: str = "query",
-        batch_key: str = None,
+        dataset_key: str = None,
         exclude_same_batch_for_ref_samples: bool = True,
         use_adaptive_k: bool = True,
         max_k: int = None,
@@ -110,7 +110,7 @@ class Neighborhood:
             )
         if distance_type not in ["pairwise_euclidean", "sinkhorn"]:
             raise ValueError(
-                "Argument 'distance_type' should be set to either 'pairwise_euclidiean' or 'sinkhorn'."
+                "Argument 'distance_type' should be set to either 'pairwise_euclidean' or 'sinkhorn'."
             )
         self.distance_type = distance_type
         # store parameters as attributes (add sanity checks here too?)
@@ -120,7 +120,7 @@ class Neighborhood:
         self.min_k = k
         self.exclude_same_batch_for_ref_samples = exclude_same_batch_for_ref_samples
         self.sample_key = sample_key
-        self.batch_key = batch_key
+        self.dataset_key = dataset_key
         self.ref_q_key = ref_q_key
         self.ref_cat = ref_cat
         self.use_adaptive_k = use_adaptive_k
@@ -211,7 +211,7 @@ class Neighborhood:
         # store sample to batch mapping if batch needs to be taken into account
         if self.exclude_same_batch_for_ref_samples:
             sample_to_batch = self.adata.obs.groupby(self.sample_key).agg(
-                {self.batch_key: "first"}
+                {self.dataset_key: "first"}
             )
         # loop through all ref samples (and count in which loop we are)
         for ref_sample_count, sample_1 in enumerate(ref_samples):
@@ -220,8 +220,8 @@ class Neighborhood:
             for sample_2 in (ref_samples + q_samples)[ref_sample_count + 1 :]:
                 if self.exclude_same_batch_for_ref_samples:
                     if (
-                        sample_to_batch.loc[sample_1, self.batch_key]
-                        == sample_to_batch.loc[sample_2, self.batch_key]
+                        sample_to_batch.loc[sample_1, self.dataset_key]
+                        == sample_to_batch.loc[sample_2, self.dataset_key]
                     ):
                         # do not include distances to samples from same batch for
                         # reference samples
@@ -256,7 +256,7 @@ class Neighborhood:
         # store some sample information (which batch it came from, and whether or not it
         # is from the reference) that we will need further down:
         sample_info = self.adata.obs.groupby(self.sample_key).agg(
-            {self.batch_key: "first", self.ref_q_key: "first"}
+            {self.dataset_key: "first", self.ref_q_key: "first"}
         )
         # check if sufficient reference samples in the neighborhod of default size k.
         # code here should be much faster than for adaptive k, hence we use this
@@ -377,7 +377,7 @@ class Neighborhood:
         if len(sample_set_ref_only) < self.min_n_samples_ref:
             return ("too few reference samples", False)
         ref_sample_batches = sample_info_df.loc[
-            sample_set_ref_only, self.batch_key
+            sample_set_ref_only, self.dataset_key
         ].values
         if self.exclude_same_batch_for_ref_samples:
             # check per ref sample if enough ref samples from other batches are present
@@ -486,17 +486,17 @@ class Neighborhood:
         # (their output.divergence is different from our output.kl_reg_cost)
         # also: this code is waaaayyyy too slow; TO DO: PARALLELIZE CALCULATION
         # ACROSS SAMPLE PAIRS!
-        elif self.distance_type == "sinkhorn":
-            sample_1_cell_coords = self.knn_emb[sample_1_cells, :]
-            sample_2_cell_coords = self.knn_emb[sample_2_cells, :]
-            geom = pointcloud.PointCloud(
-                sample_1_cell_coords, sample_2_cell_coords, epsilon=10
-            )
-            sinkhorn_solve_fn = jax.jit(sinkhorn.solve)
-            sinkhorn_out = sinkhorn_solve_fn(geom)
-            # check if converged:
-            if not sinkhorn_out.converged:
-                print(
-                    f"Warning: sinkhorn solver did not converge for {self.index_cell}, sample {sample_1} and sample {sample_2}."
-                )
-            return sinkhorn_out.kl_reg_cost
+        # elif self.distance_type == "sinkhorn":
+        #     sample_1_cell_coords = self.knn_emb[sample_1_cells, :]
+        #     sample_2_cell_coords = self.knn_emb[sample_2_cells, :]
+        #     geom = pointcloud.PointCloud(
+        #         sample_1_cell_coords, sample_2_cell_coords, epsilon=10
+        #     )
+        #     sinkhorn_solve_fn = jax.jit(sinkhorn.solve)
+        #     sinkhorn_out = sinkhorn_solve_fn(geom)
+        #     # check if converged:
+        #     if not sinkhorn_out.converged:
+        #         print(
+        #             f"Warning: sinkhorn solver did not converge for {self.index_cell}, sample {sample_1} and sample {sample_2}."
+        #         )
+        #     return sinkhorn_out.kl_reg_cost
