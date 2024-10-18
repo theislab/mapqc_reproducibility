@@ -1,2 +1,2 @@
-from .mapqc import MapqcResults
-from .pl import *
+from .mapqc import *
+from . import pl

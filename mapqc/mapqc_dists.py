@@ -413,9 +413,10 @@ class DistResults:
                 / self.nhood_stats.shape[0]
                 * 100
             )
-            print(
-                f"For {perc_of_nhoods_percq_zscore_over_2}% of filtered neighborhoods, >{100-q}% of samples are more than two standard deviations above the mean distance from the reference."
-            )
+            # Not relevant anymore, we now focus on cell-level statistics instead of neighborhood-level.
+            # print(
+            #     f"For {perc_of_nhoods_percq_zscore_over_2}% of filtered neighborhoods, >{100-q}% of samples are more than two standard deviations above the mean distance from the reference."
+            # )
         # check sample-specific statistics:
         samples_with_no_results = [
             sample
@@ -436,7 +437,7 @@ class DistResults:
             n_samples_not_mixing_with_ref / n_samples_with_results * 100
         )
         print(
-            f"{perc_of_query_samples_not_mixing}% of query samples ({n_samples_not_mixing_with_ref}/{n_samples_with_results}sample(s)) consistently do not mix well with the reference."
+            f"{perc_of_query_samples_not_mixing}% of query samples ({n_samples_not_mixing_with_ref}/{n_samples_with_results} sample(s)) consistently do not mix well with the reference."
         )
         if perc_of_query_samples_not_mixing > 0:
             print(
@@ -806,15 +807,3 @@ class DistResults:
             self.nhood_stats.loc[nhood, ["ks_stat", "pval"]] = kstest(
                 rvs=r2r_dists, cdf=r2q_dists, alternative="greater"
             )[:2]
-
-
-def load(path):
-    """
-    Load mapQC results from pickle file. Provide path to file ending with .pkl.
-    """
-    if not os.path.isfile(path):
-        raise ValueError(f"the given path {path} does not lead to a file.")
-    if not path.endswith(".pkl"):
-        raise ValueError("The given path is not a pickle file.")
-    with open(path, "rb") as inp:
-        return pickle.load(inp)

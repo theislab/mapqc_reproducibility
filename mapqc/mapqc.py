@@ -1,7 +1,11 @@
 import random
 import numpy as np
+import pandas as pd
 import scanpy as sc
+import os
+import pickle
 from .mapqc_dists import DistResults
+from .sampler import sample_query_cells
 
 
 class MapqcResults(DistResults):
@@ -18,6 +22,7 @@ class MapqcResults(DistResults):
         dataset_key: str,
         sample_key: str,
         control_or_case: str,
+        sampling_group_cat: str = None,  # either
         percentile_cutoff: int = 66,
         k: int = None,
         max_k: int = None,
@@ -35,6 +40,9 @@ class MapqcResults(DistResults):
             Should be set to either "case" or "control"
         """
         self.percentile_cutoff = percentile_cutoff
+        self.ref_q_key = ref_q_key
+        self.ref_cat = ref_cat
+        self.query_cat = query_cat
         # TO DO: update this to either a single condition (control or case), or
         # restructure such that it runs mapQC for multiple conditions.
         # run a couple of preparory functions, then call the parent init
@@ -48,6 +56,9 @@ class MapqcResults(DistResults):
             raise ValueError(
                 f"'{case_cat}' is not a category in adata.obs['{condition_key}']"
             )
+        if not pd.isnull(sampling_group_cat):
+            if sampling_group_cat not in adata.obs.columns:
+                raise ValueError(f"'{sampling_group_cat}' is not a column in adata.obs")
         self.control_cat = control_cat
         self.case_cat = case_cat
 
@@ -94,9 +105,20 @@ class MapqcResults(DistResults):
         if verbose:
             print(f"n nhoods: {n_nhoods}, k: {k}, max k: {max_k}")
 
-        random.seed(seed)
-        center_cell_idc = random.sample(query_cell_idc, k=n_nhoods)
-        center_cells = np.array(self.adata.obs.iloc[center_cell_idc].index)
+        if pd.isnull(sampling_group_cat):
+            random.seed(seed)
+            center_cell_idc = random.sample(query_cell_idc, k=n_nhoods)
+            center_cells = np.array(self.adata.obs.iloc[center_cell_idc].index)
+        else:
+            if verbose:
+                print(
+                    f"Sampling neighborhood center cells proportionally to {sampling_group_cat} groups and reference/query cell counts."
+                )
+            center_cells_idc, center_cells = sample_query_cells(
+                mapqc_results=self,
+                n_cells=n_nhoods,
+                grouping_key=sampling_group_cat,
+            )
 
         super().__init__(
             adata=self.adata,
@@ -117,6 +139,18 @@ class MapqcResults(DistResults):
         self.calculate_sample_dists_to_ref_samples()
         self.calculate_nhood_statistics(q=self.percentile_cutoff)
         self.calculate_cell_statistics_using_sample_level_results_per_nhood()
+
+
+def load(path):
+    """
+    Load mapQC results from pickle file. Provide path to file ending with .pkl.
+    """
+    if not os.path.isfile(path):
+        raise ValueError(f"the given path {path} does not lead to a file.")
+    if not path.endswith(".pkl"):
+        raise ValueError("The given path is not a pickle file.")
+    with open(path, "rb") as inp:
+        return pickle.load(inp)
 
 
 # def run_mapqc_analysis(
