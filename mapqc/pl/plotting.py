@@ -5,6 +5,7 @@ import scanpy as sc
 import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.colors import rgb2hex
+import matplotlib.colors as mcolors
 import seaborn as sns
 from ..mapqc import MapqcResults
 from typing import Literal
@@ -256,9 +257,9 @@ def umap_filtering_info(
         sc.set_figure_params(figsize=(5, 5))
     # prepare color palette:
     palette = {
-        "pass": "green",
+        "pass": "tab:green",
         "too few reference samples from different batches": "salmon",
-        "too few reference samples": "teal",
+        "too few reference samples": "tab:blue",
         "too few query samples": "black",
     }
     # plot
@@ -733,6 +734,8 @@ def umap_mapQC_scores(
     vmin=-4,
     vmax=4,
     title=None,
+    cmap_name="coolwarm",
+    figsize=(5, 5),
 ):
     """
     TO DO: add documentation
@@ -762,26 +765,65 @@ def umap_mapQC_scores(
         else:
             color = f"mapqc_per_cell_perc{mapqc_results.q}_zscored_q_dist_to_ref_nhood_based"
             sort_order = False
+    # create color sequence, such that each cell has a color, and such that
+    # query cells are colored based on their mapQC score with a gradient,
+    # query cells that are filtered out or not sampled are colored black,
+    # and reference cells are colored grey
     # TO DO: FOR ZSCORE, ORDER CELLS SO THAT NANS ARE PLOTTED FIRST/AT THE BOTTOM
-    sc.pl.umap(
-        mapqc_results._adata_ordered,
-        color=color,
-        palette={
-            ">2": "red",
-            "<=2": "blue",
-            "filtered out": "black",
-        },  # {">2": "red", "<=2": "antiquewhite", "filtered out":"black"},
-        frameon=False,
-        na_color="gray",
-        size=size,
-        cmap="coolwarm",
-        vmin=vmin,
-        vmax=vmax,
-        add_outline=False,
-        outline_color=["black", "black"],
-        sort_order=sort_order,
-        title=title,
-    )
+    if binarized:
+        # standard scanpy umap suffices
+        sc.pl.umap(
+            mapqc_results._adata_ordered,
+            color=color,
+            palette={
+                ">2": "red",
+                "<=2": "blue",
+                "filtered out": "black",
+            },  # {">2": "red", "<=2": "antiquewhite", "filtered out":"black"},
+            frameon=False,
+            na_color="gray",
+            size=size,
+            sort_order=sort_order,
+            title=title,
+        )
+    else:
+        # need to manually change colors, as we have a combination of
+        # categoricals (reference grey, nan black) and gradient (mapQC scores)
+        fig, ax = plt.subplots(figsize=figsize)
+        sc.pl.umap(
+            mapqc_results._adata_ordered,
+            color=None,
+            frameon=False,
+            size=size,
+            sort_order=sort_order,
+            title=title,
+            ax=ax,
+            show=False,
+        )
+        colors = _translate_to_colors_rgba(
+            point_color_values=mapqc_results._adata_ordered.obs[color],
+            point_ref_q_values=mapqc_results._adata_ordered.obs[
+                mapqc_results.ref_q_key
+            ],
+            vmin=vmin,
+            vmax=vmax,
+            cmap_name=cmap_name,
+        )
+        scatter = ax.collections[0]
+        # Set the colors of the scatter plot
+        scatter.set_facecolors(colors)
+        scatter.set_edgecolors("none")
+
+        # Add a colorbar
+        sm = plt.cm.ScalarMappable(
+            cmap=plt.get_cmap(cmap_name), norm=plt.Normalize(vmin=vmin, vmax=vmax)
+        )
+        sm.set_array([])
+        cbar = plt.colorbar(sm, ax=ax, fraction=0.04, aspect=30)
+        cbar.set_label(
+            "MapQC score\n(black: not sampled, or filtered out)", fontsize=10
+        )
+        plt.show()
 
 
 def boxplot_sample_distances_to_reference(mapqc_results):
@@ -1208,3 +1250,30 @@ def _prepare_adata_for_cell_level_res_plotting(mapqc_results, sample_based=True)
         mapqc_results._adata_prepped_for_cell_level_res_plotting_sample_based = True
     else:
         mapqc_results._adata_prepped_for_cell_level_res_plotting_nhood_only_based = True
+
+
+def _translate_to_colors_rgba(
+    point_color_values,
+    point_ref_q_values,
+    vmin=-4,
+    vmax=4,
+    cmap_name="coolwarm",
+):
+    cmap = plt.get_cmap(cmap_name)
+    norm = mcolors.Normalize(vmin=vmin, vmax=vmax)
+
+    def value_to_color(value, r_or_q):
+        if r_or_q == "r":
+            return (0.5, 0.5, 0.5, 1.0)  # Grey for reference
+        elif value is None or (isinstance(value, float) and np.isnan(value)):
+            return (0, 0, 0, 1)  # Black for None or np.nan
+        else:
+            return cmap(norm(value))
+
+    colors = np.array(
+        [
+            value_to_color(point, r_or_q)
+            for point, r_or_q in zip(point_color_values, point_ref_q_values)
+        ]
+    )
+    return colors
