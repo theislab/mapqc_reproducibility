@@ -110,7 +110,7 @@ class DistResults:
         self.min_n_samples_ref = min_n_samples_ref
         self.min_n_samples_q = min_n_samples_q
         self.q = None
-        self.results = dict()
+        self.result_stats = dict()
         # Sanity checks:
         # check if adata.obs.index unique:
         if not adata.shape[0] == len(set(adata.obs.index)):
@@ -202,12 +202,20 @@ class DistResults:
         # add z-scored distances to reference, setting the mean of the reference
         # sample distances to reference as 0, and their standard deviation to 1.
         # first, calculate mean dist to ref among ref samples (1 per nhood)
-        ref_sample_dists_to_ref = self.mean_sample_dists_to_ref[: len(self.ref_samples_all),]
+        ref_sample_dists_to_ref = self.mean_sample_dists_to_ref[
+            : len(self.ref_samples_all),
+        ]
         # NEW: REMOVE OUTLIERS:
         max_n_interquartile_range_from_hinge = 3.5
-        nhood_ref_25percentiles = np.nanpercentile(ref_sample_dists_to_ref, q=25, axis=0)
-        nhood_ref_75percentiles = np.nanpercentile(ref_sample_dists_to_ref, q=75, axis=0)
-        nhood_ref_interquartile_range = nhood_ref_75percentiles - nhood_ref_25percentiles
+        nhood_ref_25percentiles = np.nanpercentile(
+            ref_sample_dists_to_ref, q=25, axis=0
+        )
+        nhood_ref_75percentiles = np.nanpercentile(
+            ref_sample_dists_to_ref, q=75, axis=0
+        )
+        nhood_ref_interquartile_range = (
+            nhood_ref_75percentiles - nhood_ref_25percentiles
+        )
         upper_threshold_outliers = (
             nhood_ref_75percentiles
             + max_n_interquartile_range_from_hinge * nhood_ref_interquartile_range
@@ -234,7 +242,9 @@ class DistResults:
         )
         # now zscore all distances and store
         if np.any(nhood_ref_stdev == 0):
-            print("Warning: Standard deviation is 0 for some neighborhoods. Please fix the code to handle this case.")
+            print(
+                "Warning: Standard deviation is 0 for some neighborhoods. Please fix the code to handle this case."
+            )
         self.mean_sample_dists_to_ref_zscored = (
             self.mean_sample_dists_to_ref - nhood_ref_mean_dists
         ) / nhood_ref_stdev
@@ -356,13 +366,14 @@ class DistResults:
         # add boolean specifying if neighborhood is below significance
         # threshold of alpha=0.05
         self.nhood_stats["sign"] = self.nhood_stats.pval_corr < alpha
-        if verbose:
-            perc_of_nhoods_sign = round(
-                self.nhood_stats.sign.sum() / self.nhood_stats.shape[0] * 100
-            )
-            print(
-                f"{perc_of_nhoods_sign}% of neighborhoods that passed filtering are below the significance threshold alpha={alpha}."
-            )
+        # Commenting this out as in the end we focus on cell-level statistics instead of neighborhood-level.
+        # if verbose:
+        #     perc_of_nhoods_sign = round(
+        #         self.nhood_stats.sign.sum() / self.nhood_stats.shape[0] * 100
+        #     )
+        #     print(
+        #         f"{perc_of_nhoods_sign}% of neighborhoods that passed filtering are below the significance threshold alpha={alpha}."
+        #     )
         # calculate the mean, median and qth percentile zscored distance of query
         # samples to reference for each neighborhood:
         mean_zscored_q_dist_to_ref = np.nanmean(
@@ -381,7 +392,7 @@ class DistResults:
         # take only the nhoods that passed filtering:
         self.nhood_stats["mapQC_score"] = mean_zscored_q_dist_to_ref[
             self.nhood_stats.nhood_number
-        ] # used to be "mean_zscored_q_dist_to_ref"
+        ]  # used to be "mean_zscored_q_dist_to_ref"
         self.nhood_stats["median_zscored_q_dist_to_ref"] = median_zscored_q_dist_to_ref[
             self.nhood_stats.nhood_number
         ]
@@ -389,9 +400,7 @@ class DistResults:
             f"perc{q}_zscored_q_dist_to_ref"
         ] = percq_zscored_q_dist_to_ref[self.nhood_stats.nhood_number]
         # store which ones pass the 2-standard deviations above the mean threshold:
-        self.nhood_stats["mapQC_score>2"] = (
-            self.nhood_stats.mapQC_score > 2
-        )
+        self.nhood_stats["mapQC_score>2"] = self.nhood_stats.mapQC_score > 2
         self.nhood_stats["median_zscore>2"] = (
             self.nhood_stats.median_zscored_q_dist_to_ref > 2
         )
@@ -427,7 +436,7 @@ class DistResults:
             n_samples_not_mixing_with_ref / n_samples_with_results * 100
         )
         print(
-            f"{perc_of_query_samples_not_mixing}% of query samples ({n_samples_not_mixing_with_ref} sample(s)) consistently do not mix well with the reference."
+            f"{perc_of_query_samples_not_mixing}% of query samples ({n_samples_not_mixing_with_ref}/{n_samples_with_results}sample(s)) consistently do not mix well with the reference."
         )
         if perc_of_query_samples_not_mixing > 0:
             print(
@@ -436,11 +445,18 @@ class DistResults:
             print(
                 "For more information, check .sample_median_dist_to_ref_across_nhoods\nor run plotting.plot_sample_distances_to_reference."
             )
+        self.result_stats["n_samples_total"] = len(self.query_samples_all)
+        self.result_stats["n_samples_with_results"] = n_samples_with_results
+        self.result_stats[
+            "n_samples_not_mixing_with_ref"
+        ] = n_samples_not_mixing_with_ref
+        self.result_stats[
+            "perc_samples_not_mixing_with_ref"
+        ] = perc_of_query_samples_not_mixing
         # remember that this function has been successfully run:
         self._nhood_stats_calculated = True
 
-    
-    # suggestion @LISA (7.10.24): remove this function 
+    # suggestion @LISA (7.10.24): remove this function
     def calculate_cell_statistics_from_nhoods_using_nhood_stats(self):
         """
         Calculate for each query cell sampled in one or more neighborhoods
@@ -452,8 +468,8 @@ class DistResults:
         (mean qth percentile across nhoods)
         """
         # NOTE @LISA (7.10.24): This does not seem to make sense, I think it uses neighborhood stats
-        # regardless of sample. We want to keep cell-level results specific to/based on 
-        # their sample's behavior. 
+        # regardless of sample. We want to keep cell-level results specific to/based on
+        # their sample's behavior.
         if not self._nhood_stats_calculated:
             raise ValueError(
                 "Neighborhood statistics need to be calculated first. Run .calculate_nhood_statistics."
@@ -523,8 +539,8 @@ class DistResults:
 
     def calculate_cell_statistics_using_sample_level_results_per_nhood(self):
         """
-        Calculate the per-cell zscored distance to the reference, based on the 
-        cell's sample's distance to the reference in all the neighborhoods the 
+        Calculate the per-cell zscored distance to the reference, based on the
+        cell's sample's distance to the reference in all the neighborhoods the
         cell occurred in, and taking the mean across those neighborhoods.
         """
         if not self._nhood_stats_calculated:
@@ -534,16 +550,18 @@ class DistResults:
         query_cells = self.adata.obs.loc[
             self.adata.obs[self.ref_q_key] == self.query_cat, :
         ].index
-        cell_results = pd.DataFrame(
-            index=query_cells, columns=["mapQC_score"]
-        )
-        # collect indices of cells that did not pass filtering in any 
+        cell_results = pd.DataFrame(index=query_cells, columns=["mapQC_score"])
+        # collect indices of cells that did not pass filtering in any
         # neighborhood:
-        cells_from_filtered_out_nhoods = list(set([
-            idx
-            for sublist in self._cells_from_filtered_neighborhoods.values()
-            for idx in sublist
-        ]))
+        cells_from_filtered_out_nhoods = list(
+            set(
+                [
+                    idx
+                    for sublist in self._cells_from_filtered_neighborhoods.values()
+                    for idx in sublist
+                ]
+            )
+        )
         cells_without_results_due_to_filtering = list()
         for cell_idx, cell in enumerate(self.adata.obs.index):
             if cell in query_cells:
@@ -569,7 +587,9 @@ class DistResults:
                     # check if any rows are left. Not sure if it can happen that there are none,
                     # trying to check that with the conditional below:
                     if len(rows_with_nhood_results_for_query_sample) == 0:
-                        raise ValueError("There are no results for this query sample, but you are trying to calculate the mean results. Fix this in the code...")
+                        raise ValueError(
+                            "There are no results for this query sample, but you are trying to calculate the mean results. Fix this in the code..."
+                        )
                     cell_results.loc[
                         cell, "mapQC_score"
                     ] = self.mean_s2ref_dist_per_nhood_zscored_df.mapQC_score[
@@ -580,34 +600,35 @@ class DistResults:
                     # just not sampled....
                     if cell_idx in cells_from_filtered_out_nhoods:
                         cells_without_results_due_to_filtering.append(cell)
-        cell_results["mapQC_score>2"] = (
-            cell_results.mapQC_score > 2
-        )
+        cell_results["mapQC_score>2"] = cell_results.mapQC_score > 2
         # keep nans, they are set to False with the above code
-        cell_results.loc[
-            cell_results.mapQC_score.isna(), "mapQC_score>2"
-        ] = np.nan
-        cell_results["mapQC_score>2"] = cell_results[
-            "mapQC_score>2"
-        ].map({True: f">2", False: f"<=2"})
-        # add filtering info:
-        cell_results.loc[cells_without_results_due_to_filtering,'mapQC_score>2'] = "filtered out"
-        
-        # print results:
-        total_n_cells_with_results = np.sum(
-            ~cell_results.mapQC_score.isna()
+        cell_results.loc[cell_results.mapQC_score.isna(), "mapQC_score>2"] = np.nan
+        cell_results["mapQC_score>2"] = cell_results["mapQC_score>2"].map(
+            {True: f">2", False: f"<=2"}
         )
-        perc_cells_percq_zscored_q_dist_to_ref_over_2 = round(
+        # add filtering info:
+        cell_results.loc[
+            cells_without_results_due_to_filtering, "mapQC_score>2"
+        ] = "filtered out"
+
+        # print results:
+        total_n_cells_with_results = np.sum(~cell_results.mapQC_score.isna())
+        perc_cells_with_results = round(
+            total_n_cells_with_results / cell_results.shape[0] * 100, 2
+        )
+        perc_cells_mapQC_over_2 = round(
             np.sum(cell_results["mapQC_score>2"] == ">2")
             / total_n_cells_with_results
             * 100,
             2,
         )
+        print(f"Percentage of cells filtered out: {100 - perc_cells_with_results}")
         print(
-            f"Percentage of query cells showing low sample-mixing: {perc_cells_percq_zscored_q_dist_to_ref_over_2}."
+            f"Percentage of query cells (that passed filtering) showing low sample-mixing: {perc_cells_mapQC_over_2}."
         )
         # store percentage as result:
-        self.results['perc_non_mixing_cells'] = perc_cells_percq_zscored_q_dist_to_ref_over_2
+        self.result_stats["perc_cells_with_results"] = perc_cells_with_results
+        self.result_stats["perc_non_mixing_cells"] = perc_cells_mapQC_over_2
         self.cell_results_nhood_sample_based = cell_results
         self._cell_level_stats_sample_based_calculated = True
 
@@ -618,7 +639,7 @@ class DistResults:
         if not path.endswith(".pkl"):
             path = path + ".pkl"
         print("saving results at", path)
-        with open(path, 'wb') as outp:
+        with open(path, "wb") as outp:
             pickle.dump(self, outp, pickle.HIGHEST_PROTOCOL)
 
     def _calculate_intersample_distances(self):
@@ -669,7 +690,7 @@ class DistResults:
         # the k nearest neighbors of each index cell, including itself)
         self.nhood_cells = np.zeros((len(self.center_cells), self.max_k))
         self.nhood_cells[:] = np.nan
-        # generate empty dict with cells from neighborhoods that have 
+        # generate empty dict with cells from neighborhoods that have
         # been filtered out:
         self._cells_from_filtered_neighborhoods = dict()
         # now loop through neighborhoods and calculate mean inter-sample
@@ -714,16 +735,18 @@ class DistResults:
                     np.array([nhood_count])[np.newaxis, np.newaxis, :],
                 ] = nhood_results.values[:, :, np.newaxis]
             else:
-                # store neighbors as cells that have been filtered out at some 
+                # store neighbors as cells that have been filtered out at some
                 # point. This will be used when calculating and visualizing
                 # the cell-level results
-                self._cells_from_filtered_neighborhoods[nhood.index_cell] = nhood.knn_idc
+                self._cells_from_filtered_neighborhoods[
+                    nhood.index_cell
+                ] = nhood.knn_idc
         # print filtering information
         self.perc_of_nhoods_passed_filter = round(
             (self._nhood_filtered == "pass").sum() / len(self.center_cells) * 100
         )
         print(
-            f"{self.perc_of_nhoods_passed_filter}% of neighborhoods passed filtering. (For more details, see [mapqc_object]._nhood_filtered)"
+            f"{self.perc_of_nhoods_passed_filter}% of neighborhoods passed filtering.\n(For more details, see [mapqc_results]._nhood_filtered) or run mapqc.pl.umap_filtering_info()."
         )
         # store intersample distances
         self.intersample_distances = mean_s2s_dist_per_nhood
@@ -748,9 +771,7 @@ class DistResults:
             per_sample_meandists_query.groupby("sample")
             .agg({"mapQC_score": "median"})
             .sort_values(by="mapQC_score")
-        ).rename(
-            columns={"mapQC_score": "median_dist_to_ref_across_nhoods"}
-        )
+        ).rename(columns={"mapQC_score": "median_dist_to_ref_across_nhoods"})
 
     def _calculate_nhood_ks_statistics(self):
         """
@@ -786,6 +807,7 @@ class DistResults:
                 rvs=r2r_dists, cdf=r2q_dists, alternative="greater"
             )[:2]
 
+
 def load(path):
     """
     Load mapQC results from pickle file. Provide path to file ending with .pkl.
@@ -794,5 +816,5 @@ def load(path):
         raise ValueError(f"the given path {path} does not lead to a file.")
     if not path.endswith(".pkl"):
         raise ValueError("The given path is not a pickle file.")
-    with open(path, 'rb') as inp:
+    with open(path, "rb") as inp:
         return pickle.load(inp)

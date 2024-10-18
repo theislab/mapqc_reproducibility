@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 from anndata import AnnData
 from typing import Literal
+
 # import jax
 # from ott.geometry import pointcloud
 # from ott.solvers.linear import sinkhorn
@@ -173,7 +174,6 @@ class Neighborhood:
         else:
             # store embedding of cells in nhood with default k:
             self.knn_idc = self._get_nearest_neighbors(k)
-    
 
     def get_pairwise_sample_dists(self):
         """
@@ -285,11 +285,13 @@ class Neighborhood:
             def _get_nth_idx(list, value, n):
                 inst_idc = [idx for idx, x in enumerate(list) if x == value]
                 if len(inst_idc) < n:
-                    return len(
-                        list
-                    ) - 1 # as if only the last cell is the nth instance of the sample
+                    return (
+                        len(list) - 1
+                    )  # as if only the last cell is the nth instance of the sample
                 else:
-                    nth_inst_idx = inst_idc[n - 1] # -1 because of python indexing: 1st cell is at index 0
+                    nth_inst_idx = inst_idc[
+                        n - 1
+                    ]  # -1 because of python indexing: 1st cell is at index 0
                     return nth_inst_idx
 
             # first, get sample names for all cells in adata, ordered by ascending distance from
