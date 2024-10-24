@@ -6,6 +6,7 @@ import os
 import pickle
 from .mapqc_dists import DistResults
 from .sampler import sample_query_cells
+from .result_processing import add_nhood_stats_to_adata, add_cell_level_stats_to_adata
 
 
 class MapqcResults(DistResults):
@@ -139,6 +140,8 @@ class MapqcResults(DistResults):
         self.calculate_sample_dists_to_ref_samples()
         self.calculate_nhood_statistics(q=self.percentile_cutoff)
         self.calculate_cell_statistics_using_sample_level_results_per_nhood()
+        add_nhood_stats_to_adata(self)
+        add_cell_level_stats_to_adata(self)
 
 
 def load(path):

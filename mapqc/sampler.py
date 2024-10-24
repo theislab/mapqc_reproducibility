@@ -1,11 +1,11 @@
 import scanpy as sc
 import pandas as pd
 import numpy as np
-from .mapqc import MapqcResults
+from .mapqc_dists import DistResults
 
 
 def sample_query_cells(
-    mapqc_results: MapqcResults,
+    mapqc_results: DistResults,
     n_cells: int,
     grouping_key: str,
 ):
