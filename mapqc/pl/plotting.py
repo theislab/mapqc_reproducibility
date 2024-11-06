@@ -8,7 +8,7 @@ from matplotlib.colors import rgb2hex
 import matplotlib.colors as mcolors
 import seaborn as sns
 from ..mapqc import MapqcResults
-from typing import Literal
+from typing import Literal, Union, List
 
 
 def boxplot_sample_scores_per_nhood(
@@ -17,6 +17,8 @@ def boxplot_sample_scores_per_nhood(
     neighborhood: str = None,
     max_neighborhoods_to_plot: int = 80,
     seed: int = 0,
+    label_x_ticks_by: str = None,
+    return_fig: bool = False,
 ):
     """
     Plot a split boxplot of, for each neighborhood, reference sample mean distances
@@ -55,6 +57,12 @@ def boxplot_sample_scores_per_nhood(
     if not isinstance(neighborhood, type(None)):
         if not neighborhood in mapqc_results.center_cells:
             raise ValueError("Your neighborhood is not part of the center cells.")
+    # check that label_x_ticks_by is a column in adata.obs:
+    if not isinstance(label_x_ticks_by, type(None)):
+        if not label_x_ticks_by in mapqc_results.adata.obs.columns:
+            raise ValueError(
+                f"label_x_ticks_by: {label_x_ticks_by} is not a column in adata.obs."
+            )
     # if not mapqc_results._results_prepped_for_boxplot:
     # _convert_nhood_dists_to_plottable_dataframe(mapqc_results)
     if use_zscored_dists:
@@ -130,10 +138,15 @@ def boxplot_sample_scores_per_nhood(
         mapqc_results.nhood_stats.loc[nhood_order, f"median_mapqc_score"],
         2,
     )
-    ax.set_xticklabels(
-        [f"{num} ({score})" for num, score in zip(nhood_numbers, nhood_zscores)]
-    )
-    ax.set_xlabel(f"Neighborhood number (median query sample mapqcscore)")
+    if label_x_ticks_by is None:
+        ax.set_xticklabels([num for num in nhood_numbers])
+        ax.set_xlabel(f"Neighborhood number")
+    else:
+        nhood_labels = mapqc_results.adata.obs.loc[nhood_order, label_x_ticks_by]
+        ax.set_xticklabels(
+            [f"{num} ({lab})" for num, lab in zip(nhood_numbers, nhood_labels)]
+        )
+        ax.set_xlabel(f"Neighborhood number ({label_x_ticks_by} of center cell)")
     ax.set_ylabel(ylabel)
     # else:
     #     ax.set_xticklabels(
@@ -144,6 +157,8 @@ def boxplot_sample_scores_per_nhood(
     #     )
     #     ax.set_xlabel("nhood (corr. pval)")
     ax.tick_params(axis="x", rotation=90)
+    if return_fig:
+        return fig
 
 
 def umap_significance(
@@ -151,6 +166,7 @@ def umap_significance(
     title: str = "neighborhood significance",
     scale_size_by_nhood_weight: bool = True,
     scale: float = 1,
+    return_fig: bool = False,
 ):
     """
     Plot UMAP of adata in mapqc_results instance, colored grey for all non-index
@@ -214,11 +230,49 @@ def umap_significance(
         title=title,
         na_color="darkgrey",
         frameon=False,
+        return_fig=return_fig,
+    )
+
+
+def umap_center_cell(
+    mapqc_results: MapqcResults,
+    neighborhood_center_cell: str,
+    size: float = 0.5,
+    return_fig: bool = False,
+):
+    # check if center cell is in cells:
+    if not neighborhood_center_cell in mapqc_results.adata.obs.index:
+        raise ValueError(
+            f"Center cell {neighborhood_center_cell} is not in adata.obs.index."
+        )
+    # store dot sizes: only center cell should be large
+    dotsizes = [
+        size * 1 if cell != neighborhood_center_cell else size * 200
+        for cell in mapqc_results._adata_ordered.obs.index
+    ]
+    # store color vector: grey for all but center cell, which should be black
+    mapqc_results._adata_ordered.obs["_center_cell"] = [
+        "Other" if cell != neighborhood_center_cell else neighborhood_center_cell
+        for cell in mapqc_results._adata_ordered.obs.index
+    ]
+    palette = {"Other": "lightgray", neighborhood_center_cell: "black"}
+    # plot
+    sc.pl.umap(
+        mapqc_results._adata_ordered,
+        color="_center_cell",
+        size=dotsizes,
+        sort_order=True,
+        title=neighborhood_center_cell,
+        frameon=False,
+        palette=palette,
+        return_fig=return_fig,
     )
 
 
 def umap_filtering_info(
-    mapqc_results: MapqcResults, title: str = "neighborhood filtering"
+    mapqc_results: MapqcResults,
+    title: str = "neighborhood filtering",
+    return_fig: bool = False,
 ):
     """
     Plot UMAP of adata in mapqc_results instance, colored grey for all non-index
@@ -269,6 +323,7 @@ def umap_filtering_info(
         title=title,
         na_color="darkgrey",
         frameon=False,
+        return_fig=return_fig,
     )
 
 
@@ -284,6 +339,7 @@ def umap_zscored_q_dist_to_ref(
     title: str = None,
     scale: int = 1,
     samples_to_exclude: list = None,
+    return_fig: bool = False,
 ):
     """
     Plot UMAP of adata in mapqc_results instance, coloring neighborhoods
@@ -453,6 +509,7 @@ def umap_zscored_q_dist_to_ref(
         vmax=3,
         na_color="grey",
         frameon=False,
+        return_fig=return_fig,
     )
 
 
@@ -461,6 +518,7 @@ def umap_sample_specific_zscored_q_dist_to_ref(
     sample_name: str,
     color_by: Literal["zscore", "zscore>2"] = "zscore",
     size: float = 1,
+    return_fig: bool = False,
 ):
     """
     TO DO: ADD DOCUMENTATION
@@ -521,15 +579,17 @@ def umap_sample_specific_zscored_q_dist_to_ref(
         cmap="Reds",
         vmin=0,
         palette=palette,
+        return_fig=return_fig,
     )
 
 
-def umap_neighborhood(
+def umap_show_neighborhood(
     mapqc_results: MapqcResults,
     neighborhood: str,
     title: str = None,
     scale: int = 1,
     color_by=None,
+    return_fig: bool = False,
 ):
     """
     Plot UMAP of adata in mapqc_results instance, coloring the cells
@@ -615,6 +675,54 @@ def umap_neighborhood(
         sort_order=False,
         title=title,
         frameon=False,
+        return_fig=return_fig,
+    )
+
+
+def umap_neighborhood(
+    mapqc_results: MapqcResults,
+    neighborhood: str,
+    title: str = None,
+    size: int = 10,
+    color_by: Union[str, List[str]] = None,
+    recalculate_umap: bool = False,
+    k: int = 15,
+    ncols: int = 1,
+    return_fig: bool = False,
+    umap_kwargs: dict = {},
+):
+    # check that color_by strings are valid columns in adata.obs
+    if isinstance(color_by, type(None)):
+        raise ValueError("color_by argument has to be set.")
+    if isinstance(color_by, str):
+        color_by = list(color_by)
+    for col in color_by:
+        if col not in mapqc_results.adata.obs.columns:
+            raise ValueError(
+                f"color_by argument has to be set to an existing .obs column name. {col} is not."
+            )
+    # check that neighborhood is in center cells
+    if neighborhood not in mapqc_results.center_cells:
+        raise ValueError("Your neighborhood is not part of the center cells.")
+    # get idc of cells to plot:
+    nhood_idx = np.where(mapqc_results.center_cells == neighborhood)[0][0]
+    nhood_cells = mapqc_results.nhood_cells[nhood_idx, :]
+    # remove nans and set to integers instead of floats:
+    nhood_cells = nhood_cells[~np.isnan(nhood_cells)].astype(int)
+    adata_to_plot = mapqc_results.adata[nhood_cells, :].copy()
+    # calculate UMAP based on subset of cells if wanted:
+    if recalculate_umap:
+        sc.pp.neighbors(adata_to_plot, n_neighbors=k, use_rep="X")
+        sc.tl.umap(adata_to_plot)
+    sc.pl.umap(
+        adata_to_plot,
+        color=color_by,
+        size=size,
+        title=title,
+        frameon=False,
+        return_fig=return_fig,
+        ncols=ncols,
+        **umap_kwargs,
     )
 
 
@@ -625,6 +733,7 @@ def umap_q_ref_sample_shaded(
     reference_only: bool = False,
     seed: int = None,
     dotsize: int = None,
+    return_fig: bool = False,
 ):
     """
     Plot UMAP of mapqc_results adata, colored by reference versus query, but
@@ -647,6 +756,8 @@ def umap_q_ref_sample_shaded(
         Whether to only plot cells from the reference
     dotsize
         Size of dots in UMAP
+    return_fig
+        Whether to return the figure as a variable
 
     Returns
     -------
@@ -729,6 +840,7 @@ def umap_q_ref_sample_shaded(
         title=title,
         frameon=False,
         size=dotsize,
+        return_fig=return_fig,
     )
 
 
@@ -744,6 +856,7 @@ def umap_mapqc_scores(
     title=None,
     cmap_name=None,
     figsize=(5, 5),
+    return_fig: bool = False,
 ):
     """
     TO DO: add documentation
@@ -798,6 +911,7 @@ def umap_mapqc_scores(
             size=size,
             # sort_order=sort_order,
             title=title,
+            return_fig=return_fig,
         )
     elif color_by == "mean_pval_corr_significant":
         sc.pl.umap(
@@ -814,6 +928,7 @@ def umap_mapqc_scores(
             size=size,
             # sort_order=sort_order,
             title=title,
+            return_fig=return_fig,
         )
     else:
         if vmin is None or vmax is None:
@@ -868,7 +983,10 @@ def umap_mapqc_scores(
         cbar.set_label(
             f"{label_prefix}\n(black: not sampled, or filtered out)", fontsize=10
         )
-        plt.show()
+        if return_fig:
+            return fig
+        else:
+            plt.show()
 
 
 # Already covered by boxplot_mapqc_scores_per_category
@@ -923,8 +1041,10 @@ def boxplot_mapqc_scores_per_category(
     mapqc_results,
     box_category: str,
     color_category: str = None,
+    color_high_median_boxes_red: bool = False,
     palette_stripplot: str = "tab10",
     min_cells_per_cat: int = 10,
+    return_fig: bool = False,
 ):
     """
     TO DO: add documentation
@@ -970,10 +1090,15 @@ def boxplot_mapqc_scores_per_category(
         .agg({"mapqc_score": "median"})
         .sort_values(by="mapqc_score")
     ).dropna(axis=0, how="all")
-    palette_boxes = {
-        sample: "grey" if zscore < 2 else "red"
-        for sample, zscore in zip(category_medians.index, category_medians.mapqc_score)
-    }
+    if color_high_median_boxes_red:
+        palette_boxes = {
+            sample: "grey" if zscore < 2 else "red"
+            for sample, zscore in zip(
+                category_medians.index, category_medians.mapqc_score
+            )
+        }
+    else:
+        palette_boxes = {sample: "grey" for sample in category_medians.index}
     if pd.isnull(color_category):
         stripplot_hue = None
     else:
@@ -1010,6 +1135,10 @@ def boxplot_mapqc_scores_per_category(
         leg = plt.legend(loc=(1.01, 0.4), frameon=False, title=color_category)
         leg._legend_box.align = "left"
     plt.tight_layout()
+    if return_fig:
+        return fig
+    else:
+        plt.show()
 
 
 def grouped_boxplot_mapqc_scores_per_category(
@@ -1019,12 +1148,15 @@ def grouped_boxplot_mapqc_scores_per_category(
     group_category: str,
     color_category: str = None,
     palette=None,
+    figsize: tuple[float, float] = (10, 8),
     min_cells_per_cat: int = 10,
+    return_fig: bool = False,
+    vmax: float = None,
 ):
     """
     TO DO: add documentation
     """
-    fig = plt.figure(figsize=(10, 8))
+    fig = plt.figure(figsize=figsize)
     ax = fig.add_subplot(1, 1, 1)
     # check that category is in adata.obs columns:
     categories_to_include = [box_category, group_category]
@@ -1110,7 +1242,7 @@ def grouped_boxplot_mapqc_scores_per_category(
         palette=palette,
         order=category_medians.index,
         ax=ax,
-        fliersize=0.5,
+        fliersize=0.2,
     )
     sns.stripplot(
         cell_level_results,
@@ -1129,7 +1261,35 @@ def grouped_boxplot_mapqc_scores_per_category(
     plt.axhline(y=2, linestyle="--")
     leg = plt.legend(loc=(1.05, 0.7), frameon=False, title=color_category)
     leg._legend_box.align = "right"
+    if not pd.isnull(vmax):
+        plt.ylim(top=vmax)
     plt.tight_layout()
+    if return_fig:
+        return fig
+    else:
+        plt.show()
+
+
+def scatter_ct_n_versus_ct_mapqc_score(mapqc_results, ct_cat):
+    ct_df = pd.DataFrame(
+        mapqc_results.adata.obs.loc[
+            mapqc_results.adata.obs[mapqc_results.ref_q_key] == mapqc_results.query_cat,
+            :,
+        ][ct_cat].value_counts()
+    ).rename(columns={ct_cat: "n_cells"})
+    mean_mapqc_score_per_ct = (
+        mapqc_results.adata.obs.loc[
+            mapqc_results.adata.obs[mapqc_results.ref_q_key] == mapqc_results.query_cat,
+            :,
+        ]
+        .groupby(ct_cat)
+        .agg({"mapqc_score": "mean"})
+    )
+    ct_df["mean_mapqc_score"] = mean_mapqc_score_per_ct.loc[ct_df.index, :]
+    plt.scatter(ct_df.n_cells, ct_df.mean_mapqc_score)
+    plt.xlabel("n cells in cell type")
+    plt.ylabel("mean mapqc score of cell type")
+    plt.show()
 
 
 def _translate_to_colors_rgba(

@@ -113,7 +113,6 @@ class DistResults:
         self.min_n_samples_ref = min_n_samples_ref
         self.min_n_samples_q = min_n_samples_q
         self.q = None
-        self.result_stats = dict()
         # Sanity checks:
         # check if adata.obs.index unique:
         if not adata.shape[0] == len(set(adata.obs.index)):
@@ -402,7 +401,7 @@ class DistResults:
         have enough query or reference samples) are left out.
         """
         # first check if any neighborhoods passed filtering:
-        if self.perc_of_nhoods_passed_filter == 0:
+        if self.result_stats["perc_of_nhoods_passed_filter"] == 0:
             raise ValueError(
                 "None of the neighborhoods passed filtering, and so no results can be calculated."
             )
@@ -807,7 +806,13 @@ class DistResults:
         self._cells_from_filtered_neighborhoods = dict()
         # now loop through neighborhoods and calculate mean inter-sample
         # distances per nhood
-        for nhood_count, center_cell in tqdm(enumerate(self.center_cells)):
+        for nhood_count, center_cell in tqdm(
+            enumerate(self.center_cells),
+            total=len(self.center_cells),
+            miniters=max(1, len(self.center_cells) // 100),  # Update every 1% progress
+            desc="Calculating intersample distances",
+            ncols=80,  # Limit width of progress bar
+        ):  # tqdm prints progress bar, now set such that it updates every 1% progress
             nhood = nhoods.Neighborhood(
                 adata=self.adata,
                 index_cell=center_cell,
@@ -854,11 +859,11 @@ class DistResults:
                     nhood.index_cell
                 ] = nhood.knn_idc
         # print filtering information
-        self.perc_of_nhoods_passed_filter = round(
+        self.result_stats["perc_of_nhoods_passed_filter"] = round(
             (self._nhood_filtered == "pass").sum() / len(self.center_cells) * 100
         )
         print(
-            f"{self.perc_of_nhoods_passed_filter}% of neighborhoods passed filtering.\n(For more details, see [mapqc_results]._nhood_filtered) or run mapqc.pl.umap_filtering_info()."
+            f"{self.result_stats['perc_of_nhoods_passed_filter']}% of neighborhoods passed filtering.\n(For more details, see [mapqc_results]._nhood_filtered) or run mapqc.pl.umap_filtering_info()."
         )
         # store intersample distances
         self.intersample_distances = mean_s2s_dist_per_nhood

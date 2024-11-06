@@ -5,9 +5,7 @@ from .mapqc_dists import DistResults
 
 
 def sample_query_cells(
-    mapqc_results: DistResults,
-    n_cells: int,
-    grouping_key: str,
+    mapqc_results: DistResults, n_cells: int, grouping_key: str, seed: int = None
 ):
     """
     Sample n_cells from the query category.
@@ -87,6 +85,8 @@ def sample_query_cells(
         group_query_cell_index_numbers = np.arange(mapqc_results.adata.n_obs)[
             (mapqc_results.adata.obs[grouping_key] == group) & query_mask
         ]
+        if not pd.isnull(seed):
+            np.random.seed(seed)
         sampled_cells_index_numbers.extend(
             np.random.choice(group_query_cell_index_numbers, size=n, replace=False)
         )

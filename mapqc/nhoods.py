@@ -157,6 +157,7 @@ class Neighborhood:
             ),
             self.adata_emb,
         )[0]
+
         # get indices of columns (cell indices) sorted from small to large distance
         # to index cell (cell itself should therefore be first)
         self._cell_indices_sorted_by_dist = np.argsort(

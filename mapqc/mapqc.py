@@ -4,6 +4,7 @@ import pandas as pd
 import scanpy as sc
 import os
 import pickle
+from typing import Union, List
 from .mapqc_dists import DistResults
 from .sampler import sample_query_cells
 from .result_processing import add_nhood_stats_to_adata, add_cell_level_stats_to_adata
@@ -17,8 +18,8 @@ class MapqcResults(DistResults):
         ref_cat: str,
         query_cat: str,
         condition_key: str,
-        control_cat: str,
-        case_cat: str,
+        control_cats: Union[str, List[str]],
+        case_cats: Union[str, List[str]],
         emb_key: str,
         dataset_key: str,
         sample_key: str,
@@ -29,7 +30,7 @@ class MapqcResults(DistResults):
         max_k: int = None,
         n_nhoods: int = None,
         min_n_samples_q: int = 1,
-        seed: int = 0,
+        seed: int = None,
         verbose: bool = True,
     ):
         """
@@ -44,36 +45,42 @@ class MapqcResults(DistResults):
         self.ref_q_key = ref_q_key
         self.ref_cat = ref_cat
         self.query_cat = query_cat
+        self.result_stats = dict()
         # TO DO: update this to either a single condition (control or case), or
         # restructure such that it runs mapQC for multiple conditions.
         # run a couple of preparory functions, then call the parent init
         # to initialize the rest of the mapqc_results object
         # Check that control_cat and case_cat are both categories in adata.obs[condition_key]:
-        if control_cat not in adata.obs[condition_key].values:
-            raise ValueError(
-                f"'{control_cat}' is not a category in adata.obs['{condition_key}']"
-            )
-        if case_cat not in adata.obs[condition_key].values:
-            raise ValueError(
-                f"'{case_cat}' is not a category in adata.obs['{condition_key}']"
-            )
+        if isinstance(control_cats, str):
+            control_cats = [control_cats]
+        if isinstance(case_cats, str):
+            case_cats = [case_cats]
+        for control_cat in control_cats:
+            if control_cat not in adata.obs[condition_key].values:
+                raise ValueError(
+                    f"'{control_cat}' is not a category in adata.obs['{condition_key}']"
+                )
+        for case_cat in case_cats:
+            if case_cat not in adata.obs[condition_key].values:
+                raise ValueError(
+                    f"'{case_cat}' is not a category in adata.obs['{condition_key}']"
+                )
         if not pd.isnull(sampling_group_cat):
             if sampling_group_cat not in adata.obs.columns:
                 raise ValueError(f"'{sampling_group_cat}' is not a column in adata.obs")
-        self.control_cat = control_cat
-        self.case_cat = case_cat
+        self.control_cats = control_cats
+        self.case_cats = case_cats
 
-        # results_dict = {}
-        # Run analysis for both control and case:
         if control_or_case == "control":
-            subset_cat = control_cat
+            subset_cats = control_cats
         elif control_or_case == "case":
-            subset_cat = case_cat
+            subset_cats = case_cats
         else:
             raise ValueError(
                 f"control_or_case should be set to either 'control' or 'case', not '{control_or_case}'"
             )
-        case_control_string = "control" if subset_cat == control_cat else "case"
+        # randomize order of adata cells, this is relevant for plotting down the line
+        adata = adata[np.random.permutation(adata.n_obs)].copy()
         if emb_key != "X":
             if emb_key not in adata.obsm.keys():
                 raise ValueError(f"Embedding key '{emb_key}' not found in adata.obsm")
@@ -84,17 +91,17 @@ class MapqcResults(DistResults):
         else:
             self.adata = adata
         if verbose:
-            print(f"Subsetting query to {case_control_string} condition '{subset_cat}'")
+            print(f"Subsetting query to {control_or_case} condition(s) '{subset_cats}'")
         self.adata = self.adata[
             (self.adata.obs[ref_q_key] == ref_cat)
-            | (self.adata.obs[condition_key] == subset_cat)
+            | (self.adata.obs[condition_key].isin(subset_cats))
         ].copy()
         query_cell_idc = np.where(self.adata.obs[ref_q_key] == query_cat)[0].tolist()
         n_cells = len(query_cell_idc)
         n_samples = len(self.adata.obs.iloc[query_cell_idc, :][sample_key].unique())
         if verbose:
             print(
-                f"Number of {case_control_string} query samples: {n_samples}, number of query cells: {n_cells}"
+                f"Number of {control_or_case} query samples: {n_samples}, number of query cells: {n_cells}"
             )
 
         if k is None:
@@ -102,12 +109,17 @@ class MapqcResults(DistResults):
         if max_k is None:
             max_k = int(k * 1.2)
         if n_nhoods is None:
-            n_nhoods = int(n_cells / k * 20)
+            n_nhoods = int(n_cells / k * 60)
         if verbose:
             print(f"n nhoods: {n_nhoods}, k: {k}, max k: {max_k}")
 
+        self.result_stats["n_nhoods"] = n_nhoods
+        self.result_stats["k"] = k
+        self.result_stats["max_k"] = max_k
+
         if pd.isnull(sampling_group_cat):
-            random.seed(seed)
+            if not pd.isnull(seed):
+                random.seed(seed)
             center_cell_idc = random.sample(query_cell_idc, k=n_nhoods)
             center_cells = np.array(self.adata.obs.iloc[center_cell_idc].index)
         else:
@@ -119,6 +131,7 @@ class MapqcResults(DistResults):
                 mapqc_results=self,
                 n_cells=n_nhoods,
                 grouping_key=sampling_group_cat,
+                seed=seed,
             )
 
         super().__init__(
