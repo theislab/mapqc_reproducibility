@@ -32,6 +32,9 @@ def prepare_reference_from_cellxgene_h5ad(path_to_adata: str, testrun: bool = Fa
     # remove useless var columns
     var_columns_to_remove = ["feature_is_filtered", "feature_biotype", "feature_length"]
     adata_reference.var = adata_reference.var.drop(columns=var_columns_to_remove)
+    # remove existing umap if it exists:
+    if "X_umap" in adata_reference.obsm.keys():
+        del adata_reference.obsm["X_umap"]
     # rename donors to remove long doi prefix that cellxgene added:
     adata_reference.obs["donor_id"] = [
         donor_str.split(
@@ -107,7 +110,7 @@ def prepare_query_from_cellxgene_h5ad(
     var_columns_to_remove = ["feature_is_filtered", "feature_biotype", "feature_length"]
     adata_query.var = adata_query.var.drop(columns=var_columns_to_remove)
     if study_name == "Sheppard_2020":
-        adata_query = _clean_Sheppard_2020_data(adata_query)
+        adata_query = _clean_Sheppard_2020_data(adata_query, include_SCD=False)
     elif study_name == "Thienpont_2018":
         adata_query = _clean_Thienpont_2018_data(
             adata_query, kwargs["path_to_sample_info_Thienpont_2018"]
@@ -165,16 +168,24 @@ def add_mapping_info_to_counts_adata(adata_counts_combined, adata_emb_combined):
         adata_counts_combined.obs[col] = adata_emb_combined.obs[col]
     # copy umap and embedding, and knn graph (in obsp)
     adata_counts_combined.obsm["X_umap"] = adata_emb_combined.obsm["X_umap"]
-    adata_counts_combined.obsm["X_scanvi"] = np.float32(adata_emb_combined.X)
+    adata_counts_combined.obsm["X_scanvi_emb"] = np.float32(adata_emb_combined.X)
     adata_counts_combined.obsp = adata_emb_combined.obsp
     return adata_counts_combined
 
 
-def _clean_Sheppard_2020_data(adata: sc.AnnData):
+def _clean_Sheppard_2020_data(
+    adata: sc.AnnData, include_SCD: bool = False, verbose: bool = True
+):
     # Remove cells from SCD samples:
-    adata = adata[
-        adata.obs.lung_condition != "Systemic sclerosis-associated ILD", :
-    ].copy()
+    if not include_SCD:
+        if verbose:
+            print("Removing cells from SCD samples...")
+        adata = adata[
+            adata.obs.lung_condition != "Systemic sclerosis-associated ILD", :
+        ].copy()
+    else:
+        if verbose:
+            print("Including cells from SCD samples...")
     # Specify which  cells are from cases
     adata.obs.loc[adata.obs.lung_condition == "Healthy", "status"] = "control"
     adata.obs.loc[adata.obs.lung_condition == "IPF", "status"] = "IPF"
@@ -204,5 +215,11 @@ def _clean_Thienpont_2018_data(adata: sc.AnnData, path_to_sample_info_csv: str):
         "lambrechts_7": "Squamous Cell Carcinoma",
         "lambrechts_8": "Pleiomorphic Carcinoma",
     }
+    # Specify which  cells are from cases
+    adata.obs["status"] = "Lung carcinoma"
+    adata.obs.loc[adata.obs.tumor_site == "Normal", "status"] = "control"
     adata.obs["cancer_type"] = adata.obs.donor_id.map(subject_to_cancertype)
+    adata.obs.loc[
+        adata.obs.tumor_site == "Normal", "lung_condition"
+    ] = "Healthy (tumor adjacent)"
     return adata

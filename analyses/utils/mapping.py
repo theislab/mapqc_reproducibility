@@ -31,9 +31,10 @@ def prepare_query_data_for_mapping(
     # the batch key was defined as "dataset", which can get a bit confusing.
     # Even if our batch variable is not dataset but rather e.g. sample, we
     # have to set our dataset variable to sample. We will store dataset as
-    # a separate variable to retain it:
-    adata.obs["dataset_original"] = adata.obs["dataset"]
-    adata.obs["dataset"] = adata.obs[batch_key]
+    # a separate variable to retain it, and we will re-set this variable
+    # in the create_and_save_mapping_output_adata function:
+    adata.obs["dataset_original"] = adata.obs["dataset"].copy()
+    adata.obs["dataset"] = adata.obs[batch_key].copy()
 
     # Set cell type label variable, as used in this specific reference model,
     # to the unlabelled category used in this specific model:
@@ -145,15 +146,15 @@ def create_and_save_mapping_output_adata(
         adata_reference.obsm["X_scanvi_emb"],
         obs=adata_reference.obs.loc[
             :,
-            [
-                col
-                for col in adata_reference.obs.columns
-                if col.startswith("ann_level_")
-            ],
+            [col for col in adata_reference.obs.columns if col.startswith("ann_level_")]
+            + ["dataset"],
         ],
     )
     adata_ref_latent.obs["r_or_q"] = "r"
-
+    # store batch variable for both ref and query. Note that this is based on the HLCA model,
+    # which uses the "dataset" column as the batch variable
+    adata_ref_latent.obs["batch_variable_for_mapping"] = adata_reference.obs["dataset"]
+    adata_query_latent.obs["batch_variable_for_mapping"] = adata_query.obs["dataset"]
     # perform label transfer:
     if perform_label_transfer:
         if verbose:
@@ -170,7 +171,7 @@ def create_and_save_mapping_output_adata(
             k=k,
         )
     # join the two latent representations:
-    adata_latent_combined = adata_ref_latent.concatenate(
+    adata_latent_combined = adata_ref_latent.concat(
         adata_query_latent, index_unique=None
     )
 
@@ -203,7 +204,22 @@ def create_joint_ref_q_counts_object(
     # concatenate reference and query data:
     if verbose:
         print("Concatenating reference and query data...")
-    adata_combined = adata_reference.concatenate(
+    # remove re-set dataset column (this was added for the mapping, as the HLCA
+    # reference model uses the dataset column as the batch variable. Therefore,
+    # if we wanted to map per sample we needed to set sample as "dataset".
+    # for downstream use this needs to be corrected back again)
+    del adata_query.obs["dataset"]
+    adata_query.obs["dataset"] = adata_query.obs["dataset_original"].copy()
+    del adata_query.obs["dataset_original"]
+    # delete existing umap and scanvi embedding if they exist (keep scanvi emb for reference)
+    if "X_scanvi_emb" in adata_query.obsm.keys():
+        del adata_query.obsm["X_scanvi_emb"]
+    if "X_umap" in adata_query.obsm.keys():
+        del adata_query.obsm["X_umap"]
+    if "X_umap" in adata_reference.obsm.keys():
+        del adata_reference.obsm["X_umap"]
+    # now concatenate ref and query data:
+    adata_combined = adata_reference.concat(
         adata_query, join="outer", index_unique=None
     )
     # prevent "TypeError: Can't implicitly convert non-string objects to strings" error
