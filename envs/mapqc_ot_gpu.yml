@@ -1,0 +1,13 @@
+name: mapqc_ot_gpu
+
+channels:
+  - conda-forge
+dependencies:
+  - conda-forge::python=3.9
+  - conda-forge::scanpy=1.9.3
+  - conda-forge::jupyterlab
+  - conda-forge::pandas<2 # or can we move to 2?
+  - conda-forge::pip 
+  - pip:
+    - ott-jax[neural]>=0.4.6,<=0.4.8 # based on moscot
+    - jax[cuda12]
