@@ -27,7 +27,7 @@ kwargs_query_reading_function = dict()
 
 if par["verbose"]:
     print(f"Parameters: {par}")
-path_to_HLCA = "/lustre/groups/ml01/workspace/lisa.sikkema/atlas_extension/data/HLCA/HLCA_extended_from_cellxgene.h5ad"
+path_to_HLCA = "/ictstr01/groups/ml01/projects/2024_hlca_v2_raphael.kfurirubens/hlca_v1/hlca_v1_full.h5ad"
 path_to_ref_model_dir = "/lustre/groups/ml01/code/lisa.sikkema/atlas_extension/analyses/HLCA/HLCA_reference_model"
 path_to_model_features_csv = os.path.join(path_to_ref_model_dir, "var_names.csv")
 

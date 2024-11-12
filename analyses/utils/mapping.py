@@ -4,6 +4,7 @@ import pandas as pd
 import scarches as sca
 import numpy as np
 import os
+import anndata as ad
 
 import sys
 
@@ -171,8 +172,8 @@ def create_and_save_mapping_output_adata(
             k=k,
         )
     # join the two latent representations:
-    adata_latent_combined = adata_ref_latent.concat(
-        adata_query_latent, index_unique=None
+    adata_latent_combined = ad.concat(
+        (adata_ref_latent, adata_query_latent), index_unique=None, join="outer"
     )
 
     # calculate knn graph if UMAP and/or clustering is desired:
@@ -219,8 +220,8 @@ def create_joint_ref_q_counts_object(
     if "X_umap" in adata_reference.obsm.keys():
         del adata_reference.obsm["X_umap"]
     # now concatenate ref and query data:
-    adata_combined = adata_reference.concat(
-        adata_query, join="outer", index_unique=None
+    adata_combined = ad.concat(
+        (adata_reference, adata_query), join="outer", index_unique=None
     )
     # prevent "TypeError: Can't implicitly convert non-string objects to strings" error
     for col in adata_combined.obs.columns:
