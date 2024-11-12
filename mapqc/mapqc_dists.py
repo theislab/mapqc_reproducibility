@@ -1,7 +1,6 @@
 from . import nhoods
 import numpy as np
 import pandas as pd
-import os
 import pickle
 from scipy.stats import t
 from scipy.stats import kstest
@@ -85,7 +84,9 @@ class DistResults:
         center_cells: np.ndarray,
         k: int,
         emb_key: str,
-        distance_type: Literal["pairwise_euclidean", "sinkhorn"] = "pairwise_euclidean",
+        distance_type: Literal[
+            "pairwise_euclidean", "centroid_euclidean", "sinkhorn"
+        ] = "pairwise_euclidean",
         ref_q_key: str = "reference_or_query",
         ref_cat: str = "reference",
         query_cat: str = "query",
@@ -147,9 +148,13 @@ class DistResults:
         if not isinstance(self.adata.obs[sample_key].values, pd.Categorical):
             self.adata.obs[sample_key] = pd.Categorical(self.adata.obs[sample_key])
         # distance_type
-        if distance_type not in ["pairwise_euclidean", "sinkhorn"]:
+        if distance_type not in [
+            "pairwise_euclidean",
+            "centroid_euclidean",
+            "sinkhorn",
+        ]:
             raise ValueError(
-                "Argument 'distance_type' should be set to either 'pairwise_euclidean' or 'sinkhorn'."
+                "Argument 'distance_type' should be set to either 'pairwise_euclidean', 'centroid_euclidean', or 'sinkhorn'."
             )
         self.distance_type = distance_type
         # embedding key:
@@ -381,9 +386,6 @@ class DistResults:
         #     mean_s2ref_dists_per_nhood_df_zscored
         # )
         # self.s2ref_dists_t_stats_per_nhood_df = s2ref_dists_t_stats_per_nhood_df
-
-        # calculate sample-specific performance across neighborhoods
-        self._calculate_median_sample_dist_to_ref_across_nhoods()
         # store that this function has been run:
         self._sample_dists_to_ref_calculated = True
 
@@ -506,43 +508,6 @@ class DistResults:
         # print(
         #     f"For {perc_of_nhoods_percq_zscore_over_2}% of filtered neighborhoods, >{100-q}% of samples are more than two standard deviations above the mean distance from the reference."
         # )
-        # check sample-specific statistics:
-        samples_with_no_results = [
-            sample
-            for sample in self.query_samples_all
-            if sample not in self.sample_median_dist_to_ref_across_nhoods.index
-        ]
-        if len(samples_with_no_results) > 0:
-            print(
-                f"Warning: no results were calculated for samples {samples_with_no_results}. This could be because these samples have too few cells."
-            )
-        n_samples_with_results = len(self.query_samples_all) - len(
-            samples_with_no_results
-        )
-        n_samples_not_mixing_with_ref = (
-            self.sample_median_dist_to_ref_across_nhoods.values > 2
-        ).sum()
-        perc_of_query_samples_not_mixing = round(
-            n_samples_not_mixing_with_ref / n_samples_with_results * 100
-        )
-        print(
-            f"{perc_of_query_samples_not_mixing}% of query samples ({n_samples_not_mixing_with_ref}/{n_samples_with_results} sample(s)) consistently do not mix well with the reference."
-        )
-        if perc_of_query_samples_not_mixing > 0:
-            print(
-                "If these are control samples, consider removing them from the query, checking your perturbed/disease samples for the same batch effects, removing them too if they show the same effect, and re-mapping."
-            )
-            print(
-                "For more information, check .sample_median_dist_to_ref_across_nhoods\nor run plotting.plot_sample_distances_to_reference."
-            )
-        self.result_stats["n_samples_total"] = len(self.query_samples_all)
-        self.result_stats["n_samples_with_results"] = n_samples_with_results
-        self.result_stats[
-            "n_samples_not_mixing_with_ref"
-        ] = n_samples_not_mixing_with_ref
-        self.result_stats[
-            "perc_samples_not_mixing_with_ref"
-        ] = perc_of_query_samples_not_mixing
         # remember that this function has been successfully run:
         self._nhood_stats_calculated = True
 
@@ -713,6 +678,51 @@ class DistResults:
             cells_without_results_due_to_filtering, "mapqc_score>2"
         ] = "filtered out"
         cell_results.loc[cells_not_sampled, "mapqc_score>2"] = "not sampled"
+        # calculate sample stats (make this into separate function later):
+        cell_results["sample"] = self.adata.obs.loc[cell_results.index, self.sample_key]
+        self._calculate_median_sample_dist_to_ref_across_cells(cell_results)
+        # check sample-specific statistics:
+        samples_with_no_results = [
+            sample
+            for sample in self.query_samples_all
+            if sample not in cell_results["sample"].values
+        ]
+        if len(samples_with_no_results) > 0:
+            print(
+                f"Warning: no results were calculated for samples {samples_with_no_results}. This could be because these samples have too few cells."
+            )
+        n_samples_with_results = len(self.query_samples_all) - len(
+            samples_with_no_results
+        )
+
+        self.result_stats["n_samples_total"] = len(self.query_samples_all)
+        self.result_stats["n_samples_with_results"] = n_samples_with_results
+        if n_samples_with_results == 0:
+            raise ValueError("No samples with results. Stopping run.")
+
+        # calculate sample-specific performance across cells
+        n_samples_not_mixing_with_ref = (
+            self.sample_median_dist_to_ref_across_cells.values > 2
+        ).sum()
+        perc_of_query_samples_not_mixing = round(
+            n_samples_not_mixing_with_ref / n_samples_with_results * 100
+        )
+        print(
+            f"{perc_of_query_samples_not_mixing}% of query samples ({n_samples_not_mixing_with_ref}/{n_samples_with_results} sample(s)) consistently do not mix well with the reference."
+        )
+        if perc_of_query_samples_not_mixing > 0:
+            print(
+                "If these are control samples, consider removing them from the query, checking your perturbed/disease samples for the same batch effects, removing them too if they show the same effect, and re-mapping."
+            )
+            print(
+                "For more information, check .sample_median_dist_to_ref_across_cells\nor run plotting.plot_sample_distances_to_reference."
+            )
+        self.result_stats[
+            "n_samples_not_mixing_with_ref"
+        ] = n_samples_not_mixing_with_ref
+        self.result_stats[
+            "perc_samples_not_mixing_with_ref"
+        ] = perc_of_query_samples_not_mixing
         # print results:
         total_n_cells = cell_results.shape[0]
         total_n_cells_sampled = total_n_cells - len(cells_not_sampled)
@@ -868,27 +878,45 @@ class DistResults:
         # store intersample distances
         self.intersample_distances = mean_s2s_dist_per_nhood
 
-    def _calculate_median_sample_dist_to_ref_across_nhoods(self):
+    # def _calculate_median_sample_dist_to_ref_across_nhoods(self):
+    #     """
+    #     Calculates the median distance of each query sample to the reference,
+    #     taking the median across neighborhoods. These statistics are useful to
+    #     check if specific samples performed poorly during the mapping.
+
+    #     Returns
+    #     -------
+    #     Adds a pd.DataFrame sample_median_dist_to_ref_across_nhoods to the
+    #     mapQC_results object, containing the median distance to the reference
+    #     (calculated across neighborhoods) for each query sample.
+    #     """
+    #     per_sample_meandists_query = self.sample_stats_per_nhood_df.loc[
+    #         self.sample_stats_per_nhood_df.sample_r_or_q == self.query_cat,
+    #         :,
+    #     ]
+    #     self.sample_median_dist_to_ref_across_nhoods = (
+    #         per_sample_meandists_query.groupby("sample")
+    #         .agg({"mapqc_score": "median"})
+    #         .sort_values(by="mapqc_score")
+    #     ).rename(columns={"mapqc_score": "median_dist_to_ref_across_nhoods"})
+
+    def _calculate_median_sample_dist_to_ref_across_cells(self, cell_results):
         """
         Calculates the median distance of each query sample to the reference,
-        taking the median across neighborhoods. These statistics are useful to
+        taking the median across cells. These statistics are useful to
         check if specific samples performed poorly during the mapping.
 
         Returns
         -------
-        Adds a pd.DataFrame sample_median_dist_to_ref_across_nhoods to the
+        Adds a pd.DataFrame sample_median_dist_to_ref_across_cells to the
         mapQC_results object, containing the median distance to the reference
-        (calculated across neighborhoods) for each query sample.
+        (calculated across cells) for each query sample.
         """
-        per_sample_meandists_query = self.sample_stats_per_nhood_df.loc[
-            self.sample_stats_per_nhood_df.sample_r_or_q == self.query_cat,
-            :,
-        ]
-        self.sample_median_dist_to_ref_across_nhoods = (
-            per_sample_meandists_query.groupby("sample")
+        self.sample_median_dist_to_ref_across_cells = (
+            cell_results.groupby("sample")
             .agg({"mapqc_score": "median"})
             .sort_values(by="mapqc_score")
-        ).rename(columns={"mapqc_score": "median_dist_to_ref_across_nhoods"})
+        ).rename(columns={"mapqc_score": "median_dist_to_ref_across_cells"})
 
     def _calculate_nhood_ks_statistics(self):
         """

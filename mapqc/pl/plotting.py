@@ -895,6 +895,7 @@ def umap_mapqc_scores(
     # query cells that are filtered out or not sampled are colored black,
     # and reference cells are colored grey
     # TO DO: FOR ZSCORE, ORDER CELLS SO THAT NANS ARE PLOTTED FIRST/AT THE BOTTOM
+    fig, ax = plt.subplots(figsize=figsize)
     if color_by == "mapqc_score>2":
         # standard scanpy umap suffices
         sc.pl.umap(
@@ -911,7 +912,7 @@ def umap_mapqc_scores(
             size=size,
             # sort_order=sort_order,
             title=title,
-            return_fig=return_fig,
+            ax=ax,
         )
     elif color_by == "mean_pval_corr_significant":
         sc.pl.umap(
@@ -928,7 +929,7 @@ def umap_mapqc_scores(
             size=size,
             # sort_order=sort_order,
             title=title,
-            return_fig=return_fig,
+            ax=ax,
         )
     else:
         if vmin is None or vmax is None:
@@ -940,7 +941,6 @@ def umap_mapqc_scores(
                 vmax = 4
         # need to manually change colors, as we have a combination of
         # categoricals (reference grey, nan black) and gradient (mapQC scores)
-        fig, ax = plt.subplots(figsize=figsize)
         sc.pl.umap(
             mapqc_results._adata_ordered,
             color=None,
@@ -983,10 +983,10 @@ def umap_mapqc_scores(
         cbar.set_label(
             f"{label_prefix}\n(black: not sampled, or filtered out)", fontsize=10
         )
-        if return_fig:
-            return fig
-        else:
-            plt.show()
+    if return_fig:
+        return fig
+    else:
+        plt.show()
 
 
 # Already covered by boxplot_mapqc_scores_per_category
@@ -1044,13 +1044,15 @@ def boxplot_mapqc_scores_per_category(
     color_high_median_boxes_red: bool = False,
     palette_stripplot: str = "tab10",
     min_cells_per_cat: int = 10,
+    figsize: tuple[float, float] = (10, 8),
     return_fig: bool = False,
+    point_size: float = 1,
 ):
     """
     TO DO: add documentation
     This is at cell level
     """
-    fig = plt.figure(figsize=(10, 8))
+    fig = plt.figure(figsize=figsize)
     ax = fig.add_subplot(1, 1, 1)
     # check that category is in adata.obs columns:
     categories_to_include = [box_category]
@@ -1114,7 +1116,7 @@ def boxplot_mapqc_scores_per_category(
         palette=palette_boxes,
         order=category_medians.index,
         ax=ax,
-        fliersize=1,
+        fliersize=point_size,
     )
     sns.stripplot(
         cell_level_results,
@@ -1123,17 +1125,28 @@ def boxplot_mapqc_scores_per_category(
         color="black",
         order=category_medians.index,
         hue=stripplot_hue,
-        size=1,
+        size=point_size,
         ax=ax,
         palette=palette_stripplot,
     )
     ax.tick_params(axis="x", rotation=90)
     ax.set_ylabel("Cell mapQC scores")
     ax.set_xlabel(box_category)
-    plt.axhline(y=2, linestyle="--")
+    plt.axhline(y=2, linestyle="--", alpha=0.8, linewidth=0.8, color="black")
     if not pd.isnull(color_category):
-        leg = plt.legend(loc=(1.01, 0.4), frameon=False, title=color_category)
-        leg._legend_box.align = "left"
+        handles, labels = ax.get_legend_handles_labels()
+        sorted_labels = sorted(labels)
+        sorted_handles = [handles[labels.index(label)] for label in sorted_labels]
+        leg = plt.legend(
+            sorted_handles,
+            sorted_labels,
+            loc=(1.01, 0.4),
+            frameon=False,
+            title=color_category,
+            markerscale=20,
+        )
+        for text in leg.get_texts():
+            text.set_ha("left")
     plt.tight_layout()
     if return_fig:
         return fig

@@ -24,6 +24,7 @@ class MapqcResults(DistResults):
         dataset_key: str,
         sample_key: str,
         control_or_case: str,
+        distance_type: str = "pairwise_euclidean",
         sampling_group_cat: str = None,  # either
         percentile_cutoff: int = 66,
         k: int = None,
@@ -117,9 +118,14 @@ class MapqcResults(DistResults):
         self.result_stats["k"] = k
         self.result_stats["max_k"] = max_k
 
+        if not pd.isnull(seed):
+            if verbose:
+                print(f"Setting random seed to {seed}")
+            random.seed(seed)
+        else:
+            if verbose:
+                print("No random seed provided.")
         if pd.isnull(sampling_group_cat):
-            if not pd.isnull(seed):
-                random.seed(seed)
             center_cell_idc = random.sample(query_cell_idc, k=n_nhoods)
             center_cells = np.array(self.adata.obs.iloc[center_cell_idc].index)
         else:
@@ -147,6 +153,7 @@ class MapqcResults(DistResults):
             exclude_same_batch_for_ref_samples=True,
             max_k=max_k,
             min_n_samples_q=min_n_samples_q,
+            distance_type=distance_type,
         )
 
     def run_mapqc(self):

@@ -5,10 +5,6 @@ import numpy as np
 from anndata import AnnData
 from typing import Literal
 
-# import jax
-# from ott.geometry import pointcloud
-# from ott.solvers.linear import sinkhorn
-
 
 class Neighborhood:
     """
@@ -54,8 +50,8 @@ class Neighborhood:
         TO DO (only needed if exclude_same_batch_for_ref_samples set to True)
     distance_type
         Whether to use main pairwise (cell-cell) euclidean distance to quantify
-        distance between a pair of samples, or sinkhorn divergence (approximation
-        of Wasserstein distance).
+        distance between a pair of samples, distance between sample centroids,
+        or sinkhorn divergence (approximation of Wasserstein distance).
     use_adaptive_k
         If set to True, increases the k for a specific neighborhood if that
         neighborhood does not include sufficient reference samples with the default
@@ -109,9 +105,13 @@ class Neighborhood:
             raise ValueError(
                 "emb_key should be set to either 'X' or a key in adata.obsm"
             )
-        if distance_type not in ["pairwise_euclidean", "sinkhorn"]:
+        if distance_type not in [
+            "pairwise_euclidean",
+            "sinkhorn",
+            "centroid_euclidean",
+        ]:
             raise ValueError(
-                "Argument 'distance_type' should be set to either 'pairwise_euclidean' or 'sinkhorn'."
+                "Argument 'distance_type' should be set to 'pairwise_euclidean', 'centroid_euclidean', or 'sinkhorn'."
             )
         self.distance_type = distance_type
         # store parameters as attributes (add sanity checks here too?)
@@ -176,7 +176,7 @@ class Neighborhood:
             # store embedding of cells in nhood with default k:
             self.knn_idc = self._get_nearest_neighbors(k)
 
-    def get_pairwise_sample_dists(self):
+    def get_pairwise_sample_dists(self):  # TO DO LISA: ADD MULTIPLE DISTANCE TYPES!!
         """
         Calculate mean distances between all sample pairs in the neighborhood.
         Include filtering of samples with too few cells. Distances are
@@ -227,7 +227,7 @@ class Neighborhood:
                         # do not include distances to samples from same batch for
                         # reference samples
                         continue
-                intersample_dist = self._calculate_sample_pair_distance(
+                intersample_dist = self._calculate_sample_pair_distance(  # TO DO LISA: ADD MULTIPLE DISTANCE TYPES!!
                     sample_1, sample_2
                 )
                 sample_dists.loc[sample_1, sample_2] = intersample_dist
@@ -460,7 +460,9 @@ class Neighborhood:
         ].tolist()
         return sample_set_filtered
 
-    def _calculate_sample_pair_distance(self, sample_1: str, sample_2: str):
+    def _calculate_sample_pair_distance(
+        self, sample_1: str, sample_2: str
+    ):  # TO DO LISA: ADD MULTIPLE DISTANCE TYPES!!
         """
         Calculate mean distance between all cells of one sample and all
         cells of another sample, based on previously calculated cell-cell
@@ -485,21 +487,32 @@ class Neighborhood:
             # subset nhood's distance matrix to cells from the two samples
             pair_specific_dists = self.dists[sample_1_cells][:, sample_2_cells]
             return np.mean(pair_specific_dists)
-        # TO DO: USE MOSCOT IMPLEMENTATION INSTEAD OF TUTORIAL IMPLEMENTATION!
-        # (their output.divergence is different from our output.kl_reg_cost)
-        # also: this code is waaaayyyy too slow; TO DO: PARALLELIZE CALCULATION
-        # ACROSS SAMPLE PAIRS!
-        # elif self.distance_type == "sinkhorn":
-        #     sample_1_cell_coords = self.knn_emb[sample_1_cells, :]
-        #     sample_2_cell_coords = self.knn_emb[sample_2_cells, :]
-        #     geom = pointcloud.PointCloud(
-        #         sample_1_cell_coords, sample_2_cell_coords, epsilon=10
-        #     )
-        #     sinkhorn_solve_fn = jax.jit(sinkhorn.solve)
-        #     sinkhorn_out = sinkhorn_solve_fn(geom)
-        #     # check if converged:
-        #     if not sinkhorn_out.converged:
-        #         print(
-        #             f"Warning: sinkhorn solver did not converge for {self.index_cell}, sample {sample_1} and sample {sample_2}."
-        #         )
-        #     return sinkhorn_out.kl_reg_cost
+        elif self.distance_type == "centroid_euclidean":
+            sample_1_emb = self.knn_emb[sample_1_cells]
+            sample_2_emb = self.knn_emb[sample_2_cells]
+            sample_1_centroid = np.mean(sample_1_emb, axis=0)
+            sample_2_centroid = np.mean(sample_2_emb, axis=0)
+            return np.linalg.norm(sample_1_centroid - sample_2_centroid)
+        elif self.distance_type == "sinkhorn":
+            from ott.tools import sinkhorn_divergence as sdiv
+            from ott.geometry import pointcloud
+
+            print("This code still needs to be checked.")
+            sample_1_cell_coords = self.knn_emb[sample_1_cells, :]
+            sample_2_cell_coords = self.knn_emb[sample_2_cells, :]
+            epsilon = 1
+            sinkhorn_out = sdiv.sinkhorn_divergence(
+                pointcloud.PointCloud,
+                x=sample_1_cell_coords,
+                y=sample_2_cell_coords,
+                epsilon=epsilon,
+            )
+            import pdb
+
+            pdb.set_trace()
+            # check if converged:
+            if not sinkhorn_out.converged:
+                print(
+                    f"Warning: sinkhorn solver did not converge for {self.index_cell}, sample {sample_1} and sample {sample_2}."
+                )
+            return sinkhorn_out.divergence
