@@ -84,7 +84,7 @@ class Neighborhood:
         min_n_cells_per_sample: int,
         min_n_samples_ref: int,
         min_n_samples_q: int,
-        distance_type: Literal["pairwise_euclidean", "sinkhorn"],
+        distance_type: Literal["pairwise_euclidean", "centroid_euclidean", "sinkhorn"],
         emb_key: str,
         sample_key: str = "sample",
         ref_q_key: str = "reference_or_query",
@@ -113,6 +113,12 @@ class Neighborhood:
             raise ValueError(
                 "Argument 'distance_type' should be set to 'pairwise_euclidean', 'centroid_euclidean', or 'sinkhorn'."
             )
+        if distance_type == "sinkhorn":
+            from ott.tools import sinkhorn_divergence as sdiv
+            from ott.geometry import pointcloud
+
+            self.sdiv = sdiv
+            self.pointcloud = pointcloud
         self.distance_type = distance_type
         # store parameters as attributes (add sanity checks here too?)
         self.min_n_cells_per_sample = min_n_cells_per_sample
@@ -494,22 +500,17 @@ class Neighborhood:
             sample_2_centroid = np.mean(sample_2_emb, axis=0)
             return np.linalg.norm(sample_1_centroid - sample_2_centroid)
         elif self.distance_type == "sinkhorn":
-            from ott.tools import sinkhorn_divergence as sdiv
-            from ott.geometry import pointcloud
-
-            print("This code still needs to be checked.")
             sample_1_cell_coords = self.knn_emb[sample_1_cells, :]
             sample_2_cell_coords = self.knn_emb[sample_2_cells, :]
             epsilon = 1
-            sinkhorn_out = sdiv.sinkhorn_divergence(
-                pointcloud.PointCloud,
+            print("sample_1 shape:", sample_1_cell_coords.shape)
+            print("sample_2 shape:", sample_2_cell_coords.shape)
+            sinkhorn_out = self.sdiv.sinkhorn_divergence(
+                self.pointcloud.PointCloud,
                 x=sample_1_cell_coords,
                 y=sample_2_cell_coords,
                 epsilon=epsilon,
             )
-            import pdb
-
-            pdb.set_trace()
             # check if converged:
             if not sinkhorn_out.converged:
                 print(

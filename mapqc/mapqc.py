@@ -4,7 +4,7 @@ import pandas as pd
 import scanpy as sc
 import os
 import pickle
-from typing import Union, List
+from typing import Union, List, Literal
 from .mapqc_dists import DistResults
 from .sampler import sample_query_cells
 from .result_processing import add_nhood_stats_to_adata, add_cell_level_stats_to_adata
@@ -24,7 +24,9 @@ class MapqcResults(DistResults):
         dataset_key: str,
         sample_key: str,
         control_or_case: str,
-        distance_type: str = "pairwise_euclidean",
+        distance_type: Literal[
+            "pairwise_euclidean", "centroid_euclidean", "sinkhorn"
+        ] = "pairwise_euclidean",
         sampling_group_cat: str = None,  # either
         percentile_cutoff: int = 66,
         k: int = None,
@@ -81,6 +83,8 @@ class MapqcResults(DistResults):
                 f"control_or_case should be set to either 'control' or 'case', not '{control_or_case}'"
             )
         # randomize order of adata cells, this is relevant for plotting down the line
+        if not pd.isnull(seed):
+            np.random.seed(seed)
         adata = adata[np.random.permutation(adata.n_obs)].copy()
         if emb_key != "X":
             if emb_key not in adata.obsm.keys():
