@@ -10,3 +10,5 @@ dependencies:
   - conda-forge::pip 
   - pip:
     - ott-jax[neural]>=0.4.6,<=0.4.8 # based on moscot
+    - pytest # somehow was not present even though part of statsmodels
+    - nb_black==1.0.5 # only for pretty code formatting, not essential
