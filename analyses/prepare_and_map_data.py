@@ -31,22 +31,27 @@ path_to_HLCA = "/ictstr01/groups/ml01/projects/2024_hlca_v2_raphael.kfurirubens/
 path_to_ref_model_dir = "/lustre/groups/ml01/code/lisa.sikkema/atlas_extension/analyses/HLCA/HLCA_reference_model"
 path_to_model_features_csv = os.path.join(path_to_ref_model_dir, "var_names.csv")
 
+file_suffix = ""
 # study-specific paths
 if par["study"] == "Thienpont_2018":
     kwargs_query_reading_function[
         "path_to_sample_info_Thienpont_2018"
     ] = "./lambrechts_health_status_info.csv"
-
+    kwargs_query_reading_function["include_pleiomorphic_carcinoma"] = False
+    if not kwargs_query_reading_function["include_pleiomorphic_carcinoma"]:
+        file_suffix = "_no_pleiomorphic_carcinoma"
 if par["use_original_instead_of_cellxgene_counts"]:
     file_prefix = f"original_counts_"
     # This is specific for Sheppard_2020 data when using raw counts:
     old_study_names = {"Sheppard_2020": "tsukui", "Thienpont_2018": "lambrechts"}
     old_name = old_study_names[par["study"]]
-    path_to_raw_subsetted_counts = f"/lustre/groups/ml01/workspace/hlca_lisa.sikkema_malte.luecken/HLCA_reproducibility/data/HLCA_extended/extension_datasets/ready/subsetted/{old_name}_sub.h5ad"
+    path_to_raw_subsetted_counts = f"/lustre/groups/ml01/projects/2023_HLCA_LSikkema/HLCA_reproducibility/data/HLCA_extended/extension_datasets/ready/subsetted/{old_name}_sub.h5ad"
 else:
     file_prefix = f"cellxgene_counts_"
-path_to_surgery_model_dir = f"/lustre/groups/ml01/code/lisa.sikkema/atlas_extension/results/HLCA/{par['study']}/{file_prefix}batch_{par['batch_covariate']}_kl{par['mapping_max_kl_weight']}/surgery_model_and_output_emb"
+path_to_surgery_model_dir = f"/lustre/groups/ml01/code/lisa.sikkema/atlas_extension/results/HLCA/{par['study']}/{file_prefix}batch_{par['batch_covariate']}_kl{par['mapping_max_kl_weight']}{file_suffix}/surgery_model_and_output_emb"
 
+if par["verbose"]:
+    print("Dataset-specific parameters:", kwargs_query_reading_function)
 # check if parent directory exists:
 grandparent_directory = os.path.dirname(os.path.dirname(path_to_surgery_model_dir))
 if not os.path.isdir(grandparent_directory):
@@ -66,7 +71,7 @@ else:
 path_to_mapped_query_embedding = os.path.join(
     path_to_surgery_model_dir, f"query_emb{suffix}.h5ad"
 )
-path_to_joint_ref_q_counts_object = f"/lustre/groups/ml01/workspace/lisa.sikkema/atlas_extension/data/HLCA/HLCA_and_{par['study']}_{file_prefix}counts{suffix}.h5ad"
+path_to_joint_ref_q_counts_object = f"/lustre/groups/ml01/workspace/lisa.sikkema/atlas_extension/data/HLCA/HLCA_and_{par['study']}_counts{suffix}.h5ad"  # note that we always use the cellxgene counts for this object, original counts are only used during mapping
 path_to_joint_ref_q_latent_object = f"/lustre/groups/ml01/workspace/lisa.sikkema/atlas_extension/data/HLCA/HLCA_and_{par['study']}_{file_prefix}batch_{par['batch_covariate']}_kl{par['mapping_max_kl_weight']}_latent{suffix}.h5ad"
 
 if par["verbose"]:
