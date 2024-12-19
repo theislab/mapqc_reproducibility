@@ -175,6 +175,19 @@ def add_mapping_info_to_counts_adata(adata_counts_combined, adata_emb_combined):
     return adata_counts_combined
 
 
+def clean_up_df_column(df, column_name, min_n_cells_per_cat):
+    new_column_name = f"{column_name}_cleaned"
+    df[new_column_name] = df[column_name].copy()
+    group_count = df[new_column_name].value_counts()
+    low_n_groups = group_count.index[group_count < min_n_cells_per_cat]
+    renamer = {
+        (ct): ("Other" if ct in low_n_groups else ct)
+        for ct in df[new_column_name].unique()
+    }
+    df[new_column_name] = df[new_column_name].map(renamer)
+    return df[new_column_name].values
+
+
 def _clean_Sheppard_2020_data(
     adata: sc.AnnData, include_SCD: bool = False, verbose: bool = True
 ):
