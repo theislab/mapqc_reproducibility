@@ -1,0 +1,5 @@
+scanpy==1.9.3
+scib-metrics==0.5.1
+leidenalg==0.10.1
+louvain==0.8.1
+jupyter # or just jupyter-lab?
