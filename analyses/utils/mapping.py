@@ -49,31 +49,37 @@ def subset_query_data_for_mapping(
     path_to_ref_model_dir: str,
     check_integer_values_on_full_data: bool = False,
 ):
+    # copy adata to avoid modifying the original object
+    adata_subset = adata.copy()
     # Set X to counts layer:
-    adata.X = adata.layers["counts"]
+    adata_subset.X = adata_subset.layers["counts"]
 
     # Convert X to sparse CSR matrix if it's not already
-    if not sparse.issparse(adata.X):
-        adata.X = sparse.csr_matrix(adata.X)
+    if not sparse.issparse(adata_subset.X):
+        adata_subset.X = sparse.csr_matrix(adata_subset.X)
 
     # Check that values in adata.X are integers:
-    if not check_integer_values_on_full_data and adata.X.shape[0] > 50:
-        if not np.all(adata.X[:50].toarray() == np.floor(adata.X[:50].toarray())):
+    if not check_integer_values_on_full_data and adata_subset.X.shape[0] > 50:
+        if not np.all(
+            adata_subset.X[:50].toarray() == np.floor(adata_subset.X[:50].toarray())
+        ):
             raise ValueError(
                 "adata.X contains non-integer values for the first 50 cells"
             )
-        if not np.all(adata.X[-50:].toarray() == np.floor(adata.X[-50:].toarray())):
+        if not np.all(
+            adata_subset.X[-50:].toarray() == np.floor(adata_subset.X[-50:].toarray())
+        ):
             raise ValueError(
                 "adata.X contains non-integer values for the last 50 cells"
             )
     else:
-        if not np.all(adata.X.toarray() == np.floor(adata.X.toarray())):
+        if not np.all(adata_subset.X.toarray() == np.floor(adata_subset.X.toarray())):
             raise ValueError("adata.X contains non-integer values")
     # Prepare query data for scANVI. This includes data subsetting.
-    adata = sca.models.SCANVI.prepare_query_anndata(
-        adata=adata, reference_model=path_to_ref_model_dir, inplace=False
+    adata_subset = sca.models.SCANVI.prepare_query_anndata(
+        adata=adata_subset, reference_model=path_to_ref_model_dir, inplace=False
     )
-    return adata
+    return adata_subset
 
 
 def map_data_to_HLCA_reference(
@@ -221,8 +227,10 @@ def create_joint_ref_q_counts_object(
         del adata_reference.obsm["X_umap"]
     # now concatenate ref and query data:
     adata_combined = ad.concat(
-        (adata_reference, adata_query), join="outer", index_unique=None
+        (adata_reference, adata_query), join="outer", index_unique=None, merge="first"
     )
+    # remove irrelevant var columns:
+    adata_combined.var.drop(columns=["feature_reference", "n_cells"], inplace=True)
     # prevent "TypeError: Can't implicitly convert non-string objects to strings" error
     for col in adata_combined.obs.columns:
         if (

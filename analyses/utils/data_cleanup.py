@@ -113,7 +113,9 @@ def prepare_query_from_cellxgene_h5ad(
         adata_query = _clean_Sheppard_2020_data(adata_query, include_SCD=False)
     elif study_name == "Thienpont_2018":
         adata_query = _clean_Thienpont_2018_data(
-            adata_query, kwargs["path_to_sample_info_Thienpont_2018"]
+            adata_query,
+            path_to_sample_info_csv=kwargs["path_to_sample_info_Thienpont_2018"],
+            include_pleiomorphic_carcinoma=kwargs["include_pleiomorphic_carcinoma"],
         )
     return adata_query
 
@@ -194,7 +196,11 @@ def _clean_Sheppard_2020_data(
     return adata
 
 
-def _clean_Thienpont_2018_data(adata: sc.AnnData, path_to_sample_info_csv: str):
+def _clean_Thienpont_2018_data(
+    adata: sc.AnnData,
+    path_to_sample_info_csv: str,
+    include_pleiomorphic_carcinoma: bool,
+):
     sample_metadata = pd.read_csv(path_to_sample_info_csv, index_col=0)
     site_acr_to_site = {
         "I": "Tumor (inner)",
@@ -219,7 +225,10 @@ def _clean_Thienpont_2018_data(adata: sc.AnnData, path_to_sample_info_csv: str):
     adata.obs["status"] = "Lung carcinoma"
     adata.obs.loc[adata.obs.tumor_site == "Normal", "status"] = "control"
     adata.obs["cancer_type"] = adata.obs.donor_id.map(subject_to_cancertype)
+    adata.obs["lung_condition"] = adata.obs.lung_condition.tolist()
     adata.obs.loc[
         adata.obs.tumor_site == "Normal", "lung_condition"
     ] = "Healthy (tumor adjacent)"
+    if not include_pleiomorphic_carcinoma:
+        adata = adata[adata.obs.cancer_type != "Pleiomorphic Carcinoma", :].copy()
     return adata
