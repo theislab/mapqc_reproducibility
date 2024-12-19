@@ -2,6 +2,7 @@ from . import nhoods
 import numpy as np
 import pandas as pd
 import pickle
+import os
 from scipy.stats import t
 from scipy.stats import kstest
 from scipy.sparse import csr_matrix
@@ -10,6 +11,18 @@ from statsmodels.stats.multitest import multipletests
 from anndata import AnnData
 from typing import Literal
 from tqdm import tqdm
+
+try:  # if working in a notebook, use tqdm.notebook to prevent printing of progress on new lines
+    from IPython import get_ipython
+
+    if get_ipython() is not None:
+        from tqdm.notebook import tqdm
+except:
+    pass
+import multiprocessing
+
+multiprocessing.set_start_method("spawn", force=True)  # prevents possible deadlocks
+from multiprocessing import Pool
 import warnings
 
 
@@ -33,8 +46,8 @@ class DistResults:
         be specified.
     distance_type
         Whether to use main pairwise (cell-cell) euclidean distance to quantify
-        distance between a pair of samples, or sinkhorn divergence (approximation
-        of Wasserstein distance).
+        distance between a pair of samples, distance between centroids, e-distance,
+        or sinkhorn divergence (approximation of Wasserstein distance).
     ref_q_key
         The adata.obs column in which is specified for each cell whether it is
         from the reference or the query
@@ -85,7 +98,7 @@ class DistResults:
         k: int,
         emb_key: str,
         distance_type: Literal[
-            "pairwise_euclidean", "centroid_euclidean", "sinkhorn"
+            "pairwise_euclidean", "centroid_euclidean", "edistance", "sinkhorn"
         ] = "pairwise_euclidean",
         ref_q_key: str = "reference_or_query",
         ref_cat: str = "reference",
@@ -99,6 +112,8 @@ class DistResults:
         use_adaptive_k: bool = True,
         max_k: int = None,
         adaptive_k_margin: float = 1.1,
+        n_cores: int = None,
+        verbose: bool = True,
     ):
         # TO DO: build in sanity checks for all parameters here
         self.adata = adata
@@ -114,6 +129,8 @@ class DistResults:
         self.min_n_samples_ref = min_n_samples_ref
         self.min_n_samples_q = min_n_samples_q
         self.q = None
+        self.verbose = verbose
+        self.n_cores = n_cores
         # Sanity checks:
         # check if adata.obs.index unique:
         if not adata.shape[0] == len(set(adata.obs.index)):
@@ -151,10 +168,11 @@ class DistResults:
         if distance_type not in [
             "pairwise_euclidean",
             "centroid_euclidean",
+            "edistance",
             "sinkhorn",
         ]:
             raise ValueError(
-                "Argument 'distance_type' should be set to either 'pairwise_euclidean', 'centroid_euclidean', or 'sinkhorn'."
+                "Argument 'distance_type' should be set to either 'pairwise_euclidean', 'centroid_euclidean', 'edistance',or 'sinkhorn'."
             )
         self.distance_type = distance_type
         # embedding key:
@@ -304,65 +322,10 @@ class DistResults:
         _, sample_stats_per_nhood_df["t_stat_pval_corr"], _, _ = multipletests(
             sample_stats_per_nhood_df["t_stat_pval"], method="fdr_bh"
         )
-        # absolute distances
-        # mean_s2ref_dists_per_nhood_df = (
-        #     pd.DataFrame(
-        #         self.mean_sample_dists_to_ref,
-        #         index=self.ref_q_samples_all,
-        #         columns=self.center_cells,
-        #     )
-        #     .unstack()
-        #     .reset_index()
-        #     .rename(
-        #         columns={
-        #             "level_0": "nhood",
-        #             "level_1": "sample",
-        #             0: "mean_dist_to_ref",
-        #         }
-        #     )
-        # )
-        # zscored distances:
-        # mean_s2ref_dists_per_nhood_df_zscored = (
-        #     pd.DataFrame(
-        #         self.mean_sample_dists_to_ref_zscored,
-        #         index=self.ref_q_samples_all,
-        #         columns=self.center_cells,
-        #     )
-        #     .unstack()
-        #     .reset_index()
-        #     .rename(
-        #         columns={
-        #             "level_0": "nhood",
-        #             "level_1": "sample",
-        #             0: "mapqc_score",
-        #         }
-        #     )
-        # )
-        # # t-statistics:
-        # s2ref_dists_t_stats_per_nhood_df = (
-        #     pd.DataFrame(
-        #         self.sample_t_statistics_per_nhood,
-        #         index=self.ref_q_samples_all,
-        #         columns=self.center_cells,
-        #     )
-        #     .unstack()
-        #     .reset_index()
-        #     .rename(
-        #         columns={
-        #             "level_0": "nhood",
-        #             "level_1": "sample",
-        #             0: "t_stat",
-        #         }
-        #     )
-        # )
-
-        # mean_s2ref_dists_per_nhood_df.dropna(how="any", axis=0, inplace=True)
-        # mean_s2ref_dists_per_nhood_df_zscored.dropna(how="any", axis=0, inplace=True)
-        # s2ref_dists_t_stats_per_nhood_df.dropna(how="any", axis=0, inplace=True)
         # add info on whether sample is from ref or query
-        sample_from_r_or_q_df = self.adata.obs.groupby(self.sample_key).agg(
-            {self.ref_q_key: "first"}
-        )
+        sample_from_r_or_q_df = self.adata.obs.groupby(
+            self.sample_key, observed=True
+        ).agg({self.ref_q_key: "first"})
         sample_from_r_or_q_dict = {
             s: rvsq
             for s, rvsq in zip(
@@ -372,20 +335,8 @@ class DistResults:
         sample_stats_per_nhood_df["sample_r_or_q"] = sample_stats_per_nhood_df[
             "sample"
         ].map(sample_from_r_or_q_dict)
-        # mean_s2ref_dists_per_nhood_df["sample_r_or_q"] = mean_s2ref_dists_per_nhood_df[
-        #     "sample"
-        # ].map(sample_from_r_or_q_dict)
-        # mean_s2ref_dists_per_nhood_df_zscored[
-        #     "sample_r_or_q"
-        # ] = mean_s2ref_dists_per_nhood_df_zscored["sample"].map(sample_from_r_or_q_dict)
         # store
         self.sample_stats_per_nhood_df = sample_stats_per_nhood_df
-
-        # self.mean_s2ref_dist_per_nhood_df = mean_s2ref_dists_per_nhood_df
-        # self.mean_s2ref_dist_per_nhood_zscored_df = (
-        #     mean_s2ref_dists_per_nhood_df_zscored
-        # )
-        # self.s2ref_dists_t_stats_per_nhood_df = s2ref_dists_t_stats_per_nhood_df
         # store that this function has been run:
         self._sample_dists_to_ref_calculated = True
 
@@ -814,48 +765,74 @@ class DistResults:
         # generate empty dict with cells from neighborhoods that have
         # been filtered out:
         self._cells_from_filtered_neighborhoods = dict()
+
+        # CHANGING CODE FROM HERE ONWARDS!!!
         # now loop through neighborhoods and calculate mean inter-sample
         # distances per nhood
-        for nhood_count, center_cell in tqdm(
-            enumerate(self.center_cells),
-            total=len(self.center_cells),
-            miniters=max(1, len(self.center_cells) // 100),  # Update every 1% progress
-            desc="Calculating intersample distances",
-            ncols=80,  # Limit width of progress bar
-        ):  # tqdm prints progress bar, now set such that it updates every 1% progress
-            nhood = nhoods.Neighborhood(
-                adata=self.adata,
-                index_cell=center_cell,
-                k=self.k,
-                min_n_cells_per_sample=self.min_n_cells_per_sample,
-                min_n_samples_ref=self.min_n_samples_ref,
-                min_n_samples_q=self.min_n_samples_q,
-                emb_key=self.emb_key,
-                sample_key=self.sample_key,
-                ref_q_key=self.ref_q_key,
-                ref_cat=self.ref_cat,
-                query_cat=self.query_cat,
-                dataset_key=self.dataset_key,
-                exclude_same_batch_for_ref_samples=self.exclude_same_batch_for_ref_samples,
-                distance_type=self.distance_type,
-                use_adaptive_k=self.use_adaptive_k,
-                max_k=self.max_k,
-                adaptive_k_margin=self.adaptive_k_margin,
-            )
-            nhood_results = nhood.get_pairwise_sample_dists()
-            # store whether or not neighborhood passed sample number filtering
-            self._nhood_filtered.loc[center_cell] = nhood._filter_info
-            # store final k:
-            self._nhood_k.loc[center_cell] = nhood.final_k
+
+        # create list of neighborhood count ,center cell tuples:
+        tasks = list(enumerate(self.center_cells))
+
+        # initialize the process pool (for parallel calculation of neighborhood results)
+        n_cores_available = min(len(tasks), os.cpu_count() - 1)
+        if self.n_cores is None:
+            n_cores = n_cores_available
+        else:
+            n_cores = int(self.n_cores)
+        if n_cores <= 1:
+            n_cores = 1
+        else:
+            if self.verbose:
+                print(
+                    "Parallelizing neighborhood calculations across", n_cores, "cores."
+                )
+        # do parallel neighborhood calculations in batches, to prevent memory issues.
+        # In between batches, we will clear the cache.
+        # Note that this is only necessary when calculating sinkhorn distances.
+        if self.distance_type == "sinkhorn":
+            BATCH_SIZE = 40  # consider making this a parameter later, set lower if still running into memory issues
+        else:
+            BATCH_SIZE = len(tasks)
+        results = []
+
+        for batch_start in range(0, len(tasks), BATCH_SIZE):
+            batch_end = min(batch_start + BATCH_SIZE, len(tasks))
+            batch = tasks[batch_start:batch_end]
+            with Pool(processes=n_cores) as pool:
+                batch_results = list(
+                    tqdm(
+                        pool.imap(self._process_neighborhood, batch),
+                        total=len(batch),
+                        desc=f"Getting nhood inter-sample dists for nhood batch {batch_start//BATCH_SIZE + 1}/{len(tasks)//BATCH_SIZE + 1}",
+                        miniters=max(1, len(batch) // 100),
+                        ncols=120,  # limit width of progress bar
+                    )
+                )
+                results.extend(batch_results)
+                # Clear cache after each batch
+                if self.distance_type == "sinkhorn":
+                    import jax
+
+                    jax.clear_caches()
+
+        # process results:
+        for result in results:
+            nhood_count = result["nhood_count"]
+            center_cell = result["center_cell"]
+            nhood_results = result["results"]
+            self._nhood_filtered.loc[center_cell] = result["filter_info"]
+            self._nhood_k.loc[center_cell] = result["final_k"]
             # add results to overall tensor
             if not isinstance(nhood_results, type(np.nan)):
-                self.nhood_cells[nhood_count, : nhood.final_k] = nhood.knn_idc
+                self.nhood_cells[nhood_count, : result["final_k"]] = result["knn_idc"]
+
                 row_idc_for_nhood_ref_samples = np.where(
                     np.isin(self.ref_samples_all, nhood_results.index)
                 )[0]
                 col_idc_for_nhood_all_samples = np.where(
                     np.isin(self.ref_q_samples_all, nhood_results.columns)
                 )[0]
+
                 mean_s2s_dist_per_nhood[
                     row_idc_for_nhood_ref_samples[:, np.newaxis, np.newaxis],
                     col_idc_for_nhood_all_samples[np.newaxis, :, np.newaxis],
@@ -865,9 +842,41 @@ class DistResults:
                 # store neighbors as cells that have been filtered out at some
                 # point. This will be used when calculating and visualizing
                 # the cell-level results
-                self._cells_from_filtered_neighborhoods[
-                    nhood.index_cell
-                ] = nhood.knn_idc
+                self._cells_from_filtered_neighborhoods[center_cell] = result["knn_idc"]
+
+        # for nhood_count, center_cell in tqdm(
+        #     enumerate(self.center_cells),
+        #     total=len(self.center_cells),
+        #     miniters=max(1, len(self.center_cells) // 100),  # Update every 1% progress
+        #     desc="Calculating intersample distances",
+        #     ncols=80,  # Limit width of progress bar
+        # ):  # tqdm prints progress bar, now set such that it updates every 1% progress
+
+        # # store whether or not neighborhood passed sample number filtering
+        # self._nhood_filtered.loc[center_cell] = nhood._filter_info
+        # # store final k:
+        # self._nhood_k.loc[center_cell] = nhood.final_k
+        # # add results to overall tensor
+        # if not isinstance(nhood_results, type(np.nan)):
+        #     self.nhood_cells[nhood_count, : nhood.final_k] = nhood.knn_idc
+        #     row_idc_for_nhood_ref_samples = np.where(
+        #         np.isin(self.ref_samples_all, nhood_results.index)
+        #     )[0]
+        #     col_idc_for_nhood_all_samples = np.where(
+        #         np.isin(self.ref_q_samples_all, nhood_results.columns)
+        #     )[0]
+        #     mean_s2s_dist_per_nhood[
+        #         row_idc_for_nhood_ref_samples[:, np.newaxis, np.newaxis],
+        #         col_idc_for_nhood_all_samples[np.newaxis, :, np.newaxis],
+        #         np.array([nhood_count])[np.newaxis, np.newaxis, :],
+        #     ] = nhood_results.values[:, :, np.newaxis]
+        # else:
+        #     # store neighbors as cells that have been filtered out at some
+        #     # point. This will be used when calculating and visualizing
+        #     # the cell-level results
+        #     self._cells_from_filtered_neighborhoods[
+        #         nhood.index_cell
+        #     ] = nhood.knn_idc
         # print filtering information
         self.result_stats["perc_of_nhoods_passed_filter"] = round(
             (self._nhood_filtered == "pass").sum() / len(self.center_cells) * 100
@@ -899,6 +908,37 @@ class DistResults:
     #         .agg({"mapqc_score": "median"})
     #         .sort_values(by="mapqc_score")
     #     ).rename(columns={"mapqc_score": "median_dist_to_ref_across_nhoods"})
+
+    def _process_neighborhood(self, center_cell_with_nhood_number):
+        nhood_count, center_cell = center_cell_with_nhood_number
+        nhood = nhoods.Neighborhood(
+            adata=self.adata,
+            index_cell=center_cell,
+            k=self.k,
+            min_n_cells_per_sample=self.min_n_cells_per_sample,
+            min_n_samples_ref=self.min_n_samples_ref,
+            min_n_samples_q=self.min_n_samples_q,
+            emb_key=self.emb_key,
+            sample_key=self.sample_key,
+            ref_q_key=self.ref_q_key,
+            ref_cat=self.ref_cat,
+            query_cat=self.query_cat,
+            dataset_key=self.dataset_key,
+            exclude_same_batch_for_ref_samples=self.exclude_same_batch_for_ref_samples,
+            distance_type=self.distance_type,
+            use_adaptive_k=self.use_adaptive_k,
+            max_k=self.max_k,
+            adaptive_k_margin=self.adaptive_k_margin,
+        )
+        nhood_results = nhood.get_pairwise_sample_dists()
+        return {
+            "center_cell": center_cell,
+            "nhood_count": nhood_count,
+            "results": nhood_results,
+            "filter_info": nhood._filter_info,
+            "final_k": nhood.final_k,
+            "knn_idc": nhood.knn_idc,
+        }
 
     def _calculate_median_sample_dist_to_ref_across_cells(self, cell_results):
         """

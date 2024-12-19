@@ -51,7 +51,7 @@ class Neighborhood:
     distance_type
         Whether to use main pairwise (cell-cell) euclidean distance to quantify
         distance between a pair of samples, distance between sample centroids,
-        or sinkhorn divergence (approximation of Wasserstein distance).
+        edistances, or sinkhorn divergence (approximation of Wasserstein distance).
     use_adaptive_k
         If set to True, increases the k for a specific neighborhood if that
         neighborhood does not include sufficient reference samples with the default
@@ -84,7 +84,9 @@ class Neighborhood:
         min_n_cells_per_sample: int,
         min_n_samples_ref: int,
         min_n_samples_q: int,
-        distance_type: Literal["pairwise_euclidean", "centroid_euclidean", "sinkhorn"],
+        distance_type: Literal[
+            "pairwise_euclidean", "centroid_euclidean", "edistance", "sinkhorn"
+        ],
         emb_key: str,
         sample_key: str = "sample",
         ref_q_key: str = "reference_or_query",
@@ -109,13 +111,20 @@ class Neighborhood:
             "pairwise_euclidean",
             "sinkhorn",
             "centroid_euclidean",
+            "edistance",
         ]:
             raise ValueError(
-                "Argument 'distance_type' should be set to 'pairwise_euclidean', 'centroid_euclidean', or 'sinkhorn'."
+                "Argument 'distance_type' should be set to 'pairwise_euclidean', 'centroid_euclidean', 'edistance',or 'sinkhorn'."
             )
         if distance_type == "sinkhorn":
             from ott.tools import sinkhorn_divergence as sdiv
             from ott.geometry import pointcloud
+            import jax
+
+            # Disable JIT compilation (this seems to slow down code and results in warnings...)
+            jax.config.update("jax_disable_jit", True)
+
+            self.sinkhorn_max_cells_per_sample = 50  # adjust this number
 
             self.sdiv = sdiv
             self.pointcloud = pointcloud
@@ -217,9 +226,9 @@ class Neighborhood:
         sample_dists = pd.DataFrame(index=ref_samples, columns=ref_samples + q_samples)
         # store sample to batch mapping if batch needs to be taken into account
         if self.exclude_same_batch_for_ref_samples:
-            sample_to_batch = self.adata.obs.groupby(self.sample_key).agg(
-                {self.dataset_key: "first"}
-            )
+            sample_to_batch = self.adata.obs.groupby(
+                self.sample_key, observed=True
+            ).agg({self.dataset_key: "first"})
         # loop through all ref samples (and count in which loop we are)
         for ref_sample_count, sample_1 in enumerate(ref_samples):
             # loop through all reference samples that that we haven't looped
@@ -262,7 +271,7 @@ class Neighborhood:
         """
         # store some sample information (which batch it came from, and whether or not it
         # is from the reference) that we will need further down:
-        sample_info = self.adata.obs.groupby(self.sample_key).agg(
+        sample_info = self.adata.obs.groupby(self.sample_key, observed=True).agg(
             {self.dataset_key: "first", self.ref_q_key: "first"}
         )
         # check if sufficient reference samples in the neighborhod of default size k.
@@ -494,17 +503,49 @@ class Neighborhood:
             pair_specific_dists = self.dists[sample_1_cells][:, sample_2_cells]
             return np.mean(pair_specific_dists)
         elif self.distance_type == "centroid_euclidean":
-            sample_1_emb = self.knn_emb[sample_1_cells]
-            sample_2_emb = self.knn_emb[sample_2_cells]
-            sample_1_centroid = np.mean(sample_1_emb, axis=0)
-            sample_2_centroid = np.mean(sample_2_emb, axis=0)
+            sample_1_cell_coords = self.knn_emb[sample_1_cells]
+            sample_2_cell_coords = self.knn_emb[sample_2_cells]
+            sample_1_centroid = np.mean(sample_1_cell_coords, axis=0)
+            sample_2_centroid = np.mean(sample_2_cell_coords, axis=0)
             return np.linalg.norm(sample_1_centroid - sample_2_centroid)
+        elif self.distance_type == "edistance":
+            # implementation as in pertpy: https://github.com/scverse/pertpy/blob/main/pertpy/tools/_distances/_distances.py
+            sample_1_cell_coords = self.knn_emb[sample_1_cells]
+            sample_2_cell_coords = self.knn_emb[sample_2_cells]
+            sigma_1 = pairwise_distances(
+                sample_1_cell_coords, sample_1_cell_coords, metric="sqeuclidean"
+            ).mean()
+            sigma_2 = pairwise_distances(
+                sample_2_cell_coords, sample_2_cell_coords, metric="sqeuclidean"
+            ).mean()
+            delta = pairwise_distances(
+                sample_1_cell_coords, sample_2_cell_coords, metric="sqeuclidean"
+            ).mean()
+            return 2 * delta - sigma_1 - sigma_2
         elif self.distance_type == "sinkhorn":
+            # clear cache to prevent memory issues (not sure if this is really necessary here)
+            import jax
+
+            jax.clear_caches()
             sample_1_cell_coords = self.knn_emb[sample_1_cells, :]
             sample_2_cell_coords = self.knn_emb[sample_2_cells, :]
             epsilon = 1
-            print("sample_1 shape:", sample_1_cell_coords.shape)
-            print("sample_2 shape:", sample_2_cell_coords.shape)
+            if sample_1_cell_coords.shape[0] > self.sinkhorn_max_cells_per_sample:
+                sample_1_cell_coords = sample_1_cell_coords[
+                    np.random.choice(
+                        sample_1_cell_coords.shape[0],
+                        self.sinkhorn_max_cells_per_sample,
+                        replace=False,
+                    )
+                ]
+            if sample_2_cell_coords.shape[0] > self.sinkhorn_max_cells_per_sample:
+                sample_2_cell_coords = sample_2_cell_coords[
+                    np.random.choice(
+                        sample_2_cell_coords.shape[0],
+                        self.sinkhorn_max_cells_per_sample,
+                        replace=False,
+                    )
+                ]
             sinkhorn_out = self.sdiv.sinkhorn_divergence(
                 self.pointcloud.PointCloud,
                 x=sample_1_cell_coords,

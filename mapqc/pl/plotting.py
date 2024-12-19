@@ -18,6 +18,7 @@ def boxplot_sample_scores_per_nhood(
     max_neighborhoods_to_plot: int = 80,
     seed: int = 0,
     label_x_ticks_by: str = None,
+    palette: dict = None,
     return_fig: bool = False,
 ):
     """
@@ -104,7 +105,11 @@ def boxplot_sample_scores_per_nhood(
         figsize = (24, 8)
     hue = "sample_r_or_q"
     # palette
-    palette = {mapqc_results.ref_cat: "tab:orange", mapqc_results.query_cat: "tab:blue"}
+    if palette is None:
+        palette = {
+            mapqc_results.ref_cat: "tab:orange",
+            mapqc_results.query_cat: "tab:blue",
+        }
     # palette = {mapqc_results.ref_cat:"lightsteelblue", mapqc_results.query_cat:"blue"}
     fig = plt.figure(figsize=figsize)
     ax = fig.add_subplot()
@@ -688,6 +693,7 @@ def umap_neighborhood(
     recalculate_umap: bool = False,
     k: int = 15,
     ncols: int = 1,
+    return_adata: bool = False,
     return_fig: bool = False,
     umap_kwargs: dict = {},
 ):
@@ -724,6 +730,82 @@ def umap_neighborhood(
         ncols=ncols,
         **umap_kwargs,
     )
+    if return_adata:
+        return adata_to_plot
+
+
+def scatter_nhood_latent_dims(
+    mapqc_results: MapqcResults,
+    neighborhood: str,
+    color_by: str = None,
+    dotsize: float = 1,
+    cmap="tab20",
+):
+    nhood_idx = np.where(mapqc_results.center_cells == neighborhood)[0][0]
+    nhood_cells = mapqc_results.nhood_cells[nhood_idx, :]
+    # remove nans and set to integers instead of floats:
+    nhood_cells = nhood_cells[~np.isnan(nhood_cells)].astype(int)
+    nhood_adata = mapqc_results.adata[nhood_cells, :].copy()
+    fignumber = 0
+    n_figures = nhood_adata.shape[1]
+    n_cols = 4
+    n_rows = int(np.ceil(n_figures / n_cols))
+    fig = plt.figure(figsize=(5 * n_cols, 5 * n_rows))
+    fig_count = 1
+    for dim_pair_n in range(14):
+        dim_1 = dim_pair_n * 2
+        dim_2 = dim_pair_n * 2 + 1
+        ax = fig.add_subplot(n_rows, n_cols, fig_count)
+
+        if not isinstance(color_by, type(None)):
+            color_vector = plt.get_cmap(cmap)(
+                nhood_adata.obs[color_by].astype("category").cat.codes
+                / nhood_adata.obs[color_by].nunique()
+            )
+            ax.scatter(
+                nhood_adata.X[:, dim_1],
+                nhood_adata.X[:, dim_2],
+                color=color_vector,
+                s=dotsize,
+            )
+        else:
+            ax.scatter(nhood_adata.X[:, dim_1], nhood_adata.X[:, dim_2], s=dotsize)
+
+        ax.tick_params(axis="x", rotation=90)
+        ax.set_xlabel(dim_1)
+        ax.set_ylabel(dim_2)
+        fig_count += 1
+
+    # Create legend after all subplots, but only if color_by is specified
+    if not isinstance(color_by, type(None)):
+        # Get unique categories and their corresponding colors
+        categories = nhood_adata.obs[color_by].astype("category").cat.categories
+        category_colors = plt.get_cmap(cmap)(
+            np.arange(len(categories)) / len(categories)
+        )
+
+        # Create legend handles with correct colors
+        legend_handles = [
+            plt.Line2D(
+                [0],
+                [0],
+                marker="o",
+                color="w",
+                label=str(cat),
+                markerfacecolor=category_colors[i],
+                markersize=10,
+            )
+            for i, cat in enumerate(categories)
+        ]
+        ax.legend(
+            handles=legend_handles,
+            loc="upper center",
+            bbox_to_anchor=(0.5, -0.15),
+            ncol=3,
+        )
+    plt.tight_layout()
+    plt.show()
+    plt.close()
 
 
 def umap_q_ref_sample_shaded(
@@ -903,9 +985,9 @@ def umap_mapqc_scores(
             color=color_by,
             palette={
                 ">2": "firebrick",
-                "<=2": "cornflowerblue",
+                "<=2": "navajowhite",
                 "filtered out": "black",
-                "not sampled": "navajowhite",
+                "not sampled": "cornflowerblue",
             },
             frameon=False,
             na_color="gray",
@@ -1041,6 +1123,7 @@ def boxplot_mapqc_scores_per_category(
     mapqc_results,
     box_category: str,
     color_category: str = None,
+    groups_to_include: list[str] = None,
     color_high_median_boxes_red: bool = False,
     palette_stripplot: str = "tab10",
     min_cells_per_cat: int = 10,
@@ -1075,10 +1158,22 @@ def boxplot_mapqc_scores_per_category(
             ]
         ).all():
             raise ValueError(f"None of the query cells have values for category {cat}.")
+    # check that groups_to_include are in adata.obs[box_category]
+    if groups_to_include != None:
+        for group in groups_to_include:
+            if group not in mapqc_results.adata.obs[box_category].unique():
+                raise ValueError(
+                    f"{group} is not a value in the {box_category} column."
+                )
     cell_level_results = mapqc_results.cell_results_nhood_sample_based.copy()
     cell_level_results[box_category] = mapqc_results.adata.obs.loc[
         cell_level_results.index, box_category
     ].tolist()
+    # subset to groups_to_include if provided:
+    if groups_to_include != None:
+        cell_level_results = cell_level_results[
+            cell_level_results[box_category].isin(groups_to_include)
+        ]
     cell_level_results.dropna(axis=0, how="any", inplace=True)
     # remove categories with too few cells:
     category_counts = cell_level_results[box_category].value_counts()
@@ -1132,7 +1227,7 @@ def boxplot_mapqc_scores_per_category(
     ax.tick_params(axis="x", rotation=90)
     ax.set_ylabel("Cell mapQC scores")
     ax.set_xlabel(box_category)
-    plt.axhline(y=2, linestyle="--", alpha=0.8, linewidth=0.8, color="black")
+    plt.axhline(y=2, linestyle="--", alpha=0.8, linewidth=0.8, color="red")
     if not pd.isnull(color_category):
         handles, labels = ax.get_legend_handles_labels()
         sorted_labels = sorted(labels)
@@ -1143,7 +1238,7 @@ def boxplot_mapqc_scores_per_category(
             loc=(1.01, 0.4),
             frameon=False,
             title=color_category,
-            markerscale=20,
+            markerscale=5,
         )
         for text in leg.get_texts():
             text.set_ha("left")
@@ -1159,12 +1254,13 @@ def grouped_boxplot_mapqc_scores_per_category(
     mapqc_results_case,
     box_category: str,
     group_category: str,
-    color_category: str = None,
+    box_groups_to_include: list[str] = None,
     palette=None,
     figsize: tuple[float, float] = (10, 8),
     min_cells_per_cat: int = 10,
     return_fig: bool = False,
     vmax: float = None,
+    pointsize: float = 0.2,
 ):
     """
     TO DO: add documentation
@@ -1173,10 +1269,6 @@ def grouped_boxplot_mapqc_scores_per_category(
     ax = fig.add_subplot(1, 1, 1)
     # check that category is in adata.obs columns:
     categories_to_include = [box_category, group_category]
-    if pd.isnull(color_category):
-        palette_stripplot = None
-    else:
-        categories_to_include.append(color_category)
     for cat in categories_to_include:
         if (
             cat not in mapqc_results_ctr.adata.obs.columns
@@ -1228,6 +1320,11 @@ def grouped_boxplot_mapqc_scores_per_category(
     cell_level_results = cell_level_results[
         cell_level_results[box_category].isin(categories_to_keep)
     ]
+    # keep only box categories to include, if these are provided:
+    if box_groups_to_include is not None:
+        cell_level_results = cell_level_results[
+            cell_level_results[box_category].isin(box_groups_to_include)
+        ]
     # TO DO: CHECK HOW NAS ARE DEALT WITH IN ALL OF THESE PLOTS (what is done after the above line?)
     # order by median score of first group from group_category in results case:
     first_group_cat = cell_level_results_case[group_category].unique()[0]
@@ -1237,16 +1334,6 @@ def grouped_boxplot_mapqc_scores_per_category(
         .agg({"mapqc_score": "median"})
         .sort_values(by="mapqc_score")
     ).dropna(axis=0, how="all")
-    # palette_boxes = {
-    #     sample: "grey" if zscore < 2 else "red"
-    #     for sample, zscore in zip(
-    #         category_medians.index, category_medians.mapqc_score
-    #     )
-    # }
-    if pd.isnull(color_category):
-        stripplot_hue = None
-    else:
-        stripplot_hue = color_category
     sns.boxplot(
         cell_level_results,
         x=box_category,
@@ -1255,7 +1342,8 @@ def grouped_boxplot_mapqc_scores_per_category(
         palette=palette,
         order=category_medians.index,
         ax=ax,
-        fliersize=0.2,
+        fliersize=pointsize,
+        saturation=0.5,
     )
     sns.stripplot(
         cell_level_results,
@@ -1265,14 +1353,14 @@ def grouped_boxplot_mapqc_scores_per_category(
         hue=group_category,
         dodge=True,
         palette="dark:black",
-        size=1,
+        size=pointsize,
         ax=ax,
     )
     ax.tick_params(axis="x", rotation=90)
-    ax.set_ylabel("Cell mapQC scores")
+    ax.set_ylabel("Cell mapQC score")
     ax.set_xlabel(box_category)
-    plt.axhline(y=2, linestyle="--")
-    leg = plt.legend(loc=(1.05, 0.7), frameon=False, title=color_category)
+    plt.axhline(y=2, linestyle="--", color="red", linewidth=1.1)
+    leg = plt.legend(loc=(1.05, 0.4), frameon=False, title=group_category)
     leg._legend_box.align = "right"
     if not pd.isnull(vmax):
         plt.ylim(top=vmax)
