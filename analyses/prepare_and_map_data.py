@@ -28,7 +28,7 @@ kwargs_query_reading_function = dict()
 if par["verbose"]:
     print(f"Parameters: {par}")
 path_to_HLCA = "/ictstr01/groups/ml01/projects/2024_hlca_v2_raphael.kfurirubens/hlca_v1/hlca_v1_full.h5ad"
-path_to_ref_model_dir = "/lustre/groups/ml01/code/lisa.sikkema/atlas_extension/analyses/HLCA/HLCA_reference_model"
+path_to_ref_model_dir = "/lustre/groups/ml01/code/lisa.sikkema/mapqc/analyses/HLCA/HLCA_reference_model"
 path_to_model_features_csv = os.path.join(path_to_ref_model_dir, "var_names.csv")
 
 file_suffix = ""
@@ -48,7 +48,7 @@ if par["use_original_instead_of_cellxgene_counts"]:
     path_to_raw_subsetted_counts = f"/lustre/groups/ml01/projects/2023_HLCA_LSikkema/HLCA_reproducibility/data/HLCA_extended/extension_datasets/ready/subsetted/{old_name}_sub.h5ad"
 else:
     file_prefix = f"cellxgene_counts_"
-path_to_surgery_model_dir = f"/lustre/groups/ml01/code/lisa.sikkema/atlas_extension/results/HLCA/{par['study']}/{file_prefix}batch_{par['batch_covariate']}_kl{par['mapping_max_kl_weight']}{file_suffix}/surgery_model_and_output_emb"
+path_to_surgery_model_dir = f"/lustre/groups/ml01/code/lisa.sikkema/mapqc/results/HLCA/{par['study']}/{file_prefix}batch_{par['batch_covariate']}_kl{par['mapping_max_kl_weight']}{file_suffix}/surgery_model_and_output_emb"
 
 if par["verbose"]:
     print("Dataset-specific parameters:", kwargs_query_reading_function)
@@ -71,8 +71,8 @@ else:
 path_to_mapped_query_embedding = os.path.join(
     path_to_surgery_model_dir, f"query_emb{suffix}.h5ad"
 )
-path_to_joint_ref_q_counts_object = f"/lustre/groups/ml01/workspace/lisa.sikkema/atlas_extension/data/HLCA/HLCA_and_{par['study']}_counts{suffix}.h5ad"  # note that we always use the cellxgene counts for this object, original counts are only used during mapping
-path_to_joint_ref_q_latent_object = f"/lustre/groups/ml01/workspace/lisa.sikkema/atlas_extension/data/HLCA/HLCA_and_{par['study']}_{file_prefix}batch_{par['batch_covariate']}_kl{par['mapping_max_kl_weight']}_latent{suffix}.h5ad"
+path_to_joint_ref_q_counts_object = f"/lustre/groups/ml01/workspace/lisa.sikkema/mapqc/data/HLCA/HLCA_and_{par['study']}_counts{suffix}.h5ad"  # note that we always use the cellxgene counts for this object, original counts are only used during mapping
+path_to_joint_ref_q_latent_object = f"/lustre/groups/ml01/workspace/lisa.sikkema/mapqc/data/HLCA/HLCA_and_{par['study']}_{file_prefix}batch_{par['batch_covariate']}_kl{par['mapping_max_kl_weight']}_latent{suffix}.h5ad"
 
 if par["verbose"]:
     print("Preparing query data...")
