@@ -114,11 +114,21 @@ class MapqcResults(DistResults):
             n_nhoods = len(center_cells)
 
         if k is None:
-            k = int((self.adata.obs[ref_q_key] == ref_cat).sum() / 200)
+            # set the k, this will be the size of the neigborhood in which we will calculate the distances
+            # note that this should roughly correspond to a cell subtype/substate, or a sizeable proportion of that.
+            # To estimate the amount of cells in a cell subtype, we divide the number of reference cells by 
+            # 2500 (a rather arbitrary estimate of the number of cells in a cell subtype, note that the k
+            # can also be manually set by the user). 
+            n_substates = (self.adata.obs[ref_q_key] == ref_cat).sum() / 2500
+            # Then we divide the number of reference + query cells by the estimated number of cell subtypes
+            # to get the k value, i.e. the size of the neighborhoods we will use. 
+            k = int(self.adata.n_obs / n_substates)
         if max_k is None:
             max_k = int(k * 1.2)
         if n_nhoods is None:
-            n_nhoods = int(n_cells / k * 60)
+            # set the number of neighborhoods such that each cell is expected to be covered in 20 neighborhoods
+            # on average.
+            n_nhoods = int(n_cells / k * 20)
         if verbose:
             print(f"n nhoods: {n_nhoods}, k: {k}, max k: {max_k}")
 
