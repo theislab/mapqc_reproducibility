@@ -13,10 +13,13 @@ from typing import Literal
 from tqdm import tqdm
 
 try:  # if working in a notebook, use tqdm.notebook to prevent printing of progress on new lines
+    # Check if we're in a notebook environment
     from IPython import get_ipython
 
-    if get_ipython() is not None:
-        from tqdm.notebook import tqdm
+    if get_ipython().__class__.__name__ == "ZMQInteractiveShell":
+        from tqdm.notebook import tqdm as notebook_tqdm
+
+        tqdm = notebook_tqdm
 except:
     pass
 import multiprocessing
@@ -805,7 +808,7 @@ class DistResults:
                         total=len(batch),
                         desc=f"Getting nhood inter-sample dists for nhood batch {batch_start//BATCH_SIZE + 1}/{len(tasks)//BATCH_SIZE + 1}",
                         miniters=max(1, len(batch) // 100),
-                        ncols=120,  # limit width of progress bar
+                        ncols=240,  # limit width of progress bar
                     )
                 )
                 results.extend(batch_results)

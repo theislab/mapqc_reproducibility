@@ -4,8 +4,6 @@ import os
 # Get the directory of the current script
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(current_dir, "utils"))
-import data_cleanup
-import mapping
 
 # check if true or false was correctly inputted:
 for i in [4, 5, 6]:
@@ -22,13 +20,28 @@ par = {
     "verbose": sys.argv[5].lower() == "true",  # e.g. True
     "use_original_instead_of_cellxgene_counts": sys.argv[6].lower()
     == "true",  # e.g. True
+    "reference": sys.argv[7].lower(),
 }
+
+if par["reference"] == "hlca":
+    import utils.HLCA.data_cleanup as data_cleanup
+    import utils.HLCA.mapping as mapping
+elif par["reference"] == "heca":
+    import utils.HECA.data_cleanup as data_cleanup
+    import utils.HECA.mapping as mapping
+else:
+    raise ValueError(
+        f"Reference {par['reference']} not recognized. Should be either HLCA or HECA."
+    )
+
 kwargs_query_reading_function = dict()
 
 if par["verbose"]:
     print(f"Parameters: {par}")
 path_to_HLCA = "/ictstr01/groups/ml01/projects/2024_hlca_v2_raphael.kfurirubens/hlca_v1/hlca_v1_full.h5ad"
-path_to_ref_model_dir = "/lustre/groups/ml01/code/lisa.sikkema/mapqc/analyses/HLCA/HLCA_reference_model"
+path_to_ref_model_dir = (
+    "/lustre/groups/ml01/code/lisa.sikkema/mapqc/analyses/HLCA/HLCA_reference_model"
+)
 path_to_model_features_csv = os.path.join(path_to_ref_model_dir, "var_names.csv")
 
 file_suffix = ""
@@ -37,7 +50,9 @@ if par["study"] == "Thienpont_2018":
     kwargs_query_reading_function[
         "path_to_sample_info_Thienpont_2018"
     ] = "./lambrechts_health_status_info.csv"
-    kwargs_query_reading_function["include_pleiomorphic_carcinoma"] = False
+    kwargs_query_reading_function[
+        "include_pleiomorphic_carcinoma"
+    ] = True  # SET THIS MANUALLY HERE!
     if not kwargs_query_reading_function["include_pleiomorphic_carcinoma"]:
         file_suffix = "_no_pleiomorphic_carcinoma"
 if par["use_original_instead_of_cellxgene_counts"]:
