@@ -111,7 +111,7 @@ class DistResults:
         exclude_same_batch_for_ref_samples: bool = True,
         min_n_cells_per_sample: int = 10,
         min_n_samples_ref: int = 3,
-        min_n_samples_q: int = 3,
+        min_n_samples_q: int = 1,
         use_adaptive_k: bool = True,
         max_k: int = None,
         adaptive_k_margin: float = 1.1,
@@ -289,7 +289,7 @@ class DistResults:
         self.sample_t_statistics_per_nhood = (
             self.mean_sample_dists_to_ref - nhood_ref_mean_dists
         ) / (nhood_ref_stdev / np.sqrt(n_ref_samples_per_nhood))
-        # TO DO: add p-value calculation here
+        # calculate p-values:
         t_stat_dfs = n_ref_samples_per_nhood - 1  # degrees of freedom
         self.sample_t_stat_pvalues_per_nhood = 1 - t.cdf(
             self.sample_t_statistics_per_nhood, t_stat_dfs
@@ -305,7 +305,6 @@ class DistResults:
         sample_nhood_index = pd.MultiIndex.from_product(
             [self.ref_q_samples_all, self.center_cells], names=["sample", "nhood"]
         )
-        # dist_stat_dfs = {metric: pd.DataFrame(data, index=sample_nhood_index) for metric, data in dist_stat_dict.items()}
         # Reshape and combine DataFrames
         sample_stats_per_nhood_df = pd.DataFrame(
             dist_stat_dict, index=sample_nhood_index
@@ -322,9 +321,15 @@ class DistResults:
         # calculate adjusted p-values:
         # TO DO: adjust for overlap between neighborhoods here? see pval_corr.py script
         # would need to adapt that
+        print(
+            "To do: only keep p-values for samples from the query, and perform multiple-testing correction only on those p-values."
+        )
         _, sample_stats_per_nhood_df["t_stat_pval_corr"], _, _ = multipletests(
             sample_stats_per_nhood_df["t_stat_pval"], method="fdr_bh"
         )
+        import pdb
+
+        pdb.set_trace()
         # add info on whether sample is from ref or query
         sample_from_r_or_q_df = self.adata.obs.groupby(
             self.sample_key, observed=True
