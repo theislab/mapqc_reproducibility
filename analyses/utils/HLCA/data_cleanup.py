@@ -171,9 +171,10 @@ def add_mapping_info_to_counts_adata(adata_counts_combined, adata_emb_combined):
     # copy umap and embedding, and knn graph (in obsp)
     adata_counts_combined.obsm["X_umap"] = adata_emb_combined.obsm["X_umap"]
     adata_counts_combined.obsm["X_scanvi_emb"] = np.float32(adata_emb_combined.X)
-    adata_counts_combined.obs["batch_variable_for_mapping"] = adata_emb_combined.obs[
-        "batch_variable_for_mapping"
-    ]
+    if "batch_variable_for_mapping" in adata_emb_combined.obs.columns:
+        adata_counts_combined.obs[
+            "batch_variable_for_mapping"
+        ] = adata_emb_combined.obs["batch_variable_for_mapping"]
     if "leiden" in adata_emb_combined.obs.columns:
         adata_counts_combined.obs["leiden"] = adata_emb_combined.obs["leiden"]
     adata_counts_combined.obsp = adata_emb_combined.obsp

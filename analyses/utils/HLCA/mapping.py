@@ -113,6 +113,9 @@ def map_data_to_HLCA_reference(
         surgery_epochs = 10
     else:
         surgery_epochs = 500
+    print(
+        "Note that this has a bug, the early stopping kwargs are not used as default setting early_stopping is False. Should be set to True, next time I'm running this switch it and pay attention to loss."
+    )
     early_stopping_kwargs_surgery = {
         "early_stopping_monitor": "elbo_train",
         "early_stopping_patience": 10,
@@ -144,9 +147,9 @@ def create_and_save_mapping_output_adata(
 ):
     # obtain latent representation of query data by passing it through the surgery model:
     adata_query_latent = sc.read_h5ad(path_to_mapped_query_emb)
-    adata_query.obsm[
-        "X_scanvi_emb"
-    ] = adata_query_latent.X  # do we really need this line?
+    # adata_query.obsm[
+    #     "X_scanvi_emb"
+    # ] = adata_query_latent.X  # do we really need this line?
     adata_query_latent.obs["r_or_q"] = "q"
     # create anndata object of reference latent representation
     adata_ref_latent = sc.AnnData(
@@ -162,6 +165,7 @@ def create_and_save_mapping_output_adata(
     # which uses the "dataset" column as the batch variable
     adata_ref_latent.obs["batch_variable_for_mapping"] = adata_reference.obs["dataset"]
     adata_query_latent.obs["batch_variable_for_mapping"] = adata_query.obs["dataset"]
+    adata_query_latent.obs["dataset"] = adata_query.obs["dataset_original"].copy()
     # perform label transfer:
     if perform_label_transfer:
         if verbose:

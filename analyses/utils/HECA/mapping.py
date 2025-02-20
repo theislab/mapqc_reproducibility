@@ -124,7 +124,7 @@ def map_data_to_HECA_reference(
     surgery_model.train(
         max_epochs=surgery_epochs,
         plan_kwargs=dict(weight_decay=0.0),
-        check_val_every_n_epoch=10,
+        check_val_every_n_epoch=10,  # I think this is not used, as early stopping is not set to True.
         use_gpu=True,
     )
     # Save the model

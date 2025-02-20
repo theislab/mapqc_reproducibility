@@ -67,6 +67,13 @@ def import_and_prepare_query(
         del adata.obsm["X_umap"]
     # add ref/q info:
     adata.obs["r_or_q"] = "q"
+    # add donor info (not sure if this is bug-free, added it to function later on)
+    adata.obs["donor_query"] = [
+        s.split("-")[-3]
+        if (group == "WOI Control") or ("biop" in s)
+        else s.split("-")[-2]
+        for s, group in zip(adata.obs["sample"], adata.obs.Group)
+    ]
     # and return adata
     return adata
 
@@ -98,3 +105,16 @@ def add_mapping_info_to_counts_adata(
             adata_counts_combined.obs["r_or_q"] == "q", f"{celltype_col}_pred"
         ].copy()
     return adata_counts_combined
+
+
+def clean_up_df_column(df, column_name, min_n_cells_per_cat):
+    new_column_name = f"{column_name}_cleaned"
+    df[new_column_name] = df[column_name].copy()
+    group_count = df[new_column_name].value_counts()
+    low_n_groups = group_count.index[group_count < min_n_cells_per_cat]
+    renamer = {
+        (ct): ("Other" if ct in low_n_groups else ct)
+        for ct in df[new_column_name].unique()
+    }
+    df[new_column_name] = df[new_column_name].map(renamer)
+    return df[new_column_name].values
