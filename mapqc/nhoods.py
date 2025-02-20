@@ -512,6 +512,14 @@ class Neighborhood:
             # implementation as in pertpy: https://github.com/scverse/pertpy/blob/main/pertpy/tools/_distances/_distances.py
             sample_1_cell_coords = self.knn_emb[sample_1_cells]
             sample_2_cell_coords = self.knn_emb[sample_2_cells]
+            # TO DO:  check if diagonal (distance to same cell) is included in this distance calculation,
+            # or if it set to NA in the output of pairwise distances. Ideally it should be excluded.
+            print(
+                "To do: check if distance to same cell is included in pairwise distance."
+            )
+            import pdb
+
+            pdb.set_trace()
             sigma_1 = pairwise_distances(
                 sample_1_cell_coords, sample_1_cell_coords, metric="sqeuclidean"
             ).mean()
