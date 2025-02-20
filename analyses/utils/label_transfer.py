@@ -97,7 +97,7 @@ def perform_label_transfer(
 
         train_y = r_adata.obs[obs_tar].to_numpy()
         classifier = KNeighborsClassifier(
-            n_neighbors=k, metric="precomputed", weights="distance"
+            n_neighbors=k, metric="precomputed", weights=weights_dict["distance"]
         )
         classifier.fit(X=query_neighbors, y=train_y)
         predicted_labels = classifier.predict(reference_neighbors)
