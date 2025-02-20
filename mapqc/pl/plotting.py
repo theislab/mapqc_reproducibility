@@ -18,8 +18,12 @@ def boxplot_sample_scores_per_nhood(
     max_neighborhoods_to_plot: int = 80,
     seed: int = 0,
     label_x_ticks_by: str = None,
+    show_nhood_number_in_x_ticks: bool = True,
+    order_by: Literal["mapqc_score", "abs_dist_to_ref"] = "mapqc_score",
     palette: dict = None,
     return_fig: bool = False,
+    vmax: float = None,
+    vmin: float = None,
 ):
     """
     Plot a split boxplot of, for each neighborhood, reference sample mean distances
@@ -91,11 +95,26 @@ def boxplot_sample_scores_per_nhood(
         # if use_zscored_dists:
         #     # nhoods_ordered_by_zscore = mapqc_results.nhood_stats.sort_values(by='median_zscored_q_dist_to_ref',ascending=False).index
         #     # nhood_order = [nhood for nhood in nhoods_ordered_by_zscore if nhood in random_nhoods]
-        nhood_order = (
-            mapqc_results.nhood_stats.loc[random_nhoods, :]
-            .sort_values(by=f"median_mapqc_score", ascending=False)
-            .index.tolist()
-        )
+        # order neighborhoods by median mapqc score:
+        if order_by == "mapqc_score":
+            nhood_order = (
+                mapqc_results.nhood_stats.loc[random_nhoods, :]
+                .sort_values(by="median_mapqc_score", ascending=False)
+                .index.tolist()
+            )
+        elif order_by == "abs_dist_to_ref":
+            nhood_order = (
+                mapqc_results.sample_stats_per_nhood_df.loc[
+                    mapqc_results.sample_stats_per_nhood_df.sample_r_or_q
+                    == mapqc_results.ref_cat,
+                    :,
+                ]
+                .groupby("nhood")
+                .agg({"mean_dist_to_ref": "mean"})
+                .loc[random_nhoods]
+                .sort_values(by="mean_dist_to_ref", ascending=False)
+                .index.tolist()
+            )
         # else:
         # nhood_order = (
         #     mapqc_results.nhood_stats.loc[random_nhoods, :]
@@ -107,8 +126,8 @@ def boxplot_sample_scores_per_nhood(
     # palette
     if palette is None:
         palette = {
-            mapqc_results.ref_cat: "tab:orange",
-            mapqc_results.query_cat: "tab:blue",
+            mapqc_results.ref_cat: "darkgray",
+            mapqc_results.query_cat: "royalblue",
         }
     # palette = {mapqc_results.ref_cat:"lightsteelblue", mapqc_results.query_cat:"blue"}
     fig = plt.figure(figsize=figsize)
@@ -120,7 +139,7 @@ def boxplot_sample_scores_per_nhood(
         order=nhood_order,
         hue=hue,
         ax=ax,
-        saturation=0.4,
+        saturation=0.5,
         palette=palette,
         fliersize=1,
     )
@@ -148,10 +167,14 @@ def boxplot_sample_scores_per_nhood(
         ax.set_xlabel(f"Neighborhood number")
     else:
         nhood_labels = mapqc_results.adata.obs.loc[nhood_order, label_x_ticks_by]
-        ax.set_xticklabels(
-            [f"{num} ({lab})" for num, lab in zip(nhood_numbers, nhood_labels)]
-        )
-        ax.set_xlabel(f"Neighborhood number ({label_x_ticks_by} of center cell)")
+        if show_nhood_number_in_x_ticks:
+            ax.set_xticklabels(
+                [f"{num} ({lab})" for num, lab in zip(nhood_numbers, nhood_labels)]
+            )
+            ax.set_xlabel(f"Neighborhood number ({label_x_ticks_by} of center cell)")
+        else:
+            ax.set_xticklabels(nhood_labels)
+            ax.set_xlabel(f"{label_x_ticks_by} of center cell")
     ax.set_ylabel(ylabel)
     # else:
     #     ax.set_xticklabels(
@@ -162,6 +185,7 @@ def boxplot_sample_scores_per_nhood(
     #     )
     #     ax.set_xlabel("nhood (corr. pval)")
     ax.tick_params(axis="x", rotation=90)
+    ax.set_ylim(top=vmax, bottom=vmin)
     if return_fig:
         return fig
 
@@ -1257,8 +1281,9 @@ def grouped_boxplot_mapqc_scores_per_category(
     box_groups_to_include: list[str] = None,
     palette=None,
     figsize: tuple[float, float] = (10, 8),
-    min_cells_per_cat: int = 10,
+    min_cells_per_box: int = 10,
     return_fig: bool = False,
+    vmin: float = None,
     vmax: float = None,
     pointsize: float = 0.2,
 ):
@@ -1315,11 +1340,25 @@ def grouped_boxplot_mapqc_scores_per_category(
     # remove cells without results
     cell_level_results.dropna(axis=0, how="any", inplace=True)
     # remove categories with too few cells:
-    category_counts = cell_level_results[box_category].value_counts()
-    categories_to_keep = category_counts[category_counts >= min_cells_per_cat].index
-    cell_level_results = cell_level_results[
-        cell_level_results[box_category].isin(categories_to_keep)
+    # category_counts = cell_level_results[box_category].value_counts()
+    # categories_to_keep = category_counts[category_counts >= min_cells_per_cat].index
+    # cell_level_results = cell_level_results[
+    #     cell_level_results[box_category].isin(categories_to_keep)
+    # ]
+    category_counts_per_group = cell_level_results.groupby(
+        [box_category, group_category]
+    ).size()
+    category_groups_to_keep = category_counts_per_group[
+        category_counts_per_group >= min_cells_per_box
+    ].index
+    mask = [
+        (box_cat, group_cat) in category_groups_to_keep
+        for box_cat, group_cat in zip(
+            cell_level_results[box_category], cell_level_results[group_category]
+        )
     ]
+    cell_level_results = cell_level_results.loc[mask, :].copy()
+
     # keep only box categories to include, if these are provided:
     if box_groups_to_include is not None:
         cell_level_results = cell_level_results[
@@ -1343,7 +1382,7 @@ def grouped_boxplot_mapqc_scores_per_category(
         order=category_medians.index,
         ax=ax,
         fliersize=pointsize,
-        saturation=0.5,
+        saturation=1,
     )
     sns.stripplot(
         cell_level_results,
@@ -1359,11 +1398,13 @@ def grouped_boxplot_mapqc_scores_per_category(
     ax.tick_params(axis="x", rotation=90)
     ax.set_ylabel("Cell mapQC score")
     ax.set_xlabel(box_category)
-    plt.axhline(y=2, linestyle="--", color="red", linewidth=1.1)
+    plt.axhline(y=2, linestyle="--", color="red", linewidth=1.4)
     leg = plt.legend(loc=(1.05, 0.4), frameon=False, title=group_category)
     leg._legend_box.align = "right"
     if not pd.isnull(vmax):
         plt.ylim(top=vmax)
+    if not pd.isnull(vmin):
+        plt.ylim(bottom=vmin)
     plt.tight_layout()
     if return_fig:
         return fig
