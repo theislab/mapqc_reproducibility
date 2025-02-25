@@ -712,7 +712,7 @@ def umap_neighborhood(
     mapqc_results: MapqcResults,
     neighborhood: str,
     title: str = None,
-    size: int = 10,
+    size: int = 30,
     color_by: Union[str, List[str]] = None,
     recalculate_umap: bool = False,
     k: int = 15,
