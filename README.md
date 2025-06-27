@@ -24,8 +24,9 @@ To reproduce the figures and tables, check out the following notebooks:
 
 **Supplementary tables**
 1. [analyses/HLCA/Sheppard_analysis/3_analyze_results_poor_mapping.ipynb](analyses/HLCA/Sheppard_analysis/3_analyze_results_poor_mapping.ipynb)
-2. [analyses/HLCA/Sheppard_analysis/4a_analyze_results_good_mapping.ipynb](analyses/HLCA/Sheppard_analysis/4a_analyze_results_good_mapping.ipynb)
-3 - 4: [analyses/HECA/3_analyze_mapQC_output.ipynb](analyses/HECA/3_analyze_mapQC_output.ipynb)
+2. [analyses/HLCA/Sheppard_analysis/4a_analyze_results_good_mapping.ipynb](analyses/HLCA/Sheppard_analysis/4a_analyze_results_good_mapping.ipynb)<br>
+3. [analyses/HECA/3_analyze_mapQC_output.ipynb](analyses/HECA/3_analyze_mapQC_output.ipynb)
+4. [analyses/HECA/3_analyze_mapQC_output.ipynb](analyses/HECA/3_analyze_mapQC_output.ipynb)
 
 ## Contact
 In case of questions or comments regarding mapQC reproducibility, please submit an issue to this GitHub page. With questions about the package itself, please do so on the mapQC GitHub.
